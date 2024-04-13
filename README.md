@@ -10,7 +10,7 @@
 - 제작기간: 2022.03 ~ 2022.06
 - 기여도: 100%
 
-## 3. PokeDex (포켓몬 도감)
+## 3. [PokeDex (포켓몬 도감)](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90))
 **- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SwiftUI, Combine, Kingfisher, SnapKit**
 - 제작기간: 2024.01 ~
 - 기여도: 100%
