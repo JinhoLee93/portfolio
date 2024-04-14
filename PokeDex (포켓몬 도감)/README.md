@@ -9,7 +9,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 열렬한 포켓몬 딱지 콜렉터로 유년 시절을 보낸 제작자 혹은 제작자와 같은 유년기를 보낸 유저에게 향수를 불러일으켜, 잠깐이라도 어릴때의 기분 좋은 날을 상상하며 조금이라도 좋은 하루를 만들 수 있기를 바라며 개발을 시작하였습니다.
 
 ## 프레임워크의 사용 목적
-- **UIKit**: 포켓몬 정보를 사전처럼 열거해주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드 되었을 때 생기는 잠재적 퍼포먼스 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
+- **UIKit**: 포켓몬 정보를 사전처럼 열거해주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드 되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
   
 - **Rx (RxSwift, RxRelay, RxDataSource)**: UIKit을 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 세 개의 Rx 관련 프레임워크가 사용되었습니다.
   - **RxSwift**: 가장 기본적인 Observable을 사용할 수 있게 해주는 프레임워크이고 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
@@ -18,7 +18,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
   
 - **SnapKit**: 인터페이스 빌더 사용으로 생성되는 소스코드로 인한 문제를 크게 겪었던 저는, 처음 앱을 구상할 때 부터 코드로 UI를 만들겠다는 결심을 했습니다. 해당 프레임워크는 NSLayoutConstraint를 사용했을 때 생기는 코드베이스가 지저분해지는 문제를 막아주고, 쉽게 Auto Layout을 구현할 수 있도록 도와주었습니다.
   
-- **SwiftUI**: 
+- **SwiftUI**: 유저가 저장한 마음에 드는 포켓몬을 카드로서 보여주는 뷰를 LazyVGrid를 통해 구현하기 위해 사용하였습니다. UIKit의 Collection View를 사용했다면 최적의 CPU 사용량과 Peformance를 만들어낼 수 있었지만, SwiftUI에 새롭게 추가 된 기능들을 사용해보며 연습하고싶어 SwiftUI를 선택하였습니다.
   
 - **Combine**: 
 
