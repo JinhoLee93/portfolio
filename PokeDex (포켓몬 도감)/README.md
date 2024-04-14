@@ -1,6 +1,6 @@
 # PokeDex
 **- 사용된 디자인 패턴: MVVM**
-**- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Package Manager**
+**- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 
 ## 개요
 RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 본인 마음에 드는 포켓몬을 저장하여 콜렉션 뷰 형태를 띈 라이브러리를 통해 빠르게 볼 수 있습니다.
@@ -20,12 +20,14 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
   
 - **SwiftUI**: 유저가 저장한 마음에 드는 포켓몬을 카드로서 보여주는 뷰를 LazyVGrid를 통해 구현하기 위해 사용하였습니다. UIKit의 Collection View를 사용했다면 최적의 CPU 사용량과 Peformance를 만들어낼 수 있었지만, SwiftUI에 새롭게 추가 된 기능들을 사용해보며 연습하고싶어 SwiftUI를 선택하였습니다.
   
-- **Combine**: 
+- **Combine**: Rx를 통해 할 수 있던 Reactive Programming을 SwiftUI 환경에서 구현할 수 있게 도와주는 1st Party 프레임워크입니다. 단순 Reactive Programming을 넘어 Swift Concurrency를 이용한 비동기 작업도 한번에 할 수 있도록 만들어졌기에 사용하였습니다.
 
 - **Kingfisher**: 
 
 - **XCTest**: 
 
-- **RxTest**: 
+- **RxTest**:
+
+- **Swift Concurrency**:
 
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
