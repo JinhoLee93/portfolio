@@ -22,7 +22,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
   
 - **Combine**: Rx를 통해 할 수 있던 Reactive Programming을 SwiftUI 환경에서 구현할 수 있게 도와주는 1st Party 프레임워크입니다. 단순 Reactive Programming을 넘어 Swift Concurrency를 이용한 비동기 작업도 한번에 할 수 있도록 만들어졌기에 사용하였습니다.
 
-- **Kingfisher**: 
+- **Kingfisher**: Image Caching에 사용된 프레임워크입니다. 기존 FileManager 라이브러리를 사용해 Disk Cache를 직접 구현하였지만, 현업에서 많이 사용되고 있는 프레임워크이기 때문에 자체적인 Cache 라이브러리를 만들기보단 사용에 익숙해지고 싶어 사용하였습니다. Memory Cache도 구현할 예정이며, Disk Cache와 같이 먼저 NSCache를 사용해 구현해본 후, 해당 프레임워크로 리팩토링 할 예정입니다.
 
 - **XCTest**: 
 
@@ -31,3 +31,5 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 - **Swift Concurrency**:
 
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
+
+## To-Do's
