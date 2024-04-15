@@ -61,7 +61,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 - ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다. 
 
 ## 5. To-Do's
-- [x]\(Optional) 제대로 된 Error Handling 구현
-- [x]\(Optional) Combine을 통한 View 구조체 업데이트 시 RunLoop.main이 아닌 MainActor.run을 사용할 것
-- [ ]\(Optional) NSCache를 통해 Memory Cache 구현 후, Kingfisher로 Migrate
-- [ ]\(Optional) CoreData 프레임워크를 사용해 로컬 데이터베이스 구축
+- [x] 제대로 된 Error Handling 구현
+- [x] Combine을 통한 View 구조체 업데이트 시 RunLoop.main이 아닌 MainActor.run을 사용할 것
+- [ ] NSCache를 통해 Memory Cache 구현 후, Kingfisher로 Migrate
+- [ ] CoreData 프레임워크를 사용해 로컬 데이터베이스 구축
