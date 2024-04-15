@@ -51,7 +51,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 
 - 검색 기능: 바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
 
-- GCD로 만들어진 Kingfisher 프레임워크 함수: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 Swift Concurrency로 변환해 사용하였습니다.
+- GCD로 만들어진 Kingfisher 프레임워크 함수: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
 
 - 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
   - **버그 내용**:
