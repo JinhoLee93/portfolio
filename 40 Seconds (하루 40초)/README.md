@@ -31,3 +31,4 @@
 
 ## 5. To-Do's
 - [x] GCD에서 Swift Concurrency로 Migrate
+- [ ] 문제 단어를 위해 로컬 버퍼를 없애고 서버 구현을 통해 서버에서 문제를 받아오기
