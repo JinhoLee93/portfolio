@@ -1,5 +1,6 @@
 # PokeDex
 **- 사용된 디자인 패턴: MVVM**
+
 **- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 
 ## 1. 개요
