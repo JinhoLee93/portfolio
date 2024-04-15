@@ -22,7 +22,8 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 - **Dependency Injection**: 코드 부분을 독립적으로 모듈화 시켜 줄어든 코드 간 의존성으로 리팩토링이 쉬워지고, 외부의 변화로부터 내부 코드를 지킬 수 있다는 장점이 있지만, 크기가 크지 않은 이 앱에선 주로 테스트를 위한 Mock Network Layer 주입을 위해 사용되었습니다.
 
 ### 프레임워크
-- **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 섹션간 Cell 이동과 같은 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다. **실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣었을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
+- **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 섹션간 Cell 이동과 같은 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
+**실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣었을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
   
 - **Rx (RxSwift, RxRelay, RxCocoa, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 네 개의 Rx 관련 프레임워크가 사용되었습니다.
   - **RxSwift**: Observable을 사용할 수 있게 해주는 가장 기본적인 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
