@@ -54,15 +54,15 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 - GCD로 만들어진 Kingfisher 프레임워크 함수: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
 
 - 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
-  - **버그 내용**:
+  * **버그 내용**:
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
-  - **해결 방법**: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 작업이 완료되지 않은 상태로 셀이 다시 사용되는 과정에 이런 현상이 생기는 것임을 파악한 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결하였습니다.
+  * **해결 방법**: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 작업이 완료되지 않은 상태로 셀이 다시 사용되는 과정에 이런 현상이 생기는 것임을 파악한 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결하였습니다.
 
 <img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
-  - **결과**: 더 이상 이미지 충돌로 인해 깜빡거리는 현상이 발생하지 않았습니다.
+  * **결과**: 더 이상 이미지 충돌로 인해 깜빡거리는 현상이 발생하지 않았습니다.
 
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
