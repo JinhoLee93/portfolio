@@ -25,6 +25,7 @@
 
 ## 4. 개발 중 난관 및 해결 방법
 - 정답시 카드를 180도 넘겨짐에도 불구하고 위의 글자를 360도 넘기는 이펙트:
+  
   -> 구현 목표:
 
 ![Cards Being Flipped](https://github.com/JinhoLee93/Portfolio/assets/60580427/8d73bf1f-323f-4e22-9db6-561ba40589b4)
