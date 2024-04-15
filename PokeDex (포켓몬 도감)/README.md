@@ -11,7 +11,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 
 ## 3. 디자인 패턴, 기술 및 프레임워크의 사용 목적
 ### 디자인 패턴
-- **MVVM**:
+- **MVVM**: 쉬운 디버깅과 가독성 높은 코드를 만들면서 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위하여 MVVM 디자인 패턴을 사용하였습니다.
   
 ### 개발 기술
 - **Protocol Oriented Programming**:
