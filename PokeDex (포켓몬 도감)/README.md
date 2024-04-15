@@ -16,7 +16,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 ### 개발 기술
 - **Protocol Oriented Programming**:
   
-- **Dependency Injection**: 주로 테스트를 위한 Mock Network Layer 주입을 위해 사용되었습니다.
+- **Dependency Injection**: 코드 부분을 독립적으로 모듈화시켜 줄어든 코드간 의존성으로 리팩토링이 쉬워지고, 외부의 변화로부터 내부 코드를 지킬 수 있다는 장점이 있지만, 크기가 크지 않은 이 앱에선 주로 테스트를 위한 Mock Network Layer 주입을 위해 사용되었습니다.
 
 ### 프레임워크
 - **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
