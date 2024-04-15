@@ -39,6 +39,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 
 - 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
   - 버그 내용:
+    
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6)
 
   - 해결 방법:
