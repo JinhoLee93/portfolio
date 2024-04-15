@@ -4,7 +4,7 @@
 
 **-사용된 디자인 패턴 및 개발 기술: MVVM**
 
-**-사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Core Data**
+**-사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Core Data, GCD**
 
 ## 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
@@ -17,10 +17,13 @@
 - **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
 
 ### 프레임워크
-- **SwiftUI**: 개발 당시 UIKit과 친숙하지 못해, SwiftUI로 개발을 시작하였습니다.
+- **SwiftUI**: 개발 당시 UIKit와 친숙하지 못해, SwiftUI로 개발을 시작하였습니다.
 
 - **Core Data**: 로컬 스토리지를 OOP 방식의 데이터베이스로 사용할 수 있도록 도와주는 프레임워크입니다. 유저가 마음대로 단어 노트를 만들고, 삭제하고, 저장하며, 다른 날짜에 저장된 단어 노트에 접근하기 위해선 단어 노트 데이터를 저장하고 불러올 수 있는 로컬 데이터베이스가 필요했습니다. 3rd Party 데이터베이스 프레임워크보단 iOS에 대한 서포트가 확실한 1st Party 데이터베이스 프레임워크인 Core Data를 사용하였습니다.
 
+- **Grand Central Dispatch**: 비동기 작업 자체가 그렇게 많이 사용되지 않았을뿐더러 모두 UI와 관련된 작업이기에, Swift Concurrency보다 빠르게 구현할 수 있는 GCD를 사용하였습니다.
+
 ## 4. 개발 중 난관 및 해결 방법
+- Core Data 사용: 이태껏 데이터베이스를 다뤄보지 못한 저는 Core Data Entity를 만들고 Attribute를 정하는데 많은 어려움을 겪었습니다. 하지만 PersistentContainer를 MVVM 디자인 패턴의 모델로 생각하고 ViewModel을 구현해내면 된다고 생각하니, 수월하게 이해할 수 있었습니다.
 
 ## 5. To-Do's
