@@ -52,7 +52,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 
-- Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 
+- Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
 
 - 
 
