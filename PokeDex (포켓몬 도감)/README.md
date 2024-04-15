@@ -11,9 +11,10 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 ## 3. 프레임워크의 사용 목적
 - **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
   
-- **Rx (RxSwift, RxRelay, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 세 개의 Rx 관련 프레임워크가 사용되었습니다.
+- **Rx (RxSwift, RxRelay, RxCocoa, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 네 개의 Rx 관련 프레임워크가 사용되었습니다.
   - **RxSwift**: Observable을 사용할 수 있게 해주는 가장 기본적인 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
   - **RxRelay**: Behavior 타입의 Observable 내 데이터를 업데이트하고 싶을 때 사용되었습니다. 기존 BehaviorSubject를 사용했을 때 생기는 Nested Subscribe 문제를 해결해 주었습니다.
+  - **RxCocoa**: bind(to:) 함수를 통해 테이블 뷰를 구현하기 위해 사용하였습니다.
   - **RxDataSource**: 완벽한 Reactive Programming을 구현하고 싶었기에 Delegate 혹은 Datasource 관련한 코드로 Controller를 채우고 싶지 않았지만, RxSwift를 통해 테이블 뷰를 Customize 하는 데엔 한계가 있었습니다. RxSwift만을 사용하면 테이블 뷰에 섹션을 나눌 수 없었고, 해당 프레임워크는 그 문제를 해결해 주었습니다.
   
 - **SnapKit**: 인터페이스 빌더 사용으로 생성되는 소스코드로 인한 문제를 크게 겪었던 저는, 처음 앱을 구상할 때부터 코드로 UI를 만들겠다는 결심을 했습니다. 해당 프레임워크는 NSLayoutConstraint를 사용했을 때 생기는 코드베이스가 지저분해지는 문제를 막아주고, 쉽게 Auto Layout을 구현할 수 있도록 도와주었습니다.
@@ -51,7 +52,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 
-- Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization:
+- Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 
 
 - 
 
