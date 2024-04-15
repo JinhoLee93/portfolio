@@ -28,8 +28,8 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 
 - **RxTest**: Observable을 테스트하기 위해 사용한 프레임워크입니다.
 
-- **Swift Concurrency**:
+- **Swift Concurrency**: Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결해 줄 수 있는 새로운 비동기 작업 방법입니다.
 
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
 
-## 4. To-Do's
+## 4. 개발 중 어려웠던 점
