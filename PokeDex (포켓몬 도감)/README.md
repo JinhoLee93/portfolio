@@ -14,9 +14,9 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 - **MVVM**: 쉬운 디버깅과 테스트, 그리고 가독성 높은 코드를 만들면서 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
   
 ### 개발 기술
-- **Protocol Oriented Programming**:
+- **Protocol Oriented Programming**: 하나의 Super Class를 만들고 상속을 통해 코드를 구현하기보단 그 자리에서 해당 코드에 무엇이 필요한지 정해놓고 그로부터 가지를 뻗어나가는 것이 제가 개발하는 방식과 잘 맞다고 생각되어 OOP가 아닌, 코드 레이아웃을 먼저 Protocol로서 만들어놓고 코드를 만들기 시작하였습니다.
   
-- **Dependency Injection**: 코드 부분을 독립적으로 모듈화시켜 줄어든 코드간 의존성으로 리팩토링이 쉬워지고, 외부의 변화로부터 내부 코드를 지킬 수 있다는 장점이 있지만, 크기가 크지 않은 이 앱에선 주로 테스트를 위한 Mock Network Layer 주입을 위해 사용되었습니다.
+- **Dependency Injection**: 코드 부분을 독립적으로 모듈화 시켜 줄어든 코드 간 의존성으로 리팩토링이 쉬워지고, 외부의 변화로부터 내부 코드를 지킬 수 있다는 장점이 있지만, 크기가 크지 않은 이 앱에선 주로 테스트를 위한 Mock Network Layer 주입을 위해 사용되었습니다.
 
 ### 프레임워크
 - **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
