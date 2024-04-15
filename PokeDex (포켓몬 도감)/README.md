@@ -12,7 +12,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 - **UIKit**: 포켓몬 정보를 사전처럼 열거해주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 Customization을 제공하고 많은 양의 셀이 한 번에 로드 되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
   
 - **Rx (RxSwift, RxRelay, RxDataSource)**: UIKit을 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 세 개의 Rx 관련 프레임워크가 사용되었습니다.
-  - **RxSwift**: 가장 기본적인 Observable을 사용할 수 있게 해주는 프레임워크이고 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
+  - **RxSwift**: 가장 기본적인 Observable을 사용할 수 있게 해주는 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
   - **RxRelay**: Behavior 타입의 Observable 내 데이터를 업데이트 하고싶을 때 사용되었습니다. 기존 BehaviorSubject를 사용했을 때 생기는 Nested Subscribe 문제를 해결해 주었습니다.
   - **RxDataSource**: 완벽한 Reactive Programming을 구현하고 싶었기에 Delegate 혹은 Datasource 관련한 코드로 Controller를 채우고 싶지 않았지만, RxSwift를 통해 테이블 뷰를 Customize하는데엔 한계가 있었습니다. RxSwift만을 사용하면 테이블 뷰에 섹션을 나눌 수 없었고, 해당 프레임워크는 그 문제를 해결해주었습니다.
   
@@ -24,9 +24,9 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 
 - **Kingfisher**: Image Caching에 사용된 프레임워크입니다. 기존 FileManager 라이브러리를 사용해 Disk Cache를 직접 구현하였지만, 현업에서 많이 사용되고 있는 프레임워크이기 때문에 자체적인 Cache 라이브러리를 만들기보단 사용에 익숙해지고 싶어 사용하였습니다. Memory Cache도 구현할 예정이며, Disk Cache와 같이 먼저 NSCache를 사용해 구현해본 후, 해당 프레임워크로 리팩토링 할 예정입니다.
 
-- **XCTest**: 
+- **XCTest**: 앱 유닛 테스트를 진행하기 위해 필요한 프레임워크입니다. Protocol Oriented Programming을 통해 만들어진 클래스를 Mock으로 만들어 주입시켜 유닛 테스트 케이스를 만들었으며, 92% 테스트 커버리지를 달성하였습니다. 
 
-- **RxTest**:
+- **RxTest**: Observable을 테스트하기 위해 사용한 프레임워크입니다.
 
 - **Swift Concurrency**:
 
