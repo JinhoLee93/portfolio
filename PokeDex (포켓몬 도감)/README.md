@@ -55,8 +55,8 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 
 - 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
   - **버그 내용**:
-    
-![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6)
+
+![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
   - **해결 방법**: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 작업이 완료되지 않은 상태로 셀이 다시 사용되는 과정에 이런 현상이 생기는 것임을 파악한 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결하였습니다.
 
