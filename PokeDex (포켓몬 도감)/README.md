@@ -32,4 +32,4 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해주는 PokeAPI 오픈소스
 
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
 
-## 4. 개발 중 어려웠던 점
+## 4. 개발 중 난관 및 해결 방법
