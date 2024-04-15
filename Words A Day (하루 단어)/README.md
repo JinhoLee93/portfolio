@@ -27,4 +27,4 @@
 - Core Data 사용: 이태껏 데이터베이스를 다뤄보지 못한 저는 Core Data Entity를 만들고 Attribute를 정하는데 많은 어려움을 겪었습니다. 하지만 PersistentContainer를 MVVM 디자인 패턴의 모델로 생각하고 ViewModel을 구현해내면 된다고 생각하니, 수월하게 이해할 수 있었습니다.
 
 ## 5. To-Do's
-- [] GCD 및 코드 리팩토링
+- [ ] GCD 및 코드 리팩토링
