@@ -4,7 +4,7 @@
 
 **-사용된 디자인 패턴 및 개발 기술: MVVM**
 
-**-사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Core Data, Grand Central Dispatch**
+**-사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Core Data, Grand Central Dispatch**
 
 ## 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
