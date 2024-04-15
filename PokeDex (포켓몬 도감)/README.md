@@ -14,7 +14,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
   
 - **Rx (RxSwift, RxRelay, RxCocoa, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 네 개의 Rx 관련 프레임워크가 사용되었습니다.
   - **RxSwift**: Observable을 사용할 수 있게 해주는 가장 기본적인 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
-  - **RxRelay**: Behavior 타입의 Observable 내 데이터를 업데이트하고 싶을 때 사용되었습니다. 기존 BehaviorSubject를 사용했을 때 생기는 Nested Subscribe 문제를 해결해 주었습니다.
+  - **RxRelay**: Behavior 타입의 Observable 내 데이터를 업데이트하고 싶을 때 사용되었습니다. 기존 BehaviorSubject를 사용했을 때 생기는 Nesting Subscribe 문제를 해결해 주었습니다.
   - **RxCocoa**: bind(to:) 함수를 통해 테이블 뷰를 구현하기 위해 사용하였습니다.
   - **RxDataSource**: 완벽한 Reactive Programming을 구현하고 싶었기에 Delegate 혹은 Datasource 관련한 코드로 Controller를 채우고 싶지 않았지만, RxSwift를 통해 테이블 뷰를 Customize 하는 데엔 한계가 있었습니다. RxSwift만을 사용하면 테이블 뷰에 섹션을 나눌 수 없었고, 해당 프레임워크는 그 문제를 해결해 주었습니다.
   
@@ -58,8 +58,6 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
-
-
-- 
+- ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근 해 내부 데이터를 바꿔야하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다. 
 
 ## 5. To-Do's
