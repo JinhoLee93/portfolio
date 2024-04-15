@@ -42,7 +42,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
     
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6)
 
-  - 해결 방법:
+  - 해결 방법: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 
 
 
 
