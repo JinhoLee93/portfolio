@@ -76,5 +76,5 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
 - [x] 제대로 된 Error Handling 구현
 - [x] Combine을 통한 View 구조체 업데이트 시 RunLoop.main이 아닌 MainActor.run을 사용할 것
 - [ ] NSCache를 통해 Memory Cache 구현 후, Kingfisher로 Migrate
-- [ ] CoreData 프레임워크를 사용해 로컬 데이터베이스 구축
+- [ ] Core Data 프레임워크를 사용해 로컬 데이터베이스 구축
 - [ ] Task Cancel로 인해 생기는 오류 차단
