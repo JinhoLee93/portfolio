@@ -42,8 +42,9 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 PokeAPI 오픈소�
     
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6)
 
-  - 해결 방법: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 
+  - 해결 방법: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 작업이 완료되지 않은 상태로 셀이 다시 사용되는 과정에 이런 현상이 생기는 것임을 파악한 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결하였습니다.
 
+<img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
 
 - Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization:
