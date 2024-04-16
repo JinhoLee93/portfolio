@@ -51,13 +51,13 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
 
 ## 4. 개발 중 난관 및 해결 방법
-- 포켓몬 데이터를 서버로부터 받아오는 방법: 개발 초기엔 검색 기능이 있는 도감의 특성상, 1000개가 넘는 포켓몬 엔트리를 한 번에 받아오는 것을 통해 모든 포켓몬을 검색할 수 있게 만들었지만, 테이블 뷰 셀 내부 이미지를 위해 너무 많은 네트워크 콜을 불러 빈번한 "HTTP Load Failed" 에러가 발생했습니다. 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 Infinite Scroll을 구현하였습니다.
+- 1. 포켓몬 데이터를 서버로부터 받아오는 방법: 개발 초기엔 검색 기능이 있는 도감의 특성상, 1000개가 넘는 포켓몬 엔트리를 한 번에 받아오는 것을 통해 모든 포켓몬을 검색할 수 있게 만들었지만, 테이블 뷰 셀 내부 이미지를 위해 너무 많은 네트워크 콜을 불러 빈번한 "HTTP Load Failed" 에러가 발생했습니다. 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 Infinite Scroll을 구현하였습니다.
 
-- 검색 기능: 바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
+- 2. 검색 기능: 바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
 
-- GCD로 만들어진 Kingfisher 프레임워크 함수: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
+- 3. GCD로 만들어진 Kingfisher 프레임워크 함수: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
 
-- 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
+- 4. 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림:
 
   -> **버그 내용**:
 
@@ -72,14 +72,14 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 
-- Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야 했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
+- 5. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야 했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
   -> **결과**: 성공적으로 섹션별로 나뉜 포켓몬 상세 정보
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
-- ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다.
+- 6. ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다.
 
-- POP와 Generic을 이용한 Unit Test: Generic 함수를 이용해 Protocol을 만들고 해당 프로토콜을 이용해 Mock Network Layer를 만든 후, Dependency Injection을 통해 Unit Test에 사용하였습니다.
+- 7. POP와 Generic을 이용한 Unit Test: Generic 함수를 이용해 Protocol을 만들고 해당 프로토콜을 이용해 Mock Network Layer를 만든 후, Dependency Injection을 통해 Unit Test에 사용하였습니다.
   
   -> **Protocol 코드**:
   
@@ -89,7 +89,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
   
 <img width="1483" alt="Screenshot 2024-04-16 at 11 09 39 AM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/5aeba1f4-c9c2-478d-aa2b-273dc7bff977">
 
-- Unit Test Cases 제작에 대한 회고: 스트레스 테스트를 돌릴 수 있을만큼 간단한 데이터를 사용하는 것과 이를 100% 활용할 수 있는 Pure Function 위주의 함수를 만드는 것이 최고의 테스트를 만드는 가장 쉬운 방법인 것 같습니다.
+- 8. Unit Test Cases 제작에 대한 회고: 스트레스 테스트를 돌릴 수 있을만큼 간단한 데이터를 사용하는 것과 이를 100% 활용할 수 있는 Pure Function 위주의 함수를 만드는 것이 최고의 테스트를 만드는 가장 쉬운 방법인 것 같습니다.
   
 ## 5. To-Do's
 - [x] 제대로 된 Error Handling 구현
