@@ -1,1 +1,1 @@
-# Non Dev Projects
+# Non-Dev Projects
