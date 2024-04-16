@@ -24,9 +24,3 @@
 **- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 - 제작기간: 2024.01 ~
 - 기여도: 100%
-
-## [Appendix](https://github.com/JinhoLee93/Portfolio/tree/main/As%20an%20ICT%20Consultant%20(%EC%BB%A8%EC%84%A4%ED%84%B4%ED%8A%B8%EB%A1%9C%EC%84%9C))
-## 1. ICT 컨설턴트로서
-**사용된 기술: Powerpoint**
-- 제작기간: 2023.11 ~ 2024.01
-- 기여도: 100%
