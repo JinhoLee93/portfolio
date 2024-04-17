@@ -9,7 +9,7 @@
 - [유튜브 링크](https://youtu.be/3eXYfnBKCjE)
 - [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
-## [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/Portfolio/tree/main/Words%20A%20Day%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4))
+## [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4))
 **- 사용된 디자인 패턴 및 개발 기술: MVVM**
 
 **- 사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Core Data, Grand Central Dispatch**
