@@ -24,7 +24,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 
 ## 프레임워크
 
-### 1. UI 관련 프레임워크
+### i. UI 관련 프레임워크
 
 - **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 섹션간 Cell 이동과 같은 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
   - **실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣어 테스트를 진행했을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
@@ -34,7 +34,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 - **SwiftUI**: 유저가 저장한 마음에 드는 포켓몬을 카드로서 보여주는 뷰를 LazyVGrid를 통해 구현하기 위해 사용하였습니다. UIKit의 Collection View를 사용했다면 최적의 CPU 사용량과 Peformance를 만들어낼 수 있었지만, SwiftUI의 AsyncImage와 같은 새롭게 추가된 기능들을 사용해 보며 연습하고 싶어 SwiftUI를 선택하였습니다.
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
 
-### 2. Reactive Programming 관련 프레임워크
+### ii. Reactive Programming 관련 프레임워크
  
 - **Rx (RxSwift, RxRelay, RxCocoa, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 네 개의 Rx 관련 프레임워크가 사용되었습니다.
   - **RxSwift**: Observable을 사용할 수 있게 해주는 가장 기본적인 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
@@ -44,32 +44,32 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
   
 - **Combine**: Rx를 통해 할 수 있던 Reactive Programming을 SwiftUI 환경에서 구현할 수 있게 도와주는 1st Party 프레임워크입니다. 단순 Reactive Programming을 넘어 Swift Concurrency를 이용한 비동기 작업도 한 번에 할 수 있도록 만들어졌기에 사용하였습니다.
 
-### 3. Image Caching 관련 프레임워크
+### iii. Image Caching 관련 프레임워크
 
 - **Kingfisher**: Image Caching에 사용된 프레임워크입니다. 기존 FileManager 라이브러리를 사용해 Disk Cache를 직접 구현하였지만, 현업에서 많이 사용되고 있는 프레임워크이기 때문에 자체적인 Cache 라이브러리를 만들기보단 사용에 익숙해지고 싶어 사용하였습니다. Memory Cache도 구현할 예정이며, Disk Cache와 같이 먼저 NSCache를 사용해 구현해 본 후, 해당 프레임워크로 리팩토링 할 예정입니다.
 
-### 4. 테스트 관련 프레임워크
+### iv. 테스트 관련 프레임워크
 
 - **XCTest**: 앱 유닛 테스트를 진행하기 위해 필요한 프레임워크입니다. Protocol Oriented Programming을 통해 만들어진 클래스를 Mock으로 만들어 주입시켜 유닛 테스트 케이스를 만들었으며, 92% 테스트 커버리지를 달성하였습니다. 
 
 - **RxTest**: Observable을 테스트하기 위해 사용한 프레임워크입니다.
 
-### 5. 비동기 작업 관련 프레임워크
+### v. 비동기 작업 관련 프레임워크
 
 - **Swift Concurrency**: Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결해 줄 수 있는 새로운 비동기 작업 방법입니다.
 
-### 6. 프레임워크 Dependency 관리 툴
+### vi. 프레임워크 Dependency 관리 툴
 
 - **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
 
 # 4. 개발 중 난관 및 해결 방법
-**1. 포켓몬 데이터를 서버로부터 받아오는 방법**: 개발 초기엔 검색 기능이 있는 도감의 특성상, 1000개가 넘는 포켓몬 엔트리를 한 번에 받아오는 것을 통해 모든 포켓몬을 검색할 수 있게 만들었지만, 테이블 뷰 셀 내부 이미지를 위해 너무 많은 네트워크 콜을 불러 빈번한 "HTTP Load Failed" 에러가 발생했습니다. 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 Infinite Scroll을 구현하였습니다.
+**i. 포켓몬 데이터를 서버로부터 받아오는 방법**: 개발 초기엔 검색 기능이 있는 도감의 특성상, 1000개가 넘는 포켓몬 엔트리를 한 번에 받아오는 것을 통해 모든 포켓몬을 검색할 수 있게 만들었지만, 테이블 뷰 셀 내부 이미지를 위해 너무 많은 네트워크 콜을 불러 빈번한 "HTTP Load Failed" 에러가 발생했습니다. 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 Infinite Scroll을 구현하였습니다.
 
-**2. 검색 기능**: 바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
+**ii. 검색 기능**: 바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
 
-**3. GCD로 만들어진 Kingfisher 프레임워크 함수**: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
+**iii. GCD로 만들어진 Kingfisher 프레임워크 함수**: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
 
-**4. 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림**:
+**iv. 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림**:
 
   -> **버그 내용**:
 
@@ -84,15 +84,15 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 
-**5. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization**: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야 했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
+**v. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization**: 포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야 했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
    
   -> **결과**: 성공적으로 섹션별로 나뉜 포켓몬 상세 정보
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
-**6. ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제**: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다.
+**vi. ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제**: Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다.
 
-**7. POP와 Generic을 이용한 Unit Test**: Generic 함수를 이용해 Protocol을 만들고 해당 Protocol을 이용해 Mock Network Layer를 만든 후, Dependency Injection을 통해 Unit Test에 사용하였습니다.
+**vii. POP와 Generic을 이용한 Unit Test**: Generic 함수를 이용해 Protocol을 만들고 해당 Protocol을 이용해 Mock Network Layer를 만든 후, Dependency Injection을 통해 Unit Test에 사용하였습니다.
   
   -> **Protocol 코드**:
   
@@ -102,7 +102,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
   
 <img width="1483" alt="Screenshot 2024-04-16 at 11 09 39 AM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/5aeba1f4-c9c2-478d-aa2b-273dc7bff977">
 
-**8. Unit Test Cases 제작에 대한 회고**: 스트레스 테스트를 돌릴 수 있을만큼 간단한 데이터를 사용하는 것과 이를 100% 활용할 수 있는 Pure Function 위주의 함수를 만드는 것이 최고의 테스트를 만드는 가장 쉬운 방법인 것 같습니다.
+**viii. Unit Test Cases 제작에 대한 회고**: 스트레스 테스트를 돌릴 수 있을만큼 간단한 데이터를 사용하는 것과 이를 100% 활용할 수 있는 Pure Function 위주의 함수를 만드는 것이 최고의 테스트를 만드는 가장 쉬운 방법인 것 같습니다.
   
 # 5. To-Do's
 - [x] 제대로 된 Error Handling 구현
