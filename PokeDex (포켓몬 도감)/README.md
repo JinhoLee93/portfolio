@@ -1,7 +1,5 @@
 # PokeDex (포켓몬 도감)
 
-![Overview](https://github.com/JinhoLee93/Portfolio/assets/60580427/279da0f2-6b7f-4425-a38d-a695256de66e)
-
 **- 사용된 디자인 패턴 및 개발 기술: MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection**
 
 **- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
