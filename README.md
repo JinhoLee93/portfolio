@@ -27,6 +27,6 @@
 - [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
 # Appendix
-## 1. Bobidi Custom Buttom
+## [1. Bobidi Custom Buttom](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button)
 - 제작 기간: 주말
 - 기여도: 100%
