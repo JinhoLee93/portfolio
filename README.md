@@ -1,6 +1,6 @@
 # 이진호 개인 프로젝트 포트폴리오
 
-## [1. FortySeconds (하루 40초)](https://github.com/JinhoLee93/Portfolio/tree/main/40%20Seconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88))
+## [1. FortySeconds (하루 40초)](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88))
 **- 사용된 디자인 패턴 및 개발 기술: MVVM**
 
 **- 사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Combine, Swift Concurrency**
