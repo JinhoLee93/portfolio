@@ -4,6 +4,7 @@
 **사용된 디자인 패턴 및 개발 기술: MVVM**
 
 **사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Combine, Swift Concurrency**
+
 제작 기간: 2022.02 ~ 2022.05
 기여도: 100%
 [유튜브 링크](https://youtu.be/3eXYfnBKCjE)
