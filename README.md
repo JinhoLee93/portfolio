@@ -24,3 +24,4 @@
 **- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 - 제작기간: 2024.02 ~
 - 기여도: 100%
+- [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
