@@ -27,6 +27,6 @@
 - [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
 # Appendix
-## Bobidi Custom Buttom
+## 1. Bobidi Custom Buttom
 - 제작 기간: 
 - 기여도: 100%
