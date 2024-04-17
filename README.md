@@ -28,5 +28,5 @@
 
 # Appendix
 ## 1. Bobidi Custom Buttom
-- 제작 기간: 
+- 제작 기간: 주말
 - 기여도: 100%
