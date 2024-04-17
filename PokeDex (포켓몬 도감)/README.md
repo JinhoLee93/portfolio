@@ -2,9 +2,9 @@
 
 [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
-**- 사용된 디자인 패턴 및 개발 기술: MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection**
+**사용된 디자인 패턴 및 개발 기술: MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection**
 
-**- 사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
+**사용된 개발 언어 및 프레임워크: Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 
 # 1. 개요
 RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 본인 마음에 드는 포켓몬을 저장하여 콜렉션 뷰 형태를 띤 라이브러리를 통해 빠르게 볼 수 있습니다.
