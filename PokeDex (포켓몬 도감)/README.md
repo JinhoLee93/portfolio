@@ -71,7 +71,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 
 **IV. 빠르게 스크롤 시 Placeholder인 포켓볼 이미지가 아닌 포켓몬 이미지 충돌**:
 
-  -> **버그 내용**:
+  -> **버그 내용**: Placeholder인 포켓볼 이미지는 로드가 되지 않은 이미지를 대신 해 나타나야 하지만, 밑의 gif를 보시면 포켓몬 이미지가 바뀌는 것을 보실 수 있습니다.
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
