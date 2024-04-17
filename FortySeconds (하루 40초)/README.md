@@ -2,9 +2,9 @@
 
 **[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
 
-**-사용된 디자인 패턴 및 개발 기술: MVVM**
+**사용된 디자인 패턴 및 개발 기술: MVVM**
 
-**-사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Combine, Swift Concurrency**
+**사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Combine, Swift Concurrency**
 
 # 1. 개요
 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
