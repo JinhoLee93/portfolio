@@ -69,7 +69,7 @@ RESTfulAPI를 통해 포켓몬 데이터를 전송해 주는 [PokeAPI](https://p
 
 **III. GCD로 만들어진 Kingfisher 프레임워크 함수**: Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
 
-**IV. 빠르게 스크롤 시 이미지 충돌로 인한 포켓몬 사진 깜빡거림**:
+**IV. 빠르게 스크롤 시 Placeholder인 포켓볼 이미지가 아닌 포켓몬 이미지 충돌**:
 
   -> **버그 내용**:
 
