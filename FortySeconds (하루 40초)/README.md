@@ -1,4 +1,4 @@
-# [40 Seconds (하루 40초)](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
+# [FortySeconds (하루 40초)](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
 **[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
 
