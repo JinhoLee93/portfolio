@@ -13,18 +13,18 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 | 관련 분야 | 이름 |
 | :---: | :---: |
 | 개발 언어 | Swift |
-| 디자인 패턴 | [MVVM-C & MVVM](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) |
-| 개발 기술 | Protocol Oriented Programming, Dependency Injection |
+| [디자인 패턴](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) | MVVM-C & MVVM |
+| [개발 기술](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EA%B0%9C%EB%B0%9C-%EA%B8%B0%EC%88%A0) | Protocol Oriented Programming, Dependency Injection |
 
 ### 프레임워크
 | 관련 분야 | 이름 |
 | :---: | :---: |
-| UI | UIKit, SwiftUI, SnapKit |
-| Reactive Programming | Rx, Combine |
-| Image Caching | Kingfisher |
-| Testing | XCTest, RxTest |
-| 비동기 작업 | Swift Concurrency |
-| Dependency | Swift Package Manager |
+| [UI](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#i-ui) | UIKit, SwiftUI, SnapKit |
+| [Reactive Programming](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#ii-reactive-programming) | Rx, Combine |
+| [Image Caching](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching) | Kingfisher |
+| [Testing](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iv-%ED%85%8C%EC%8A%A4%ED%8C%85) | XCTest, RxTest |
+| [비동기 작업](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#v-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85) | Swift Concurrency |
+| [Dependency](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#vi-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-dependency) | Swift Package Manager |
 
 ## 제작 기간
 2024.02 ~
