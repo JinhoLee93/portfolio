@@ -167,7 +167,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
-## VI. ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제
+## VI. Nesting Subscribe
+
+- **발생 이유**: PublishSubject 내 데이터 접근성
 
 - **해결 방법**: BehaviorRelay를 사용해 Observable 내 데이터 바로 접근
 
