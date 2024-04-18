@@ -97,6 +97,8 @@
 
 - **해결 방법 2**: 카드가 90도 회전 할 때 생기는 사각을 이용. 카드가 90도로 회전하는 순간 빠르게 카드 위 콘텐츠를 180도 한 번 더 회전. 콘텐츠는 360도 회전하게 되는 결과 구현.
 
+- **결과**: 구현 목표 달성
+
 <img width="906" alt="Screenshot 2024-04-18 at 6 19 13 PM" src="https://github.com/JinhoLee93/portfolio/assets/60580427/d9d6f4ae-f3a9-49ea-b9a5-0ae056c59f66">
 
 ## 6. To-Do's
