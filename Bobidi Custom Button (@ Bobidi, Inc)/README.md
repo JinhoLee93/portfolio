@@ -56,4 +56,4 @@ Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
 - **발생 이유**: 디테일 구현을 위한 Fine Tuning에 소모된 긴 시간
   
-- **해결 방법**: Core Animation과 Core Graphics를 이용해 뷰 구조체를 만들 땐 UI에 대한 정확한 아이디어와 목표 설정 필요
+- **해결 방법**: Core Animation과 Core Graphics를 이용해 뷰 구조체를 만들 땐 UI에 대한 정확한 아이디어와 목표 설정의 중요성 인지
