@@ -47,10 +47,13 @@ Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
   </tbody>
 </table>
 
-# 4. Tech Stack 사용 목적
-## 프레임워크
-### I. UI 관련 프레임워크
-- **UIKit**: CAGradientLayer에 사용되는 UIColor를 사용하기 위해 사용하였습니다. 
+# 4. Tech Stack 채택 이유
+## I. UIKit
+- CAGradientLayer에 사용되는 UIColor 제공 
 
 # 5. 개발 중 난관 및 해결 방법
-**I. Core Animation과 Core Graphics을 통한 뷰 구조체 구현**: 버튼의 구현 자체가 어렵진 않았지만, 뷰 구조체를 만들 때 이렇게 많은 노력이 Fine Tuning에 들어가는지 모르고 있었던 저는, 구상한 디테일 구현을 위해 꼬박 반나절을 숫자를 바꿔 테스트하며 보냈습니다. 만약 구현할 디테일에 대한 확신이 없었다면, 더욱 오랜 시간을 테스트에 쏟아부었을 것이라고 생각합니다. 그렇기 때문에, 이 경험을 통해 배운 것은 Core Animation과 Core Graphics를 이용해 뷰 구조체를 만들 땐 정확한 아이디어와 목표를 가지고 있어야 개발에 들어가는 시간을 최소화할 수 있다는 점이었습니다.
+## I. Core Animation과 Core Graphics을 통한 뷰 구조체 구현
+
+- **발생 이유**: 디테일 구현을 위한 Fine Tuning에 소모된 긴 시간
+  
+- **해결 방법**: Core Animation과 Core Graphics를 이용해 뷰 구조체를 만들 땐 UI에 대한 정확한 아이디어와 목표 설정 필요
