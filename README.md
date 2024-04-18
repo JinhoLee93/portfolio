@@ -6,7 +6,7 @@
 
 RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
 
-[유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
+**[유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)**
 
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
@@ -84,9 +84,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
 
-[유튜브 링크](https://www.youtube.com/shorts/XjecEqldjcY)
+**[유튜브 링크](https://www.youtube.com/shorts/XjecEqldjcY)**
 
-[앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
+**[앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)**
 
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
@@ -148,9 +148,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [Wordle](https://www.nytimes.com/games/wordle/index.html)로부터 감명받아 제작한 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
 
-[유튜브 링크](https://youtu.be/3eXYfnBKCjE)
+**[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
 
-[앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
+**[앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)**
 
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
