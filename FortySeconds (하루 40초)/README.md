@@ -13,7 +13,52 @@
 자극적이고 선정적인 세상에서 한 문제당 10초씩, 하루에 40초만이라도 마음을 놓을 수 있는 편안한 공간을 유저에게 만들어주고 싶다는 생각을 하였고, 하루 40초 구상에 들어가게 되었습니다. 제가 첫 번째로 개발한 앱인 하루 40초는 제 시각에서 바라본 한국어 단어 게임 Wordle입니다. 하루 40초를 계기로 저는 iOS 앱 개발의 재미에 눈 뜨게 되었습니다.
 
 # 3. Tech Stack
-**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
+## 개발 언어 및 방법론
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">개발 언어</td>
+      <td align="center">Swift</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4">디자인 패턴</a></td>
+      <td align="center">MVVM</td>
+    </tr>
+  </tbody>
+</table>
+
+## 프레임워크
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#i-ui-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">UI</a></td>
+      <td align="center">UIKit, SwiftUI, SnapKit</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#ii-reactive-programming-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">Reactive Programming</a></td>
+      <td align="center">Combine</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iii-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">비동기 작업</a></td>
+      <td align="center">Swift Concurrency</td>
+    </tr>
+  </tbody>
+</table>
+
 
 # 4. Tech Stack 사용 목적
 ## 디자인 패턴
