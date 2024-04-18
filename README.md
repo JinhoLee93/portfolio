@@ -161,7 +161,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
-      <td align="center">MVVM</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#i-mvvm">MVVM</a></td>
     </tr>
   </tbody>
 </table>
@@ -178,15 +178,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">UIKit, SwiftUI, SnapKit</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#ii-swiftui">SwiftUI</a></td>
     </tr>
     <tr>
       <td align="center">Reactive Programming</td>
-      <td align="center">Combine</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iii-combine">Combine</a></td>
     </tr>
     <tr>
       <td align="center">비동기 작업</td>
-      <td align="center">Swift Concurrency</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iv-swift-concurrency">Swift Concurrency</a></td>
     </tr>
   </tbody>
 </table>
@@ -236,7 +236,7 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">UIKit</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)#i-uikit">UIKit</a></td>
     </tr>
   </tbody>
 </table>
