@@ -201,6 +201,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   
 <img width="1483" alt="Screenshot 2024-04-16 at 11 09 39 AM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/5aeba1f4-c9c2-478d-aa2b-273dc7bff977">
 
+- **결과**: 테스트 가능해진 모든 Network 관련 Property
+
 ## VIII. Unit Test Cases 제작
 
 - **해결 방법**: 스트레스 테스트를 돌릴 수 있는 간단한 데이터를 100% 활용할 수 있는 순수 함수 위주의 코드 작성
