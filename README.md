@@ -42,7 +42,19 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
 
 ## Tech Stack
-**MVVM, Swift, SwiftUI, Core Data, Grand Central Dispatch**
+
+### 개발 언어 및 방법론
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| 개발 언어 | Swift |
+| [디자인 패턴](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) | MVVM |
+
+### 프레임워크
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| [UI](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#i-ui) | SwiftUI |
+| [데이터베이스](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#ii-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4) | Core Data |
+| [비동기 작업](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#iii-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85) | Grand Central Dispatch |
 
 ## 제작 기간
 2022.03 ~ 2022.06
