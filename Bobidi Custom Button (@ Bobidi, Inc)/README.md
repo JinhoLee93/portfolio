@@ -13,6 +13,7 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
 버튼 애니메이션은 iOS 비디오 촬영 버튼에서 영감을 받았습니다.
 
 # 3. Tech Stack
+
 ## Architecture
 
 <table width="1200px">
@@ -42,7 +43,7 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">UIKit</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)#i-uikit">UIKit</a></td>
     </tr>
   </tbody>
 </table>
