@@ -74,7 +74,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # 4. Tech Stack 사용 목적
 
-## Architecture
+# Architecture
 
 ## I. 디자인 패턴
 
@@ -99,7 +99,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 - 의존성 감소를 통해 안전해진 코드베이스
 - 모듈화를 통해 쉬워진 리팩토링 및 테스트
 
-## 프레임워크
+# 프레임워크
 
 ## I. UI
 
