@@ -145,7 +145,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
-- **해결 방법**: 비동기 작업 및 재사용 셀 인과관계 파악 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결
+- **해결 방법**: 비동기 작업 및 재사용 셀 인과관계 파악 후, prepareForReuse() 함수 내 이미지를 로드하는 Task 취소 코드를 아래와 같이 한 줄 넣어 해결
 
 <img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
