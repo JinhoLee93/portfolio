@@ -9,17 +9,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-<table width="3000px">
+<table width="10000px">
   <thead>
     <tr>
-      <th width="150px">First header</th>
-      <th width="150px">Second header long</th>
+      <th width="10000px">First header</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td width="150px"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
-      <td width="150px"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
+      <td width="10000px"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
     </tr>
   </tbody>
 </table>
