@@ -10,7 +10,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 열렬한 포켓몬 딱지 콜렉터로 유년 시절을 보낸 제작자 혹은 제작자와 같은 유년기를 보낸 유저에게 향수를 불러일으켜, 잠깐이라도 어릴 때의 기분 좋은 날을 상상하며 좋은 하루를 만들 수 있기를 바라며 개발을 시작하였습니다.
 
 # 3. Tech Stack
-## Architecture
+# Architecture
 
 <table width="1200px">
   <thead>
@@ -35,7 +35,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </tbody>
 </table>
 
-## 프레임워크
+# 프레임워크
 
 <table width="1200px">
   <thead>
