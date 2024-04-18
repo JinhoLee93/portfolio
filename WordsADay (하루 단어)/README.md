@@ -1,9 +1,9 @@
 # [WordsADay (하루 단어)](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
-**[유튜브 링크](https://youtube.com/shorts/XjecEqldjcY)**
-
 # 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
+
+**[유튜브 링크](https://youtube.com/shorts/XjecEqldjcY)**
 
 # 2. 개발 목적
 컬럼비아 대학교를 졸업한 제가 영어 공부를 하면서 배운 영어 단어를 효율적으로 외울 수 있는 방법을 앱으로 나타내, 많은 유저의 언어 학습 여정에 도움이 되기를 바라며 개발하였습니다.
