@@ -78,7 +78,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## I. 디자인 패턴
 
-### MVVM-C & MVVM 
+## MVVM-C & MVVM 
 
 **채택 이유**
 - 쉬운 디버깅과 테스트
@@ -87,13 +87,13 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   
 ## II. 개발 기술
 
-### Protocol Oriented Programming
+## Protocol Oriented Programming
 
 **채택 이유**
 - Super Class 기능 확인을 위해 계속되는 페이지 이동으로 인해 낭비되는 시간
 - 필요한 코드 레이아웃을 먼저 만듦으로써 쓸 데 없는 Property의 증가 방지
   
-### Dependency Injection
+## Dependency Injection
 
 **채택 이유**
 - 의존성 감소를 통해 안전해진 코드베이스
