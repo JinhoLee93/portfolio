@@ -6,8 +6,6 @@
 
 RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
 
-**[유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)**
-
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
@@ -78,7 +76,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## IV. 기여도
 100%
 
-# [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4))
+# [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://www.youtube.com/shorts/XjecEqldjcY) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19"> width="30"](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
 ## I. 개요
 
