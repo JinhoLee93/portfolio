@@ -3,7 +3,7 @@
 **[유튜브 링크](https://youtube.com/shorts/XjecEqldjcY)**
 
 # 0. Tech Stack
-MVVM, Swift, SwiftUI, Core Data, Grand Central Dispatch
+**MVVM, Swift, SwiftUI, Core Data, Grand Central Dispatch**
 
 # 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
