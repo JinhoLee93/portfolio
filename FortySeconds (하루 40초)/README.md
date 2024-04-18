@@ -67,22 +67,23 @@
 
 ## I. MVVM
 
-- 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
+- 가독성이 좋으면서 쉬운 디버깅과 테스트를 위한 코드 작성을 도와줌
+- 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현에 사용됨
 
 ## II. SwiftUI
 
-- 단어 "게임"의 재미있는 애니메이션 부분을 쉽게 구현하기 위한 서포트
-- Preview를 통한 빠른 애니메이션 확인
-- MVVM을 쉽게 구현할 수 있게 도와주는 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 지원
+- 단어 "게임"의 재미있는 애니메이션 부분을 쉽게 구현하기 위한 서포트 제공
+- Preview를 통한 빠른 애니메이션 확인 가능
+- MVVM을 쉽게 구현할 수 있게 도와주는 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 제공
   
 ## III. Combine
 
-- 게임 중 필요한 40초 게임 타이머와 게임 후 필요한 24시간 백그라운드 타이머를 Publisher로서의 구현
+- "하루 40초"의 게임 중 필요한 40초 게임 타이머와 게임 후 필요한 24시간 백그라운드 타이머를 Publisher로서 구현하는 것에 필요한 기능 제공
 
 ## IV. Swift Concurrency
 
-- 가독성 향상
-- Task.sleep() 함수를 이용한 Swift Concurrency 헬퍼 함수를 통한 비동기 UI 애니메이션 처리
+- 코드의 가독성 향상
+- Task.sleep() 함수를 이용한 만든 Swift Concurrency 헬퍼 함수를 통한 용이해진 비동기 UI 애니메이션 처리
 
 # 5. 개발 중 난관 및 해결 방법
 ## I. 정답시 카드를 180도 넘겨짐에도 불구하고 위의 글자를 360도 넘기는 이펙트
@@ -95,7 +96,7 @@
 
 - **해결 방법 1의 문제**: 너무 많은 비주얼 인풋으로 인해 유저에게 불쾌감을 줌
 
-- **해결 방법 2**: 카드가 90도 회전 할 때 생기는 사각을 이용. 카드가 90도로 회전하는 순간 빠르게 카드 위 콘텐츠를 180도 한 번 더 회전. 콘텐츠는 360도 회전하게 되는 결과 구현.
+- **해결 방법 2**: 카드가 90도 회전 할 때 생기는 사각을 이용. 카드가 90도로 회전하는 순간 빠르게 카드 위 콘텐츠를 180도 한 번 더 회전. 즉, 카드 콘텐츠는 360도 회전하게 되는 결과 구현.
 
 <img width="906" alt="Screenshot 2024-04-18 at 6 19 13 PM" src="https://github.com/JinhoLee93/portfolio/assets/60580427/d9d6f4ae-f3a9-49ea-b9a5-0ae056c59f66">
 
