@@ -9,7 +9,71 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 열렬한 포켓몬 딱지 콜렉터로 유년 시절을 보낸 제작자 혹은 제작자와 같은 유년기를 보낸 유저에게 향수를 불러일으켜, 잠깐이라도 어릴 때의 기분 좋은 날을 상상하며 좋은 하루를 만들 수 있기를 바라며 개발을 시작하였습니다.
 
 # 3. Tech Stack
-**MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection, Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
+## 개발 언어 및 방법론
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">개발 언어</td>
+      <td align="center">Swift</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4">디자인 패턴</a></td>
+      <td align="center">MVVM-C & MVVM</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EA%B0%9C%EB%B0%9C-%EA%B8%B0%EC%88%A0">개발 기술</a></td>
+      <td align="center">Protocol Oriented Programming, Dependency Injection</td>
+    </tr>
+  </tbody>
+</table>
+
+## 프레임워크
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#i-ui">UI</a></td>
+      <td align="center">UIKit, SwiftUI, SnapKit</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#ii-reactive-programming">Reactive Programming</a></td>
+      <td align="center">Rx, Combine</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching">Reactive Programming</a></td>
+      <td align="center">Kingfisher</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching">Image Caching</a></td>
+      <td align="center">Kingfisher</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iv-%ED%85%8C%EC%8A%A4%ED%8C%85">Testing</a></td>
+      <td align="center">XCTest, RxTest</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#v-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85">비동기 작업</a></td>
+      <td align="center">Swift Concurrency</td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#vi-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-dependency">프레임워크 Dependency 관리</a></td>
+      <td align="center">Swift Package Manager</td>
+    </tr>
+  </tbody>
+</table>
 
 # 4. Tech Stack 사용 목적
 
