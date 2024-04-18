@@ -74,8 +74,6 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # 4. Tech Stack 사용 목적
 
-# Architecture
-
 ## MVVM-C & MVVM 
 
 **채택 이유**
@@ -94,8 +92,6 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 **채택 이유**
 - 의존성 감소를 통해 안전해진 코드베이스
 - 모듈화를 통해 쉬워진 리팩토링 및 테스트
-
-# 프레임워크
 
 ## UIKit
 
