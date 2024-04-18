@@ -100,7 +100,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
-      <td align="center">MVVM</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)#i-mvvm">MVVM</a></td>
     </tr>
   </tbody>
 </table>
@@ -117,15 +117,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">UIKit, SwiftUI, SnapKit</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)#ii-swiftui">SwiftUI</a></td>
     </tr>
     <tr>
       <td align="center">데이터베이스</td>
-      <td align="center">Core Data</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)#iii-core-data">Core Data</a></td>
     </tr>
     <tr>
       <td align="center">비동기 작업</td>
-      <td align="center">Grand Central Dispatch</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#iv-grand-central-dispatch">Grand Central Dispatch</a></td>
     </tr>
   </tbody>
 </table>
