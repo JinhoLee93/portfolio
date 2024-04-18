@@ -74,78 +74,78 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # 4. Tech Stack 사용 목적
 
-## MVVM-C & MVVM 
+## I. MVVM-C & MVVM 
 
 **채택 이유**
 - 쉬운 디버깅과 테스트
 - 가독성 높은 코드
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
 
-## Protocol Oriented Programming
+## II. Protocol Oriented Programming
 
 **채택 이유**
 - Super Class 기능 확인을 위해 계속되는 페이지 이동으로 인해 낭비되는 시간
 - 필요한 코드 레이아웃을 먼저 만듦으로써 쓸 데 없는 Property의 증가 방지
   
-## Dependency Injection
+## III. Dependency Injection
 
 **채택 이유**
 - 의존성 감소를 통해 안전해진 코드베이스
 - 모듈화를 통해 쉬워진 리팩토링 및 테스트
 
-## UIKit
+## IV. UIKit
 
 **채택 이유**
 - 테이블 뷰 섹션간 셀 이동과 같은 복잡한 Customization 제공
 - SwiftUI의 List와 비교했을 때 월등한 Performance
   - **실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣어 테스트를 진행했을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
   
-## SnapKit
+## V. SnapKit
 
 **채택 이유**
 - 인터페이스 빌더 UI 소스코드 문제 해결을 위한 코드 식 UI의 AutoLayout의 손쉬운 구현에 필요
 - NSLayoutConstraint 사용으로 인해 지저분해지는 코드베이스 방지
   
-## SwiftUI
+## VI. SwiftUI
 
 **채택 이유**
 - Combine의 task 및 AsyncImage 같은 비교적 최신의 편리한 기능
 - Vs UIKit Performance 문제는 여전히 존재
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
  
-## Rx (RxSwift, RxRelay, RxDataSource)
+## VII. Rx (RxSwift, RxRelay, RxDataSource)
 
 **채택 이유**
 - UIKit 환경에서 Reactive Programming 및 MVVM 디자인 패턴 구현
   
-## Combine
+## VIII. Combine
 
 **채택 이유**
 - SwiftUI에서 Reactive Programming 구현 및 task를 통한 간편한 비동기 작업
 
-## Kingfisher
+## IX. Kingfisher
 
 **채택 이유**
 - 현업에서 많이 사용
 - 편리한 Image Caching (FileManager와 NSCache를 통해 먼저 Native로 Cache 구현 후 사용)
 
 
-## XCTest
+## X. XCTest
 
 **채택 이유**
 - 테스트 (92% 커버리지 달성)
 
-## RxTest 
+## XI. RxTest 
 
 **채택 이유**
 - Observable을 테스트 할 수 있게 도와주는 API 제공
 
-## Swift Concurrency
+## XII. Swift Concurrency
 
 **채택 이유**
 - Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결
 
-## Swift Package Manager
+## XIII. Swift Package Manager
 
 **채택 이유**
 - CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
