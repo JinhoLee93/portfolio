@@ -76,16 +76,12 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # Architecture
 
-## I. 디자인 패턴
-
 ## MVVM-C & MVVM 
 
 **채택 이유**
 - 쉬운 디버깅과 테스트
 - 가독성 높은 코드
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
-  
-## II. 개발 기술
 
 ## Protocol Oriented Programming
 
@@ -100,8 +96,6 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 - 모듈화를 통해 쉬워진 리팩토링 및 테스트
 
 # 프레임워크
-
-## I. UI
 
 ## UIKit
 
@@ -122,33 +116,43 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 - Combine의 task 및 AsyncImage 같은 비교적 최신의 편리한 기능
 - Vs UIKit Performance 문제는 여전히 존재
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
-
-## II. Reactive Programming
  
-- **Rx (RxSwift, RxRelay, RxDataSource)**: UIKit를 통해 Reactive Programming과 MVVM 디자인 패턴을 구현하기 위해 꼭 필요한 Rx입니다. 총 세 개의 Rx 관련 프레임워크가 사용되었습니다.
-  - **RxSwift**: Observable을 사용할 수 있게 해주는 가장 기본적인 프레임워크입니다. 앱 내부 대부분의 Reactive Programming은 Publish, Behavior Subjcet를 통해 구현되었습니다.
-  - **RxRelay**: Behavior 타입의 Observable 내 데이터를 업데이트하고 싶을 때 사용되었습니다. 기존 BehaviorSubject를 사용했을 때 생기는 Nesting Subscribe 문제를 해결해 주었습니다.
-  - **RxDataSource**: 완벽한 Reactive Programming을 구현하고 싶었기에 Delegate 혹은 Datasource 관련한 코드로 Controller를 채우고 싶지 않았지만, RxSwift를 통해 테이블 뷰를 Customize 하는 데엔 한계가 있었습니다. 해당 프레임워크는 그 문제를 해결해 주었습니다.
+## Rx (RxSwift, RxRelay, RxDataSource)
+
+**채택 이유**
+- UIKit 환경에서 Reactive Programming 및 MVVM 디자인 패턴 구현
   
-- **Combine**: Rx를 통해 할 수 있던 Reactive Programming을 SwiftUI 환경에서 구현할 수 있게 도와주는 1st Party 프레임워크입니다. 단순 Reactive Programming을 넘어 Swift Concurrency를 이용한 비동기 작업도 한 번에 할 수 있도록 만들어졌기에 사용하였습니다.
+## Combine
 
-## III. Image Caching
+**채택 이유**
+- SwiftUI에서 Reactive Programming 구현 및 task를 통한 간편한 비동기 작업
 
-- **Kingfisher**: Image Caching에 사용된 프레임워크입니다. 기존 FileManager 라이브러리를 사용해 Disk Cache를 직접 구현하였지만, 현업에서 많이 사용되고 있는 프레임워크이기 때문에 자체적인 Cache 라이브러리를 만들기보단 사용에 익숙해지고 싶어 사용하였습니다. Memory Cache도 구현할 예정이며, Disk Cache와 같이 먼저 NSCache를 사용해 구현해 본 후, 해당 프레임워크로 리팩토링 할 예정입니다.
+## Kingfisher
 
-## IV. 테스팅
+**채택 이유**
+- 현업에서 많이 사용
+- 편리한 Image Caching (FileManager와 NSCache를 통해 먼저 Native로 Cache 구현 후 사용)
 
-- **XCTest**: 앱 유닛 테스트를 진행하기 위해 필요한 프레임워크입니다. Protocol Oriented Programming을 통해 만들어진 클래스를 Mock으로 만들어 주입시켜 유닛 테스트 케이스를 만들었으며, 92% 테스트 커버리지를 달성하였습니다. 
 
-- **RxTest**: Observable을 테스트하기 위해 사용한 프레임워크입니다.
+## XCTest
 
-## V. 비동기 작업
+**채택 이유**
+- 테스트 (92% 커버리지 달성)
 
-- **Swift Concurrency**: Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결해 줄 수 있는 새로운 비동기 작업 방법입니다.
+## RxTest 
 
-## VI. 프레임워크 Dependency
+**채택 이유**
+- Observable을 테스트 할 수 있게 도와주는 API 제공
 
-- **Swift Package Manager**: CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
+## Swift Concurrency
+
+**채택 이유**
+- Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결
+
+## Swift Package Manager
+
+**채택 이유**
+- CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
 
 # 5. 개발 중 난관 및 해결 방법
 
@@ -213,6 +217,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## VIII. Unit Test Cases 제작
 
 - **해결 방법**: 스트레스 테스트를 돌릴 수 있는 간단한 데이터를 100% 활용할 수 있는 순수 함수 위주의 코드 작성
+
+- **결과**: 92%의 유닛 테스트 코드 커버리지 달성
   
 # 6. To-Do's
 - [x] 제대로 된 Error Handling 구현
