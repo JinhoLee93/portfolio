@@ -16,8 +16,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 | 디자인 패턴 | MVVM-C & MVVM |
 | 개발 기술 | Protocol Oriented Programming, Dependency Injection |
 
-
-**MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection, Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
+### 프레임워크
+| 분야 | 이름 |
+| :---: | :---: |
+| UI | UIKit, SwiftUI, SnapKit |
+| Reactive Programming | Rx, Combine |
+| Image Caching | Kingfisher |
+| Testing | XCTest, RxTest |
+| 비동기 작업 | Swift Concurrency |
+| Dependency | Swift Package Manager |
 
 ## 제작 기간
 2024.02 ~
