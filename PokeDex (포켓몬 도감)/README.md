@@ -53,7 +53,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
       <td align="center">Rx, Combine</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching">Reactive Programming</a></td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching">Image Caching</a></td>
       <td align="center">Kingfisher</td>
     </tr>
     <tr>
