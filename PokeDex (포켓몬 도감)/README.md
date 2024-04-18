@@ -69,6 +69,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     </tr>
   </tbody>
 </table>
+
 # 4. Tech Stack 채택 이유
 
 ## I. MVVM-C & MVVM 
