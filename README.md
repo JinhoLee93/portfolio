@@ -8,7 +8,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
-## II. Tech Stack
+## II. [Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
 
@@ -88,7 +88,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
-## II. Tech Stack
+## II. [Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
 
@@ -152,7 +152,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
-## II. Tech Stack
+## II. [Tech Stack](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
 
@@ -212,7 +212,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## I. 개요
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
-## II. Tech Stack
+## II. [Tech Stack](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
 
