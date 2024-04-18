@@ -27,7 +27,7 @@
       <td align="center">Swift</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4">디자인 패턴</a></td>
+      <td align="center">디자인 패턴</td>
       <td align="center">MVVM</td>
     </tr>
   </tbody>
@@ -44,15 +44,15 @@
   </thead>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#i-ui">UI</a></td>
+      <td align="center">UI</td>
       <td align="center">UIKit, SwiftUI, SnapKit</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#ii-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4">데이터베이스</a></td>
+      <td align="center">데이터베이스</td>
       <td align="center">Core Data</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#iii-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85">비동기 작업</a></td>
+      <td align="center">비동기 작업</td>
       <td align="center">Grand Central Dispatch</td>
     </tr>
   </tbody>
