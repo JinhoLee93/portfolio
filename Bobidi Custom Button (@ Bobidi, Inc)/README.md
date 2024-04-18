@@ -13,7 +13,7 @@ Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 버튼 애니메이션은 iOS 비디오 촬영 버튼에서 영감을 받았습니다.
 
 # 3. Tech Stack
-## 개발 언어 및 방법론
+## Architecture
 
 <table width="1200px">
   <thead>
