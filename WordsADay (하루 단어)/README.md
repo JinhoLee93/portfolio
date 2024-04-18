@@ -58,7 +58,7 @@
 
 ## I. MVVM
 
-- - 가독성이 좋으면서 쉬운 디버깅과 테스트를 위한 코드 작성을 도와줌
+- 가독성이 좋으면서 쉬운 디버깅과 테스트를 위한 코드 작성을 도와줌
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
 
 ## II. SwiftUI
