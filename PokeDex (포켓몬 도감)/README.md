@@ -182,9 +182,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## VI. Nesting Subscribe
 
-- **발생 이유**: PublishSubject 내 데이터 접근성
+- **발생 이유**: RxSwift의 PublishSubject 내 데이터 접근성
 
-- **해결 방법**: BehaviorRelay를 사용해 Observable 내 데이터 바로 접근
+- **해결 방법**: RxRelay의 BehaviorRelay를 사용해 Observable 내 데이터 바로 접근
 
 ## VII. POP, Generic 및 Dependency Injection을 이용한 Unit Test
 
