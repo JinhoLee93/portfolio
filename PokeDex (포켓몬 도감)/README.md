@@ -76,49 +76,48 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## I. MVVM-C & MVVM 
 
-- 쉬운 디버깅과 테스트
-- 가독성 높은 코드
+- 가독성이 좋으면서 쉬운 디버깅과 테스트를 위한 코드 작성을 도와줌
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
 
 ## II. Protocol Oriented Programming
 
-- Super Class 기능 확인을 위해 계속되는 페이지 이동으로 인해 낭비되는 시간
+- Super Class 기능 확인을 위해 계속되는 페이지 이동으로 인해 낭비되는 시간을 없애줌
 - 필요한 코드 레이아웃을 먼저 만듦으로써 쓸 데 없는 Property의 증가 방지
   
 ## III. Dependency Injection
 
-- 의존성 감소를 통해 안전해진 코드베이스
-- 모듈화를 통해 쉬워진 리팩토링 및 테스트
+- 의존성 감소를 통해 외부 변화로 부터 안전해지는 코드베이스
+- 코드 모듈화를 통해 쉬워지는 리팩토링과 테스트
 
 ## IV. UIKit
 
 - 테이블 뷰 섹션간 셀 이동과 같은 복잡한 Customization 제공
-- SwiftUI의 List와 비교했을 때 월등한 Performance
+- SwiftUI의 List와 비교했을 때 월등한 CPU Performance
   - **실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣어 테스트를 진행했을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
   
 ## V. SnapKit
 
 - 인터페이스 빌더 UI 소스코드 문제 해결을 위한 코드 식 UI의 AutoLayout의 손쉬운 구현에 필요
-- NSLayoutConstraint 사용으로 인해 지저분해지는 코드베이스 방지
+- NSLayoutConstraint 사용으로 인해 지저분해지는 코드베이스를 방지해줌
   
 ## VI. SwiftUI
 
-- Combine의 task 및 AsyncImage 같은 비교적 최신의 편리한 기능
-- Vs UIKit Performance 문제는 여전히 존재
+- Combine의 task 및 AsyncImage 같은 비교적 최신에 만들어진 편리한 기능을 사용할 수 있음
+- 하지만, Vs UIKit Performance 문제는 여전히 존재
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
  
 ## VII. Rx (RxSwift, RxRelay, RxDataSource)
 
-- UIKit 환경에서 Reactive Programming 및 MVVM 디자인 패턴 구현
+- UIKit 환경에서 Reactive Programming 및 MVVM 디자인 패턴 구현을 위해 사용
   
 ## VIII. Combine
 
-- SwiftUI에서 Reactive Programming 구현 및 task를 통한 간편한 비동기 작업
+- SwiftUI에서 Reactive Programming 구현 및 task를 통한 간편한 비동기 작업을 할 수 있음
 
 ## IX. Kingfisher
 
-- 현업에서 많이 사용
-- 편리한 Image Caching (FileManager와 NSCache를 통해 먼저 Native로 Cache 구현 후 사용)
+- 현업에서 많이 사용되는 프레임워크
+- 편리한 Image Caching 기능 제공 (프로젝트 내 FileManager와 NSCache를 통해 먼저 Native로 Cache를 구현해본 후 사용 됨)
 
 ## X. XCTest
 
@@ -130,11 +129,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## XII. Swift Concurrency
 
-- Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결
+- Grand Central Dispatch의 Dispatch Queue가 가지고 있는 치명적인 문제(Thread Explosion으로 인한 기능 저하, Thread 작업 취소 불가로 인한 Thread 관리 복잡도, Completion Handler 사용으로 가독성이 떨어지는 코드)를 Task란 개념으로 해결할 수 있음
 
 ## XIII. Swift Package Manager
 
-- CocoaPods보다 쉽고 간편한 프레임워크 Dependency 관리
+- CocoaPods보다 쉽고 간편한 프레임워크 Dependency 관리 툴
 - 1st Party
 
 # 5. 개발 중 난관 및 해결 방법
