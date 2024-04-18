@@ -5,6 +5,8 @@
 
 **[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
 
+**[앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)**
+
 # 2. 개발 목적
 제가 미국 유학 생활을 끝마칠 때쯤, 미국은 Wordle 돌풍에 휩싸였습니다. 
 
