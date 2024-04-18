@@ -135,7 +135,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## XIII. Swift Package Manager
 
-- CocoaPods로 관리하기 힘들었던 프레임워크 간 Dependency 및 프레임워크 버전 관리를 손쉽게 1st Party 기능으로 해결할 수 있다는 장점덕에 사용하게 되었습니다.
+- CocoaPods보다 쉽고 간편한 프레임워크 Dependency 관리
+- 1st Party
 
 # 5. 개발 중 난관 및 해결 방법
 
