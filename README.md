@@ -59,7 +59,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
 ## Tech Stack
-Swift, UIKit
+**Swift, UIKit**
 
 ## 제작 기간
 2022.08.20 ~ 2022.08.21
