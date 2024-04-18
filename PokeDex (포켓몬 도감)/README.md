@@ -120,7 +120,6 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 - 현업에서 많이 사용
 - 편리한 Image Caching (FileManager와 NSCache를 통해 먼저 Native로 Cache 구현 후 사용)
 
-
 ## X. XCTest
 
 - XCode 내 테스팅 환경 제공 (92% 유닛 테스트 커버리지 달성)
@@ -146,6 +145,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **해결 방법**: 한 번에 20개의 포켓몬 엔트리만 받아올 수 있도록 테이블 뷰 Infinite Scroll 구현
 
+- **결과**: 더 이상 발생하지 않는 "HTTP Load Failed" 에러
+
 ## II. Infinite Scroll 구현으로 인해 불가능해진 전체 포켓몬 검색
 
 - **해결 방법**: 검색 시작 시, 새로운 포켓몬 로드 종료 후, 이미 로드 되어있는 포켓몬 내 검색 허용
@@ -153,6 +154,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## III. GCD로 만들어진 Kingfisher 프레임워크 함수
 
 - **해결 방법**: Continuation을 통해 필요한 Disk Cache 함수 리팩토링
+
+- **결과**: Swift Concurrency로 사용 가능한 GCD 함수
 
 ## IV. 빠르게 스크롤 시 테이블 뷰 셀 내 포켓몬 이미지 충돌
 
