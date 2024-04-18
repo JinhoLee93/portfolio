@@ -103,12 +103,24 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## I. UI
 
-- **UIKit**: 포켓몬 정보를 사전처럼 열거해 주는 테이블 뷰는 앱의 중심이 되는 뷰입니다. 제가 구상한 비전을 최대한 구현하기 위해 SwiftUI의 List로는 구현 불가능한 섹션간 Cell 이동과 같은 Customization을 제공하고 많은 양의 셀이 한 번에 로드되었을 때 생기는 잠재적 Performance 문제를 생각하지 않아도 되는 UIKit를 선택했습니다.
+## UIKit
+
+**채택 이유**
+- 테이블 뷰 섹션간 셀 이동과 같은 복잡한 Customization 제공
+- SwiftUI의 List와 비교했을 때 월등한 Performance
   - **실제로 SwiftUI의 LazyVStack을 사용한 List는 1000개의 데이터를 넣어 테스트를 진행했을 때 26%의 CPU를 사용했고, UIKit의 UITableView는 그에 반해 오직 5%의 CPU만을 사용했습니다.**
   
-- **SnapKit**: 인터페이스 빌더 사용으로 생성되는 소스코드로 인한 문제를 크게 겪었던 저는, 처음 앱을 구상할 때부터 코드로 UI를 만들겠다는 결심을 했습니다. 해당 프레임워크는 NSLayoutConstraint를 사용했을 때 생기는 코드베이스가 지저분해지는 문제를 막아주고, 쉽게 Auto Layout을 구현할 수 있도록 도와주었습니다.
+## SnapKit
+
+**채택 이유**
+- 인터페이스 빌더 UI 소스코드 문제 해결을 위한 코드 식 UI의 AutoLayout의 손쉬운 구현에 필요
+- NSLayoutConstraint 사용으로 인해 지저분해지는 코드베이스 방지
   
-- **SwiftUI**: 유저가 저장한 마음에 드는 포켓몬을 카드로서 보여주는 뷰를 LazyVGrid를 통해 구현하기 위해 사용하였습니다. UIKit의 Collection View를 사용했다면 최적의 CPU 사용량과 Peformance를 만들어낼 수 있었지만, SwiftUI의 AsyncImage와 같은 새롭게 추가된 기능들을 사용해 보며 연습하고 싶어 SwiftUI를 선택하였습니다.
+## SwiftUI
+
+**채택 이유**
+- Combine의 task 및 AsyncImage 같은 비교적 최신의 편리한 기능
+- Vs UIKit Performance 문제는 여전히 존재
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
 
 ## II. Reactive Programming
