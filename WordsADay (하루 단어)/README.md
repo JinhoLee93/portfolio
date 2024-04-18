@@ -58,30 +58,34 @@
 
 # 4. Tech Stack 사용 목적
 
-## Architecture 
+## I. MVVM
 
-### I. 디자인 패턴
+**채택 이유**
+- 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture 구현
 
-- **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
+## II. SwiftUI
 
-## 프레임워크
+**채택 이유**
+- 단어 게임에 필요한 애니메이션의 쉬운 구현을 위한 서포트
 
-### I. UI
+## III. Core Data**
 
-- **SwiftUI**: 개발 당시 UIKit와 친숙하지 못해, SwiftUI로 개발을 시작하였습니다.
+**채택 이유**
+- 유저가 복잡한 데이터 구조를 가진 단어 노트를 생성, 저장, 삭제 및 과거 노트 접근 할 수 있게 해주는 로컬 데이터베이스 필요
+- 로컬 스토리지를 OOP 방식의 데이터베이스로의 전환
+- 1st Party 프레임워크
 
-### II. 데이터베이스
+## Grand Central Dispatch
 
-- **Core Data**: 로컬 스토리지를 OOP 방식의 데이터베이스로 사용할 수 있도록 도와주는 프레임워크입니다. 유저가 마음대로 단어 노트를 만들고, 삭제하고, 저장하며, 다른 날짜에 저장된 단어 노트에 접근하기 위해선 단어 노트 데이터를 저장하고 불러올 수 있는 로컬 데이터베이스가 필요했습니다. AppStorage 혹은 UserDefaults로는 복잡한 데이터 구조체를 저장할 수 없었기에, 3rd Party 데이터베이스 프레임워크보단 iOS에 대한 서포트가 확실한 1st Party 데이터베이스 프레임워크인 Core Data를 사용하였습니다.
-
-### III. 비동기 작업
-
-- **Grand Central Dispatch**: 비동기 작업 자체가 그렇게 많이 사용되지 않았을뿐더러 모두 UI와 관련된 작업이기에, 비동기 작업을 Swift Concurrency보다 손쉽게 구현할 수 있는 GCD를 사용하였습니다.
+**채택 이유**
+- 편리하고 빠른 비동기 작업의 구현
 
 # 5. 개발 중 난관 및 해결 방법
 ## I. Core Data 사용
 
-이 전까지 데이터베이스를 다뤄보지 못한 저는 Core Data Entity를 만들고 Attribute를 정하는데 많은 어려움을 겪었습니다. 하지만 PersistentContainer를 MVVM 디자인 패턴의 모델로 생각하고 ViewModel을 구현해 내면 된다고 생각하니, 수월하게 이해할 수 있었습니다.
+- **발생 이유**: 해당 프레임워크에 대한 미숙한 지식으로 인해 Core Data Entity 생성 및 내부 Attribute 결정 시 많은 시간 소모
+
+- **해결 방법**: PersistentContainer가 어떻게 MVVM 내의 Model로서 역할을 할 수 있는지 문서 공부를 통해 알게 됨
 
 # 6. To-Do's
-- [ ] GCD 및 코드 리팩토링
+- [x] 새로운 iPhone 환경에서 정상 작동하는지 테스트
