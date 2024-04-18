@@ -20,7 +20,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </thead>
   <tbody>
     <tr>
-      <td align="center">개발 언어</td>
+      <td align="center">개발 언어</td>
       <td align="center">Swift</td>
     </tr>
     <tr>
