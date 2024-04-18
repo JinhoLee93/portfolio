@@ -16,7 +16,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## 기여도
 100%
 
-## [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4))
+# [2. WordsADay (하루 단어)](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4))
 
 [유튜브 링크](https://www.youtube.com/shorts/XjecEqldjcY)
 
@@ -34,7 +34,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## 기여도
 100%
 
-## [3. FortySeconds (하루 40초)](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88))
+# [3. FortySeconds (하루 40초)](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88))
 
 [유튜브 링크](https://youtu.be/3eXYfnBKCjE)
 
@@ -42,6 +42,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 **MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
+
+## 개요
+하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
 
 ## 제작 기간
 2022.02 ~ 2022.05
