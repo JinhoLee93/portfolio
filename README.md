@@ -212,6 +212,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## I. 개요
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
+[gif](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
+
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
 ### Architecture
