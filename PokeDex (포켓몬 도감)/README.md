@@ -127,9 +127,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # 5. 개발 중 난관 및 해결 방법
 
-## I. 1000개가 넘는 포켓몬 엔트리를 한 번에 받아올 시, 너무 많은 네트워크 콜로 인해 빈번하게 생기던 "HTTP Load Failed" 에러
+## I. 빈번하게 생기던 "HTTP Load Failed" 에러
 
-- **해결 방법**: 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 테이블 뷰 Infinite Scroll을 구현
+- **발생 이유**: 1000개가 넘는 포켓몬 데이터를 한 번에 받아오면서 너무 많은 네트워크 콜 때문에 발생
+
+- **해결 방법**: 한 번에 20개의 포켓몬 엔트리만 받아올 수 있도록 테이블 뷰 Infinite Scroll 구현
 
 ## II. Infinite Scroll 구현으로 인해, 불가능해진 전체 포켓몬 검색
 
@@ -145,8 +147,9 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
-- **해결 방법**: 비동기 작업 및 재사용 셀 인과관계 파악 후, prepareForReuse() 함수 내 이미지를 로드하는 Task 취소 코드를 아래와 같이 한 줄 넣어 해결
+- **발생 이유**: 바로 시작되지 않는 비동기 작업과 테이블 뷰에 사용되는 재사용 셀 인과관계
 
+- **해결 방법**: prepareForReuse() 함수 내 이미지를 로드하는 Task 취소 코드를 아래와 같이 한 줄 넣어 해결
 
 <img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
