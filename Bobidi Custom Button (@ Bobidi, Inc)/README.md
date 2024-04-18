@@ -13,7 +13,39 @@ Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 버튼 애니메이션은 iOS 비디오 촬영 버튼에서 영감을 받았습니다.
 
 # 3. Tech Stack
-**Swift, UIKit**
+## 개발 언어 및 방법론
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">개발 언어</td>
+      <td align="center">Swift</td>
+    </tr>
+  </tbody>
+</table>
+
+## 프레임워크
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)/README.md#i-ui-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">UI</a></td>
+      <td align="center">UIKit</td>
+    </tr>
+  </tbody>
+</table>
 
 # 4. Tech Stack 사용 목적
 ## 프레임워크
