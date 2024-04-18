@@ -154,27 +154,27 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 
-## V. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 Customization: 
+## V. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 섹션 구현 
 
-포켓몬 상세 데이터를 섹션 별로 나누기 위해 테이블 뷰를 Customize 해야 했는데, RxCocoa만으론 섹션이 나눠진 복잡한 테이블 뷰는 구현할 수 없었습니다. 모든 것을 Rx 형식으로 구현하는 것을 포기하고, Delegate과 DataSource를 사용하려고 했을 때, RxDatasource란 프레임워크가 있다는 것을 발견하였고, 그를 사용해 섹션이 나누어진 포켓몬 상세 데이터 테이블 뷰를 구현할 수 있었습니다.
+- **해결 방법**: RxDataSource 프레임워크 적극 활용
    
-  -> **결과**: 성공적으로 섹션별로 나뉜 포켓몬 상세 정보
+- **결과**: 섹션별로 나뉜 포켓몬 상세 정보 구현 성공
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
 ## VI. ViewModel에서 포켓몬 데이터 PublishSubject에 담긴 기존 데이터를 다루고자 할 때 생기는 Nesting Subscribe 문제
 
-Nesting Subscribe은 데이터 스트림이 꼬이면서 무한히 Observable 갱신이 일어날 수 있어 피해야 하는 행동입니다. 유저가 특정 포켓몬에 좋아요를 눌렀을 때, 기존의 포켓몬 BehaviorSubject에 접근해 내부 데이터를 바꿔야 하는데, Nesting Subscribe 없인 할 수 없었습니다. 이를 해결하기 위해 RxRelay 프레임워크를 사용하였습니다.
+- **해결 방법**: BehaviorRelay를 사용해 Observable 내 데이터 바로 접근
 
-## VII. POP와 Generic을 이용한 Unit Test
+## VII. POP, Generic 및 Dependency Injection을 이용한 Unit Test
 
-Generic 함수를 이용해 Protocol을 만들고 해당 Protocol을 이용해 Mock Network Layer를 만든 후, Dependency Injection을 통해 Unit Test에 사용하였습니다.
-  
-  -> **Protocol 코드**:
+- **해결 방법**: Protocol을 통해 Network Layer 정립, Mock Data Layer 제작, 및 Mock Data Layer 테스트 코드에 주입.
+
+- **Protocol 코드**:
   
 <img width="882" alt="Screenshot 2024-04-16 at 11 07 57 AM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/4f7beff6-8467-4699-a80e-2bc2a4565d51">
 
-  -> **Mock Layer 구성**: 
+- **Mock Layer 구성**: 
   
 <img width="1483" alt="Screenshot 2024-04-16 at 11 09 39 AM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/5aeba1f4-c9c2-478d-aa2b-273dc7bff977">
 
