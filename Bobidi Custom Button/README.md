@@ -18,3 +18,4 @@ Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 - **UIKit**: CAGradientLayer에 사용되는 UIColor를 사용하기 위해 사용하였습니다. 
 
 # 4. 개발 중 난관 및 해결 방법
+**I. Core Animation과 Core Graphics에 대한 기본적인 이해**:
