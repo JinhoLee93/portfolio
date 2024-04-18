@@ -41,6 +41,6 @@
 ## [1. Bobidi Custom Buttom](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button)
 **사용된 개발 언어 및 프레임워크: Swift, UIKit**
 
-제작 기간: 주말
+제작 기간: 2022.08.20 ~ 2022.08.21
 
 기여도: 100%
