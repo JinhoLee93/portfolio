@@ -132,7 +132,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ## XIII. Swift Package Manager
 
 - CocoaPods보다 쉽고 간편한 프레임워크 Dependency 관리 툴
-- 1st Party
+- Reliable한 1st Party Tool
 
 # 5. 개발 중 난관 및 해결 방법
 
