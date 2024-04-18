@@ -1,6 +1,4 @@
-# Bobidi Custom Button
-
-![Screen Recording 2023-04-24 at 7 36 50 PM](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
+# [Bobidi Custom Button](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
 
 # 1. 개요
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
