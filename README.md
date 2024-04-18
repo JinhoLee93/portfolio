@@ -4,11 +4,11 @@
 
 [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
-## Tech Stack
-**MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection, Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
-
 ## 개요
 RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 본인 마음에 드는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
+
+## Tech Stack
+**MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection, Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
 
 ## 제작 기간
 2024.02 ~
@@ -22,11 +22,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
-## Tech Stack
-**MVVM, Swift, SwiftUI, Core Data, Grand Central Dispatch**
-
 ## 개요
 장소법을 개량한 암기 방법을 이용해 만든 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
+
+## Tech Stack
+**MVVM, Swift, SwiftUI, Core Data, Grand Central Dispatch**
 
 ## 제작 기간
 2022.03 ~ 2022.06
@@ -40,11 +40,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
-## Tech Stack
-**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
-
 ## 개요
 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
+
+## Tech Stack
+**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
 
 ## 제작 기간
 2022.02 ~ 2022.05
