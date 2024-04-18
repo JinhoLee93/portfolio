@@ -30,7 +30,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     </tr>
     <tr>
       <td align="center">개발 기술</td>
-      <td align="center">Protocol Oriented Programming, Dependency Injection</td>
+      <td align="center">Protocol Oriented Programming
+        Dependency Injection</td>
     </tr>
   </tbody>
 </table>
