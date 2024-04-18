@@ -9,8 +9,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-| 분야 | 프레임워크 목록 |
+| 분야 | 이름 |
 | --- | --- |
+| 개발 언어 | Swift |
+| 디자인 패턴 | MVVM-C & MVVM |
+| 개발 기술 | Protocol Oriented Programming, Dependency Injection |
 
 
 **MVVM-C & MVVM, Protocol Oriented Programming, Dependency Injection, Swift, UIKit, Rx, SnapKit, SwiftUI, Combine, Kingfisher, XCTest, RxTest, Swift Concurrency, Swift Package Manager**
