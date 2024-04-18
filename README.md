@@ -72,7 +72,19 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
 
 ## Tech Stack
-**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
+
+### 개발 언어 및 방법론
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| 개발 언어 | Swift |
+| [디자인 패턴](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4) | MVVM |
+
+### 프레임워크
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| [UI](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#i-ui-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC) | SwiftUI |
+| [Reactive Programming](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#ii-reactive-programming-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC) | Combine |
+| [비동기 작업](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iii-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC) | Swift Concurrency |
 
 ## 제작 기간
 2022.02 ~ 2022.05
@@ -87,7 +99,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
 ## Tech Stack
-**Swift, UIKit**
+### 개발 언어 및 방법론
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| 개발 언어 | Swift |
+
+### 프레임워크
+| 관련 분야 | 이름 |
+| :---: | :---: |
+| [UI](https://github.com/JinhoLee93/portfolio/blob/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)/README.md#i-ui-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC) | UIKit |
 
 ## 제작 기간
 2022.08.20 ~ 2022.08.21
