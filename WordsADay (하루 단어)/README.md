@@ -57,7 +57,10 @@
 </table>
 
 # 4. Tech Stack 사용 목적
-## 디자인 패턴
+
+## Architecture 
+
+### I. 디자인 패턴
 
 - **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
 
@@ -76,7 +79,9 @@
 - **Grand Central Dispatch**: 비동기 작업 자체가 그렇게 많이 사용되지 않았을뿐더러 모두 UI와 관련된 작업이기에, 비동기 작업을 Swift Concurrency보다 손쉽게 구현할 수 있는 GCD를 사용하였습니다.
 
 # 5. 개발 중 난관 및 해결 방법
-**I. Core Data 사용**: 이 전까지 데이터베이스를 다뤄보지 못한 저는 Core Data Entity를 만들고 Attribute를 정하는데 많은 어려움을 겪었습니다. 하지만 PersistentContainer를 MVVM 디자인 패턴의 모델로 생각하고 ViewModel을 구현해 내면 된다고 생각하니, 수월하게 이해할 수 있었습니다.
+## I. Core Data 사용
+
+이 전까지 데이터베이스를 다뤄보지 못한 저는 Core Data Entity를 만들고 Attribute를 정하는데 많은 어려움을 겪었습니다. 하지만 PersistentContainer를 MVVM 디자인 패턴의 모델로 생각하고 ViewModel을 구현해 내면 된다고 생각하니, 수월하게 이해할 수 있었습니다.
 
 # 6. To-Do's
 - [ ] GCD 및 코드 리팩토링
