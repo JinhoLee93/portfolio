@@ -2,9 +2,6 @@
 
 **[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
 
-# 0. Tech Stack
-**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
-
 # 1. 개요
 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
 
@@ -15,7 +12,10 @@
 
 자극적이고 선정적인 세상에서 한 문제당 10초씩, 하루에 40초만이라도 마음을 놓을 수 있는 편안한 공간을 유저에게 만들어주고 싶다는 생각을 하였고, 하루 40초 구상에 들어가게 되었습니다. 제가 첫 번째로 개발한 앱인 하루 40초는 제 시각에서 바라본 한국어 단어 게임 Wordle입니다. 하루 40초를 계기로 저는 iOS 앱 개발의 재미에 눈 뜨게 되었습니다.
 
-# 3. 디자인 패턴, 개발 기술 및 프레임워크의 사용 목적
+# 3. Tech Stack
+**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
+
+# 3. Tech Stack 사용 목적
 ## 디자인 패턴
 - **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
 
