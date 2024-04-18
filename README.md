@@ -19,7 +19,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   <tbody>
     <tr>
       <center>
-      <td width="200px"><a style="text-align:center" href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4">디자인 패턴</a></td>
+      <td width="200px"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4"><span style="text-align:center">디자인 패턴</span></a></td>
       <td width="1000px"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
       </center>
     </tr>
