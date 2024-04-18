@@ -64,19 +64,31 @@
 # 4. Tech Stack 사용 목적
 
 ## I. MVVM
-각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
+
+**채택 이유**
+- 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
 
 ## II. SwiftUI
-하루 40초는 많은 애니메이션이 합쳐진 단어 "게임"입니다. 그렇기에, 당시엔 그래픽 애니메이션을 쉽게 구현할 수 있고, 애니메이션을 위한 많은 서포트가 장착되어 있고, preview를 통해 구현된 애니메이션을 바로바로 확인할 수 있는 SwiftUI가 UIKit보다 매력적인 선택이었습니다. 또한, 하루 40초는 제가 개발한 첫 번째 앱이니만큼, MVVM 디자인 패턴을 구현하기 위한 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 서포트가 잘 되어있는 SwiftUI가 UIKit보다 접근하기 용이했습니다.
+
+**채택 이유**
+- 단어 "게임"의 재미있는 애니메이션 부분을 쉽게 구현하기 위한 서포트
+- Preview를 통한 빠른 애니메이션 확인
+- MVVM을 쉽게 구현할 수 있게 도와주는 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 지원
   
 ## III. Combine
-하루 40초를 포함한 정해진 시간 동안만 플레이할 수 있는 게임의 중심은 타이머입니다. 하루 40초엔 게임 타이머와 백그라운드 타이머 두 개가 구현되어 있습니다. 하나는 40초를 재고, 또 다른 하나는 뒤에서 게임이 끝난 순간부터 24시간을 재게 됩니다. 이 타이머를 구현하기 위해 Timer를 Publisher로서 전환할 수 있는 Combine이 필요했기에, Combine을 사용하게 되었습니다.
+
+**채택 이유**
+- 게임 중 필요한 40초 게임 타이머와 게임 후 필요한 24시간 백그라운드 타이머를 Publisher로서의 구현
 
 ## IV. Swift Concurrency
-상당히 많은 양의 UI가 비동기 작업을 통해 애니메이션을 수행하였으므로, Task.sleep() 함수를 이용한 Swift Concurrency 헬퍼 함수를 만들어놓고, 그것을 통해 비동기 애니메이션 작업을 구현하였습니다.
+
+**채택 이유**
+- 가독성 향상
+- Task.sleep() 함수를 이용한 Swift Concurrency 헬퍼 함수를 통한 비동기 UI 애니메이션 처리
 
 # 5. 개발 중 난관 및 해결 방법
 ## I. 정답시 카드를 180도 넘겨짐에도 불구하고 위의 글자를 360도 넘기는 이펙트
+
 - **구현 목표**
 
 ![Cards Being Flipped](https://github.com/JinhoLee93/Portfolio/assets/60580427/8d73bf1f-323f-4e22-9db6-561ba40589b4)
