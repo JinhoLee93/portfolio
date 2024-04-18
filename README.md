@@ -242,7 +242,7 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
   </thead>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)/README.md#i-ui-%EA%B4%80%EB%A0%A8-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC">UI</a></td>
+      <td align="center">UI</td>
       <td align="center">UIKit</td>
     </tr>
   </tbody>
