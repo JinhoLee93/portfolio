@@ -61,28 +61,24 @@
 </table>
 
 
-# 4. Tech Stack 사용 목적
+# 4. Tech Stack 채택 이유
 
 ## I. MVVM
 
-**채택 이유**
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현
 
 ## II. SwiftUI
 
-**채택 이유**
 - 단어 "게임"의 재미있는 애니메이션 부분을 쉽게 구현하기 위한 서포트
 - Preview를 통한 빠른 애니메이션 확인
 - MVVM을 쉽게 구현할 수 있게 도와주는 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 지원
   
 ## III. Combine
 
-**채택 이유**
 - 게임 중 필요한 40초 게임 타이머와 게임 후 필요한 24시간 백그라운드 타이머를 Publisher로서의 구현
 
 ## IV. Swift Concurrency
 
-**채택 이유**
 - 가독성 향상
 - Task.sleep() 함수를 이용한 Swift Concurrency 헬퍼 함수를 통한 비동기 UI 애니메이션 처리
 
