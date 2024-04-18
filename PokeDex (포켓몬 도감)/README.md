@@ -146,7 +146,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **해결 방법**: 한 번에 20개의 포켓몬 엔트리만 받아올 수 있도록 테이블 뷰 Infinite Scroll 구현
 
-## II. Infinite Scroll 구현으로 인해, 불가능해진 전체 포켓몬 검색
+## II. Infinite Scroll 구현으로 인해 불가능해진 전체 포켓몬 검색
 
 - **해결 방법**: 검색 시작 시, 새로운 포켓몬 로드 종료 후, 이미 로드 되어있는 포켓몬 내 검색 허용
 
