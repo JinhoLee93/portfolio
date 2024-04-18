@@ -76,11 +76,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Architecture
 
-### 디자인 패턴
+### I. 디자인 패턴
 
 - **MVVM-C & MVVM**: 쉬운 디버깅과 테스트, 그리고 가독성 높은 코드를 만들면서 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
   
-### 개발 기술
+### II. 개발 기술
 
 - **Protocol Oriented Programming**: 하나의 Super Class를 만들고 상속을 통해 코드를 구현하기보단 그 자리에서 해당 코드에 무엇이 필요한지 정해놓고 그로부터 가지를 뻗어나가는 것이 제가 개발하는 방식과 잘 맞다고 생각되어 OOP가 아닌, 코드 레이아웃을 먼저 Protocol로서 만들어놓고 코드를 만들기 시작하였습니다.
   
