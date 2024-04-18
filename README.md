@@ -35,15 +35,19 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 100%
 
 ## [3. FortySeconds (하루 40초)](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88))
-**Tech Stack: MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
-
-제작 기간: 2022.02 ~ 2022.05
-
-기여도: 100%
 
 [유튜브 링크](https://youtu.be/3eXYfnBKCjE)
 
 [앱 스토어 링크](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
+
+## Tech Stack
+**MVVM, Swift, SwiftUI, Combine, Swift Concurrency**
+
+## 제작 기간
+2022.02 ~ 2022.05
+
+## 기여도
+100%
 
 # Appendix
 ## [1. Bobidi Custom Buttom (@ Bobidi, Inc)](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc))
