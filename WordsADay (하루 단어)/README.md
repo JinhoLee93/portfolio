@@ -86,7 +86,7 @@
 
 - **해결 방법**: PersistentContainer가 어떻게 MVVM 내의 Model로서 역할을 할 수 있는지 문서 공부를 통해 알게 됨
 
-- - **결과**: Core Data Predicate 사용으로 원하는 노트를 위한 Query 가능
+- **결과**: Entity와 그것의 내부 Attribute를 통해 만든 Core Data Predicate 사용으로 원하는 노트 Query를 통해 불러오기 가능
 
 # 6. To-Do's
 - [x] 새로운 iPhone 환경에서 정상 작동하는지 테스트
