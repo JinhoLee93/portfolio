@@ -71,15 +71,6 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </tbody>
 </table>
 
-| 관련 분야 | 이름 |
-| :---: | :---: |
-| [UI](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#i-ui) | UIKit, SwiftUI, SnapKit |
-| [Reactive Programming](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#ii-reactive-programming) | Rx, Combine |
-| [Image Caching](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching) | Kingfisher |
-| [Testing](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iv-%ED%85%8C%EC%8A%A4%ED%8C%85) | XCTest, RxTest |
-| [비동기 작업](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#v-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85) | Swift Concurrency |
-| [Dependency](https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#vi-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-dependency) | Swift Package Manager |
-
 ## 제작 기간
 2024.02 ~
 
