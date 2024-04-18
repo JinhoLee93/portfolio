@@ -158,7 +158,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **발생 이유**: 바로 시작되지 않는 비동기 작업과 테이블 뷰에 사용되는 재사용 셀 인과관계
 
-- **버그 내용**: 전에 로드된 포켓몬 이미지가 재사용 셀에 남아있어 최근 포켓몬 이미지와 충돌하는 상황 발생
+- **버그 내용**: 전에 로드된 포켓몬 이미지가 재사용 셀에 남아있어 최근 포켓몬 이미지와 충돌하는 아래와 같은 상황 발생
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
@@ -166,7 +166,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 <img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
-- **결과**: 없어진 테이블 뷰 내 이미지 충돌
+- **결과**: 아래와 같이 없어진 테이블 뷰 내 이미지 충돌
 
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
@@ -176,7 +176,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **해결 방법**: RxDataSource 프레임워크 적극 활용
    
-- **결과**: 섹션별로 나뉜 포켓몬 상세 정보 구현 성공
+- **결과**: 아래와 같이 섹션별로 나뉜 포켓몬 상세 정보 구현 성공
     
 <img width="407" alt="Screenshot 2024-04-15 at 1 51 56 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/2c362bf9-dd86-4bee-a682-184ca1f8329b">
 
