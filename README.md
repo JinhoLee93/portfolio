@@ -49,23 +49,23 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
     </tr>
     <tr>
       <td align="center">Reactive Programming</td>
-      <td align="center">Rx, Combine</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#vii-rx-rxswift-rxrelay-rxdatasource">Rx</a>, <a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#viii-combine">Combine</a></td>
     </tr>
     <tr>
       <td align="center">Image Caching</td>
-      <td align="center">Kingfisher</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#ix-kingfisher">Kingfisher</a></td>
     </tr>
     <tr>
       <td align="center">Testing</td>
-      <td align="center">XCTest, RxTest</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#x-xctest">XCTest</a>, <a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xi-rxtest">RxTest</a></td>
     </tr>
     <tr>
       <td align="center">비동기 작업</td>
-      <td align="center">Swift Concurrency</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xii-swift-concurrency">Swift Concurrency</a></td>
     </tr>
     <tr>
       <td align="center">프레임워크 Dependency 관리</td>
-      <td align="center">Swift Package Manager</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xiii-swift-package-manager">Swift Package Manager</a></td>
     </tr>
   </tbody>
 </table>
