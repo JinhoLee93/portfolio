@@ -25,11 +25,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
       <td align="center">Swift</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4">디자인 패턴</a></td>
+      <td align="center">디자인 패턴</td>
       <td align="center">MVVM-C & MVVM</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#%EA%B0%9C%EB%B0%9C-%EA%B8%B0%EC%88%A0">개발 기술</a></td>
+      <td align="center">개발 기술</td>
       <td align="center">Protocol Oriented Programming, Dependency Injection</td>
     </tr>
   </tbody>
@@ -46,27 +46,27 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </thead>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#i-ui">UI</a></td>
+      <td align="center">UI</td>
       <td align="center">UIKit, SwiftUI, SnapKit</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#ii-reactive-programming">Reactive Programming</a></td>
+      <td align="center">Reactive Programming</td>
       <td align="center">Rx, Combine</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iii-image-caching">Image Caching</a></td>
+      <td align="center">Image Caching</td>
       <td align="center">Kingfisher</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#iv-%ED%85%8C%EC%8A%A4%ED%8C%85">Testing</a></td>
+      <td align="center">Testing</td>
       <td align="center">XCTest, RxTest</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#v-%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%9E%91%EC%97%85">비동기 작업</a></td>
+      <td align="center">비동기 작업</td>
       <td align="center">Swift Concurrency</td>
     </tr>
     <tr>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/blob/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)/README.md#vi-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-dependency">프레임워크 Dependency 관리</a></td>
+      <td align="center">프레임워크 Dependency 관리</td>
       <td align="center">Swift Package Manager</td>
     </tr>
   </tbody>
