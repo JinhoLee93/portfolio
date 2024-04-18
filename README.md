@@ -18,7 +18,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </thead>
   <tbody>
     <tr>
-      <td textAlign:"center">디자인 패턴</td>
+      <td align="center">디자인 패턴</td>
     </tr>
   </tbody>
 </table>
