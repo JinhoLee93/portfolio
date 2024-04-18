@@ -127,31 +127,29 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # 5. 개발 중 난관 및 해결 방법
 
-## I. 포켓몬 데이터를 서버로부터 받아오는 방법
+## I. 1000개가 넘는 포켓몬 엔트리를 한 번에 받아올 시, 너무 많은 네트워크 콜로 인해 빈번하게 생기던 "HTTP Load Failed" 에러
 
-- **문제**: 1000개가 넘는 포켓몬 엔트리를 한 번에 받아올 시, 너무 많은 네트워크 콜로 인해 빈번하게 생기던 "HTTP Load Failed" 에러
+- **해결 방법**: 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 테이블 뷰 Infinite Scroll을 구현
 
-- **해결 방법**: 이를 해결하기 위해 한 번에 20개의 포켓몬 엔트리만을 받아올 수 있도록 테이블 뷰 Infinite Scroll을 구현하였습니다.
+## II. Infinite Scroll 구현으로 인해, 불가능해진 전체 포켓몬 검색
 
-## II. 검색 기능
-
-바뀐 포켓몬 데이터 로드 방식과 그를 위한 Infinite Scroll으로 인해 초기에 구상했던 전체 포켓몬 검색은 불가능해졌습니다. 검색이 시작되면 새로운 데이터를 로드하는 것을 중단하고, 이미 로드된 데이터 내에서만 검색을 실행하도록 검색 기능을 새롭게 구현하였습니다.
+- **해결 방법**: 검색 시작 시, 새로운 포켓몬 로드 종료 후, 이미 로드 되어있는 포켓몬 내 검색 허용
 
 ## III. GCD로 만들어진 Kingfisher 프레임워크 함수
 
-Kingfisher는 사용하기 편한 프레임워크이지만 문제는 오래전에 만들어졌다보니, Swift Concurrency를 지원하는 함수가 없습니다. 저는 이를 Continuation을 사용해 GCD를 사용하는 Kingfisher Disk Cache (ImageCache) 함수를 리팩토링하여 Swift Concurrency로 변환시켜 사용하였습니다.
+- **해결 방법**: Continuation을 통해 필요한 Disk Cache 함수 리팩토링
 
 ## IV. 빠르게 스크롤 시 Placeholder인 포켓볼 이미지가 아닌 포켓몬 이미지 충돌
 
-  -> **버그 내용**: Placeholder인 포켓볼 이미지는 로드가 되지 않은 이미지를 대신 해 나타나야 하지만, 밑의 gif를 보시면 포켓몬 이미지가 바뀌는 것을 보실 수 있습니다.
+**버그 내용**: 전에 로드된 포켓몬 이미지가 재사용 셀에 남아있어 최근 포켓몬 이미지와 충돌하는 상황 발생
 
 ![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
 
-  -> **해결 방법**: Reusable Cell을 사용하는 테이블 뷰에서 전에 실행된 네트워크 작업이 완료되지 않은 상태로 셀이 다시 사용되는 과정에 이런 현상이 생기는 것임을 파악한 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결하였습니다.
+**해결 방법**: 비동기 작업 및 재사용 셀 인과관계 파악 후, prepareForReuse() 함수 내 이미지를 로드하는 Task를 취소하는 코드를 아래와 같이 한 줄 넣어 해결
 
 <img width="372" alt="Screenshot 2024-04-15 at 1 31 11 PM" src="https://github.com/JinhoLee93/Portfolio/assets/60580427/75d27e89-0e4c-45a5-91a1-1cd9b904876e">
 
-  -> **결과**: 더 이상 이미지 충돌로 인해 깜빡거리는 현상이 발생하지 않았습니다.
+**결과**: 없어진 테이블 뷰 내 이미지 충돌
 
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
