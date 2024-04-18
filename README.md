@@ -14,8 +14,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 <table width="1200px">
   <thead>
     <tr>
-      <th width="200px">관련 분야</th>
-      <th width="1000px">이름</th>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
     </tr>
   </thead>
   <tbody>
@@ -35,8 +35,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 <table width="1200px">
   <thead>
     <tr>
-      <th width="200px">관련 분야</th>
-      <th width="1000px">이름</th>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
     </tr>
   </thead>
   <tbody>
