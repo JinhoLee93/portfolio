@@ -141,7 +141,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **해결 방법**: Continuation을 통해 필요한 Disk Cache 함수 리팩토링
 
-## IV. 빠르게 스크롤 시 Placeholder인 포켓볼 이미지가 아닌 포켓몬 이미지 충돌
+## IV. 빠르게 스크롤 시 테이블 뷰 셀 내 포켓몬 이미지 충돌
 
 - **버그 내용**: 전에 로드된 포켓몬 이미지가 재사용 셀에 남아있어 최근 포켓몬 이미지와 충돌하는 상황 발생
 
@@ -158,6 +158,8 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 ![scroll image bug solved](https://github.com/JinhoLee93/Portfolio/assets/60580427/609d7143-9290-4c6a-9c2f-faaabaf22bb8)
 
 ## V. Controller에 Delegate과 Datasource Boilerplate 코드 없이 테이블 뷰 섹션 구현 
+
+- **발생 이유**: 테이블 뷰 Customization에 대한 부족한 RxSwift 서포트
 
 - **해결 방법**: RxDataSource 프레임워크 적극 활용
    
