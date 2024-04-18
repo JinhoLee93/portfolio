@@ -38,7 +38,7 @@
 [유튜브 링크](https://youtube.com/shorts/INwuXnbQ-xA)
 
 # Appendix
-## [1. Bobidi Custom Buttom](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button)
+## [1. Bobidi Custom Buttom (@ Bobidi, Inc)](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button)
 **사용된 개발 언어 및 프레임워크: Swift, UIKit**
 
 제작 기간: 2022.08.20 ~ 2022.08.21
