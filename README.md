@@ -55,11 +55,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 # Appendix
 # [1. Bobidi Custom Buttom (@ Bobidi, Inc)](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc))
 
-## Tech Stack
-Swift, UIKit
-
 ## 개요
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
+
+## Tech Stack
+Swift, UIKit
 
 ## 제작 기간
 2022.08.20 ~ 2022.08.21
