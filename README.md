@@ -9,7 +9,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-### 개발 언어 및 방법론
+### Architecture
 
 <table width="1200px">
   <thead>
@@ -34,7 +34,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
   </tbody>
 </table>
 
-### 프레임워크
+### 프레임워크 
 
 <table width="1200px">
   <thead>
@@ -89,7 +89,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-### 개발 언어 및 방법론
+### Architecture 
 
 <table width="1200px">
   <thead>
@@ -153,7 +153,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-### 개발 언어 및 방법론
+### Architecture
 
 <table width="1200px">
   <thead>
@@ -213,7 +213,7 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
 
 ## Tech Stack
 
-### 개발 언어 및 방법론
+### Architecture
 
 <table width="1200px">
   <thead>
