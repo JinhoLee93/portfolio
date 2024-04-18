@@ -9,6 +9,22 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="50%">First header</th>
+      <th width="50%">Second header long</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="50%"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
+      <td width="50%"><img src="https://docs.github.com/assets/cb-194149/images/help/images/view.png"/></td>
+    </tr>
+  </tbody>
+</table>
+
+
 ### 개발 언어 및 방법론
 | 관련 분야 | 이름 |
 | :---: | :---: |
