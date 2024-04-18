@@ -184,13 +184,15 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## VI. Nesting Subscribe
 
-- **발생 이유**: RxSwift의 PublishSubject 내 데이터 접근성
+- **발생 이유**: RxSwift의 BehaviorSubject 내 데이터 접근성으로 subscribe()를 타 subscribe() 내부에 사용하게 됨으로써 발생
 
-- **해결 방법**: RxRelay의 BehaviorRelay를 사용해 Observable 내 데이터 바로 접근
+- **해결 방법**: RxRelay의 BehaviorRelay를 사용해 Observable 내 데이터를 subscribe() 없이 .value를 통해 바로 접근함으로서 해결
+
+- **결과**: Nesting Subscribe의 제거로 Observable 데이터 스트림이 꼬일 수 있는 위험이 없어지게 됨
 
 ## VII. POP, Generic 및 Dependency Injection을 이용한 Unit Test
 
-- **해결 방법**: Protocol을 통해 Network Layer 정립, Mock Data Layer 제작, 및 Mock Data Layer 테스트 코드에 주입.
+- **해결 방법**: Protocol을 통해 Network Layer 정립, Mock Data Layer 제작, 및 Mock Data Layer 테스트 코드에 주입
 
 - **Protocol 코드**:
   
