@@ -29,7 +29,7 @@
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
-      <td align="center">MVVM</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#i-mvvm">MVVM</a></td>
     </tr>
   </tbody>
 </table>
@@ -46,15 +46,15 @@
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">UIKit, SwiftUI, SnapKit</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#ii-swiftui">SwiftUI</a></td>
     </tr>
     <tr>
       <td align="center">Reactive Programming</td>
-      <td align="center">Combine</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iii-combine">Combine</a></td>
     </tr>
     <tr>
       <td align="center">비동기 작업</td>
-      <td align="center">Swift Concurrency</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iv-swift-concurrency">Swift Concurrency</a></td>
     </tr>
   </tbody>
 </table>
