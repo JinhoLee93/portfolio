@@ -9,7 +9,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## Tech Stack
 
-<table width="300px">
+<table width="3000px">
   <thead>
     <tr>
       <th width="150px">First header</th>
