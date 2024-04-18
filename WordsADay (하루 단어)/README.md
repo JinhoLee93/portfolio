@@ -58,29 +58,25 @@
   </tbody>
 </table>
 
-# 4. Tech Stack 사용 목적
+# 4. Tech Stack 채택 이유
 
 ## I. MVVM
 
-**채택 이유**
 - 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture 구현
 
 ## II. SwiftUI
 
-**채택 이유**
 - 단어 게임에 필요한 애니메이션의 쉬운 구현을 위한 서포트
 - Preview를 통한 빠른 애니메이션 결과물 확인
 
 ## III. Core Data
 
-**채택 이유**
 - 유저가 복잡한 데이터 구조를 가진 단어 노트를 생성, 저장, 삭제 및 과거 노트 접근 할 수 있게 해주는 로컬 데이터베이스 필요
 - 로컬 스토리지를 OOP 방식의 데이터베이스로의 전환
 - 1st Party 프레임워크
 
 ## Grand Central Dispatch
 
-**채택 이유**
 - 편리하고 빠른 비동기 작업의 구현
 
 # 5. 개발 중 난관 및 해결 방법
