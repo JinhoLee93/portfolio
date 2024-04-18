@@ -1,6 +1,6 @@
 # 이진호 개인 프로젝트 포트폴리오
 
-# [1. PokeDex (포켓몬 도감)](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="35">](https://youtube.com/shorts/INwuXnbQ-xA)
+# [1. PokeDex (포켓몬 도감)](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="25">](https://youtube.com/shorts/INwuXnbQ-xA)
 
 ## I. 개요
 
