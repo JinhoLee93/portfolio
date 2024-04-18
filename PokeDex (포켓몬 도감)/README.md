@@ -126,7 +126,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## XI. RxTest 
 
-- Observable을 테스트 할 수 있게 도와주는 API 제공
+- Observable을 테스트 할 수 있게 도와주는 기능 제공
 
 ## XII. Swift Concurrency
 
