@@ -65,7 +65,7 @@
 
 ## Architecture
 
-### 디자인 패턴
+### I. 디자인 패턴
 
 - **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
 
