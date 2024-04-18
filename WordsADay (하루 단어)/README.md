@@ -72,7 +72,7 @@
 - 로컬 스토리지를 OOP 방식의 데이터베이스로의 전환
 - 1st Party 프레임워크
 
-## Grand Central Dispatch
+## IV. Grand Central Dispatch
 
 - 단점이 많지만, 앱 내 많지 않은 비동기 작업의 숫자를 감안하여 편리하고 빠른 비동기 작업의 구현을 위해 사용
 
