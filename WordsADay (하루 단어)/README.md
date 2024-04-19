@@ -3,8 +3,9 @@
 # 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
 
-![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
+![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
 
+하루 단어를 통해 단어장에 원하는 대로 외우고자하는 단어를 등록하고 단어 게임을 통해 효율적인 단어 학습을 하세요! 
 
 # 2. 개발 목적
 컬럼비아 대학교를 졸업한 제가 영어 공부를 하면서 배운 영어 단어를 효율적으로 외울 수 있는 방법을 앱으로 나타내, 많은 유저의 언어 학습 여정에 도움이 되기를 바라며 개발하였습니다.
