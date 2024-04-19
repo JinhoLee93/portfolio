@@ -80,7 +80,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 ## I. 개요
 
-장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
+장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 알 수 있습니다.
+
+![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
+
+하루 단어를 통해 단어장에 원하는 대로 외우고자하는 단어를 등록하고 단어 게임을 통해 효율적인 단어 학습을 하세요! 
 
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/blob/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)/README.md#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
