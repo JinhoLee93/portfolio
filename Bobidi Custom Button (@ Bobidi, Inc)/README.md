@@ -3,7 +3,7 @@
 # 1. 개요
 Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 들어간 Reactive 버튼입니다.
 
-[](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
+[button](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
 
 # 2. 개발 목적
 저는 제가 몸 담았던 “바비디”라는 곳이 제 자신에게도 자랑스러운 것처럼, 다른 사람이 바비디라는 이름을 들었을 때 제가 느끼는 것과 같은 기분을 느낄 수 있도록 바비디만의 색깔을 온전히 담을 수 있는 트레이드 마크와 같은 것을 만들고 싶어 했습니다. 
