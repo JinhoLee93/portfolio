@@ -188,7 +188,7 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 - **발생 이유**: RxSwift의 BehaviorSubject 내 데이터 접근성으로 subscribe()를 타 subscribe() 내부에 사용하게 됨으로써 발생
 
-- **해결 방법**: RxRelay의 BehaviorRelay를 사용해 Observable 내 데이터를 subscribe() 없이 .value를 통해 바로 접근함으로서 해결
+- **해결 방법**: RxRelay의 BehaviorRelay를 사용해 Observable 내 데이터를 subscribe() 없이 .value Property를 통해 바로 접근함으로서 해결
 
 - **결과**: Nesting Subscribe의 제거로 Observable 데이터 스트림이 꼬일 수 있는 위험이 없어지게 됨
 
