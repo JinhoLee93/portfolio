@@ -142,10 +142,11 @@ RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이�
 
 # [3. FortySeconds (하루 40초)](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtu.be/3eXYfnBKCjE) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
-
 ## I. 개요
 
 [Wordle](https://www.nytimes.com/games/wordle/index.html)로부터 감명받아 제작된 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
+
+![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/951d1a38-9b8c-411c-a16f-33aee80ffdb8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/62b988bf-e726-43f0-a700-cc2adb72dc71) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/25337303-b56a-4d9a-a00a-664b5cfc96eb) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/e903b505-40a8-44a8-915c-f54164c8659b)
 
 ## [II. Tech Stack](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#4-tech-stack-%EC%B1%84%ED%83%9D-%EC%9D%B4%EC%9C%A0)
 
