@@ -3,7 +3,7 @@
 # 1. 개요
 장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
 
-![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
+![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
 
 
 # 2. 개발 목적
