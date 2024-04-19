@@ -4,6 +4,8 @@
 # 1. 개요
 [Wordle](https://www.nytimes.com/games/wordle/index.html)로부터 감명받아 제작된 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
 
+![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/951d1a38-9b8c-411c-a16f-33aee80ffdb8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/62b988bf-e726-43f0-a700-cc2adb72dc71) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/25337303-b56a-4d9a-a00a-664b5cfc96eb) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/e903b505-40a8-44a8-915c-f54164c8659b)
+
 # 2. 개발 목적
 제가 미국 유학 생활을 끝마칠 때쯤, 미국은 Wordle 돌풍에 휩싸였습니다. 
 
