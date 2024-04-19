@@ -1,7 +1,7 @@
 # WordsADay (하루 단어) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://www.youtube.com/shorts/XjecEqldjcY) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
 # 1. 개요
-장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 체크할 수 있습니다.
+장소법을 개량한 암기 방법을 이용해 만든 단어장 앱인 하루 단어의 유저는 본인의 방법으로 단어를 외우고, 단어 게임을 통해 어디까지 학습했는지 알 수 있습니다.
 
 ![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/a6cf1087-a397-4050-9af3-9d74995b28c8) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/61c2e6c6-15fe-430e-afc4-90da0ffbb0c5) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/a9146fe1-6b07-4227-b6d1-453c9224ffb4) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/c89e7379-df3a-4977-b621-1e56b90105e3)
 
