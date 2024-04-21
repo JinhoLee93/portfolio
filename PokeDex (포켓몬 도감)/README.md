@@ -2,7 +2,7 @@
 
 # 1. 개요
 
-RESTfulAPI를 통한 [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
+RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
 
 ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 39](https://github.com/JinhoLee93/portfolio/assets/60580427/50ccd5fb-25a9-464c-a6d8-6b2eb71b7f85) ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 47 38](https://github.com/JinhoLee93/portfolio/assets/60580427/747ee139-e4a7-4ebb-ae70-1b1c818695a2)
  ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 18](https://github.com/JinhoLee93/portfolio/assets/60580427/66e82921-1a5b-40a6-850a-654215de3082) ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 43](https://github.com/JinhoLee93/portfolio/assets/60580427/bac2e222-a13a-464f-94cf-549021c57fc6) 
