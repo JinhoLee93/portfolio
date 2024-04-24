@@ -71,6 +71,10 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
       <td align="center">프레임워크 Dependency 관리</td>
       <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xiii-swift-package-manager">Swift Package Manager</a></td>
     </tr>
+    <tr>
+      <td align="center">데이터베이스</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xiv-swift-package-manager">Core Data</a></td>
+    </tr>
   </tbody>
 </table>
 
