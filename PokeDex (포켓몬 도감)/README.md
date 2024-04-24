@@ -138,6 +138,9 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
 - CocoaPods보다 쉽고 간편한 프레임워크 Dependency 관리 툴
 - Reliable한 1st Party Tool
 
+## IX. Core Data
+- 로컬 데이터베이스 구현
+
 # 5. 개발 중 난관 및 해결 방법
 
 ## I. 빈번하게 생기던 "HTTP Load Failed" 에러
