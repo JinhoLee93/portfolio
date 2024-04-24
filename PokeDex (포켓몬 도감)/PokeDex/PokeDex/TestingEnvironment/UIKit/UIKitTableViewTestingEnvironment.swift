@@ -10,13 +10,13 @@ import RxSwift
 import SnapKit
 
 class UIKitTableViewTestingEnvironment {
-    let testingViewModel: ViewModel
-    
-    init(viewModel: ViewModel) {
-        testingViewModel = viewModel
-    }
-    
-    private func setUpUI() {
-        
-    }
+//    let testingViewModel: ViewModel
+//    
+//    init(viewModel: ViewModel) {
+//        testingViewModel = viewModel
+//    }
+//    
+//    private func setUpUI() {
+//        
+//    }
 }

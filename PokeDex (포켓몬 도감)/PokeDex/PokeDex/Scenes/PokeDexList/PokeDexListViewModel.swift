@@ -41,7 +41,7 @@ class PokeDexListViewModel: PokeDexListViewModelType {
     
     init(domain: NetworkLayer = APIServices.shared) {
         let originalPokemons = BehaviorRelay<Pokemon>(value: Pokemon(results: []))
-        let favoritePokemons = BehaviorRelay<[ViewPokemon]>(value: [])
+        let favoritePokemons = BehaviorRelay<[ViewPokemon]>(value: convertEntityToViewPokemon(FavoritePokemonsCoreDataViewModel.shared.getFavoritePokemons()))
         let preparePokemons = BehaviorSubject<[ViewPokemon]>(value: [])
         let prepareFetchPokemons = PublishSubject<Void>()
         let prepareFindPokemonQuery = BehaviorSubject<String>(value: "")
@@ -99,13 +99,12 @@ class PokeDexListViewModel: PokeDexListViewModelType {
             .withLatestFrom(pokemons) { pokemonToBeChanged, currentPokemons in
                 currentPokemons.map { currentPokemon in
                     if currentPokemon.name == pokemonToBeChanged.name {
-                        var currentFavoritePokemons = favoritePokemons.value
-                        if let index = currentFavoritePokemons.firstIndex(where: { $0.name == currentPokemon.name }) {
-                            currentFavoritePokemons.remove(at: index)
+                        if favoritePokemons.value.contains(where: { $0.name == currentPokemon.name && $0.url == currentPokemon.url }) {
+                            FavoritePokemonsCoreDataViewModel.shared.removePokemonFromFavoriteList(pokemonToBeChanged)
                         } else {
-                            currentFavoritePokemons.append(ViewPokemon(name: currentPokemon.name, url: currentPokemon.url, isFavorite: true))
+                            FavoritePokemonsCoreDataViewModel.shared.addFavoritePokemon(currentPokemon)
                         }
-                        favoritePokemons.accept(currentFavoritePokemons)
+                        favoritePokemons.accept(convertEntityToViewPokemon(FavoritePokemonsCoreDataViewModel.shared.getFavoritePokemons()))
 
                         return currentPokemon.changeIsFavorite(isFavorite: !currentPokemon.isFavorite)
                     }
@@ -123,7 +122,6 @@ class PokeDexListViewModel: PokeDexListViewModelType {
             .withLatestFrom(favoritePokemons) { $1 }
             .subscribe(onNext: prepareGetFavoritePokemons.onNext)
             .disposed(by: disposeBag)
-        
         
         // Fetch Pokemons
         callFetchPokemons = prepareFetchPokemons.asObserver()
@@ -148,6 +146,17 @@ class PokeDexListViewModel: PokeDexListViewModelType {
                 }
             })
             .disposed(by: disposeBag)
+        
+        func convertEntityToViewPokemon(_ entities: [FavoritePokemonEntity]) -> [ViewPokemon] {
+            var favoriteViewPokemons: [ViewPokemon] = []
+            FavoritePokemonsCoreDataViewModel.shared.getFavoritePokemons().forEach { entity in
+                if let entityName = entity.name, let entityURL = entity.url {
+                    favoriteViewPokemons.append(ViewPokemon(name: entityName, url: entityURL, isFavorite: true))
+                }
+            }
+            
+            return favoriteViewPokemons
+        }
     }
 }
 

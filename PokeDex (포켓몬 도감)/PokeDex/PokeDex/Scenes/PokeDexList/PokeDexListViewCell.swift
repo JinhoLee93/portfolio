@@ -113,6 +113,22 @@ class PokeDexListViewCell: UITableViewCell {
             })
             .disposed(by: disposeBag)
         
+//        Observable.zip(prepareName, prepareURL)
+//            .map { pokemonName, viewPokemon -> Bool in
+//                if let viewPokemon = viewPokemon {
+//                    let favoritePokemons = FavoritePokemonsCoreDataViewModel.shared.getFavoritePokemons()
+//                    
+//                    return favoritePokemons.contains(where: { $0.name == pokemonName && $0.url == viewPokemon.url })
+//                }
+//                
+//                return false
+//            }
+//            .map { UIImage(systemName: $0 ? "star.fill" : "star")!.withTintColor(.systemYellow, renderingMode: .alwaysOriginal) }
+//            .subscribe(onNext: { [weak self] image in
+//                self?.isFavoriteButton.setImage(image, for: .normal)
+//            })
+//            .disposed(by: disposeBag)
+        
         isFavoriteButton.rx.tap
             .subscribe(onNext: prepareOnFavoriteChanged.onNext)
             .disposed(by: disposeBag)
