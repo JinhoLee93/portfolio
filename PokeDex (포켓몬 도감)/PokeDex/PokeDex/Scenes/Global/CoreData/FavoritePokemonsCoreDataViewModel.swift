@@ -9,14 +9,14 @@ import SwiftUI
 import CoreData
 import RxSwift
 
-class FavoritePokemonsCoreDataViewModel: ObservableObject {
+final class FavoritePokemonsCoreDataViewModel: ObservableObject {
+    static let shared = FavoritePokemonsCoreDataViewModel()
     
-    let coreDataContainer: NSPersistentContainer
-    @Published var savedEntities: [FavoritePokemonEntity] = []
-    var savedEntitiesObservable = BehaviorSubject<[FavoritePokemonEntity]>(value: [])
-    private var backUpEntities: [FavoritePokemonEntity] = []
+    private let coreDataContainer: NSPersistentContainer
     
-    init() {
+    @Published private var savedEntities: [FavoritePokemonEntity] = []
+    
+    private init() {
         coreDataContainer = NSPersistentContainer(name: "FavoritePokemonCoreDataContainer")
         coreDataContainer.loadPersistentStores { description, error in
             if let error = error {
@@ -34,16 +34,7 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject {
         
         do {
             let requestResult = try coreDataContainer.viewContext.fetch(request)
-            
-            // SwiftUI
             savedEntities = requestResult
-            
-            // UIKit
-            savedEntitiesObservable.onNext(requestResult)
-            
-            // Backup
-            backUpEntities = requestResult
-            
         } catch let error {
             print("Error fetching. \(error)")
         }
@@ -57,17 +48,22 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject {
     }
     
     func removePokemonFromFavoriteList(_ pokemon: ViewPokemon) {
-        if let pokemonIndex = backUpEntities.firstIndex(where: { $0.name == pokemon.name && $0.url == pokemon.url }) {
-            coreDataContainer.viewContext.delete(backUpEntities[pokemonIndex])
+        if let pokemonIndex = savedEntities.firstIndex(where: { $0.name == pokemon.name && $0.url == pokemon.url }) {
+            coreDataContainer.viewContext.delete(savedEntities[pokemonIndex])
             saveData()
         }
     }
     
-    func deleteAllDataFromContainer() {
-        backUpEntities.forEach {
+    func deleteAllFavoritePokemons() {
+        savedEntities.forEach {
             coreDataContainer.viewContext.delete($0)
         }
-        FetchFavoritePokemons()
+        saveData()
+    }
+    
+    func getFavoritePokemons() -> [FavoritePokemonEntity] {
+        
+        return savedEntities
     }
     
     private func saveData() {
@@ -84,36 +80,36 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject {
         return NSFetchRequest<T>(entityName: entityName)
     }
 }
-
-var co = 0
-struct FavoritePokemonCoreDataTest: View {
-    @StateObject var vm = FavoritePokemonsCoreDataViewModel()
-    @State var addText = ""
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    ForEach(vm.savedEntities) { entity in
-                        LazyVStack {
-                            Text(entity.name!)
-                        }
-                    }
-                }
-                Button(action: {
-                    var p = ViewPokemon(name: "\(co)", url: "", isFavorite: true)
-                    co += 1
-                    vm.addFavoritePokemon(p)
-                }, label: { Text("Add") })
-                Button(action: {
-//                    vm.deleteAllDataFromContainer()
-                }, label: { Text("Delete all") })
-            }
-            .navigationTitle("pokemons")
-        }
-    }
-}
-
-#Preview {
-    FavoritePokemonCoreDataTest()
-}
+//
+//var co = 0
+//struct FavoritePokemonCoreDataTest: View {
+//    @StateObject var vm = FavoritePokemonsCoreDataViewModel.shared
+//    @State var addText = ""
+//    
+//    var body: some View {
+//        NavigationView {
+//            VStack {
+//                List {
+//                    ForEach(vm.getFavoritePokemons()) { entity in
+//                        LazyVStack {
+//                            Text(entity.name!)
+//                        }
+//                    }
+//                }
+//                Button(action: {
+//                    var p = ViewPokemon(name: "\(co)", url: "", isFavorite: true)
+//                    co += 1
+//                    vm.addFavoritePokemon(p)
+//                }, label: { Text("Add") })
+//                Button(action: {
+//                    vm.deleteAllFavoritePokemons()
+//                }, label: { Text("Delete all") })
+//            }
+//            .navigationTitle("pokemons")
+//        }
+//    }
+//}
+//
+//#Preview {
+//    FavoritePokemonCoreDataTest()
+//}
