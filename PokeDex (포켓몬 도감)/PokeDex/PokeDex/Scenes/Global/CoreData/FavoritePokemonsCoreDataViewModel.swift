@@ -11,6 +11,7 @@ import RxSwift
 
 final class FavoritePokemonsCoreDataViewModel: ObservableObject {
     static let shared = FavoritePokemonsCoreDataViewModel()
+    private let errorIdentifier = "FavoritePokemonsCoreDataViewModel"
     
     private let coreDataContainer: NSPersistentContainer
     
@@ -20,9 +21,7 @@ final class FavoritePokemonsCoreDataViewModel: ObservableObject {
         coreDataContainer = NSPersistentContainer(name: "FavoritePokemonCoreDataContainer")
         coreDataContainer.loadPersistentStores { description, error in
             if let error = error {
-                print("Error Loading Core Data Model. \(error)")
-            } else {
-                print("Successfully Loaded Core Data Model.")
+                print("Error \(error.localizedDescription) occurred while loading coreDataContainer for \(self.errorIdentifier)")
             }
         }
         
@@ -36,7 +35,7 @@ final class FavoritePokemonsCoreDataViewModel: ObservableObject {
             let requestResult = try coreDataContainer.viewContext.fetch(request)
             savedEntities = requestResult
         } catch let error {
-            print("Error fetching. \(error)")
+            print("Error \(error.localizedDescription) occurred while fetching requested result for \(errorIdentifier)")
         }
     }
     
@@ -71,7 +70,7 @@ final class FavoritePokemonsCoreDataViewModel: ObservableObject {
             try coreDataContainer.viewContext.save()
             FetchFavoritePokemons()
         } catch let error {
-            print("Error saving. \(error)")
+            print("Error \(error.localizedDescription) occurred while saving data for \(errorIdentifier)")
         }
     }
     
@@ -80,36 +79,3 @@ final class FavoritePokemonsCoreDataViewModel: ObservableObject {
         return NSFetchRequest<T>(entityName: entityName)
     }
 }
-//
-//var co = 0
-//struct FavoritePokemonCoreDataTest: View {
-//    @StateObject var vm = FavoritePokemonsCoreDataViewModel.shared
-//    @State var addText = ""
-//    
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                List {
-//                    ForEach(vm.getFavoritePokemons()) { entity in
-//                        LazyVStack {
-//                            Text(entity.name!)
-//                        }
-//                    }
-//                }
-//                Button(action: {
-//                    var p = ViewPokemon(name: "\(co)", url: "", isFavorite: true)
-//                    co += 1
-//                    vm.addFavoritePokemon(p)
-//                }, label: { Text("Add") })
-//                Button(action: {
-//                    vm.deleteAllFavoritePokemons()
-//                }, label: { Text("Delete all") })
-//            }
-//            .navigationTitle("pokemons")
-//        }
-//    }
-//}
-//
-//#Preview {
-//    FavoritePokemonCoreDataTest()
-//}
