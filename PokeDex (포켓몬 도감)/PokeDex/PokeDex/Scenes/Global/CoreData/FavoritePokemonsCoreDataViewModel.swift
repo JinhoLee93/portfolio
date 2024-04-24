@@ -9,17 +9,12 @@ import SwiftUI
 import CoreData
 import RxSwift
 
-protocol ViewModel {
-    
-}
-
-class FavoritePokemonsCoreDataViewModel: ObservableObject, ViewModel {
+class FavoritePokemonsCoreDataViewModel: ObservableObject {
     
     let coreDataContainer: NSPersistentContainer
     @Published var savedEntities: [FavoritePokemonEntity] = []
     var savedEntitiesObservable = BehaviorSubject<[FavoritePokemonEntity]>(value: [])
-    
-    private var backUpEntities: [FavoritePokemonEntity]
+    private var backUpEntities: [FavoritePokemonEntity] = []
     
     init() {
         coreDataContainer = NSPersistentContainer(name: "FavoritePokemonCoreDataContainer")
@@ -38,7 +33,7 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject, ViewModel {
         let request: NSFetchRequest<FavoritePokemonEntity> = createFetchRequest(entityName: "FavoritePokemonEntity")
         
         do {
-            var requestResult = try coreDataContainer.viewContext.fetch(request)
+            let requestResult = try coreDataContainer.viewContext.fetch(request)
             
             // SwiftUI
             savedEntities = requestResult
@@ -61,9 +56,19 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject, ViewModel {
         saveData()
     }
     
-//    func removePokemonFromFavoriteList(_ pokemon: ViewPokemon) {
-//        
-//    }
+    func removePokemonFromFavoriteList(_ pokemon: ViewPokemon) {
+        if let pokemonIndex = backUpEntities.firstIndex(where: { $0.name == pokemon.name && $0.url == pokemon.url }) {
+            coreDataContainer.viewContext.delete(backUpEntities[pokemonIndex])
+            saveData()
+        }
+    }
+    
+    func deleteAllDataFromContainer() {
+        backUpEntities.forEach {
+            coreDataContainer.viewContext.delete($0)
+        }
+        FetchFavoritePokemons()
+    }
     
     private func saveData() {
         do {
@@ -71,12 +76,6 @@ class FavoritePokemonsCoreDataViewModel: ObservableObject, ViewModel {
             FetchFavoritePokemons()
         } catch let error {
             print("Error saving. \(error)")
-        }
-    }
-    
-    func deleteAllDataFromContainer() {
-        backUpEntities.forEach {
-            coreDataContainer.viewContext.delete($0)
         }
     }
     
@@ -107,7 +106,7 @@ struct FavoritePokemonCoreDataTest: View {
                     vm.addFavoritePokemon(p)
                 }, label: { Text("Add") })
                 Button(action: {
-                    vm.deleteAllDataFromContainer()
+//                    vm.deleteAllDataFromContainer()
                 }, label: { Text("Delete all") })
             }
             .navigationTitle("pokemons")
