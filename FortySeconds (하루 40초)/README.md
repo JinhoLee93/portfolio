@@ -1,13 +1,10 @@
-# [FortySeconds (하루 40초)](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
+# FortySeconds (하루 40초) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtu.be/3eXYfnBKCjE) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
-**[유튜브 링크](https://youtu.be/3eXYfnBKCjE)**
-
-**사용된 디자인 패턴 및 개발 기술: MVVM**
-
-**사용된 개발 언어 및 프레임워크: Swift, SwiftUI, Combine, Swift Concurrency**
 
 # 1. 개요
-하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
+[Wordle](https://www.nytimes.com/games/wordle/index.html)로부터 감명받아 제작된 하루 40초는 하루에 단 4문제, 딱 40초만 플레이할 수 있는 한국어 단어 게임 앱입니다.
+
+![230x0w](https://github.com/JinhoLee93/portfolio/assets/60580427/951d1a38-9b8c-411c-a16f-33aee80ffdb8) ![230x0w (1)](https://github.com/JinhoLee93/portfolio/assets/60580427/62b988bf-e726-43f0-a700-cc2adb72dc71) ![230x0w (2)](https://github.com/JinhoLee93/portfolio/assets/60580427/25337303-b56a-4d9a-a00a-664b5cfc96eb) ![230x0w (3)](https://github.com/JinhoLee93/portfolio/assets/60580427/e903b505-40a8-44a8-915c-f54164c8659b)
 
 # 2. 개발 목적
 제가 미국 유학 생활을 끝마칠 때쯤, 미국은 Wordle 돌풍에 휩싸였습니다. 
@@ -16,32 +13,93 @@
 
 자극적이고 선정적인 세상에서 한 문제당 10초씩, 하루에 40초만이라도 마음을 놓을 수 있는 편안한 공간을 유저에게 만들어주고 싶다는 생각을 하였고, 하루 40초 구상에 들어가게 되었습니다. 제가 첫 번째로 개발한 앱인 하루 40초는 제 시각에서 바라본 한국어 단어 게임 Wordle입니다. 하루 40초를 계기로 저는 iOS 앱 개발의 재미에 눈 뜨게 되었습니다.
 
-# 3. 디자인 패턴, 개발 기술 및 프레임워크의 사용 목적
-## 디자인 패턴
-- **MVVM**: 각 모듈(Model, View, ViewModel)마다 해야할 일이 정확히 정해진 Clean Architecture를 구현하기 위해 MVVM 디자인 패턴을 사용하였습니다.
+# 3. Tech Stack
+
+## Architecture
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">개발 언어</td>
+      <td align="center">Swift</td>
+    </tr>
+    <tr>
+      <td align="center">디자인 패턴</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#i-mvvm">MVVM</a></td>
+    </tr>
+  </tbody>
+</table>
 
 ## 프레임워크
 
-### I. UI 관련 프레임워크
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">UI</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#ii-swiftui">SwiftUI</a></td>
+    </tr>
+    <tr>
+      <td align="center">Reactive Programming</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iii-combine">Combine</a></td>
+    </tr>
+    <tr>
+      <td align="center">비동기 작업</td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)#iv-swift-concurrency">Swift Concurrency</a></td>
+    </tr>
+  </tbody>
+</table>
 
-- **SwiftUI**: 하루 40초는 많은 애니메이션이 합쳐진 단어 "게임"입니다. 그렇기에, 당시엔 그래픽 애니메이션을 쉽게 구현할 수 있고, 애니메이션을 위한 많은 서포트가 장착되어 있고, preview를 통해 구현된 애니메이션을 바로바로 확인할 수 있는 SwiftUI가 UIKit보다 매력적인 선택이었습니다. 또한, 하루 40초는 제가 개발한 첫 번째 앱이니만큼, MVVM 디자인 패턴을 구현하기 위한 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 서포트가 잘 되어있는 SwiftUI가 UIKit보다 접근하기 용이했습니다.
 
-### II. Reactive Programming 관련 프레임워크
+# 4. Tech Stack 채택 이유
+
+## I. MVVM
+
+- 가독성이 좋으면서 쉬운 디버깅과 테스트를 위한 코드 작성을 도와줌
+- 각 모듈(Model, View, ViewModel)마다 해야할 일이 명확히 정해진 Clean Architecture 구현에 사용됨
+
+## II. SwiftUI
+
+- 단어 "게임"의 재미있는 애니메이션 부분을 쉽게 구현하기 위한 서포트 제공
+- Preview를 통한 빠른 애니메이션 확인 가능
+- MVVM을 쉽게 구현할 수 있게 도와주는 Property Wrapper(@Published, @StateObject, @ObservedObject 등) 제공
   
-- **Combine**: 하루 40초를 포함한 정해진 시간 동안만 플레이할 수 있는 게임의 중심은 타이머입니다. 하루 40초엔 게임 타이머와 백그라운드 타이머 두 개가 구현되어 있습니다. 하나는 40초를 재고, 또 다른 하나는 뒤에서 게임이 끝난 순간부터 24시간을 재게 됩니다. 이 타이머를 구현하기 위해 Timer를 Publisher로서 전환할 수 있는 Combine이 필요했기에, Combine을 사용하게 되었습니다.
+## III. Combine
 
-### III. 비동기 작업 관련 프레임워크
+- "하루 40초"의 게임 중 필요한 40초 게임 타이머와 게임 후 필요한 24시간 백그라운드 타이머를 Publisher로서 구현하는 것에 필요한 기능 제공
 
-- **Swift Concurrency**: 상당히 많은 양의 UI가 비동기 작업을 통해 애니메이션을 수행하였으므로, Task.sleep() 함수를 이용한 Swift Concurrency 헬퍼 함수를 만들어놓고, 그것을 통해 비동기 애니메이션 작업을 구현하였습니다.
+## IV. Swift Concurrency
 
-# 4. 개발 중 난관 및 해결 방법
-**I. 정답시 카드를 180도 넘겨짐에도 불구하고 위의 글자를 360도 넘기는 이펙트**:
-  
--> 구현 목표:
+- 코드의 가독성 향상
+- Task.sleep() 함수를 이용한 만든 Swift Concurrency 헬퍼 함수를 통한 용이해진 비동기 UI 애니메이션 처리
+
+# 5. 개발 중 난관 및 해결 방법
+## I. 정답시 카드를 180도 넘겨짐에도 불구하고 위의 글자를 360도 넘기는 이펙트
+
+- **구현 목표**
 
 ![Cards Being Flipped](https://github.com/JinhoLee93/Portfolio/assets/60580427/8d73bf1f-323f-4e22-9db6-561ba40589b4)
 
--> 개발 과정 중 고민: 가장 간단한 방법으로는 카드를 두 개 이어 붙여 360도 넘기는 것이었습니다. 하지만, 그렇게 애니메이션을 구현했을 때, 정신없이 발생하는 시각 이펙트 때문에 보는 이로 하여금 불쾌감을 주었습니다. 많은 시도 끝에 도달하게 된 결론은 카드가 90도 뒤집힐 때 사라지는 뷰의 사각을 이용하는 것이었습니다. 카드가 90도 뒤집힐 때 해당 카드의 콘텐츠는 유저의 눈으로부터 사라지게 되는데, 이 시간 동안 콘텐츠는 180도 뒤집기를 빠르게 한번 더 하는 것으로 해결하였습니다. 즉, 콘텐츠는 카드가 한 번 뒤집힐 때 두 번 180도 회전을 하게되는 것입니다.
+- **해결 방법 1**: 카드 360도 회전
 
-## 5. To-Do's
+- **해결 방법 1의 문제**: 너무 많은 비주얼 인풋으로 인해 유저에게 불쾌감을 줌
+
+- **해결 방법 2**: 카드가 90도 회전 할 때 생기는 사각을 이용. 카드가 90도로 회전하는 순간 빠르게 카드 위 콘텐츠를 180도 한 번 더 회전. 즉, 카드 콘텐츠는 360도 회전하게 되는 결과 구현.
+
+<img width="906" alt="Screenshot 2024-04-18 at 6 19 13 PM" src="https://github.com/JinhoLee93/portfolio/assets/60580427/d9d6f4ae-f3a9-49ea-b9a5-0ae056c59f66">
+
+- **결과**: 구현 목표 달성
+
+## 6. To-Do's
 - [x] GCD에서 Swift Concurrency로 Migrate
