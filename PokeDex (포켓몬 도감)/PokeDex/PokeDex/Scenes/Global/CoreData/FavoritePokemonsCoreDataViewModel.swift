@@ -9,13 +9,13 @@ import SwiftUI
 import CoreData
 import RxSwift
 
-final class FavoritePokemonsCoreDataViewModel: ObservableObject {
+final class FavoritePokemonsCoreDataViewModel {
     static let shared = FavoritePokemonsCoreDataViewModel()
     private let errorIdentifier = "FavoritePokemonsCoreDataViewModel"
     
     private let coreDataContainer: NSPersistentContainer
     
-    @Published private var savedEntities: [FavoritePokemonEntity] = []
+    private var savedEntities: [FavoritePokemonEntity] = []
     
     private init() {
         coreDataContainer = NSPersistentContainer(name: "FavoritePokemonCoreDataContainer")
