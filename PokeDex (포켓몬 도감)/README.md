@@ -110,7 +110,7 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
 
 - AsyncImage 같은 비교적 최신에 만들어진 편리한 기능을 사용할 수 있음
 - 하지만, Vs UIKit Performance 문제는 여전히 존재
-  - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
+  - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 CPU를 세 배 더 사용했습니다.**
  
 ## VII. Rx (RxSwift, RxRelay, RxDataSource)
 
@@ -123,7 +123,7 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
 ## IX. Kingfisher
 
 - 현업에서 많이 사용되는 프레임워크
-- 편리한 Image Caching 기능 제공 (프로젝트 내 FileManager와 NSCache를 통해 먼저 Native로 Cache를 구현해본 후 사용 됨)
+- 편리한 Image Caching 기능 제공 ~~(프로젝트 내 FileManager와 NSCache를 통해 먼저 Native로 Cache를 구현해본 후 사용 됨)~~
 
 ## X. XCTest
 
@@ -223,3 +223,4 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
 # 6. To-Do's
 - [x] 제대로 된 Error Handling 구현
 - [x] Combine을 통한 View 구조체 업데이트 시 RunLoop.main이 아닌 MainActor.run을 사용할 것
+- [x] NSCache를 통한 Memory Cache 구현
