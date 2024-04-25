@@ -108,7 +108,7 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
   
 ## VI. SwiftUI
 
-- Combine의 task 및 AsyncImage 같은 비교적 최신에 만들어진 편리한 기능을 사용할 수 있음
+- AsyncImage 같은 비교적 최신에 만들어진 편리한 기능을 사용할 수 있음
 - 하지만, Vs UIKit Performance 문제는 여전히 존재
   - **[연구결과](https://kth.diva-portal.org/smash/get/diva2:1789094/FULLTEXT01.pdf)에 따르면 SwiftUI의 LazyVGrid는 동일한 데이터를 처리하는데 UIKit의 CollectionView보다 세 배 느렸습니다.**
  
@@ -118,7 +118,7 @@ RESTful [PokeAPI](https://pokeapi.co/) 오픈소스 서버를 이용해 포켓�
   
 ## VIII. Combine
 
-- SwiftUI에서 Reactive Programming 구현 및 task를 통한 간편한 비동기 작업을 할 수 있음
+- SwiftUI에서 Reactive Programming 구현
 
 ## IX. Kingfisher
 
