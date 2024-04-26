@@ -26,7 +26,7 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#i-mvvm-c--mvvm">MVVM-C & MVVM</a></td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#i-mvvm">MVVM</a></td>
     </tr>
     <tr>
       <td align="center">개발 기술</td>
