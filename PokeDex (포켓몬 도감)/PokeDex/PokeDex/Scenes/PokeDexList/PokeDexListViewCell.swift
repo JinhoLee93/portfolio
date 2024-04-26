@@ -113,22 +113,6 @@ class PokeDexListViewCell: UITableViewCell {
             })
             .disposed(by: disposeBag)
         
-//        Observable.zip(prepareName, prepareURL)
-//            .map { pokemonName, viewPokemon -> Bool in
-//                if let viewPokemon = viewPokemon {
-//                    let favoritePokemons = FavoritePokemonsCoreDataViewModel.shared.getFavoritePokemons()
-//                    
-//                    return favoritePokemons.contains(where: { $0.name == pokemonName && $0.url == viewPokemon.url })
-//                }
-//                
-//                return false
-//            }
-//            .map { UIImage(systemName: $0 ? "star.fill" : "star")!.withTintColor(.systemYellow, renderingMode: .alwaysOriginal) }
-//            .subscribe(onNext: { [weak self] image in
-//                self?.isFavoriteButton.setImage(image, for: .normal)
-//            })
-//            .disposed(by: disposeBag)
-        
         isFavoriteButton.rx.tap
             .subscribe(onNext: prepareOnFavoriteChanged.onNext)
             .disposed(by: disposeBag)
@@ -171,15 +155,21 @@ extension PokeDexListViewCell {
     }
     
     private func fetchPokemonImage(domain: NetworkLayer, pokemonEntry: PokemonEntry) async -> UIImage? {
-        do {
-            if let pokemonImage = try await ImageCache.default.retrieveImageWithConcurrency(domain: domain, pokemonEntry: pokemonEntry) {
-                
-                return pokemonImage
+        if let pokemonImage = MemoryCacheManager.shared.getImage(name: pokemonEntry.url) {
+            
+            return pokemonImage
+        } else {
+            do {
+                if let pokemonImage = try await ImageCache.default.retrieveImageWithConcurrency(domain: domain, pokemonEntry: pokemonEntry) {
+                    MemoryCacheManager.shared.addToCache(image: pokemonImage, name: pokemonEntry.url)
+                    
+                    return pokemonImage
+                }
+            } catch let error {
+                print("Error: \(error.localizedDescription) occurred while executing fetchPokemonImage for \(errorIdentifier).")
             }
-        } catch let error {
-            print("Error: \(error.localizedDescription) occurred while executing fetchPokemonImage for \(errorIdentifier).")
         }
-        
+            
         return nil
     }
 }
