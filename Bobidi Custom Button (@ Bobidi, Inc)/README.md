@@ -55,6 +55,6 @@ Bobidi, Inc에서 근무할 때 만든 Gradient 그래픽과 애니메이션이 
 # 5. 개발 중 난관 및 해결 방법
 ## I. Core Animation과 Core Graphics을 통한 뷰 구조체 구현
 
-- **발생 이유**: 디테일 구현을 위한 Fine Tuning에 소모된 긴 시간
+- **발생 이유**: 디테일 구현을 위한 Fine Tuning에 소모된 시간
   
 - **해결 방법**: Core Animation과 Core Graphics를 이용해 뷰 구조체를 만들 땐 UI에 대한 정확한 아이디어와 목표 설정의 중요성 인지
