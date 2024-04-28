@@ -9,10 +9,10 @@ import SwiftUI
 import Combine
 
 struct LoadingIcon: View {
-    @State var isAnimating = false
-    @State var queRotation = false
-    @State var timer: AnyCancellable?
-    @State var bounced = 1
+    @State private var isAnimating = false
+    @State private var queRotation = false
+    @State private var timer: AnyCancellable?
+    @State private var bounced = 1
     
     var body: some View {
         VStack {
