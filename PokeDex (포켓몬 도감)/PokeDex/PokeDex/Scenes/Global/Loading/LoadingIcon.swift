@@ -11,7 +11,7 @@ import Combine
 struct LoadingIcon: View {
     @State var isAnimating = false
     @State var queRotation = false
-    @State var timer: Timer?
+    @State var timer: AnyCancellable?
     @State var bounced = 1
     
     var body: some View {
@@ -31,15 +31,19 @@ struct LoadingIcon: View {
                         isAnimating.toggle()
                     }
                     
-                    timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                        bounced += 1
-                        if bounced == 3 {
-                            bounced = 0
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                queRotation.toggle()
+                    timer?.cancel()
+                    timer = Timer
+                        .publish(every: 1, on: RunLoop.main, in: .default)
+                        .autoconnect()
+                        .sink { _ in
+                            bounced += 1
+                            if bounced == 3 {
+                                bounced = 0
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    queRotation.toggle()
+                                }
                             }
                         }
-                    }
                 }
         }
     }
