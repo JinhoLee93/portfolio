@@ -7,7 +7,6 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
 ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 39](https://github.com/JinhoLee93/portfolio/assets/60580427/50ccd5fb-25a9-464c-a6d8-6b2eb71b7f85) ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 47 38](https://github.com/JinhoLee93/portfolio/assets/60580427/747ee139-e4a7-4ebb-ae70-1b1c818695a2)
  ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 18](https://github.com/JinhoLee93/portfolio/assets/60580427/66e82921-1a5b-40a6-850a-654215de3082) ![Simulator Screenshot - iPhone 15 Pro Max - 2024-04-19 at 17 46 43](https://github.com/JinhoLee93/portfolio/assets/60580427/bac2e222-a13a-464f-94cf-549021c57fc6) 
 
-
 # 2. 개발 목적
 열렬한 포켓몬 딱지 콜렉터로 유년 시절을 보낸 제작자 혹은 제작자와 같은 유년기를 보낸 유저에게 향수를 불러일으켜, 잠깐이라도 어릴 때의 기분 좋은 날을 상상하며 좋은 하루를 만들 수 있기를 바라며 개발을 시작하였습니다.
 
@@ -219,6 +218,10 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
 - **해결 방법**: 스트레스 테스트를 돌릴 수 있는 간단한 데이터를 100% 활용할 수 있는 순수 함수 위주의 코드 작성
 
 - **결과**: 92%의 유닛 테스트 코드 커버리지 달성
+
+## IX. Loading Icon 구현
+
+![Screen Recording 2024-04-28 at 11 18 52 PM](https://github.com/JinhoLee93/portfolio/assets/60580427/4f916758-b57e-427d-89c3-b2ca6520bfef)
   
 # 6. To-Do's
 - [x] 제대로 된 Error Handling 구현
