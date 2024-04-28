@@ -14,13 +14,15 @@ struct LoadingIcon: View {
     @State private var timer: AnyCancellable?
     @State private var bounced = 1
     
+    @State private var circleWidth = 10
+    
     var body: some View {
         VStack {
             Image("Logo")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 40, height: 40)
-                .offset(y: isAnimating ? -20 : 0.0)
+                .offset(y: isAnimating ? -30 : 0.0)
                 .rotation3DEffect(
                     Angle(degrees: queRotation ? 360.0 : 0.0),
                     axis: (x: 0.0, y: 1.0, z: 0.0),
@@ -45,6 +47,10 @@ struct LoadingIcon: View {
                             }
                         }
                 }
+            
+            Ellipse()
+                .frame(width: isAnimating ? 90 : 4, height: 4)
+                .opacity(isAnimating ? 0.2 : 0.6)
         }
     }
 }
