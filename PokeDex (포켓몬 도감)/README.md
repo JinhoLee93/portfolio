@@ -224,3 +224,4 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
 - [x] 제대로 된 Error Handling 구현
 - [x] Combine을 통한 View 구조체 업데이트 시 RunLoop.main이 아닌 MainActor.run을 사용할 것
 - [x] NSCache를 통한 Memory Cache 구현
+- [x] 애니메이션이 추가된 Loading Icon 구현
