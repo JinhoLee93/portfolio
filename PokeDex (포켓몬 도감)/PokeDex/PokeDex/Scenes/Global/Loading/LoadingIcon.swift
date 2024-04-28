@@ -12,7 +12,7 @@ struct LoadingIcon: View {
     @State var isAnimating = false
     @State var queRotation = false
     @State var timer: Timer?
-    @State var bounced = 0
+    @State var bounced = 1
     
     var body: some View {
         VStack {
@@ -29,7 +29,6 @@ struct LoadingIcon: View {
                 .onAppear {
                     withAnimation(.easeInOut(duration: isAnimating ? 0.2 : 0.5).repeatForever(autoreverses: true)) {
                         isAnimating.toggle()
-                        bounced += 1
                     }
                     
                     timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
