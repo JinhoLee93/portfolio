@@ -1,6 +1,6 @@
 # 이진호 개인 프로젝트 포트폴리오
 
-# [1. Beatitudo Media]
+# 1. Beatitudo Media
 
 ## I. 개요
 
