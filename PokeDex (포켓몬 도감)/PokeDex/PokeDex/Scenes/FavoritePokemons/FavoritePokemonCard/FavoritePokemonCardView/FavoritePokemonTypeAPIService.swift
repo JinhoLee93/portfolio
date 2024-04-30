@@ -10,7 +10,7 @@ import Foundation
 class FavoritePokemonTypeAPIService: ObservableObject {
     private let errorIdentifier = "FavoritePokemonTypeAPIService"
     
-    @Published var favoritePokemonType: String = "unknown"
+    @Published var favoritePokemonType: String?
     
     let favoritePokemon: ViewPokemon
     let domain: NetworkLayer

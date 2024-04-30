@@ -68,7 +68,7 @@ enum TypeColorPattern: String {
             Color.black
         case .normal:
             Color.indigo
-        case .unknown:
+        default:
             Color.indigo
         }
     }
