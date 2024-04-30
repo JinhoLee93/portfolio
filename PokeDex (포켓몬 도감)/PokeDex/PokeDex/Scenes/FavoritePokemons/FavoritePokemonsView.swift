@@ -19,19 +19,27 @@ struct FavoritePokemonsView: View {
     private let gridItems = [GridItem(), GridItem(), GridItem()]
     
     var body: some View {
-        VStack {
-            Text("Your Favorite Pokemons")
-                .fontWeight(.bold)
-                .foregroundStyle(.yellow)
-        }
-        .frame(height: 40)
-        ScrollView {
-            LazyVGrid(columns: gridItems) {
-                ForEach(viewModel.favoritePokemons) { favoritePokemon in
-                    FavoritePokemonCardView(favoritePokemon: favoritePokemon)
+        ZStack {
+            LoadingPage()
+                .opacity(viewModel.readyToShowFavoritePokemons ? 0 : 1)
+            VStack {
+                VStack {
+                    Text("Your Favorite Pokemons")
+                        .fontWeight(.bold)
+                        .foregroundStyle(.yellow)
                 }
+                .frame(height: 40)
+                ScrollView {
+                    LazyVGrid(columns: gridItems) {
+                        ForEach(viewModel.favoritePokemons) { favoritePokemon in
+                            FavoritePokemonCardView(favoritePokemon: favoritePokemon)
+                                .environmentObject(viewModel)
+                        }
+                    }
+                    .padding(10)
+                }
+                .opacity(viewModel.readyToShowFavoritePokemons ? 1 : 0)
             }
-            .padding(10)
         }
     }
 }

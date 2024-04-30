@@ -10,10 +10,6 @@ import SwiftUI
 struct LoadingPage: View {
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
-                .opacity(0.4)
-                .blur(radius: 30)
             LoadingIcon()
         }
     }
