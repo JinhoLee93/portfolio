@@ -28,4 +28,18 @@ class FavoritePokemonsViewModel: ObservableObject {
             readyToShowFavoritePokemons = true
         }
     }
+    
+    func getArrayOfPokemonsChoppedByThree() -> [[ViewPokemon]] {
+        var choppedByThree: [[ViewPokemon]] = []
+        
+        for i in 0..<self.countOfFavoritePokemons {
+            if i % 3 == 0 {
+                choppedByThree.append([])
+            }
+            
+            choppedByThree[choppedByThree.count - 1].append(self.favoritePokemons[i])
+        }
+        
+        return choppedByThree
+    }
 }

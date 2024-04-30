@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 class FavoritePokemonCardViewModel: ObservableObject {
-    @Published var favoritePokemonType: String
+    @Published var favoritePokemonType: String?
     @Published var successfullyLoaded: Bool
     
     private var anyCancellables = Set<AnyCancellable>()
@@ -19,7 +19,6 @@ class FavoritePokemonCardViewModel: ObservableObject {
     private let domain: FavoritePokemonTypeAPIService
     
     init(domain: NetworkLayer = APIServices.shared, favoritePokemon: ViewPokemon) {
-        self.favoritePokemonType = "Unknown"
         self.successfullyLoaded = false
         self.favoritePokemon = favoritePokemon
         self.domain = FavoritePokemonTypeAPIService(domain: domain, favoritePokemon: favoritePokemon)
@@ -33,8 +32,8 @@ class FavoritePokemonCardViewModel: ObservableObject {
     
     private func addSubscribers() {
         self.domain.$favoritePokemonType
-            .sink { [weak self] type in
-                if let pokemonType = type {
+            .sink { [weak self] pokemonType in
+                if let pokemonType = pokemonType {
                     self?.favoritePokemonType = pokemonType
                     self?.successfullyLoaded = true
                 }

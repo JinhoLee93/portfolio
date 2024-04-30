@@ -34,10 +34,10 @@ struct FavoritePokemonCardView: View {
                         .scaledToFit()
                 }
                 .frame(minWidth: 120, maxWidth: 120, minHeight: 150)
-                .background(TypeColorPattern(rawValue: viewModel.favoritePokemonType)!.typeToColor)
+                .background(TypeColorPattern(rawValue: viewModel.favoritePokemonType ?? "unknown")!.typeToColor)
             }
             .clipShape(.rect(cornerRadius: 15))
-            .shadow(color: TypeColorPattern(rawValue: viewModel.favoritePokemonType)!.typeToColor, radius: 5, x: 0.0, y: 0.0)
+            .shadow(color: TypeColorPattern(rawValue: viewModel.favoritePokemonType ?? "unknown")!.typeToColor, radius: 5, x: 0.0, y: 0.0)
             .onAppear {
                 environmentViewModel.incrementPokemonLoaded()
             }

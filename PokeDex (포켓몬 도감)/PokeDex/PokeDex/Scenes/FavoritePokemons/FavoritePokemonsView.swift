@@ -30,10 +30,14 @@ struct FavoritePokemonsView: View {
                 }
                 .frame(height: 40)
                 ScrollView {
-                    LazyVGrid(columns: gridItems) {
-                        ForEach(viewModel.favoritePokemons) { favoritePokemon in
-                            FavoritePokemonCardView(favoritePokemon: favoritePokemon)
-                                .environmentObject(viewModel)
+                    VStack(spacing: 10) {
+                        ForEach(viewModel.getArrayOfPokemonsChoppedByThree(), id: \.self) { favoritePokemonsChoppedByThree in
+                            HStack(spacing: 10) {
+                                ForEach(favoritePokemonsChoppedByThree) { favoritePokemon in
+                                    FavoritePokemonCardView(favoritePokemon: favoritePokemon)
+                                        .environmentObject(viewModel)
+                                }
+                            }
                         }
                     }
                     .padding(10)
