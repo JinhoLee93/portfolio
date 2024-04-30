@@ -225,7 +225,7 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
 
 ![Screen Recording 2024-04-28 at 11 18 52 PM](https://github.com/JinhoLee93/portfolio/assets/60580427/4f916758-b57e-427d-89c3-b2ca6520bfef)
 
-## X. 하나의 뷰에서 두 개 이상의 뷰 모델 데이터 쉐어
+## X. 하나의 뷰에서 두 개 이상의 뷰 모델 데이터 공유
 
 - **해결 방법**: SwiftUI의 environmentObject를 사용하여 뷰 모델 공유
 
