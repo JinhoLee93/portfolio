@@ -1,0 +1,52 @@
+//
+//  SectionBae.swift
+//  BeatitudoMedia
+//
+//  Created by Jinho Lee on 5/1/24.
+//
+
+import SwiftUI
+
+struct SectionBar: View {
+    @Binding var sections: [Section]
+    @Binding var currentSectionIndex: Int
+    
+    var body: some View {
+        ZStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(sections) { section in
+                        VStack(spacing: 5) {
+                            Spacer()
+                            Text(section.sectionTitle)
+                                .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .black : .gray)
+                                
+                            if currentSectionIndex == getSectionIndex(of: section) {
+                                Color.black
+                                    .frame(height: 2)
+                            } else {
+                                Color.clear
+                                    .frame(height: 2)
+                            }
+                        }
+                        .onTapGesture {
+                            currentSectionIndex = getSectionIndex(of: section)
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.leading, 10)
+        .padding(.trailing, 10)
+        .frame(height: 44)
+    }
+    
+    private func getSectionIndex(of section: Section) -> Int {
+        
+        return sections.firstIndex { $0.id == section.id } ?? 0
+    }
+}
+
+#Preview {
+    BeatitudoMediaView()
+}
