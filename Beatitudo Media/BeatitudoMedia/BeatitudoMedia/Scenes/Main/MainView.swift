@@ -15,32 +15,77 @@ struct MainView: View {
         Section(sectionTitle: "Sports", color: Color.red),
         Section(sectionTitle: "Korea", color: Color.yellow)
     ]
-    
-    @State var currentSectionIndex = 0
-    @State var fakeSectionIndex = 0
+    @State var currentIndex: Int = 0
+    @State var offset: CGFloat = 0
     
     var body: some View {
         ZStack {
-            TabView(selection: self.$fakeSectionIndex) {
+            TabView(selection: $currentIndex, content:  {
                 ForEach(sections) { section in
                     ZStack {
-                        section.color
-                        Text("\(section.sectionTitle)")
+                        ScrollView {
+                            VStack {
+                                section.color
+                                Text(section.sectionTitle)
+                            }
+                        }
                     }
+                    .overlay(
+                        GeometryReader { proxy in
+                            Color.clear
+                                .preference(key: OffsetKey.self, value: proxy.frame(in: .global).minX)
+                        }
+                    )
+                    .onPreferenceChange(OffsetKey.self, perform: { offset in
+                        self.offset = offset
+                    })
+                    .tag(getIndex(section: section))
                 }
-            }
+            })
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .onChange(of: fakeSectionIndex) { newValue in
-                if newValue == 0 {
-                    fakeSectionIndex = sections.count - 2
-                } else if newValue == sections.count - 1 {
-                    fakeSectionIndex = 1 
-                }
+        }
+        .onChange(of: offset) { _ in
+            if currentIndex == 0 && offset == 0 {
+                currentIndex = sections.count - 2
+            } else if currentIndex == sections.count - 1 && offset == 0 {
+                currentIndex = 1
             }
         }
+        .onAppear {
+            guard var first = sections.first else {
+                
+                return
+            }
+            
+            guard var last = sections.last else {
+                
+                return
+            }
+            
+            first.id = UUID().uuidString
+            last.id = UUID().uuidString
+            
+            sections.append(first)
+            sections.insert(last, at: 0)
+             
+            currentIndex = 1
+        }
+    }
+    
+    func getIndex(section: Section) -> Int {
+    
+        return sections.firstIndex { currentSection in return currentSection.id == section.id} ?? 0
+    }
+}
+
+struct OffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
     }
 }
 
 #Preview {
-    MainView()
+    ContentView()
 }
