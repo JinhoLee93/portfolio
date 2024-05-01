@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
+		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		6894DC622BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */; };
 		68F230EF2BE1294C003A27B5 /* BeatitudoMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */; };
 		68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F230F22BE1294E003A27B5 /* Assets.xcassets */; };
 		68F230F62BE1294E003A27B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F230F52BE1294E003A27B5 /* Preview Assets.xcassets */; };
 		68F231002BE1294E003A27B5 /* BeatitudoMediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F230FF2BE1294E003A27B5 /* BeatitudoMediaTests.swift */; };
 		68F2310A2BE1294E003A27B5 /* BeatitudoMediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231092BE1294E003A27B5 /* BeatitudoMediaUITests.swift */; };
 		68F2310C2BE1294E003A27B5 /* BeatitudoMediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2310B2BE1294E003A27B5 /* BeatitudoMediaUITestsLaunchTests.swift */; };
-		68F2311B2BE12A1D003A27B5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2311A2BE12A1D003A27B5 /* MainView.swift */; };
-		68F2311E2BE130D6003A27B5 /* PoliticsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2311D2BE130D6003A27B5 /* PoliticsSection.swift */; };
-		68F231202BE1310E003A27B5 /* TechnologySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2311F2BE1310E003A27B5 /* TechnologySection.swift */; };
-		68F231222BE13121003A27B5 /* WorldSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231212BE13121003A27B5 /* WorldSection.swift */; };
-		68F231242BE1312F003A27B5 /* SportsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231232BE1312F003A27B5 /* SportsSection.swift */; };
-		68F231262BE1313C003A27B5 /* KoreaSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231252BE1313C003A27B5 /* KoreaSection.swift */; };
+		68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2311A2BE12A1D003A27B5 /* SectionView.swift */; };
 		68F231292BE138A5003A27B5 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231282BE138A5003A27B5 /* Section.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
+		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
+		6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSplashView.swift; sourceTree = "<group>"; };
 		68F230EB2BE1294C003A27B5 /* BeatitudoMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatitudoMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaApp.swift; sourceTree = "<group>"; };
 		68F230F22BE1294E003A27B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,12 +50,7 @@
 		68F231052BE1294E003A27B5 /* BeatitudoMediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeatitudoMediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F231092BE1294E003A27B5 /* BeatitudoMediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaUITests.swift; sourceTree = "<group>"; };
 		68F2310B2BE1294E003A27B5 /* BeatitudoMediaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		68F2311A2BE12A1D003A27B5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		68F2311D2BE130D6003A27B5 /* PoliticsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticsSection.swift; sourceTree = "<group>"; };
-		68F2311F2BE1310E003A27B5 /* TechnologySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnologySection.swift; sourceTree = "<group>"; };
-		68F231212BE13121003A27B5 /* WorldSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldSection.swift; sourceTree = "<group>"; };
-		68F231232BE1312F003A27B5 /* SportsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsSection.swift; sourceTree = "<group>"; };
-		68F231252BE1313C003A27B5 /* KoreaSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreaSection.swift; sourceTree = "<group>"; };
+		68F2311A2BE12A1D003A27B5 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		68F231282BE138A5003A27B5 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +139,8 @@
 		68F231182BE12A08003A27B5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */,
+				68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */,
 				68F231192BE12A16003A27B5 /* Main */,
 			);
 			path = Scenes;
@@ -151,22 +149,10 @@
 		68F231192BE12A16003A27B5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				68F2311C2BE130B5003A27B5 /* Sections */,
-				68F2311A2BE12A1D003A27B5 /* MainView.swift */,
+				68179A922BE2324F006F05C9 /* SectionBar.swift */,
+				68F2311A2BE12A1D003A27B5 /* SectionView.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		68F2311C2BE130B5003A27B5 /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				68F2311D2BE130D6003A27B5 /* PoliticsSection.swift */,
-				68F2311F2BE1310E003A27B5 /* TechnologySection.swift */,
-				68F231212BE13121003A27B5 /* WorldSection.swift */,
-				68F231232BE1312F003A27B5 /* SportsSection.swift */,
-				68F231252BE1313C003A27B5 /* KoreaSection.swift */,
-			);
-			path = Sections;
 			sourceTree = "<group>";
 		};
 		68F231272BE1389A003A27B5 /* Models */ = {
@@ -307,14 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68F231242BE1312F003A27B5 /* SportsSection.swift in Sources */,
-				68F2311E2BE130D6003A27B5 /* PoliticsSection.swift in Sources */,
 				68F231292BE138A5003A27B5 /* Section.swift in Sources */,
-				68F2311B2BE12A1D003A27B5 /* MainView.swift in Sources */,
+				68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */,
+				68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */,
+				68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */,
 				68F230EF2BE1294C003A27B5 /* BeatitudoMediaApp.swift in Sources */,
-				68F231262BE1313C003A27B5 /* KoreaSection.swift in Sources */,
-				68F231222BE13121003A27B5 /* WorldSection.swift in Sources */,
-				68F231202BE1310E003A27B5 /* TechnologySection.swift in Sources */,
+				6894DC622BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,8 +468,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,8 +499,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

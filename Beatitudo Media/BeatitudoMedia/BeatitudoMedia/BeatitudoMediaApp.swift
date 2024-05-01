@@ -11,7 +11,7 @@ import SwiftUI
 struct BeatitudoMediaApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            BeatitudoMediaView()
         }
     }
 }
