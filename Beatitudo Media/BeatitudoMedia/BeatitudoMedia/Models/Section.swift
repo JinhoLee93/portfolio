@@ -10,5 +10,4 @@ import SwiftUI
 struct Section: Identifiable, Hashable {
     var id = UUID().uuidString
     var sectionTitle: String
-    var color: Color
 }

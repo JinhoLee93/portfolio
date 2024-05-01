@@ -14,23 +14,31 @@ struct SectionBar: View {
     var body: some View {
         ZStack {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(sections) { section in
-                        VStack(spacing: 5) {
-                            Spacer()
-                            Text(section.sectionTitle)
-                                .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .black : .gray)
+                ScrollViewReader { proxy in
+                    HStack(spacing: 20) {
+                        ForEach(sections) { section in
+                            VStack(spacing: 5) {
+                                Spacer()
+                                Text(section.sectionTitle)
+                                    .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .black : .gray)
                                 
-                            if currentSectionIndex == getSectionIndex(of: section) {
-                                Color.black
-                                    .frame(height: 2)
-                            } else {
-                                Color.clear
-                                    .frame(height: 2)
+                                if currentSectionIndex == getSectionIndex(of: section) {
+                                    Color.black
+                                        .frame(height: 2)
+                                } else {
+                                    Color.clear
+                                        .frame(height: 2)
+                                }
                             }
-                        }
-                        .onTapGesture {
-                            currentSectionIndex = getSectionIndex(of: section)
+                            .id(section.sectionTitle)
+                            .onTapGesture {
+                                currentSectionIndex = getSectionIndex(of: section)
+                            }
+                            .onChange(of: currentSectionIndex) { _, _ in
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    proxy.scrollTo(sections[currentSectionIndex].sectionTitle, anchor: .center)
+                                }
+                            }
                         }
                     }
                 }

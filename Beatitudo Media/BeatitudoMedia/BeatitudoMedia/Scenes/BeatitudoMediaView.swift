@@ -9,13 +9,16 @@ import SwiftUI
 
 struct BeatitudoMediaView: View {
     @State var sections: [Section] = [
-        Section(sectionTitle: "Beatitudo Media", color: .yellow),
-        Section(sectionTitle: "World", color: .green),
-        Section(sectionTitle: "Politics", color: .red),
-        Section(sectionTitle: "You", color: .blue),
-        Section(sectionTitle: "Crew", color: .cyan),
-        Section(sectionTitle: "The Weeknd", color: .orange),
-        Section(sectionTitle: "Drake", color: .indigo)
+        Section(sectionTitle: "Beatitudo Media"),
+        Section(sectionTitle: "World"),
+        Section(sectionTitle: "Politics"),
+        Section(sectionTitle: "You"),
+        Section(sectionTitle: "Crew"),
+        Section(sectionTitle: "The Weeknd"),
+        Section(sectionTitle: "Drake"),
+        Section(sectionTitle: "d"),
+        Section(sectionTitle: "c"),
+        Section(sectionTitle: "k")
     ]
     
     @State var currentSection: Int = 0
