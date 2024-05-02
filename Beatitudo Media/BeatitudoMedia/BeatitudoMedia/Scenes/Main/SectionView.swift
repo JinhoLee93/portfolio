@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SectionView: View {
+struct SectionView: View {    
     @Binding var sections: [Section]
     @Binding var currentSection: Int
     

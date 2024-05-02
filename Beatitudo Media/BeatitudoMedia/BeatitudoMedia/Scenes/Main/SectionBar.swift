@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SectionBar: View {
+struct SectionBar: View {    
     @Binding var sections: [Section]
     @Binding var currentSectionIndex: Int
     
@@ -20,15 +20,11 @@ struct SectionBar: View {
                             VStack(spacing: 5) {
                                 Spacer()
                                 Text(section.sectionTitle)
-                                    .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .black : .gray)
+                                    .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .gray)
                                 
-                                if currentSectionIndex == getSectionIndex(of: section) {
-                                    Color.black
-                                        .frame(height: 2)
-                                } else {
-                                    Color.clear
-                                        .frame(height: 2)
-                                }
+                                Color.clear
+                                    .background(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .clear)
+                                    .frame(height: 2)
                             }
                             .id(section.sectionTitle)
                             .onTapGesture {

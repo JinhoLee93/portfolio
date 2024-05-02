@@ -30,6 +30,7 @@ struct BeatitudoMediaView: View {
             VStack(spacing: 0) {
                 SectionBar(sections: $sections, currentSectionIndex: $currentSection)
                 Divider()
+                    .background(Color.adaptiveText)
                 SectionView(sections: $sections, currentSection: $currentSection)
             }
         }

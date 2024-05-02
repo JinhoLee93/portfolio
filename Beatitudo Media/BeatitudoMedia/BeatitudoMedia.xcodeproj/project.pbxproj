@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
 		6894DC622BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */; };
 		68F230EF2BE1294C003A27B5 /* BeatitudoMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */; };
 		68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F230F22BE1294E003A27B5 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
+		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
 		6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSplashView.swift; sourceTree = "<group>"; };
 		68F230EB2BE1294C003A27B5 /* BeatitudoMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatitudoMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaApp.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6850A3CF2BE3343E007C4F56 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				6850A3D02BE33459007C4F56 /* GlobalAssets.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		68F230E22BE1294C003A27B5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		68F230ED2BE1294C003A27B5 /* BeatitudoMedia */ = {
 			isa = PBXGroup;
 			children = (
+				6850A3CF2BE3343E007C4F56 /* Global */,
 				68F231272BE1389A003A27B5 /* Models */,
 				68F231182BE12A08003A27B5 /* Scenes */,
 				68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */,
@@ -293,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */,
 				68F231292BE138A5003A27B5 /* Section.swift in Sources */,
 				68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */,
 				68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */,
