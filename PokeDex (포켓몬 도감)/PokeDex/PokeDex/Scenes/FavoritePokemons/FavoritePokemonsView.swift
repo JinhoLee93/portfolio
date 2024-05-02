@@ -22,13 +22,14 @@ struct FavoritePokemonsView: View {
         ZStack {
             LoadingPage()
                 .opacity(viewModel.readyToShowFavoritePokemons ? 0 : 1)
-            VStack {
-                VStack {
+            VStack(spacing: 0) {
+                ZStack(alignment: .center) {
                     Text("Your Favorite Pokemons")
                         .fontWeight(.bold)
                         .foregroundStyle(.yellow)
                 }
-                .frame(height: 40)
+                .frame(height: 48.5)
+                Divider()
                 ScrollView {
                     VStack(spacing: 10) {
                         ForEach(viewModel.getArrayOfPokemonsChoppedByThree(), id: \.self) { favoritePokemonsChoppedByThree in
