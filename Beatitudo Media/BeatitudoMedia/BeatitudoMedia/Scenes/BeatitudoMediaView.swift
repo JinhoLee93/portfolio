@@ -28,7 +28,7 @@ struct BeatitudoMediaView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                SectionBar(sections: $sections, currentSectionIndex: $currentSection)
+                SectionBar(sections: $sections, currentSectionIndex: $currentSection, namespace: namespace.self)
                 Divider()
                     .background(Color.adaptiveText)
                 SectionView(sections: $sections, currentSection: $currentSection)

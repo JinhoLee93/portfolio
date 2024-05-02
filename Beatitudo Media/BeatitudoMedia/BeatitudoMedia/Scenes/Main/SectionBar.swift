@@ -11,6 +11,8 @@ struct SectionBar: View {
     @Binding var sections: [Section]
     @Binding var currentSectionIndex: Int
     
+    let namespace: Namespace.ID
+    
     var body: some View {
         ZStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -22,19 +24,25 @@ struct SectionBar: View {
                                 Text(section.sectionTitle)
                                     .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .gray)
                                 
-                                Color.clear
-                                    .background(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .clear)
-                                    .frame(height: 2)
+                                if currentSectionIndex == getSectionIndex(of: section) {
+                                    Color.adaptiveText
+                                        .matchedGeometryEffect(id: "underline", in: namespace, properties: .frame)
+                                        .frame(height: 2)
+                                } else {
+                                    Color.clear
+                                        .frame(height: 2)
+                                }
                             }
                             .id(section.sectionTitle)
                             .onTapGesture {
                                 currentSectionIndex = getSectionIndex(of: section)
                             }
                             .onChange(of: currentSectionIndex) { _, _ in
-                                withAnimation(.easeInOut(duration: 0.3)) {
+                                withAnimation(.easeInOut(duration: 0.15)) {
                                     proxy.scrollTo(sections[currentSectionIndex].sectionTitle, anchor: .center)
                                 }
                             }
+                            .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)
                         }
                     }
                 }
@@ -42,7 +50,7 @@ struct SectionBar: View {
         }
         .padding(.leading, 10)
         .padding(.trailing, 10)
-        .frame(height: 44)
+        .frame(height: 40)
     }
     
     private func getSectionIndex(of section: Section) -> Int {
