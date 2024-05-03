@@ -21,7 +21,7 @@ struct SectionBar: View {
                         ForEach(sections) { section in
                             VStack(spacing: 5) {
                                 Spacer()
-                                Text(section.sectionTitle)
+                                Text(section.title)
                                     .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .gray)
                                 
                                 if currentSectionIndex == getSectionIndex(of: section) {
@@ -33,13 +33,13 @@ struct SectionBar: View {
                                         .frame(height: 2)
                                 }
                             }
-                            .id(section.sectionTitle)
+                            .id(section.title)
                             .onTapGesture {
                                 currentSectionIndex = getSectionIndex(of: section)
                             }
                             .onChange(of: currentSectionIndex) { _, _ in
                                 withAnimation(.easeInOut(duration: 0.15)) {
-                                    proxy.scrollTo(sections[currentSectionIndex].sectionTitle, anchor: .center)
+                                    proxy.scrollTo(sections[currentSectionIndex].title, anchor: .center)
                                 }
                             }
                             .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Section: Identifiable, Hashable {
-    var id = UUID().uuidString
-    var sectionTitle: String
+struct Section: Identifiable {
+    let id = UUID()
+    let title: String
+    let articles: [Article]
 }
