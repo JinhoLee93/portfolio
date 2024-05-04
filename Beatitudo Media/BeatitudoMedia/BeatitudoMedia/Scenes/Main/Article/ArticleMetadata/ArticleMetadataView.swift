@@ -20,10 +20,10 @@ struct ArticleMetadataView: View {
                 Image(systemName: "clock")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 15, height: 15)
+                    .frame(width: 10, height: 10)
                 
                 Text("\(viewModel.articleMetadata.timeToRead)분 독서")
-                    .font(.system(size: 15))
+                    .font(.system(size: 10))
             }
             .foregroundStyle(.gray)
             
@@ -33,10 +33,10 @@ struct ArticleMetadataView: View {
                 Image(systemName: "eye")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
+                    .frame(width: 15, height: 15)
                 
                 Text("\(viewModel.articleMetadata.views)")
-                    .font(.system(size: 15))
+                    .font(.system(size: 10))
             }
             .foregroundStyle(.gray)
 
@@ -44,10 +44,10 @@ struct ArticleMetadataView: View {
                 Image(systemName: "calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 20, height: 20)
+                    .frame(width: 15, height: 15)
                 
                 Text(viewModel.articleMetadata.date)
-                    .font(.system(size: 15))
+                    .font(.system(size: 10))
             }
             .foregroundStyle(.gray)
         }
