@@ -19,10 +19,10 @@ struct SectionView: View {
                         ForEach(section.articles) { article in
                             VStack(spacing: 0) {
                                 ArticleView(article: article)
-                                    .padding(.bottom, 10)
+                                    .padding(.bottom, 20)
                                 
                                 Divider()
-                                    .background(.black)
+                                    .background(.adaptiveView)
                             }
                             .listRowSeparator(.hidden)
                         }
