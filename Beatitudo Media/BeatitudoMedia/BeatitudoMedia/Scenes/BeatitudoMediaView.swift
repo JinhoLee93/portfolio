@@ -25,7 +25,7 @@ struct BeatitudoMediaView: View {
                 SectionBar(sections: $sections, currentSectionIndex: $currentSection, namespace: namespace.self)
                 
                 Divider()
-                    .background(Color.adaptiveText)
+                    .background(.adaptiveView)
                 
                 SectionView(sections: $sections, currentSection: $currentSection)
                     .ignoresSafeArea()

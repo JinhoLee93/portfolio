@@ -23,16 +23,16 @@ struct ArticleAuxiliaryDataBar: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20, height: 20)
-                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .black)
+                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
                     
                     Text("\(self.viewModel.getCountOfLoved())")
                         .font(.system(size: 15))
-                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .black)
+                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
                 }
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(self.viewModel.getLoved() ? .pink : .black)
+                        .stroke(self.viewModel.getLoved() ? .pink : .adaptiveView)
                 )
                 .onTapGesture {
                     self.viewModel.updateLoved()
@@ -48,11 +48,12 @@ struct ArticleAuxiliaryDataBar: View {
                     
                     Text("\(self.viewModel.getCommentsCount())")
                         .font(.system(size: 15))
+                        .foregroundStyle(.adaptiveText)
                 }
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.black)
+                        .stroke(.adaptiveView)
                 )
                 
                 HStack(spacing: 5) {
@@ -63,11 +64,12 @@ struct ArticleAuxiliaryDataBar: View {
                     
                     Text("\(self.viewModel.getShared())")
                         .font(.system(size: 15))
+                        .foregroundStyle(.adaptiveText)
                 }
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.black)
+                        .stroke(.adaptiveView)
                 )
             }
         }

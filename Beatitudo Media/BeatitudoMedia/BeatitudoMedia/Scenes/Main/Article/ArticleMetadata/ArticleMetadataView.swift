@@ -22,8 +22,9 @@ struct ArticleMetadataView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 15, height: 15)
                 
-                Text("\(viewModel.articleMetadata.timeToRead)분")
+                Text("\(viewModel.articleMetadata.timeToRead)분 독서")
                     .font(.system(size: 15))
+                    .foregroundStyle(.adaptiveText)
             }
             
             Spacer()
@@ -33,11 +34,11 @@ struct ArticleMetadataView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(.gray)
                 
                 Text("\(viewModel.articleMetadata.views)")
                     .font(.system(size: 15))
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(.gray)
             }
 
             HStack(spacing: 5) {
@@ -45,11 +46,11 @@ struct ArticleMetadataView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(.gray)
                 
                 Text(viewModel.articleMetadata.date)
                     .font(.system(size: 15))
-                    .foregroundStyle(Color.gray)
+                    .foregroundStyle(.gray)
             }
         }
     }

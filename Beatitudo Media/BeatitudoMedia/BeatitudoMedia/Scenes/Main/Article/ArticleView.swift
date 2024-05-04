@@ -28,6 +28,7 @@ struct ArticleView: View {
                 VStack(spacing: 10) {
                     Text(viewModel.getArticleTitle())
                         .font(.system(size: 30, weight: .bold))
+                        .foregroundStyle(.adaptiveText)
                     
                     ArticleMetadataView(articleMetadata: ArticleMetadata(views: 3, timeToRead: 5, date: "2024-11-1"))
                     
