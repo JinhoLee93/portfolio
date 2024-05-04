@@ -14,6 +14,8 @@ protocol NetworkLayer {
     func fetchData<T: Decodable>(url: String) async throws -> T
     
     func downloadImage(url: String) async throws -> Image?
+    
+    func convertStringToURL(url: String) throws -> URL
 }
 
 final class APIServices: NetworkLayer {
@@ -46,7 +48,7 @@ final class APIServices: NetworkLayer {
         return nil
     }
     
-    private func convertStringToURL(url: String) throws -> URL {
+    func convertStringToURL(url: String) throws -> URL {
         guard let url = URL(string: url) else {
             throw NetworkingError.invalidURL(url: url)
         }

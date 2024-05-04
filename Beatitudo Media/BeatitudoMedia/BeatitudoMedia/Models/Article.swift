@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Article: Identifiable {
-    let id = UUID()
+struct Article: Hashable {
     let title: String
     let thumbnailURL: String
+    let articleURL: String
     let articleMetadataURL: String
     let articleAuxiliaryDataURL: String
 }

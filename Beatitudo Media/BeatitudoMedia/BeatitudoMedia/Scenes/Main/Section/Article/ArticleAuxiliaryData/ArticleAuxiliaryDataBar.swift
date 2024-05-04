@@ -70,6 +70,9 @@ struct ArticleAuxiliaryDataBar: View {
                             .foregroundStyle(.adaptiveText)
                     }
                     .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 10))
+                    .onTapGesture {
+                        print("Shared Tapped")
+                    }
                 }
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)

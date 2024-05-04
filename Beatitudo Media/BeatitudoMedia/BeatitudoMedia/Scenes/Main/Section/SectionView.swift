@@ -10,15 +10,17 @@ import SwiftUI
 struct SectionView: View {    
     @Binding var sections: [Section]
     @Binding var currentSection: Int
+    @Binding var presentingDestination: Bool
+    @Binding var destinationURL: String
     
     var body: some View {
         ZStack {
             TabView(selection: $currentSection) {
                 ForEach(sections) { section in
                     List {
-                        ForEach(section.articles) { article in
+                        ForEach(section.articles, id: \.self) { article in
                             VStack(spacing: 0) {
-                                ArticleView(article: article)
+                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL)
                                     .padding(.bottom, 20)
                                 
                                 Divider()

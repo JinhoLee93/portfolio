@@ -10,14 +10,20 @@ import SwiftUI
 struct ArticleView: View {
     @StateObject private var viewModel: ArticleViewModel
     
-    init(article: Article) {
-        _viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
+    @Binding var presentingDestination: Bool
+    @Binding var destinationURL: String
+    
+    init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>) {
+        self._viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
+        self._presentingDestination = presentingDestination
+        self._destinationURL = destinationURL
     }
     
     var body: some View {
         ZStack {
+            Color.adaptiveBackground
+            
             VStack(spacing: 10) {
-                
                 viewModel.thumbnail?
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -35,6 +41,10 @@ struct ArticleView: View {
                     ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []))
                 }
             }
+        }
+        .onTapGesture {
+            presentingDestination = true
+            destinationURL = viewModel.getArticleURL()
         }
     }
 }

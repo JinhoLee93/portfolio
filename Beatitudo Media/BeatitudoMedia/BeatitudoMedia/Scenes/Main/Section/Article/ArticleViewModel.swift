@@ -41,4 +41,9 @@ class ArticleViewModel: ObservableObject, ArticleViewModelType {
         
         return self.article.title
     }
+    
+    func getArticleURL() -> String {
+        
+        return self.article.articleURL
+    }
 }
