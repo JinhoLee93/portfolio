@@ -24,8 +24,8 @@ struct ArticleMetadataView: View {
                 
                 Text("\(viewModel.articleMetadata.timeToRead)분 독서")
                     .font(.system(size: 15))
-                    .foregroundStyle(.adaptiveText)
             }
+            .foregroundStyle(.gray)
             
             Spacer()
             
@@ -34,24 +34,22 @@ struct ArticleMetadataView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(.gray)
                 
                 Text("\(viewModel.articleMetadata.views)")
                     .font(.system(size: 15))
-                    .foregroundStyle(.gray)
             }
+            .foregroundStyle(.gray)
 
             HStack(spacing: 5) {
                 Image(systemName: "calendar")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(.gray)
                 
                 Text(viewModel.articleMetadata.date)
                     .font(.system(size: 15))
-                    .foregroundStyle(.gray)
             }
+            .foregroundStyle(.gray)
         }
     }
 }

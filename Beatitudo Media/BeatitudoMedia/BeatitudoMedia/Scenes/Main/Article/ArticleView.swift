@@ -25,7 +25,7 @@ struct ArticleView: View {
                         RoundedRectangle(cornerRadius: 25)
                     )
                 
-                VStack(spacing: 10) {
+                VStack(spacing: 15) {
                     Text(viewModel.getArticleTitle())
                         .font(.system(size: 30, weight: .bold))
                         .foregroundStyle(.adaptiveText)

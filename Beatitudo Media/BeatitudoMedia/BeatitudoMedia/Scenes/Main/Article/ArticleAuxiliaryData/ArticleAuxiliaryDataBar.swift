@@ -18,55 +18,59 @@ struct ArticleAuxiliaryDataBar: View {
     var body: some View {
         ZStack {
             HStack(spacing: 5) {
-                HStack(spacing: 5) {
-                    Image(systemName: self.viewModel.getLoved() ? "heart.fill" : "heart")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
-                    
-                    Text("\(self.viewModel.getCountOfLoved())")
-                        .font(.system(size: 15))
-                        .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
-                }
-                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(self.viewModel.getLoved() ? .pink : .adaptiveView)
-                )
-                .onTapGesture {
-                    self.viewModel.updateLoved()
-                }
                 
                 Spacer()
                 
                 HStack(spacing: 5) {
-                    Image(systemName: "text.bubble")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
+                    HStack(spacing: 5) {
+                        Image(systemName: self.viewModel.getLoved() ? "heart.fill" : "heart")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                            .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
+                        
+                        Text("\(self.viewModel.getCountOfLoved())")
+                            .font(.system(size: 15))
+                            .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
+                    }
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    .onTapGesture {
+                        self.viewModel.updateLoved()
+                    }
                     
-                    Text("\(self.viewModel.getCommentsCount())")
-                        .font(.system(size: 15))
-                        .foregroundStyle(.adaptiveText)
-                }
-                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.adaptiveView)
-                )
-                
-                HStack(spacing: 5) {
-                    Image(systemName: "arrowshape.turn.up.right")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
+                    Divider()
+                        .background(.gray)
+                        .frame(height: 15)
                     
-                    Text("\(self.viewModel.getShared())")
-                        .font(.system(size: 15))
-                        .foregroundStyle(.adaptiveText)
+                    // Comments section
+                    //                HStack(spacing: 5) {
+                    //                    Image(systemName: "text.bubble")
+                    //                        .resizable()
+                    //                        .aspectRatio(contentMode: .fit)
+                    //                        .frame(width: 20, height: 20)
+                    //
+                    //                    Text("\(self.viewModel.getCommentsCount())")
+                    //                        .font(.system(size: 15))
+                    //                        .foregroundStyle(.adaptiveText)
+                    //                }
+                    //                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                    //                .overlay(
+                    //                    RoundedRectangle(cornerRadius: 25)
+                    //                        .stroke(.adaptiveView)
+                    //                )
+                    
+                    HStack(spacing: 5) {
+                        Image(systemName: "arrowshape.turn.up.right")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+                        
+                        Text("\(self.viewModel.getShared())")
+                            .font(.system(size: 15))
+                            .foregroundStyle(.adaptiveText)
+                    }
+                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 10))
                 }
-                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(.adaptiveView)
