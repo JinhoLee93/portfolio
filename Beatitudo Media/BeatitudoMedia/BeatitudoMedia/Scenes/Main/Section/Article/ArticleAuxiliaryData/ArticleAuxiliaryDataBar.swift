@@ -10,15 +10,16 @@ import SwiftUI
 struct ArticleAuxiliaryDataBar: View {
     @StateObject private var viewModel: ArticleAuxiliaryDataViewModel
     
-    init(articleAuxiliaryData: ArticleAuxiliaryData) {
-        _viewModel = StateObject(wrappedValue:
-                                    ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData))
+    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
+        self._viewModel = StateObject(wrappedValue:
+                                        ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
     }
     
     var body: some View {
         ZStack {
-            HStack(spacing: 5) {
-                
+            Color.adaptiveBackground
+            
+            HStack {
                 Spacer()
                 
                 HStack(spacing: 5) {
@@ -33,7 +34,7 @@ struct ArticleAuxiliaryDataBar: View {
                             .font(.system(size: 15))
                             .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
                     }
-                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 0))
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
                         self.viewModel.updateLoved()
                     }
@@ -42,37 +43,21 @@ struct ArticleAuxiliaryDataBar: View {
                         .background(.gray)
                         .frame(height: 15)
                     
-                    // Comments section
-                    //                HStack(spacing: 5) {
-                    //                    Image(systemName: "text.bubble")
-                    //                        .resizable()
-                    //                        .aspectRatio(contentMode: .fit)
-                    //                        .frame(width: 20, height: 20)
-                    //
-                    //                    Text("\(self.viewModel.getCommentsCount())")
-                    //                        .font(.system(size: 15))
-                    //                        .foregroundStyle(.adaptiveText)
-                    //                }
-                    //                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
-                    //                .overlay(
-                    //                    RoundedRectangle(cornerRadius: 25)
-                    //                        .stroke(.adaptiveView)
-                    //                )
-                    
                     HStack(spacing: 5) {
-                        Image(systemName: "arrowshape.turn.up.right")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
+                        ShareLink(item: URL(string: self.viewModel.getArticleURL())!) {
+                            Image(systemName: "arrowshape.turn.up.right")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20, height: 20)
+                                .foregroundStyle(Color.black)
+                        }
+                        .buttonStyle(BorderlessButtonStyle())
                         
                         Text("\(self.viewModel.getShared())")
                             .font(.system(size: 15))
                             .foregroundStyle(.adaptiveText)
                     }
-                    .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 10))
-                    .onTapGesture {
-                        print("Shared Tapped")
-                    }
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
                 }
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
@@ -80,7 +65,9 @@ struct ArticleAuxiliaryDataBar: View {
                 )
             }
         }
+        .frame(height: 20)
     }
+    
 }
 
 #Preview {

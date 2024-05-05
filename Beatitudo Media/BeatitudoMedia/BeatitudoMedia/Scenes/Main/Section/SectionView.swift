@@ -15,16 +15,21 @@ struct SectionView: View {
     
     var body: some View {
         ZStack {
+            Color.adaptiveBackground
+            
             TabView(selection: $currentSection) {
                 ForEach(sections) { section in
                     List {
                         ForEach(section.articles, id: \.self) { article in
-                            VStack(spacing: 0) {
-                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL)
-                                    .padding(.bottom, 20)
+                            ZStack {
+                                Color.adaptiveBackground
                                 
-                                Divider()
-                                    .background(.adaptiveView)
+                                VStack(spacing: 10) {
+                                    ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL)
+                                    
+                                    Divider()
+                                        .background(.adaptiveView)
+                                }
                             }
                             .listRowSeparator(.hidden)
                         }
@@ -36,9 +41,6 @@ struct SectionView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
-        .frame(width: UIScreen.main.bounds.width)
-        .padding(.leading, 10)
-        .padding(.trailing, 10)
     }
     
     private func getSectionIndex(of section: Section) -> Int {

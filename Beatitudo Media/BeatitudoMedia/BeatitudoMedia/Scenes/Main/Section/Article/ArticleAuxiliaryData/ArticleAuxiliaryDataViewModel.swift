@@ -10,8 +10,11 @@ import Foundation
 class ArticleAuxiliaryDataViewModel: ObservableObject {
     @Published var articleAuxiliaryData: ArticleAuxiliaryData
     
-    init(articleAuxiliaryData: ArticleAuxiliaryData) {
+    private let articleURL: String
+    
+    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
+        self.articleURL = articleURL
     }
     
     func getLoved() -> Bool {
@@ -41,5 +44,10 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     
     func updateLoved() {
         self.articleAuxiliaryData = self.articleAuxiliaryData.updateLoved()
+    }
+    
+    func getArticleURL() -> String {
+        
+        return self.articleURL
     }
 }

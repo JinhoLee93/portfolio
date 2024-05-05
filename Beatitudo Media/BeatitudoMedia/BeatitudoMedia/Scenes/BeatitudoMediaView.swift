@@ -18,15 +18,18 @@ struct BeatitudoMediaView: View {
     
     @State private var presentingDestination: Bool = false
     @State private var destinationURL: String = ""
-
     
     @Namespace var namespace
     
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.adaptiveBackground
+                
                 VStack(spacing: 0) {
                     SectionBar(sections: $sections, currentSectionIndex: $currentSection, namespace: namespace.self)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
                     
                     Divider()
                         .background(.adaptiveView)
@@ -43,6 +46,7 @@ struct BeatitudoMediaView: View {
                     WebView(url: destinationURL)
                 }
                 .navigationTitle(Text(tokenizeURLandReturnName(destinationURL)))
+                .navigationBarTitleDisplayMode(.inline)
             })
         }
     }

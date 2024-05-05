@@ -15,42 +15,50 @@ struct ArticleMetadataView: View {
     }
     
     var body: some View {
-        HStack(spacing: 10) {
-            HStack(spacing: 5) {
-                Image(systemName: "clock")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 10, height: 10)
-                
-                Text("\(viewModel.articleMetadata.timeToRead)분 독서")
-                    .font(.system(size: 10))
-            }
-            .foregroundStyle(.gray)
+        ZStack {
+            Color.adaptiveBackground
             
-            Spacer()
-            
-            HStack(spacing: 5) {
-                Image(systemName: "eye")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 15, height: 15)
+            HStack(spacing: 10) {
+                HStack(spacing: 5) {
+                    Image(systemName: "clock")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 10, height: 10)
+                    
+                    Text("\(viewModel.articleMetadata.timeToRead)분 독서")
+                        .font(.system(size: 10))
+                }
+                .foregroundStyle(.gray)
                 
-                Text("\(viewModel.articleMetadata.views)")
-                    .font(.system(size: 10))
-            }
-            .foregroundStyle(.gray)
-
-            HStack(spacing: 5) {
-                Image(systemName: "calendar")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 15, height: 15)
+                Spacer()
                 
-                Text(viewModel.articleMetadata.date)
-                    .font(.system(size: 10))
+                HStack {
+                    HStack(spacing: 5) {
+                        Image(systemName: "eye")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 15, height: 15)
+                        
+                        Text("\(viewModel.articleMetadata.views)")
+                            .font(.system(size: 10))
+                    }
+                    .foregroundStyle(.gray)
+                    
+                    HStack(spacing: 5) {
+                        Image(systemName: "calendar")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 15, height: 15)
+                        
+                        Text(viewModel.articleMetadata.date)
+                            .font(.system(size: 10))
+                    }
+                    .foregroundStyle(.gray)
+                }
+                .frame(width: 120)
             }
-            .foregroundStyle(.gray)
         }
+        .frame(height: 20)
     }
 }
 

@@ -38,7 +38,7 @@ struct ArticleView: View {
                     
                     ArticleMetadataView(articleMetadata: ArticleMetadata(views: 3, timeToRead: 5, date: "2024-11-1"))
                     
-                    ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []))
+                    ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL())
                 }
             }
         }
