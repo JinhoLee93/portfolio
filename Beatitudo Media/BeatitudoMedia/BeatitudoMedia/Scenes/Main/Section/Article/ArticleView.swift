@@ -23,23 +23,23 @@ struct ArticleView: View {
         ZStack {
             Color.adaptiveBackground
             
-            VStack(spacing: 10) {
-                viewModel.thumbnail?
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(
-                        RoundedRectangle(cornerRadius: 25)
-                    )
+            VStack(alignment: .leading, spacing: 5) {
+                ArticleMetadataView(articleMetadata: ArticleMetadata(views: 3, timeToRead: 5, date: "2024-11-1"))
                 
-                VStack(spacing: 15) {
+                HStack(alignment: .center, spacing: 10) {
+                    viewModel.thumbnail?
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 100, maxHeight: 100)
+                    
                     Text(viewModel.getArticleTitle())
-                        .font(.system(size: 30, weight: .bold))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(2)
+                        .font(.system(size: 15, weight: .bold))
                         .foregroundStyle(.adaptiveText)
-                    
-                    ArticleMetadataView(articleMetadata: ArticleMetadata(views: 3, timeToRead: 5, date: "2024-11-1"))
-                    
-                    ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL())
                 }
+                    
+                ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL())
             }
         }
         .onTapGesture {

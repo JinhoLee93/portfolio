@@ -21,15 +21,12 @@ struct SectionView: View {
                 ForEach(sections) { section in
                     List {
                         ForEach(section.articles, id: \.self) { article in
-                            ZStack {
-                                Color.adaptiveBackground
+                            VStack(spacing: 10) {
+                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL)
                                 
-                                VStack(spacing: 10) {
-                                    ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL)
-                                    
-                                    Divider()
-                                        .background(.adaptiveView)
-                                }
+                                Divider()
+                                    .frame(height: 1)
+                                    .background(Color.adaptiveView)
                             }
                             .listRowSeparator(.hidden)
                         }

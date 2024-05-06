@@ -21,6 +21,7 @@ struct SectionBar: View {
                         ForEach(sections) { section in
                             VStack(spacing: 5) {
                                 Spacer()
+                                
                                 Text(section.title)
                                     .foregroundStyle(currentSectionIndex == getSectionIndex(of: section) ? .adaptiveText : .gray)
                                 

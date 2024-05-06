@@ -25,7 +25,3 @@ struct ArticleAuxiliaryData {
                                     comments: self.comments)
     }
 }
-
-struct ArticleComment {
-    let body: String
-}

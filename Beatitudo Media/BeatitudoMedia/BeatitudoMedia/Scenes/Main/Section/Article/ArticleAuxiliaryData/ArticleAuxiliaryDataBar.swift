@@ -27,11 +27,11 @@ struct ArticleAuxiliaryDataBar: View {
                         Image(systemName: self.viewModel.getLoved() ? "heart.fill" : "heart")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
+                            .frame(width: 15, height: 15)
                             .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
                         
                         Text("\(self.viewModel.getCountOfLoved())")
-                            .font(.system(size: 15))
+                            .font(.system(size: 10))
                             .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
@@ -41,20 +41,19 @@ struct ArticleAuxiliaryDataBar: View {
                     
                     Divider()
                         .background(.gray)
-                        .frame(height: 15)
                     
                     HStack(spacing: 5) {
                         ShareLink(item: URL(string: self.viewModel.getArticleURL())!) {
                             Image(systemName: "arrowshape.turn.up.right")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 20, height: 20)
-                                .foregroundStyle(Color.black)
+                                .frame(width: 15, height: 15)
+                                .foregroundStyle(Color.adaptiveView)
                         }
                         .buttonStyle(BorderlessButtonStyle())
                         
                         Text("\(self.viewModel.getShared())")
-                            .font(.system(size: 15))
+                            .font(.system(size: 10))
                             .foregroundStyle(.adaptiveText)
                     }
                     .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
@@ -65,7 +64,7 @@ struct ArticleAuxiliaryDataBar: View {
                 )
             }
         }
-        .frame(height: 20)
+        .frame(height: 15)
     }
     
 }

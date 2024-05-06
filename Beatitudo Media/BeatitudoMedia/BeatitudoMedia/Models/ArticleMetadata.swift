@@ -11,4 +11,9 @@ struct ArticleMetadata {
     let views: Int
     let timeToRead: Int
     let date: String
+    
+    func updateViews() -> ArticleMetadata {
+        
+        return ArticleMetadata(views: self.views + 1, timeToRead: self.timeToRead, date: self.date)
+    }
 }
