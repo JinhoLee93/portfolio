@@ -50,6 +50,9 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
   </tbody>
 </table>
 
+## III. 제작 기간
+2024.04~
+
 # [2. PokeDex (포켓몬 도감)](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtube.com/shorts/INwuXnbQ-xA)
 
 ## I. 개요
