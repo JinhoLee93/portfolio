@@ -55,6 +55,9 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
 
 # [2. PokeDex (포켓몬 도감)](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtube.com/shorts/INwuXnbQ-xA)
 
+## IV. 기여도
+100%
+
 ## I. 개요
 
 RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓몬 정보(Official Portrait, 이름, 타입, 기술 등)를 리스트 형식으로 유저에게 보여주고, 유저는 포켓몬을 저장하여 라이브러리를 통해 빠르게 볼 수 있습니다.
