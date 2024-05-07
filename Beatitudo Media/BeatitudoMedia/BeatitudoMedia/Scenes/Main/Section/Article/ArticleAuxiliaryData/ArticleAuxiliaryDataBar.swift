@@ -42,21 +42,31 @@ struct ArticleAuxiliaryDataBar: View {
                     Divider()
                         .background(.gray)
                     
-                    HStack(spacing: 5) {
-                        ShareLink(item: URL(string: self.viewModel.getArticleURL())!) {
-                            Image(systemName: "arrowshape.turn.up.right")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 15, height: 15)
-                                .foregroundStyle(Color.adaptiveView)
-                        }
-                        .buttonStyle(BorderlessButtonStyle())
-                        
-                        Text("\(self.viewModel.getShared())")
-                            .font(.system(size: 10))
-                            .foregroundStyle(.adaptiveText)
+                    ShareLink(item: URL(string: self.viewModel.getArticleURL())!) {
+                        Image(systemName: "arrowshape.turn.up.right.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 15, height: 15)
+                            .foregroundStyle(Color.adaptiveView)
                     }
+                    .buttonStyle(BorderlessButtonStyle())
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                    
+                    Divider()
+                        .background(.gray)
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 15, height: 15)
+                            .foregroundStyle(Color.adaptiveView)
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
                     .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+
                 }
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)

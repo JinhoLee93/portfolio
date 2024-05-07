@@ -129,6 +129,7 @@
 				6886FB7C2BE4DBF200007CD9 /* ArticleAPIServices.swift */,
 				6886FB822BE4E05E00007CD9 /* ArticleMetadata */,
 				6886FB832BE4E06900007CD9 /* ArticleAuxiliaryData */,
+				688E5BEB2BEA53FC00B39050 /* Report */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -186,6 +187,13 @@
 				688C8E3D2BE9E5CF0021BFEA /* SectionBarViewModel.swift */,
 			);
 			path = SectionBar;
+			sourceTree = "<group>";
+		};
+		688E5BEB2BEA53FC00B39050 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 		68CAF60D2BE63F5D00DD3E05 /* Web */ = {
