@@ -24,7 +24,7 @@ struct ArticleView: View {
             Color.adaptiveBackground
             
             VStack(alignment: .leading, spacing: 5) {
-                ArticleMetadataView(articleMetadata: ArticleMetadata(views: 3, timeToRead: 5, date: "2024-11-1"))
+                ArticleMetadataView(articleMetadata: ArticleMetadata(timeToRead: Int.random(in: 1...10), date: "2024-\(Int.random(in: 1...12))-\(Int.random(in: 1...30))"), views: $viewModel.articleViews)
                 
                 HStack(alignment: .center, spacing: 10) {
                     viewModel.thumbnail?
@@ -45,6 +45,7 @@ struct ArticleView: View {
         .onTapGesture {
             presentingDestination = true
             destinationURL = viewModel.getArticleURL()
+            viewModel.updateViews()
         }
     }
 }

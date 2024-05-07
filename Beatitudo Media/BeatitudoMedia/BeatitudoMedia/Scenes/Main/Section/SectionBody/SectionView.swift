@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct SectionView: View {    
-    @Binding var sections: [Section]
+    @StateObject var viewModel: SectionViewModel
+    
     @Binding var currentSection: Int
     @Binding var presentingDestination: Bool
     @Binding var destinationURL: String
+    
+    init(sections: [Section], currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>) {
+        self._viewModel = StateObject(wrappedValue: SectionViewModel(sections: sections))
+        self._currentSection = currentSection
+        self._presentingDestination = presentingDestination
+        self._destinationURL = destinationURL
+    }
     
     var body: some View {
         ZStack {
             Color.adaptiveBackground
             
             TabView(selection: $currentSection) {
-                ForEach(sections) { section in
+                ForEach(viewModel.sections) { section in
                     List {
                         ForEach(section.articles, id: \.self) { article in
                             VStack(spacing: 10) {
@@ -33,16 +41,11 @@ struct SectionView: View {
                     }
                     .scrollIndicators(.hidden)
                     .listStyle(.inset)
-                    .tag(getSectionIndex(of: section))
+                    .tag(viewModel.getSectionIndex(of: section))
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
-    }
-    
-    private func getSectionIndex(of section: Section) -> Int {
-        
-        return sections.firstIndex { $0.title == section.title } ?? 0
     }
 }
 

@@ -19,11 +19,6 @@ class ArticleMetadataViewModel: ObservableObject {
         return self.articleMetadata.timeToRead
     }
     
-    func getViews() -> Int {
-        
-        return self.articleMetadata.views
-    }
-    
     func getDate() -> String {
         
         return self.articleMetadata.date
