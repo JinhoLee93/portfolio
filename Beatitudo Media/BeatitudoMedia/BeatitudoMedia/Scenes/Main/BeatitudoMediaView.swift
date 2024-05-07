@@ -14,6 +14,7 @@ struct BeatitudoMediaView: View {
     
     @State private var presentingDestination: Bool = false
     @State private var destinationURL: String = ""
+    @State private var presentingReportSheet: Bool = false
     
     @Namespace var namespace
     
@@ -33,9 +34,12 @@ struct BeatitudoMediaView: View {
                     SectionView(sections: viewModel.sections,
                                 currentSection: $currentSection,
                                 presentingDestination: $presentingDestination,
-                                destinationURL: $destinationURL)
+                                destinationURL: $destinationURL, 
+                                presentingReportSheet: $presentingReportSheet)
                         .ignoresSafeArea()
                 }
+                
+                ReportSheetView(presentingReportSheet: $presentingReportSheet)
             }
             .navigationDestination(isPresented: $presentingDestination, destination: {
                 NavigationStack {

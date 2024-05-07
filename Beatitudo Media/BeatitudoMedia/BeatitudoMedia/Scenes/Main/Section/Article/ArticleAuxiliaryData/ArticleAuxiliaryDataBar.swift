@@ -10,9 +10,12 @@ import SwiftUI
 struct ArticleAuxiliaryDataBar: View {
     @StateObject private var viewModel: ArticleAuxiliaryDataViewModel
     
-    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
+    @Binding var presentingReportSheet: Bool
+    
+    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue:
                                         ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
+        self._presentingReportSheet = presentingReportSheet
     }
     
     var body: some View {
@@ -24,25 +27,25 @@ struct ArticleAuxiliaryDataBar: View {
                 
                 HStack(spacing: 5) {
                     HStack(spacing: 5) {
-                        Image(systemName: self.viewModel.getLoved() ? "heart.fill" : "heart")
+                        Image(systemName: viewModel.getLoved() ? "heart.fill" : "heart")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
-                            .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
+                            .foregroundStyle(viewModel.getLoved() ? .pink : .adaptiveView)
                         
-                        Text("\(self.viewModel.getCountOfLoved())")
+                        Text("\(viewModel.getCountOfLoved())")
                             .font(.system(size: 10))
-                            .foregroundStyle(self.viewModel.getLoved() ? .pink : .adaptiveView)
+                            .foregroundStyle(viewModel.getLoved() ? .pink : .adaptiveView)
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
-                        self.viewModel.updateLoved()
+                        viewModel.updateLoved()
                     }
                     
                     Divider()
                         .background(.gray)
                     
-                    ShareLink(item: URL(string: self.viewModel.getArticleURL())!) {
+                    ShareLink(item: URL(string: viewModel.getArticleURL())!) {
                         Image(systemName: "arrowshape.turn.up.right.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -56,7 +59,7 @@ struct ArticleAuxiliaryDataBar: View {
                         .background(.gray)
                     
                     Button {
-                        
+                        withAnimation(.spring(duration: 0.3)) { presentingReportSheet = true }
                     } label: {
                         Image(systemName: "ellipsis")
                             .resizable()

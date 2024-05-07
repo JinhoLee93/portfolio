@@ -12,11 +12,13 @@ struct ArticleView: View {
     
     @Binding var presentingDestination: Bool
     @Binding var destinationURL: String
+    @Binding var presentingReportSheet: Bool
     
-    init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>) {
+    init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
         self._presentingDestination = presentingDestination
         self._destinationURL = destinationURL
+        self._presentingReportSheet = presentingReportSheet
     }
     
     var body: some View {
@@ -39,7 +41,7 @@ struct ArticleView: View {
                         .foregroundStyle(.adaptiveText)
                 }
                     
-                ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL())
+                ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet)
             }
         }
         .onTapGesture {
