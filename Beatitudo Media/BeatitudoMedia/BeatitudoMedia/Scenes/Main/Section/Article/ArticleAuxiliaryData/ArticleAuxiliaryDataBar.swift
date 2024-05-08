@@ -12,6 +12,8 @@ struct ArticleAuxiliaryDataBar: View {
     
     @Binding var presentingReportSheet: Bool
     
+    @State private var presentingShared: Bool = false
+    
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue:
                                         ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
@@ -41,6 +43,10 @@ struct ArticleAuxiliaryDataBar: View {
                     .onTapGesture {
                         viewModel.updateLoved()
                     }
+                    .sensoryFeedback(.selection, trigger: viewModel.countOfLoved) { oldValue, newValue in
+                        
+                        return oldValue < newValue
+                    }
                     
                     Divider()
                         .background(.gray)
@@ -69,6 +75,10 @@ struct ArticleAuxiliaryDataBar: View {
                     }
                     .buttonStyle(BorderlessButtonStyle())
                     .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+                    .sensoryFeedback(.selection, trigger: presentingReportSheet) { oldValue, newValue in
+                        
+                        return newValue
+                    }
 
                 }
                 .overlay(

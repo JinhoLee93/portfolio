@@ -47,6 +47,7 @@ struct SectionView: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .sensoryFeedback(.selection, trigger: currentSection)
         }
     }
 }
