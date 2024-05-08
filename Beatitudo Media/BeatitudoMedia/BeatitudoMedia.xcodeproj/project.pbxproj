@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		685016432BEB84DC0006E0B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */; };
 		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
 		687340C02BE9054C00D65B86 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687340BF2BE9054C00D65B86 /* ArticleComment.swift */; };
 		6886FB752BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886FB742BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift */; };
@@ -28,6 +29,8 @@
 		68CAF60F2BE63F8100DD3E05 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CAF60E2BE63F8100DD3E05 /* WebView.swift */; };
 		68DBB8322BEB2747004D5960 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBB8312BEB2747004D5960 /* LocalFileManager.swift */; };
 		68DBB8342BEB274E004D5960 /* LocalCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBB8332BEB274E004D5960 /* LocalCacheManager.swift */; };
+		68DBB8742BEB7FFE004D5960 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 68DBB8732BEB7FFE004D5960 /* FirebaseAnalytics */; };
+		68DBB8782BEB7FFE004D5960 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */; };
 		68EB0E4F2BE3DFA600DBA3C3 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E4E2BE3DFA600DBA3C3 /* ArticleView.swift */; };
 		68EB0E522BE3E2E300DBA3C3 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */; };
 		68F230EF2BE1294C003A27B5 /* BeatitudoMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */; };
@@ -60,6 +63,7 @@
 /* Begin PBXFileReference section */
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
+		685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
 		687340BF2BE9054C00D65B86 /* ArticleComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		6886FB742BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAuxiliaryDataBar.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68DBB8782BEB7FFE004D5960 /* FirebaseAnalyticsSwift in Frameworks */,
+				68DBB8742BEB7FFE004D5960 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +264,7 @@
 				68F231182BE12A08003A27B5 /* Scenes */,
 				68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */,
 				68F230F22BE1294E003A27B5 /* Assets.xcassets */,
+				685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */,
 				68F230F42BE1294E003A27B5 /* Preview Content */,
 			);
 			path = BeatitudoMedia;
@@ -335,6 +342,10 @@
 			dependencies = (
 			);
 			name = BeatitudoMedia;
+			packageProductDependencies = (
+				68DBB8732BEB7FFE004D5960 /* FirebaseAnalytics */,
+				68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */,
+			);
 			productName = BeatitudoMedia;
 			productReference = 68F230EB2BE1294C003A27B5 /* BeatitudoMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -407,6 +418,9 @@
 				Base,
 			);
 			mainGroup = 68F230E22BE1294C003A27B5;
+			packageReferences = (
+				68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 68F230EC2BE1294C003A27B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,6 +439,7 @@
 			files = (
 				68F230F62BE1294E003A27B5 /* Preview Assets.xcassets in Resources */,
 				68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */,
+				685016432BEB84DC0006E0B7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,12 +663,13 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BeatitudoMedia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinholee.BeatitudoMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -679,12 +695,13 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.BeatitudoMedia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinholee.BeatitudoMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -808,6 +825,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		68DBB8732BEB7FFE004D5960 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68F230E32BE1294C003A27B5 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct BeatitudoMediaView: View {
     @StateObject var viewModel = BeatitudoMediaViewModel()
@@ -19,39 +20,39 @@ struct BeatitudoMediaView: View {
     @Namespace var namespace
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.adaptiveBackground
+        ZStack {
+            Color.adaptiveBackground
+            
+            VStack(spacing: 0) {
+                SectionBar(sections: viewModel.sections, currentSectionIndex: $currentSection, namespace: namespace.self)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
                 
-                VStack(spacing: 0) {
-                    SectionBar(sections: viewModel.sections, currentSectionIndex: $currentSection, namespace: namespace.self)
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
-                    
-                    Divider()
-                        .background(.adaptiveView)
-                    
-                    SectionView(sections: viewModel.sections,
-                                currentSection: $currentSection,
-                                presentingDestination: $presentingDestination,
-                                destinationURL: $destinationURL, 
-                                presentingReportSheet: $presentingReportSheet)
-                        .ignoresSafeArea()
-                }
+                Divider()
+                    .background(.adaptiveView)
                 
-                ReportSheetView(presentingReportSheet: $presentingReportSheet)
+                SectionView(sections: viewModel.sections,
+                            currentSection: $currentSection,
+                            presentingDestination: $presentingDestination,
+                            destinationURL: $destinationURL,
+                            presentingReportSheet: $presentingReportSheet)
+                    .ignoresSafeArea()
             }
-            .navigationDestination(isPresented: $presentingDestination, destination: {
-                NavigationStack {
-                    WebView(url: destinationURL)
-                }
-                .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
-                .navigationBarTitleDisplayMode(.inline)
-            })
+            
+            ReportSheetView(presentingReportSheet: $presentingReportSheet)
         }
+        .analyticsScreen(name: "\(BeatitudoMediaView.self)")
+        .navigationDestination(isPresented: $presentingDestination, destination: {
+            NavigationStack {
+                WebView(url: destinationURL)
+            }
+            .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
+            .navigationBarTitleDisplayMode(.inline)
+        })
     }
 }
 
 #Preview {
     BeatitudoMediaView()
 }
+
