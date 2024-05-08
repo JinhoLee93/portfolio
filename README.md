@@ -133,7 +133,7 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
 </table>
 
 ## III. 제작 기간
-2024.02 ~
+2024.02 ~ 2024.05
 
 ## IV. 기여도
 100%
