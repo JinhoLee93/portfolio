@@ -34,18 +34,29 @@ final class APIServices: NetworkLayer {
     }
     
     func downloadImage(url: String) async throws -> Image? {
+        if let uiImage = LocalCacheManager.shared.getImage(name: url) {
+            
+            return Image(uiImage: uiImage)
+        } else {
+            if let image = LocalFileManager.shared.getImage(imageName: url, folderName: "thumbnails") {
+                
+                return image
+            }
+        }
+        
+        let urlString = url
         let url = try convertStringToURL(url: url)
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         try handleHTTPURLResponse(response: response, url: url)
         
-        if let uiImage = UIImage(data: data) {
-            
-            return Image(uiImage: uiImage)
-        }
+        guard let uiImage = UIImage(data: data) else { return nil }
         
-        return nil
+        LocalCacheManager.shared.addToCache(uiImage: uiImage, name: urlString)
+        LocalFileManager.shared.saveImage(image: uiImage, imageName: urlString, folderName: "thumbnails")
+        
+        return Image(uiImage: uiImage)
     }
     
     func convertStringToURL(url: String) throws -> URL {
