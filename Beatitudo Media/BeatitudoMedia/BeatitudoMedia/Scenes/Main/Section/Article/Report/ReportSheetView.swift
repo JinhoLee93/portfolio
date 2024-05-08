@@ -27,13 +27,24 @@ struct ReportSheetView: View {
                         .foregroundStyle(Color(uiColor: UIColor.darkGray))
                     
                     VStack(alignment: .trailing) {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
-                            .foregroundStyle(Color(uiColor: UIColor.lightGray))
-                            .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 15))
-                            .onTapGesture { presentingReportSheet = false }
+                        HStack {
+                            Image(systemName: "ellipsis")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundStyle(Color(uiColor: UIColor.lightGray))
+                                .frame(width: 15, height: 15)
+                                .foregroundStyle(Color.black)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "xmark.circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)
+                                .foregroundStyle(Color(uiColor: UIColor.lightGray))
+                                .onTapGesture { presentingReportSheet = false }
+                        }
+                        .padding(EdgeInsets(top: 15, leading: 25, bottom: 0, trailing: 15))
                         
                         Spacer()
                         
