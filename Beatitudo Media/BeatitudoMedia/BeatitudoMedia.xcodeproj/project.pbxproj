@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681741712BEBB9FC00AE56FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
-		685016432BEB84DC0006E0B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */; };
 		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
 		687340C02BE9054C00D65B86 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687340BF2BE9054C00D65B86 /* ArticleComment.swift */; };
 		6886FB752BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886FB742BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift */; };
@@ -61,9 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
-		685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
 		687340BF2BE9054C00D65B86 /* ArticleComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
 		6886FB742BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAuxiliaryDataBar.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 				68F231182BE12A08003A27B5 /* Scenes */,
 				68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */,
 				68F230F22BE1294E003A27B5 /* Assets.xcassets */,
-				685016422BEB84DC0006E0B7 /* GoogleService-Info.plist */,
+				681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */,
 				68F230F42BE1294E003A27B5 /* Preview Content */,
 			);
 			path = BeatitudoMedia;
@@ -439,7 +439,7 @@
 			files = (
 				68F230F62BE1294E003A27B5 /* Preview Assets.xcassets in Resources */,
 				68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */,
-				685016432BEB84DC0006E0B7 /* GoogleService-Info.plist in Resources */,
+				681741712BEBB9FC00AE56FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
