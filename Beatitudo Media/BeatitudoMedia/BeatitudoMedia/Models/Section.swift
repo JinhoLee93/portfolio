@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Section: Identifiable {
-    let id = UUID()
+    let id: Int
     let title: String
     let articles: [Article]
 }
