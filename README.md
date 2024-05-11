@@ -52,7 +52,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
       <td align="center">Django</td>
     </tr>
     <tr>
-      <td align="center">데이터베이스</td>
+      <td align="center">RDBMS</td>
       <td align="center">PostgreSQL</td>
     </tr>
   </tbody>
