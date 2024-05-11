@@ -20,7 +20,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
   <tbody>
     <tr>
       <td align="center">개발 언어</td>
-      <td align="center">Swift, Python, ChatGPT</td>
+      <td align="center">Swift, Python, SQL, ChatGPT</td>
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
@@ -46,6 +46,14 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
     <tr>
       <td align="center">UI</td>
       <td align="center">SwiftUI, WebKit</td>
+    </tr>
+    <tr>
+      <td align="center">서버</td>
+      <td align="center">Django</td>
+    </tr>
+    <tr>
+      <td align="center">데이터베이스</td>
+      <td align="center">PostgreSQL</td>
     </tr>
   </tbody>
 </table>
