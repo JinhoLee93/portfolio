@@ -8,4 +8,3 @@ class Product(models.Model):
     description = models.TextField()
     price       = models.TextField()
     summary     = models.TextField(default='this is cool!')
-

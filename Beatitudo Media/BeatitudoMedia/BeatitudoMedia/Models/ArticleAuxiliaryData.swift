@@ -10,8 +10,8 @@ import Foundation
 struct ArticleAuxiliaryData {
     let loved: Bool
     let countOfLoved: Int
-    let shared: Int
-    let comments: [ArticleComment]
+    let countOfShared: Int
+//    let comments: [ArticleComment]
     
     func updateShared() {
         
@@ -21,7 +21,6 @@ struct ArticleAuxiliaryData {
         
         return ArticleAuxiliaryData(loved: !self.loved,
                                     countOfLoved: self.loved ? self.countOfLoved - 1 : self.countOfLoved + 1,
-                                    shared: self.shared,
-                                    comments: self.comments)
+                                    countOfShared: self.countOfShared)
     }
 }

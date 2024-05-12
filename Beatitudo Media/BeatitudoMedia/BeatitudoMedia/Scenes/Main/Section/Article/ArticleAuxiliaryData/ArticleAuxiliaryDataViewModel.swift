@@ -17,7 +17,7 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
         self.articleURL = articleURL
-        self.countOfShared = articleAuxiliaryData.shared
+        self.countOfShared = articleAuxiliaryData.countOfShared
         self.countOfLoved = articleAuxiliaryData.countOfLoved
     }
     
@@ -31,20 +31,20 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
         return self.articleAuxiliaryData.countOfLoved
     }
     
-    func getShared() -> Int {
+    func getCountOfShared() -> Int {
         
-        return self.articleAuxiliaryData.shared
+        return self.articleAuxiliaryData.countOfShared
     }
     
-    func getComments() -> [ArticleComment] {
-        
-        return self.articleAuxiliaryData.comments
-    }
-    
-    func getCommentsCount() -> Int {
-        
-        return self.articleAuxiliaryData.comments.count
-    }
+//    func getComments() -> [ArticleComment] {
+//        
+//        return self.articleAuxiliaryData.comments
+//    }
+//    
+//    func getCommentsCount() -> Int {
+//        
+//        return self.articleAuxiliaryData.comments.count
+//    }
     
     func updateLoved() {
         self.articleAuxiliaryData = self.articleAuxiliaryData.updateLoved()

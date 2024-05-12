@@ -41,7 +41,7 @@ struct ArticleView: View {
                         .foregroundStyle(.adaptiveText)
                 }
                     
-                ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, shared: 0, comments: []), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet)
+                ArticleAuxiliaryDataBar(articleAuxiliaryData: ArticleAuxiliaryData(loved: false, countOfLoved: 0, countOfShared: 0), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet)
             }
         }
         .onTapGesture {
