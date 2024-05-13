@@ -23,9 +23,9 @@ struct SectionBar: View {
     
     var body: some View {
         ZStack {
-            ScrollView(.horizontal, showsIndicators: false) {
-                ScrollViewReader { proxy in
-                    HStack(spacing: 20) {
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                ScrollViewReader { proxy in
+                    HStack(spacing: 0) {
                         ForEach(viewModel.sections, id: \.self) { section in
                             VStack(spacing: 5) {
                                 Spacer()
@@ -46,16 +46,18 @@ struct SectionBar: View {
                             .onTapGesture {
                                 currentSectionIndex = viewModel.getSectionIndex(of: section)
                             }
-                            .onChange(of: currentSectionIndex) { _, _ in
-                                withAnimation(.easeInOut(duration: 0.15)) {
-                                    proxy.scrollTo(viewModel.sections[currentSectionIndex].title, anchor: .center)
-                                }
-                            }
+//                            .onChange(of: currentSectionIndex) { _, _ in
+//                                withAnimation(.easeInOut(duration: 0.15)) {
+//                                    proxy.scrollTo(viewModel.sections[currentSectionIndex].title, anchor: .center)
+//                                }
+//                            }
                             .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)
+                           
                         }
                     }
-                }
-            }
+//                }
+//            }
+//            .scrollDisabled(true)
         }
         .frame(height: 40)
     }

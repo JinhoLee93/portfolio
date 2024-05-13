@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Only three sections - 감동, 재미, 행복
 struct Section: Codable, Hashable {
     let title: String
     let articles: [Article]

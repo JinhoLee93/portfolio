@@ -319,12 +319,12 @@
 		68F231272BE1389A003A27B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				68BD01032BF0A32100C38ACC /* Sections.swift */,
 				68F231282BE138A5003A27B5 /* Section.swift */,
 				68A03C7F2BE3D95500459F2C /* Article.swift */,
 				6886FB7E2BE4DEB000007CD9 /* ArticleMetadata.swift */,
 				6886FB802BE4DEC600007CD9 /* ArticleAuxiliaryData.swift */,
 				687340BF2BE9054C00D65B86 /* ArticleComment.swift */,
-				68BD01032BF0A32100C38ACC /* Sections.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

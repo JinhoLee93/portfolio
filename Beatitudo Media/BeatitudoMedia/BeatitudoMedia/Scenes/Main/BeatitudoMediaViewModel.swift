@@ -12,7 +12,7 @@ class BeatitudoMediaViewModel: ObservableObject {
     
     init() {
         self.sections = [
-            Section(title: "사회",
+            Section(title: "감동",
                     articles: [
                         Article(title: "32세 군인 아빠 \"벌이 대부분 식비…6남매 키우기 힘들지만 그 이상 행복\"", articleViews: 0, thumbnailURL: "https://mimgnews.pstatic.net/image/origin/021/2024/05/05/2635702.jpg?type=ofullfill220_150", articleURL: "https://n.news.naver.com/mnews/article/021/0002635702", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
                         Article(title: "노래하는 장애인 딸 넘어지지 않게 무릎 꿇은 母…누리꾼 울렸다", articleViews: 0, thumbnailURL: "https://mimgnews.pstatic.net/image/origin/031/2024/05/05/834143.jpg?type=nf220_150", articleURL: "https://n.news.naver.com/mnews/article/031/0000834143", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
@@ -37,7 +37,7 @@ class BeatitudoMediaViewModel: ObservableObject {
                         
                     ]),
             
-            Section(title: "세계",
+            Section(title: "행복",
                     articles: [
                         Article(title: "아이 실수로 2000만원짜리 도자기 ‘와장창’…박물관 측 “괜찮다” 선처", articleViews: 0, thumbnailURL: "https://imgnews.pstatic.net/image/009/2024/05/05/0005298688_001_20240505195601013.jpg?type=w647", articleURL: "https://n.news.naver.com/mnews/article/009/0005298688", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
                         
@@ -52,7 +52,7 @@ class BeatitudoMediaViewModel: ObservableObject {
                         Article(title: "주인 장례식장 안 떠나는 개, 눈물만 '글썽'…\"사람보다 낫다\"", articleViews: 0, thumbnailURL: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQWdFzX-uon_LgAaB2bgG43Ve65MGdNa_aAmUOAepJfPjbUBFqUSO4JRFZWNSO2ihyxyVAnXnXTpKnXAJDuSpYn", articleURL: "https://news.google.com/articles/CBMiQmh0dHBzOi8vc3BvcnRzLmNob3N1bi5jb20vbGlmZS8yMDI0LTA1LTA3LzIwMjQwNTA0MDEwMDAyNjU2MDAwMzk5NNIBAA?hl=ko&gl=KR&ceid=KR%3Ako", articleMetadataURL: "", articleAuxiliaryDataURL: "")
                     ]),
             
-            Section(title: "과학/기술", articles: [
+            Section(title: "재미", articles: [
                 Article(title: "석유 고갈 걱정 끝…만년 동안 인류 구원할 '미친 광물' 캔다", articleViews: 0, thumbnailURL: "https://mimgnews.pstatic.net/image/origin/015/2024/05/07/4981389.jpg?type=nf220_150", articleURL: "https://n.news.naver.com/mnews/article/015/0004981389", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
                 
                 Article(title: "[애니멀리포트] 약육강식 야생에서 입양하는 앵무새…어버이의 은혜 베푼다", articleViews: 0, thumbnailURL: "https://mimgnews.pstatic.net/image/origin/366/2024/05/07/990984.jpg?type=nf220_150", articleURL: "https://n.news.naver.com/mnews/article/366/0000990984", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
@@ -69,10 +69,8 @@ class BeatitudoMediaViewModel: ObservableObject {
                 
                 Article(title: "‘21세기 만병통치약’...비만치료제 ‘위고비’ 지방간에도 효과 있다", articleViews: 0, thumbnailURL: "https://mimgnews.pstatic.net/image/origin/023/2024/05/06/3832579.jpg?type=nf220_150", articleURL: "https://n.news.naver.com/mnews/article/023/0003832579", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
                 
-                Article(title: "공중에서 무작정 부유하는 봄꽃을 보면 나도 모르게 '랄랄라'", articleViews: 0, thumbnailURL: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT1Kv_bbL7kF_KH-5X5xiT377hOjtDtlylTHnnOHtIHu5gcFEp4JklwufE4KOW0KVPzSKkLllUPduIfd8kImzeZgZ6e5VWBJ7VrMgsVyamxEto35A", articleURL: "https://www.hankyung.com/article/202404242764i", articleMetadataURL: "", articleAuxiliaryDataURL: "")
-            ]),
-            
-            Section(title: "Funny!", articles: [
+                Article(title: "공중에서 무작정 부유하는 봄꽃을 보면 나도 모르게 '랄랄라'", articleViews: 0, thumbnailURL: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT1Kv_bbL7kF_KH-5X5xiT377hOjtDtlylTHnnOHtIHu5gcFEp4JklwufE4KOW0KVPzSKkLllUPduIfd8kImzeZgZ6e5VWBJ7VrMgsVyamxEto35A", articleURL: "https://www.hankyung.com/article/202404242764i", articleMetadataURL: "", articleAuxiliaryDataURL: ""),
+                
                 Article(title: "[출근길 인터뷰] '팔도의 말맛'…\"사투리는 못 참지\"", articleViews: 0, thumbnailURL: "https://img1.daumcdn.net/thumb/S470x268ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202405%2F07%2Fnewsy%2F20240507083703631umtq.jpg&scode=media2", articleURL: "https://v.daum.net/v/20240507083703028", articleMetadataURL: "", articleAuxiliaryDataURL: "")
             ])
         ]
