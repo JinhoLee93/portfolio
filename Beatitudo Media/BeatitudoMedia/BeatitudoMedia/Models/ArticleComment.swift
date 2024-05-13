@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ArticleComment {
+struct ArticleComment: Hashable {
     let body: String
 }

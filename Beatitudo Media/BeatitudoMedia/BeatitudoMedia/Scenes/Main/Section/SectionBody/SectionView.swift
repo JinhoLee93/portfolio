@@ -28,7 +28,7 @@ struct SectionView: View {
             Color.adaptiveBackground
             
             TabView(selection: $currentSection) {
-                ForEach(viewModel.sections) { section in
+                ForEach(viewModel.sections, id: \.self) { section in
                     List {
                         ForEach(section.articles, id: \.self) { article in
                             VStack(spacing: 10) {

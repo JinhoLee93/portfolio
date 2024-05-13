@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticleAuxiliaryData {
+struct ArticleAuxiliaryData: Hashable {
     let loved: Bool
     let countOfLoved: Int
     let countOfShared: Int

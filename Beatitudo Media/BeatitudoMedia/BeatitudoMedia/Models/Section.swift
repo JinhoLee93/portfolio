@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct Section: Identifiable {
-    let id: Int
+struct Section: Codable, Hashable {
     let title: String
     let articles: [Article]
 }

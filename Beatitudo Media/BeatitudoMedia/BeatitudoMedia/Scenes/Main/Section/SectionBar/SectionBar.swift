@@ -26,7 +26,7 @@ struct SectionBar: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in
                     HStack(spacing: 20) {
-                        ForEach(viewModel.sections) { section in
+                        ForEach(viewModel.sections, id: \.self) { section in
                             VStack(spacing: 5) {
                                 Spacer()
                                 

@@ -49,6 +49,15 @@ struct BeatitudoMediaView: View {
             .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
             .navigationBarTitleDisplayMode(.inline)
         })
+        .onAppear {
+            
+            Task {
+                let data: Sections = try await APIServices.shared.fetchData(url: "http://127.0.0.1:8000/sections/send_sections/")
+                
+                print("print data: \(data)")
+            }
+            
+        }
     }
 }
 

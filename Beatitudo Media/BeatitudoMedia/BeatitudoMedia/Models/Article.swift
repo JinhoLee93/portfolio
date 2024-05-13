@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Article: Hashable {
+struct Article: Hashable, Codable {
     let title: String
     let articleViews: Int
     let thumbnailURL: String
