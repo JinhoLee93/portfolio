@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticleMetadata: Hashable {
+struct ArticleMetadata: Codable, Hashable {
     let timeToRead: Int
     let date: String
 }

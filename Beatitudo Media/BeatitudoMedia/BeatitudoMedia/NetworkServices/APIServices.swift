@@ -33,6 +33,20 @@ final class APIServices: NetworkLayer {
         return try decodeAndReturn(T.self, from: data)
     }
     
+    func fetchJSON(url: String) async throws {
+        let url = try convertStringToURL(url: url)
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        let jsonObject = try JSONSerialization.jsonObject(with: data)
+        let jsonData = try JSONSerialization.data(withJSONObject: jsonObject)
+        if let jsonString = String(data: jsonData, encoding: String.Encoding.utf8) {
+            print("print: \(jsonString)")
+        }
+    }
+    
     func downloadImage(url: String) async throws -> Image? {
         if let uiImage = LocalCacheManager.shared.getImage(name: url) {
             

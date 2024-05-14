@@ -32,6 +32,7 @@ struct SectionBar: View {
                                 
                                 Text(section.title)
                                     .foregroundStyle(currentSectionIndex == viewModel.getSectionIndex(of: section) ? .adaptiveText : .gray)
+                                    .font(.system(size: 15))
                                 
                                 if currentSectionIndex == viewModel.getSectionIndex(of: section) {
                                     Color.adaptiveText
