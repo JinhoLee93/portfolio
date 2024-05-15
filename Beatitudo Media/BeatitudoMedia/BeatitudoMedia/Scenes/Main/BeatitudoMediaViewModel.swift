@@ -47,4 +47,19 @@ extension BeatitudoMediaViewModel {
         
         return self.sections.firstIndex { $0.title == section.title } ?? 0
     }
+    
+    func translateSectionTitle(_ title: String) -> String {
+        switch title {
+        case "Moving":
+            return "감동적이에요"
+        case "Happy":
+            return "행복해요"
+        case "Amazing":
+            return "놀라워요"
+        case "Funny":
+            return "웃겨요"
+        default:
+            return "SectionNameNotExpected"
+        }
+    }
 }

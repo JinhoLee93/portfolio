@@ -2,15 +2,11 @@ from ..models import *
 
 class Helpers:
     def load_test_data():
-        # Sections.objects.all().delete()
         Section.objects.all().delete()
         Article.objects.all().delete()
         Article_Metadata.objects.all().delete()
         Article_Auxiliary_Data.objects.all().delete()
 
-        # Create the Sections wrapper for sections
-
-        # Create Section's that go into the wrapper
         moving_section     = Section.objects.create(title='Moving') 
         happy_section      = Section.objects.create(title='Happy')
         amazing_section    = Section.objects.create(title='Amazing')
@@ -119,8 +115,8 @@ class Helpers:
 
         article5_happy = Article.objects.create(section=happy_section,
                                                     title='공중에서 무작정 부유하는 봄꽃을 보면 나도 모르게 \'랄랄라\'',
-                                                    thumbnail_url='https://imgnews.pstatic.net/image/009/2024/05/05/0005298688_001_20240505195601013.jpg?type=w647',
-                                                    article_url='https://n.news.naver.com/mnews/article/009/0005298688')
+                                                    thumbnail_url='https://img.hankyung.com/photo/202404/01.36512692.1.jpg',
+                                                    article_url='https://www.hankyung.com/article/202404242764i')
         article5_happy_metadata = Article_Metadata.objects.create(article=article5_happy, time_to_read=1, date='2024-05-07')
         article5_happy_auxiliary_data = Article_Auxiliary_Data.objects.create(article=article5_happy)
 
@@ -130,13 +126,6 @@ class Helpers:
                                                     article_url='https://n.news.naver.com/mnews/article/009/0005299305')
         article6_happy_metadata = Article_Metadata.objects.create(article=article6_happy, time_to_read=1, date='2024-05-07')
         article6_happy_auxiliary_data = Article_Auxiliary_Data.objects.create(article=article6_happy)
-
-        article7_happy = Article.objects.create(section=happy_section,
-                                                    title='35년전 지루한 영상이 갑자기 조회수 폭발...“덕분에 잘 잤어요” 감사인사 받는 이유',
-                                                    thumbnail_url='https://mimgnews.pstatic.net/image/origin/009/2024/05/07/5299305.jpg?type=nf220_150',
-                                                    article_url='https://n.news.naver.com/mnews/article/009/0005299305')
-        article7_happy_metadata = Article_Metadata.objects.create(article=article7_happy, time_to_read=1, date='2024-05-07')
-        article7_happy_auxiliary_data = Article_Auxiliary_Data.objects.create(article=article7_happy)
 
         article8_happy = Article.objects.create(section=happy_section,
                                                     title='한국계 미국인 우일연 작가, 美 최고 권위 퓰리처상 수상',

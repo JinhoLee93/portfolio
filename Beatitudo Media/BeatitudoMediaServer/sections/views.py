@@ -8,10 +8,5 @@ from django.http import JsonResponse
 # Create your views here.
 
 def send_sections(request):
-    sections = []
-    
-    for section in Section.objects.all():
-        serialized = SectionSerializer(section).data
-        sections.append(serialized)
-
+    sections = [SectionSerializer(section).data for section in Section.objects.all()]
     return JsonResponse({ 'sections' : sections })

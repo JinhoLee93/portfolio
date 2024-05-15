@@ -26,7 +26,7 @@ struct SectionBar: View {
                     VStack(spacing: 5) {
                         Spacer()
                         
-                        Text(section.title)
+                        Text(viewModel.translateSectionTitle(section.title))
                             .foregroundStyle(currentSectionIndex == viewModel.getSectionIndex(of: section) ? .adaptiveText : .gray)
                             .font(.system(size: 15))
                         
