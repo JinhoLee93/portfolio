@@ -10,6 +10,7 @@
 		681741712BEBB9FC00AE56FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		684775602BF5003F0090B6F6 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847755F2BF5003F0090B6F6 /* StatusView.swift */; };
 		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
 		6855B0EB2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift */; };
 		687340C02BE9054C00D65B86 /* ArticleComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687340BF2BE9054C00D65B86 /* ArticleComment.swift */; };
@@ -64,6 +65,7 @@
 		681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
+		6847755F2BF5003F0090B6F6 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
 		6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaNetworkService.swift; sourceTree = "<group>"; };
 		687340BF2BE9054C00D65B86 /* ArticleComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleComment.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6847755E2BF4FED10090B6F6 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				6847755F2BF5003F0090B6F6 /* StatusView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
 		6850A3CF2BE3343E007C4F56 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 				68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */,
 				688C8E332BE9DC930021BFEA /* BeatitudoMediaViewModel.swift */,
 				6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift */,
+				6847755E2BF4FED10090B6F6 /* Status */,
 				6886FB732BE491CB00007CD9 /* Section */,
 			);
 			path = Main;
@@ -466,6 +477,7 @@
 			files = (
 				688E5BED2BEA564800B39050 /* ReportSheetView.swift in Sources */,
 				6886FB882BE4E65B00007CD9 /* ArticleAuxiliaryDataViewModel.swift in Sources */,
+				684775602BF5003F0090B6F6 /* StatusView.swift in Sources */,
 				6886FB752BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift in Sources */,
 				6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */,
 				6886FB7B2BE4CCBD00007CD9 /* ArticleViewModel.swift in Sources */,

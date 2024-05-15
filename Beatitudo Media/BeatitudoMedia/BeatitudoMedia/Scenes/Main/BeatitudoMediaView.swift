@@ -9,13 +9,14 @@ import SwiftUI
 import Firebase
 
 struct BeatitudoMediaView: View {
-    @StateObject var viewModel = BeatitudoMediaViewModel()
+    @StateObject var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
     @State var currentSection: Int = 0
     
     @State private var presentingDestination: Bool = false
-    @State private var destinationURL: String = ""
+    @State private var destinationURL: String      = ""
     @State private var presentingReportSheet: Bool = false
+    @State private var showStatusPage: Bool        = false
     
     @Namespace var namespace
     
@@ -23,7 +24,22 @@ struct BeatitudoMediaView: View {
         ZStack {
             Color.adaptiveBackground
             
+            Button {
+                viewModel.refreshSections()
+            } label: {
+                VStack {
+                    Image(systemName: "arrow.circlepath")
+                        .rotationEffect(.degrees(-90))
+                    Text("reload")
+                        .bold()
+                }
+                .foregroundStyle(.black)
+            }
+            .opacity(viewModel.sections.isEmpty ? 1 : 0)
+
             VStack(spacing: 0) {
+                StatusView(showStatusPage: $showStatusPage)
+                
                 SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
@@ -37,6 +53,7 @@ struct BeatitudoMediaView: View {
                             presentingReportSheet: $presentingReportSheet)
                     .ignoresSafeArea()
             }
+            .opacity(viewModel.sections.isEmpty ? 0 : 1)
             
             ReportSheetView(presentingReportSheet: $presentingReportSheet)
         }

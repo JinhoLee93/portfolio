@@ -26,9 +26,9 @@ class BeatitudoMediaViewModel: ObservableObject {
         return tokens.count < 1 ? "" : tokens[1]
     }
     
-    
+        
     // Subscribers
-    func addSubscribers() {
+    private func addSubscribers() {
         self.domain.$sections
             .handleEvents(receiveRequest:  { _ in
                 // show loading
@@ -46,6 +46,12 @@ extension BeatitudoMediaViewModel {
     func getSectionIndex(of section: Section) -> Int {
         
         return self.sections.firstIndex { $0.title == section.title } ?? 0
+    }
+    
+    func refreshSections() {
+        Task {
+            try await self.domain.refreshSections()
+        }
     }
     
     func translateSectionTitle(_ title: String) -> String {

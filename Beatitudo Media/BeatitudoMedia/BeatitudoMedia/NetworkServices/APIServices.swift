@@ -25,7 +25,7 @@ final class APIServices: NetworkLayer {
     
     func fetchData<T>(url: String) async throws -> T where T : Decodable {
         let url = try convertStringToURL(url: url)
-        
+    
         let (data, response) = try await URLSession.shared.data(from: url)
         
         try handleHTTPURLResponse(response: response, url: url)
