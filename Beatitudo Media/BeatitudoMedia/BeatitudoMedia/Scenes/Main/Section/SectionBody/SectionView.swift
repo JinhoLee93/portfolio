@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SectionView: View {    
-    @StateObject var viewModel: SectionViewModel
+    @EnvironmentObject var viewModel: BeatitudoMediaViewModel
     
     @Binding var currentSection: Int
     @Binding var presentingDestination: Bool
     @Binding var destinationURL: String
     @Binding var presentingReportSheet: Bool
     
-    init(sections: [Section], currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>) {
-        self._viewModel = StateObject(wrappedValue: SectionViewModel(sections: sections))
+    init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>) {
         self._currentSection = currentSection
         self._presentingDestination = presentingDestination
         self._destinationURL = destinationURL

@@ -16,7 +16,7 @@ protocol ArticleViewModelType {
 class ArticleViewModel: ObservableObject, ArticleViewModelType {
     private var article: Article
     
-    @Published var thumbnail: Image?
+    @Published var thumbnail: Image = Image(systemName: "photo")
     @Published var articleViews: Int
     
     private var anyCancellables = Set<AnyCancellable>()
@@ -48,6 +48,16 @@ class ArticleViewModel: ObservableObject, ArticleViewModelType {
     func getArticleURL() -> String {
         
         return self.article.articleURL
+    }
+    
+    func getArticleMetaData() -> ArticleMetadata {
+        
+        return self.article.articleMetadata
+    }
+    
+    func getArticleAuxiliaryData() -> ArticleAuxiliaryData {
+        
+        return self.article.articleAuxiliaryData
     }
     
     func updateViews() {

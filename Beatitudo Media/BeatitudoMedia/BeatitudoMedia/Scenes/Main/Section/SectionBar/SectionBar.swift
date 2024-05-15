@@ -10,55 +10,44 @@ import SwiftUI
 struct SectionBar: View {
     let namespace: Namespace.ID
     
-    @StateObject var viewModel: SectionBarViewModel
+    @EnvironmentObject var viewModel: BeatitudoMediaViewModel
     
     @Binding var currentSectionIndex: Int
     
-    init(sections: [Section], currentSectionIndex: Binding<Int>, namespace: Namespace.ID) {
-        self._viewModel = StateObject(wrappedValue: SectionBarViewModel(sections: sections))
+    init(currentSectionIndex: Binding<Int>, namespace: Namespace.ID) {
         self._currentSectionIndex = currentSectionIndex
         self.namespace = namespace
     }
     
-    
     var body: some View {
         ZStack {
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                ScrollViewReader { proxy in
-                    HStack(spacing: 0) {
-                        ForEach(viewModel.sections, id: \.self) { section in
-                            VStack(spacing: 5) {
-                                Spacer()
-                                
-                                Text(section.title)
-                                    .foregroundStyle(currentSectionIndex == viewModel.getSectionIndex(of: section) ? .adaptiveText : .gray)
-                                    .font(.system(size: 15))
-                                
-                                if currentSectionIndex == viewModel.getSectionIndex(of: section) {
-                                    Color.adaptiveText
-                                        .matchedGeometryEffect(id: "underline", in: namespace, properties: .frame)
-                                        .frame(height: 2)
-                                } else {
-                                    Color.clear
-                                        .frame(height: 2)
-                                }
-                            }
-                            .id(section.title)
-                            .onTapGesture {
-                                currentSectionIndex = viewModel.getSectionIndex(of: section)
-                            }
-//                            .onChange(of: currentSectionIndex) { _, _ in
-//                                withAnimation(.easeInOut(duration: 0.15)) {
-//                                    proxy.scrollTo(viewModel.sections[currentSectionIndex].title, anchor: .center)
-//                                }
-//                            }
-                            .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)
-                           
+            HStack(spacing: 0) {
+                ForEach(viewModel.sections, id: \.self) { section in
+                    VStack(spacing: 5) {
+                        Spacer()
+                        
+                        Text(section.title)
+                            .foregroundStyle(currentSectionIndex == viewModel.getSectionIndex(of: section) ? .adaptiveText : .gray)
+                            .font(.system(size: 15))
+                        
+                        if currentSectionIndex == viewModel.getSectionIndex(of: section) {
+                            Color.adaptiveText
+                                .matchedGeometryEffect(id: "underline", in: namespace, properties: .frame)
+                                .frame(height: 2)
+                        } else {
+                            Color.clear
+                                .frame(height: 2)
                         }
                     }
-//                }
-//            }
-//            .scrollDisabled(true)
+                    .id(section.title)
+                    .onTapGesture {
+                        currentSectionIndex = viewModel.getSectionIndex(of: section)
+                    }
+
+                    .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)
+                   
+                }
+            }
         }
         .frame(height: 40)
     }

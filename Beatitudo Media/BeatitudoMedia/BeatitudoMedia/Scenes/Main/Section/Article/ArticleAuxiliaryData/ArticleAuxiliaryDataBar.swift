@@ -41,7 +41,7 @@ struct ArticleAuxiliaryDataBar: View {
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
-                        viewModel.updateLoved()
+//                        viewModel.updateLoved()
                     }
                     .sensoryFeedback(.selection, trigger: viewModel.countOfLoved) { oldValue, newValue in
                         

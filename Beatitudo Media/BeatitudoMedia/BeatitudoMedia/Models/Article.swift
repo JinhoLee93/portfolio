@@ -12,8 +12,17 @@ struct Article: Codable, Hashable {
     let articleViews: Int
     let thumbnailURL: String
     let articleURL: String
-    let articleMetadataURL: String
-    let articleAuxiliaryDataURL: String
+    let articleMetadata: ArticleMetadata
+    let articleAuxiliaryData: ArticleAuxiliaryData
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case articleViews = "article_views"
+        case thumbnailURL = "thumbnail_url"
+        case articleURL = "article_url"
+        case articleMetadata = "article_metadata"
+        case articleAuxiliaryData = "article_auxiliary_data"
+    }
     
     func updateViews() -> Article {
         
@@ -21,7 +30,7 @@ struct Article: Codable, Hashable {
                        articleViews: self.articleViews + 1,
                        thumbnailURL: self.thumbnailURL,
                        articleURL: self.articleURL,
-                       articleMetadataURL: self.articleMetadataURL,
-                       articleAuxiliaryDataURL: self.articleAuxiliaryDataURL)
+                       articleMetadata: self.articleMetadata,
+                       articleAuxiliaryData: self.articleAuxiliaryData)
     }
 }

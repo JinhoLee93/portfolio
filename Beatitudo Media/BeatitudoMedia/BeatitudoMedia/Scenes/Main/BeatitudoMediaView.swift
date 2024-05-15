@@ -24,15 +24,14 @@ struct BeatitudoMediaView: View {
             Color.adaptiveBackground
             
             VStack(spacing: 0) {
-                SectionBar(sections: viewModel.sections, currentSectionIndex: $currentSection, namespace: namespace.self)
+                SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
                 
                 Divider()
                     .background(.adaptiveView)
                 
-                SectionView(sections: viewModel.sections,
-                            currentSection: $currentSection,
+                SectionView(currentSection: $currentSection,
                             presentingDestination: $presentingDestination,
                             destinationURL: $destinationURL,
                             presentingReportSheet: $presentingReportSheet)
@@ -41,6 +40,7 @@ struct BeatitudoMediaView: View {
             
             ReportSheetView(presentingReportSheet: $presentingReportSheet)
         }
+        .environmentObject(viewModel)
         .analyticsScreen(name: "\(BeatitudoMediaView.self)")
         .navigationDestination(isPresented: $presentingDestination, destination: {
             NavigationStack {
@@ -49,12 +49,6 @@ struct BeatitudoMediaView: View {
             .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
             .navigationBarTitleDisplayMode(.inline)
         })
-        .onAppear {
-            Task {
-                try await APIServices.shared.fetchJSON(url: "http://127.0.0.1:8000/sections/send-sections/")
-            }
-            
-        }
     }
 }
 

@@ -8,19 +8,17 @@
 import Foundation
 
 struct ArticleAuxiliaryData: Codable, Hashable {
-    let loved: Bool
     let countOfLoved: Int
     let countOfShared: Int
-//    let comments: [ArticleComment]
     
-    func updateShared() {
-        
+    enum CodingKeys: String, CodingKey {
+        case countOfLoved = "count_of_loved"
+        case countOfShared = "count_of_shared"
     }
-    
-    func updateLoved() -> ArticleAuxiliaryData {
-        
-        return ArticleAuxiliaryData(loved: !self.loved,
-                                    countOfLoved: self.loved ? self.countOfLoved - 1 : self.countOfLoved + 1,
-                                    countOfShared: self.countOfShared)
-    }
+//
+//    func updateLoved() -> ArticleAuxiliaryData {
+//        
+//        return ArticleAuxiliaryData(countOfLoved: self.loved ? self.countOfLoved - 1 : self.countOfLoved + 1,
+//                                    countOfShared: self.countOfShared)
+//    }
 }

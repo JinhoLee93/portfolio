@@ -2,11 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Sections(models.Model):
-    pass
-
 class Section(models.Model): 
-    sections = models.ForeignKey(to=Sections, related_name='sections', on_delete=models.CASCADE, null=True)
     title    = models.TextField(null=True)
 
     def __str__(self):

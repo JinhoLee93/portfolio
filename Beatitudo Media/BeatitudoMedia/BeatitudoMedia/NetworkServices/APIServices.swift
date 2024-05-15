@@ -93,7 +93,6 @@ final class APIServices: NetworkLayer {
     
     private func decodeAndReturn<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         return try decoder.decode(T.self, from: data)
     }

@@ -23,7 +23,7 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     
     func getLoved() -> Bool {
         
-        return self.articleAuxiliaryData.loved
+        return false
     }
     
     func getCountOfLoved() -> Int {
@@ -45,11 +45,11 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
 //        
 //        return self.articleAuxiliaryData.comments.count
 //    }
-    
-    func updateLoved() {
-        self.articleAuxiliaryData = self.articleAuxiliaryData.updateLoved()
-        self.countOfLoved = self.articleAuxiliaryData.countOfLoved
-    }
+//    
+//    func updateLoved() {
+//        self.articleAuxiliaryData = self.articleAuxiliaryData.updateLoved()
+//        self.countOfLoved = self.articleAuxiliaryData.countOfLoved
+//    }
     
     func getArticleURL() -> String {
         

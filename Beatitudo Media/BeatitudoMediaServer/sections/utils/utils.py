@@ -2,20 +2,19 @@ from ..models import *
 
 class Helpers:
     def load_test_data():
-        Sections.objects.all().delete()
+        # Sections.objects.all().delete()
         Section.objects.all().delete()
         Article.objects.all().delete()
         Article_Metadata.objects.all().delete()
         Article_Auxiliary_Data.objects.all().delete()
 
         # Create the Sections wrapper for sections
-        wrapper = Sections.objects.create()
 
         # Create Section's that go into the wrapper
-        moving_section     = Section.objects.create(sections=wrapper, title='Moving') 
-        happy_section      = Section.objects.create(sections=wrapper, title='Happy')
-        amazing_section    = Section.objects.create(sections=wrapper, title='Amazing')
-        funny_section      = Section.objects.create(sections=wrapper, title='Funny')
+        moving_section     = Section.objects.create(title='Moving') 
+        happy_section      = Section.objects.create(title='Happy')
+        amazing_section    = Section.objects.create(title='Amazing')
+        funny_section      = Section.objects.create(title='Funny')
 
         # Create Article's that go into each Section
         ## For the Moving Section

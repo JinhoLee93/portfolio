@@ -12,20 +12,29 @@ class ArticleAuxiliaryDataSerializer(serializers.ModelSerializer):
         fields = ['count_of_loved', 'count_of_shared']
 
 class ArticleSerializer(serializers.ModelSerializer):
-    article_metadata = ArticleMetaDataSerializer(many=False, read_only=True)
-    article_auxiliary_data = ArticleAuxiliaryDataSerializer(many=False, read_only=True)
+    article_metadata = serializers.SerializerMethodField("get_article_metadata")
+    article_auxiliary_data = serializers.SerializerMethodField("get_article_auxiliary_data")
     class Meta:
         model  = Article
         fields = ['title', 'article_views', 'thumbnail_url', 'article_url', 'article_metadata', 'article_auxiliary_data']
 
+    def get_article_metadata(self, obj):
+        current_article_metadata = Article_Metadata.objects.filter(article_id=obj.id).first()
+        return ArticleMetaDataSerializer(current_article_metadata).data
+    
+    def get_article_auxiliary_data(self, obj):
+        current_article_auxiliary_data = Article_Auxiliary_Data.objects.filter(article_id=obj.id).first()
+        return ArticleAuxiliaryDataSerializer(current_article_auxiliary_data).data
+
 class SectionSerializer(serializers.ModelSerializer):
-    articles = ArticleSerializer(many=True, read_only=True)
+    articles = serializers.SerializerMethodField("get_articles")
     class Meta:
         model  = Section
         fields = ['title', 'articles']
 
-class SectionsSerializer(serializers.ModelSerializer):
-    sections = SectionSerializer(many=True, read_only=True)
-    class Meta:
-        model  = Sections
-        fields = ['sections']
+    def get_articles(self, obj):
+        articles = []
+        for article in Article.objects.filter(section_id=obj.id):
+            serialized = ArticleSerializer(article).data
+            articles.append(serialized)
+        return articles
