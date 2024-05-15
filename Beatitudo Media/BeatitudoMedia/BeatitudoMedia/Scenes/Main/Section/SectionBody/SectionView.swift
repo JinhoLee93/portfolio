@@ -30,11 +30,11 @@ struct SectionView: View {
                 ForEach(viewModel.sections, id: \.self) { section in
                     List {
                         ForEach(section.articles, id: \.self) { article in
-                            VStack(spacing: 10) {
+                            VStack(spacing: 15) {
                                 ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet)
                                 
                                 Divider()
-                                    .frame(height: 1)
+                                    .frame(height: 0.5)
                                     .background(Color.adaptiveView)
                             }
                             .listRowSeparator(.hidden)

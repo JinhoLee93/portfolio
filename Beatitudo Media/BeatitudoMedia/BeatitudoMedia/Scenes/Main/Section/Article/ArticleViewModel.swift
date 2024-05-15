@@ -16,7 +16,7 @@ protocol ArticleViewModelType {
 class ArticleViewModel: ObservableObject, ArticleViewModelType {
     private var article: Article
     
-    @Published var thumbnail: Image = Image(systemName: "photo")
+    @Published var thumbnail: Image?
     @Published var articleViews: Int
     
     private var anyCancellables = Set<AnyCancellable>()

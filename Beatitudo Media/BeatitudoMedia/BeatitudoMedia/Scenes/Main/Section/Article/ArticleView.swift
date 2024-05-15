@@ -29,10 +29,10 @@ struct ArticleView: View {
                 ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData(), views: $viewModel.articleViews)
                 
                 HStack(alignment: .center, spacing: 10) {
-                    viewModel.thumbnail
+                    viewModel.thumbnail?
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 100, maxHeight: 100)
+                        .frame(width: 100)
                     
                     Text(viewModel.getArticleTitle())
                         .multilineTextAlignment(.leading)

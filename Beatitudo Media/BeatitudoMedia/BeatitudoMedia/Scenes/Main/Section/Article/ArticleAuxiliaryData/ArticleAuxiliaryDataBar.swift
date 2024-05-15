@@ -83,7 +83,7 @@ struct ArticleAuxiliaryDataBar: View {
                 }
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(.adaptiveView)
+                        .stroke(.adaptiveView, lineWidth: 0.5)
                 )
             }
         }
