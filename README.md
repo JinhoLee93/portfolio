@@ -56,7 +56,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
       <td align="center">PostgreSQL</td>
     </tr>
     <tr>
-      <td align="center">RESTful API</td>
+      <td align="center">RESTful API (Client)</td>
       <td align="center">Alamofire</td>
     </tr>
   </tbody>
