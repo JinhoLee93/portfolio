@@ -10,6 +10,7 @@
 		681741712BEBB9FC00AE56FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		683F19B42BF5A18900CCD859 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 683F19B32BF5A18900CCD859 /* Alamofire */; };
 		684775602BF5003F0090B6F6 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847755F2BF5003F0090B6F6 /* StatusView.swift */; };
 		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
 		6855B0EB2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift */; };
@@ -105,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683F19B42BF5A18900CCD859 /* Alamofire in Frameworks */,
 				68DBB8782BEB7FFE004D5960 /* FirebaseAnalyticsSwift in Frameworks */,
 				68DBB8742BEB7FFE004D5960 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -356,6 +358,7 @@
 			packageProductDependencies = (
 				68DBB8732BEB7FFE004D5960 /* FirebaseAnalytics */,
 				68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */,
+				683F19B32BF5A18900CCD859 /* Alamofire */,
 			);
 			productName = BeatitudoMedia;
 			productReference = 68F230EB2BE1294C003A27B5 /* BeatitudoMedia.app */;
@@ -431,6 +434,7 @@
 			mainGroup = 68F230E22BE1294C003A27B5;
 			packageReferences = (
 				68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				683F19B22BF5A18900CCD859 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 68F230EC2BE1294C003A27B5 /* Products */;
 			projectDirPath = "";
@@ -839,6 +843,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		683F19B22BF5A18900CCD859 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -850,6 +862,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		683F19B32BF5A18900CCD859 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 683F19B22BF5A18900CCD859 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		68DBB8732BEB7FFE004D5960 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 68DBB8722BEB7FFE004D5960 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

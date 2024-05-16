@@ -11,5 +11,16 @@ from rest_framework.parsers import JSONParser
 
 # Create your views here.
 
-def send_sections(request):
-    return JsonResponse({ 'sections' : [SectionSerializer(section).data for section in Section.objects.all()] })
+class SectionsAPI:
+    class SectionRelated:
+        # GET
+        def send_sections(request):
+            return JsonResponse({ 'sections' : [SectionSerializer(section).data for section in Section.objects.all()] })
+
+    class ArticleRelated:
+        # POST
+        def increase_likes(request, *args, **kwargs):
+            return None
+    
+        def decrease_likes(request, *args, **kwargs):
+            return None
