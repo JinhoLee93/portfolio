@@ -9,10 +9,10 @@ import Foundation
 
 class ArticleAuxiliaryDataViewModel: ObservableObject {
     private var articleAuxiliaryData: ArticleAuxiliaryData
-    private let articleURL: String
+    private let articleURL          : String
     
     @Published var countOfShared: Int
-    @Published var countOfLoved: Int
+    @Published var countOfLoved : Int
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
@@ -46,10 +46,9 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
 //        return self.articleAuxiliaryData.comments.count
 //    }
 //    
-//    func updateLoved() {
-//        self.articleAuxiliaryData = self.articleAuxiliaryData.updateLoved()
-//        self.countOfLoved = self.articleAuxiliaryData.countOfLoved
-//    }
+    func updateLoved() {
+        APIServices.shared.put(id: articleAuxiliaryData.id)
+    }
     
     func getArticleURL() -> String {
         

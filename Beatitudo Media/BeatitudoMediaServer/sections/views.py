@@ -8,19 +8,46 @@ from json import JSONDecodeError
 from rest_framework import views, status
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
+from django.db.models import F
+from django.db import transaction
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import APIView
 
 # Create your views here.
 
-class SectionsAPI:
-    class SectionRelated:
-        # GET
-        def send_sections(request):
-            return JsonResponse({ 'sections' : [SectionSerializer(section).data for section in Section.objects.all()] })
-
-    class ArticleRelated:
-        # POST
-        def increase_likes(request, *args, **kwargs):
-            return None
+class SectionsAPI(APIView):
+    def get(self, request):
+        return JsonResponse({ 'sections' : [SectionSerializer(section).data for section in Section.objects.all()] })
     
-        def decrease_likes(request, *args, **kwargs):
-            return None
+class ArticleMetadataAPI(APIView):
+    def put(self, request, pk):
+        @transaction.atomic
+        def do_update(obj):
+            obj.article_views = F('article_views') + 1
+            obj.save(update_fields=['article_views'])
+        try:
+            target = Article_Metadata.objects.get(pk=pk)
+            do_update(target)
+        except Article_Metadata.DoesNotExist:
+            return JsonResponse({ 'response' : f'Article Metadata {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
+        return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)
+            
+class ArticleAuxiliaryDataAPI(APIView):
+    def get(self, request, pk):
+        try:
+            target = Article_Auxiliary_Data.objects.get(pk=pk)
+        except Article_Auxiliary_Data.DoesNotExist:
+            return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
+        return JsonResponse({ 'auxiliary_data' : ArticleAuxiliaryDataSerializer(target) })
+
+    def put(self, request, pk):
+        @transaction.atomic
+        def do_update(obj):
+            obj.count_of_loved = F('count_of_loved') + 1
+            obj.save(update_fields=['count_of_loved'])
+        try:
+            target = Article_Auxiliary_Data.objects.get(pk=pk)
+            do_update(target)
+        except Article_Auxiliary_Data.DoesNotExist:
+            return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
+        return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)

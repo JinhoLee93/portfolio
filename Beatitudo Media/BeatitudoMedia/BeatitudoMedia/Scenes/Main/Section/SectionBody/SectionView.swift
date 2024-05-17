@@ -10,9 +10,9 @@ import SwiftUI
 struct SectionView: View {    
     @EnvironmentObject var viewModel: BeatitudoMediaViewModel
     
-    @Binding var currentSection: Int
+    @Binding var currentSection       : Int
     @Binding var presentingDestination: Bool
-    @Binding var destinationURL: String
+    @Binding var destinationURL       : String
     @Binding var presentingReportSheet: Bool
     
     init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>) {

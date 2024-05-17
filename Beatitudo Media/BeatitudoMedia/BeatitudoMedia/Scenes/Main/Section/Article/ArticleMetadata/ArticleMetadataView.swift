@@ -10,12 +10,8 @@ import SwiftUI
 struct ArticleMetadataView: View {
     @StateObject private var viewModel: ArticleMetadataViewModel
     
-    @Binding var views: Int
-    
-    init(articleMetadata: ArticleMetadata, views: Binding<Int>) {
+    init(articleMetadata: ArticleMetadata) {
         _viewModel = StateObject(wrappedValue: ArticleMetadataViewModel(articleMetadata: articleMetadata))
-        
-        _views = views
     }
     
     var body: some View {
@@ -43,7 +39,7 @@ struct ArticleMetadataView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
                         
-                        Text("\(views)")
+                        Text("\(viewModel.getArticleViews())")
                             .font(.system(size: 10))
                     }
                     .foregroundStyle(.gray)

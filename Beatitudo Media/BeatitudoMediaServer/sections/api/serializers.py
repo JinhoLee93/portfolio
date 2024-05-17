@@ -4,19 +4,19 @@ from ..models import *
 class ArticleMetaDataSerializer(serializers.ModelSerializer):
     class Meta:
         model  = Article_Metadata
-        fields = ['time_to_read', 'date']
+        fields = ['id', 'time_to_read', 'date', 'article_views']
 
 class ArticleAuxiliaryDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article_Auxiliary_Data
-        fields = ['count_of_loved', 'count_of_shared']
+        fields = ['id', 'count_of_loved', 'count_of_shared']
 
 class ArticleSerializer(serializers.ModelSerializer):
-    article_metadata = serializers.SerializerMethodField("get_article_metadata")
-    article_auxiliary_data = serializers.SerializerMethodField("get_article_auxiliary_data")
+    article_metadata = serializers.SerializerMethodField('get_article_metadata')
+    article_auxiliary_data = serializers.SerializerMethodField('get_article_auxiliary_data')
     class Meta:
         model  = Article
-        fields = ['title', 'article_views', 'thumbnail_url', 'article_url', 'article_metadata', 'article_auxiliary_data']
+        fields = ['id', 'title', 'thumbnail_url', 'article_url', 'article_metadata', 'article_auxiliary_data']
 
     def get_article_metadata(self, obj):
         current_article_metadata = Article_Metadata.objects.filter(article_id=obj.id).first()
@@ -27,10 +27,10 @@ class ArticleSerializer(serializers.ModelSerializer):
         return ArticleAuxiliaryDataSerializer(current_article_auxiliary_data).data
 
 class SectionSerializer(serializers.ModelSerializer):
-    articles = serializers.SerializerMethodField("get_articles")
+    articles = serializers.SerializerMethodField('get_articles')
     class Meta:
         model  = Section
-        fields = ['title', 'articles']
+        fields = ['id', 'title', 'articles']
 
     def get_articles(self, obj):
         articles = []

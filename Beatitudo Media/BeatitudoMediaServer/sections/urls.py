@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('send-sections/', views.SectionsAPI.SectionRelated.send_sections),
-    path('increase-likes/', views.SectionsAPI.ArticleRelated.increase_likes),
+    path('send-sections/', views.SectionsAPI.as_view()),
+    path('update-count-of-loved/<int:pk>/', views.ArticleAuxiliaryDataAPI.as_view()),
+    path('update-article-views/<int:pk>/', views.ArticleMetadataAPI.as_view()),
 ]

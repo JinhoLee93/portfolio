@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Alamofire
 
 protocol NetworkLayer {
     static var shared: Self { get }
@@ -21,7 +22,33 @@ protocol NetworkLayer {
 final class APIServices: NetworkLayer {
     static var shared = APIServices()
     
+    private var httpHeaders: HTTPHeaders = {
+        var headers = HTTPHeaders()
+        headers.add(name: "platform", value: "iOS")
+        headers.add(name: "osVersion", value: Utils.getiOSVersion())
+        
+        return headers
+    }()
+    
     private init() { }
+    
+    func get() {
+        let url = "http://127.0.0.1:8000/sections/send-sections/"
+        
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
+    
+    func put(id: Int) {
+        let url = "http://127.0.0.1:8000/sections/update-count-of-loved/\(id)/"
+        
+        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
+    
+    func updateViews(id: Int) {
+        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
+        
+        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
     
     func fetchData<T>(url: String) async throws -> T where T : Decodable {
         let url = try convertStringToURL(url: url)

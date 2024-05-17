@@ -16,8 +16,7 @@ protocol ArticleViewModelType {
 class ArticleViewModel: ObservableObject, ArticleViewModelType {
     private var article: Article
     
-    @Published var thumbnail: Image?
-    @Published var articleViews: Int
+    @Published var thumbnail   : Image?
     
     private var anyCancellables = Set<AnyCancellable>()
     
@@ -26,7 +25,6 @@ class ArticleViewModel: ObservableObject, ArticleViewModelType {
     init(domain: NetworkLayer = APIServices.shared, article: Article) {
         self.article = article
         self.articleAPIServices = ArticleAPIServices(article: article)
-        self.articleViews = 0
         self.addSubscribers()
     }
     
@@ -58,10 +56,5 @@ class ArticleViewModel: ObservableObject, ArticleViewModelType {
     func getArticleAuxiliaryData() -> ArticleAuxiliaryData {
         
         return self.article.articleAuxiliaryData
-    }
-    
-    func updateViews() {
-        self.article = self.article.updateViews()
-        self.articleViews = self.article.articleViews
     }
 }

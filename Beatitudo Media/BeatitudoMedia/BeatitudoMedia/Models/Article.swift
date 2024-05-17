@@ -8,16 +8,16 @@
 import Foundation
 
 struct Article: Codable, Hashable {
+    let id: Int
     let title: String
-    let articleViews: Int
     let thumbnailURL: String
     let articleURL: String
     let articleMetadata: ArticleMetadata
     let articleAuxiliaryData: ArticleAuxiliaryData
     
     enum CodingKeys: String, CodingKey {
+        case id
         case title
-        case articleViews = "article_views"
         case thumbnailURL = "thumbnail_url"
         case articleURL = "article_url"
         case articleMetadata = "article_metadata"
@@ -26,8 +26,8 @@ struct Article: Codable, Hashable {
     
     func updateViews() -> Article {
         
-        return Article(title: self.title,
-                       articleViews: self.articleViews + 1,
+        return Article(id: self.id,
+                       title: self.title,
                        thumbnailURL: self.thumbnailURL,
                        articleURL: self.articleURL,
                        articleMetadata: self.articleMetadata,

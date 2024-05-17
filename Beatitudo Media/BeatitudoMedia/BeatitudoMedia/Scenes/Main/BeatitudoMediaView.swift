@@ -38,7 +38,7 @@ struct BeatitudoMediaView: View {
             .opacity(viewModel.sections.isEmpty ? 1 : 0)
 
             VStack(spacing: 0) {
-                StatusView(showStatusPage: $showStatusPage)
+                BeatitudoMediaStatusView(showStatusPage: $showStatusPage)
                 
                 SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
                     .padding(.leading, 10)

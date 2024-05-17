@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Section: Codable, Hashable {
+    let id: Int
     let title: String
     let articles: [Article]
 }
