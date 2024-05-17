@@ -22,50 +22,63 @@ struct BeatitudoMediaView: View {
     
     var body: some View {
         ZStack {
-            Color.adaptiveBackground
+            VStack {
+                Spacer(minLength: 40)
+                
+                BeatitudoMediaStatusView(showStatusPage: $showStatusPage)
+            }
+            .ignoresSafeArea(edges: .top)
             
-            Button {
-                viewModel.refreshSections()
-            } label: {
-                VStack {
-                    Image(systemName: "arrow.circlepath")
-                        .rotationEffect(.degrees(-90))
-                    Text("reload")
-                        .bold()
+            ZStack {
+                Color.adaptiveBackground
+                    .shadow(radius: 10)
+                
+                Button {
+                    viewModel.refreshSections()
+                } label: {
+                    VStack {
+                        Image(systemName: "arrow.circlepath")
+                            .rotationEffect(.degrees(-90))
+                        Text("reload")
+                            .bold()
+                    }
+                    .foregroundStyle(.black)
                 }
-                .foregroundStyle(.black)
+                .opacity(viewModel.sections.isEmpty ? 1 : 0)
+                
+                VStack(spacing: 0) {
+                    Spacer(minLength: 40)
+                    
+                    BeatitudoMediaStatusBar(showStatusPage: $showStatusPage)
+                    
+                    SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                    
+                    Divider()
+                        .background(.adaptiveView)
+                    
+                    SectionView(currentSection: $currentSection,
+                                presentingDestination: $presentingDestination,
+                                destinationURL: $destinationURL,
+                                presentingReportSheet: $presentingReportSheet)
+                }
+                .opacity(viewModel.sections.isEmpty ? 0 : 1)
+                
+                ReportSheetView(presentingReportSheet: $presentingReportSheet)
             }
-            .opacity(viewModel.sections.isEmpty ? 1 : 0)
-
-            VStack(spacing: 0) {
-                BeatitudoMediaStatusBar(showStatusPage: $showStatusPage)
-                
-                SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                
-                Divider()
-                    .background(.adaptiveView)
-                
-                SectionView(currentSection: $currentSection,
-                            presentingDestination: $presentingDestination,
-                            destinationURL: $destinationURL,
-                            presentingReportSheet: $presentingReportSheet)
-                    .ignoresSafeArea()
-            }
-            .opacity(viewModel.sections.isEmpty ? 0 : 1)
-            
-            ReportSheetView(presentingReportSheet: $presentingReportSheet)
+            .environmentObject(viewModel)
+            .analyticsScreen(name: "\(BeatitudoMediaView.self)")
+            .navigationDestination(isPresented: $presentingDestination, destination: {
+                NavigationStack {
+                    WebView(url: destinationURL)
+                }
+                .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
+                .navigationBarTitleDisplayMode(.inline)
+            })
+            .offset(x: showStatusPage ? -270 : 0)
+            .ignoresSafeArea(edges: [.top, .bottom])
         }
-        .environmentObject(viewModel)
-        .analyticsScreen(name: "\(BeatitudoMediaView.self)")
-        .navigationDestination(isPresented: $presentingDestination, destination: {
-            NavigationStack {
-                WebView(url: destinationURL)
-            }
-            .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
-            .navigationBarTitleDisplayMode(.inline)
-        })
     }
 }
 

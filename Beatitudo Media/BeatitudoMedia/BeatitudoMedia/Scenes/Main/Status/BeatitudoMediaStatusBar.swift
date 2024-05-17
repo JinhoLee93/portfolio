@@ -18,9 +18,10 @@ struct BeatitudoMediaStatusBar: View {
                 Spacer()
                 
                 Image(systemName: "line.3.horizontal")
-                    .onTapGesture {
-                        showStatusPage = true
-                    }
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    .onTapGesture { showStatusPage = true }
             }
             .padding(.trailing, 20)
             
