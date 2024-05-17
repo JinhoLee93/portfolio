@@ -10,8 +10,11 @@ import SwiftUI
 struct ArticleMetadataView: View {
     @StateObject private var viewModel: ArticleMetadataViewModel
     
-    init(articleMetadata: ArticleMetadata) {
+    @Binding var signalArticleViews: Bool
+    
+    init(articleMetadata: ArticleMetadata, signalArticleViews: Binding<Bool>) {
         _viewModel = StateObject(wrappedValue: ArticleMetadataViewModel(articleMetadata: articleMetadata))
+        _signalArticleViews = signalArticleViews
     }
     
     var body: some View {
@@ -59,6 +62,9 @@ struct ArticleMetadataView: View {
             }
         }
         .frame(height: 15)
+        .onChange(of: signalArticleViews) { _, _ in
+            viewModel.updateArticleViews()
+        }
     }
 }
 

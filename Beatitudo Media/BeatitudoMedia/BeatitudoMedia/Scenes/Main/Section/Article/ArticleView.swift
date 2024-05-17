@@ -14,6 +14,8 @@ struct ArticleView: View {
     @Binding var destinationURL       : String
     @Binding var presentingReportSheet: Bool
     
+    @State private var signalArticleViews: Bool = false
+    
     init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
         self._presentingDestination = presentingDestination
@@ -26,7 +28,7 @@ struct ArticleView: View {
             Color.adaptiveBackground
             
             VStack(alignment: .leading, spacing: 5) {
-                ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData())
+                ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData(), signalArticleViews: $signalArticleViews)
                 
                 HStack(alignment: .center, spacing: 10) {
                     viewModel.thumbnail?
@@ -45,6 +47,7 @@ struct ArticleView: View {
             }
         }
         .onTapGesture {
+            signalArticleViews.toggle()
             presentingDestination = true
             destinationURL = viewModel.getArticleURL()
         }
