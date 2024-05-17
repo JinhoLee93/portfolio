@@ -23,9 +23,11 @@ struct BeatitudoMediaView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer(minLength: 40)
+                Spacer(minLength: 45)
                 
                 BeatitudoMediaStatusView(showStatusPage: $showStatusPage)
+                    .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
+                                        height: showStatusPage ? 1.0 : 0.98))
             }
             .ignoresSafeArea(edges: .top)
             
@@ -47,7 +49,7 @@ struct BeatitudoMediaView: View {
                 .opacity(viewModel.sections.isEmpty ? 1 : 0)
                 
                 VStack(spacing: 0) {
-                    Spacer(minLength: 40)
+                    Spacer(minLength: 45)
                     
                     BeatitudoMediaStatusBar(showStatusPage: $showStatusPage)
                     
@@ -78,6 +80,7 @@ struct BeatitudoMediaView: View {
             })
             .offset(x: showStatusPage ? -270 : 0)
             .ignoresSafeArea(edges: [.top, .bottom])
+            .disabled(showStatusPage)
         }
     }
 }

@@ -23,7 +23,7 @@ struct BeatitudoMediaStatusView: View {
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                         .onTapGesture {
-                            withAnimation {
+                            withAnimation(.easeInOut(duration: 0.3)) {
                                 showStatusPage = false
                             }
                         }

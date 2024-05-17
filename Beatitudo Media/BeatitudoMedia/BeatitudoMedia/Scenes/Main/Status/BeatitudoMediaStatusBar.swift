@@ -21,7 +21,11 @@ struct BeatitudoMediaStatusBar: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
-                    .onTapGesture { showStatusPage = true }
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showStatusPage = true
+                        }
+                    }
             }
             .padding(.trailing, 20)
             
