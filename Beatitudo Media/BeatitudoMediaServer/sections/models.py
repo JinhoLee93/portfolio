@@ -17,19 +17,19 @@ class Article(models.Model):
     def __str__(self):
         return f"Article {self.title}"
 
-class Article_Metadata(models.Model):
+class ArticleMetadata(models.Model):
     article      = models.ForeignKey(to=Article, related_name='article_metadata', on_delete=models.CASCADE, null=False)
     time_to_read = models.IntegerField()
     date         = models.TextField()
     article_views = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"Article_Metadata of {self.article.title}"
+        return f"ArticleMetadata of {self.article.title}"
 
-class Article_Auxiliary_Data(models.Model):
+class ArticleAuxiliaryData(models.Model):
     article         = models.ForeignKey(to=Article, related_name='article_auxiliary_data', on_delete=models.CASCADE, null=False)
     count_of_loved  = models.IntegerField(default=0)
     count_of_shared = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"Article_Auxiliary_Data of {self.article.title}"
+        return f"ArticleAuxiliaryData of {self.article.title}"

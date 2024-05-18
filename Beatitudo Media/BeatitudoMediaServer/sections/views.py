@@ -26,17 +26,17 @@ class ArticleMetadataAPI(APIView):
             obj.article_views = F('article_views') + 1
             obj.save(update_fields=['article_views'])
         try:
-            target = Article_Metadata.objects.get(pk=pk)
+            target = ArticleMetadata.objects.get(pk=pk)
             do_update(target)
-        except Article_Metadata.DoesNotExist:
+        except ArticleMetadata.DoesNotExist:
             return JsonResponse({ 'response' : f'Article Metadata {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)
             
 class ArticleAuxiliaryDataAPI(APIView):
     def get(self, request, pk):
         try:
-            target = Article_Auxiliary_Data.objects.get(pk=pk)
-        except Article_Auxiliary_Data.DoesNotExist:
+            target = ArticleAuxiliaryData.objects.get(pk=pk)
+        except ArticleAuxiliaryData.DoesNotExist:
             return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'auxiliary_data' : ArticleAuxiliaryDataSerializer(target) })
 
@@ -46,8 +46,8 @@ class ArticleAuxiliaryDataAPI(APIView):
             obj.count_of_loved = F('count_of_loved') + 1
             obj.save(update_fields=['count_of_loved'])
         try:
-            target = Article_Auxiliary_Data.objects.get(pk=pk)
+            target = ArticleAuxiliaryData.objects.get(pk=pk)
             do_update(target)
-        except Article_Auxiliary_Data.DoesNotExist:
+        except ArticleAuxiliaryData.DoesNotExist:
             return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)

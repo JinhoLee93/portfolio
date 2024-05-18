@@ -3,12 +3,12 @@ from ..models import *
 
 class ArticleMetaDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model  = Article_Metadata
+        model  = ArticleMetadata
         fields = ['id', 'time_to_read', 'date', 'article_views']
 
 class ArticleAuxiliaryDataSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article_Auxiliary_Data
+        model = ArticleAuxiliaryData
         fields = ['id', 'count_of_loved', 'count_of_shared']
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -19,11 +19,11 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'thumbnail_url', 'article_url', 'article_metadata', 'article_auxiliary_data']
 
     def get_article_metadata(self, obj):
-        current_article_metadata = Article_Metadata.objects.filter(article_id=obj.id).first()
+        current_article_metadata = ArticleMetadata.objects.filter(article_id=obj.id).first()
         return ArticleMetaDataSerializer(current_article_metadata).data
     
     def get_article_auxiliary_data(self, obj):
-        current_article_auxiliary_data = Article_Auxiliary_Data.objects.filter(article_id=obj.id).first()
+        current_article_auxiliary_data = ArticleAuxiliaryData.objects.filter(article_id=obj.id).first()
         return ArticleAuxiliaryDataSerializer(current_article_auxiliary_data).data
 
 class SectionSerializer(serializers.ModelSerializer):
