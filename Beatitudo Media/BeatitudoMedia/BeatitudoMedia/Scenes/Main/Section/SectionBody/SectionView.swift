@@ -37,9 +37,11 @@ struct SectionView: View {
                                     .frame(height: 0.5)
                                     .background(Color.adaptiveView)
                             }
+                            .listRowBackground(Color.adaptiveBackground)
                             .listRowSeparator(.hidden)
                         }
                     }
+                    .scrollContentBackground(.hidden)
                     .scrollIndicators(.hidden)
                     .listStyle(.inset)
                     .tag(viewModel.getSectionIndex(of: section))

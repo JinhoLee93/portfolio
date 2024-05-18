@@ -17,11 +17,14 @@ struct BeatitudoMediaView: View {
     @State private var destinationURL: String      = ""
     @State private var presentingReportSheet: Bool = false
     @State private var showStatusPage: Bool        = false
-    
+    @State private var offsetX: CGFloat            = 0
     @Namespace var namespace
     
     var body: some View {
         ZStack {
+            Color.adaptiveBackground
+                .ignoresSafeArea()
+            
             VStack {
                 Spacer(minLength: 45)
                 
@@ -44,7 +47,7 @@ struct BeatitudoMediaView: View {
                         Text("reload")
                             .bold()
                     }
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.adaptiveText)
                 }
                 .opacity(viewModel.sections.isEmpty ? 1 : 0)
                 
@@ -70,7 +73,7 @@ struct BeatitudoMediaView: View {
                 ReportSheetView(presentingReportSheet: $presentingReportSheet)
             }
             .environmentObject(viewModel)
-            .analyticsScreen(name: "\(BeatitudoMediaView.self)")
+//            .analyticsScreen(name: "\(BeatitudoMediaView.self)")
             .navigationDestination(isPresented: $presentingDestination, destination: {
                 NavigationStack {
                     WebView(url: destinationURL)
@@ -78,9 +81,21 @@ struct BeatitudoMediaView: View {
                 .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
                 .navigationBarTitleDisplayMode(.inline)
             })
-            .offset(x: showStatusPage ? -270 : 0)
+            .offset(x: offsetX)
             .ignoresSafeArea(edges: [.top, .bottom])
             .disabled(showStatusPage)
+            .onTapGesture {
+                if showStatusPage {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        showStatusPage = false
+                    }
+                }
+            }
+            .onChange(of: showStatusPage) { _, newValue in
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    offsetX = newValue ? -270 : 0
+                }
+            }
         }
     }
 }

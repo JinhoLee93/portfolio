@@ -75,12 +75,12 @@ struct ReportSheetView: View {
                         .listStyle(.inset)
                     }
                 }
-                .frame(height: 100)
-                .offset(y: presentingReportSheet ? 0 : 150)
+                .frame(height: 200)
+                .offset(y: presentingReportSheet ? 50 : 200)
                 .transition(.move(edge: .bottom))
             }
         }
-        .animation(.spring(duration: 0.3, bounce: 0.2), value: presentingReportSheet)
+        .animation(.spring(duration: 0.3, bounce: 0.3), value: presentingReportSheet)
     }
 }
 

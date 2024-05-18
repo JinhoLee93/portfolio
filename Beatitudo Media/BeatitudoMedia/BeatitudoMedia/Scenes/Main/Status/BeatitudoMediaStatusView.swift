@@ -23,7 +23,7 @@ struct BeatitudoMediaStatusView: View {
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                         .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.3)) {
+                            withAnimation(.easeInOut(duration: 0.25)) {
                                 showStatusPage = false
                             }
                         }
@@ -31,7 +31,7 @@ struct BeatitudoMediaStatusView: View {
                 .frame(height: 40)
                 
                 VStack(alignment: .leading) {
-                    Text("소중한 이진호님, ")
+                    Text("소중한 이진호님,")
                     Text("\(Utils.getAndClassifyCurrentHour())")
                         .frame(alignment: .trailing)
                 }
@@ -53,7 +53,7 @@ struct BeatitudoMediaStatusView: View {
                                 Text("로그인하기")
                                     .font(.system(size: 20))
                             }
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.adaptiveText)
                         }
                     )
                 }
