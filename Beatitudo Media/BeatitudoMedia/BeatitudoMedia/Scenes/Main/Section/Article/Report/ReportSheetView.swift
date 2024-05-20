@@ -12,7 +12,7 @@ struct ReportSheetView: View {
     @Binding var presentingReportSheet: Bool
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             Color.black
                 .opacity(presentingReportSheet ? 0.5 : 0)
                 .ignoresSafeArea()
@@ -46,8 +46,6 @@ struct ReportSheetView: View {
                         }
                         .padding(EdgeInsets(top: 15, leading: 25, bottom: 0, trailing: 15))
                         
-                        Spacer()
-                        
                         List {
                             ZStack(alignment: .leading) {
                                 Color(uiColor: UIColor.darkGray)
@@ -76,7 +74,6 @@ struct ReportSheetView: View {
                     }
                 }
                 .frame(height: 200)
-                .offset(y: presentingReportSheet ? 50 : 200)
                 .transition(.move(edge: .bottom))
             }
         }

@@ -32,12 +32,16 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    func getAuthenticatedUser() throws -> AuthDataResultModel {
+    func fetchAuthenticatedUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
         }
         
         return AuthDataResultModel(user: user)
+    }
+    
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
     
     func signOut() throws {

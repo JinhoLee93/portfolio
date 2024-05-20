@@ -10,6 +10,8 @@ import SwiftUI
 struct BeatitudoMediaStatusView: View {
     @Binding var showStatusPage: Bool
     
+    @Binding var showLogInSheet: Bool
+    
     var body: some View {
         ZStack(alignment: .trailing) {
             Color.adaptiveBackground
@@ -42,20 +44,29 @@ struct BeatitudoMediaStatusView: View {
                 HStack {
                     Spacer()
                     
-                    Button(
-                        action: { /* Login or Logout */ },
-                        label: {
-                            HStack {
-                                Image(systemName: "door.left.hand.open")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                Text("로그인하기")
-                                    .font(.system(size: 20))
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showStatusPage = false
+                            
+                            Task {
+                                try await Task.sleep(for: .seconds(0.25))
+                                
+                                withAnimation(.easeInOut(duration: 0.25)) {
+                                    showLogInSheet = true
+                                }
                             }
-                            .foregroundStyle(.adaptiveText)
                         }
-                    )
+                    } label: {
+                        HStack {
+                            Image(systemName: "door.left.hand.open")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                            Text("로그인하기")
+                                .font(.system(size: 20))
+                        }
+                        .foregroundStyle(.adaptiveText)
+                    }
                 }
             }
             .frame(width: 250)

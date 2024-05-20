@@ -14,9 +14,10 @@ struct BeatitudoMediaView: View {
     @State var currentSection: Int = 0
     
     @State private var presentingDestination: Bool = false
-    @State private var destinationURL: String      = ""
     @State private var presentingReportSheet: Bool = false
+    @State private var showLogInSheet: Bool         = false
     @State private var showStatusPage: Bool        = false
+    @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
     @Namespace var namespace
     
@@ -24,11 +25,11 @@ struct BeatitudoMediaView: View {
         ZStack {
             Color.adaptiveBackground
                 .ignoresSafeArea()
-            
+                        
             VStack {
                 Spacer(minLength: 45)
                 
-                BeatitudoMediaStatusView(showStatusPage: $showStatusPage)
+                BeatitudoMediaStatusView(showStatusPage: $showStatusPage, showLogInSheet: $showLogInSheet)
                     .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
                                         height: showStatusPage ? 1.0 : 0.98))
             }
@@ -70,7 +71,7 @@ struct BeatitudoMediaView: View {
                 }
                 .opacity(viewModel.sections.isEmpty ? 0 : 1)
                 
-                ReportSheetView(presentingReportSheet: $presentingReportSheet)
+//                ReportSheetView(presentingReportSheet: $presentingReportSheet)
             }
             .environmentObject(viewModel)
 //            .analyticsScreen(name: "\(BeatitudoMediaView.self)")
@@ -96,6 +97,8 @@ struct BeatitudoMediaView: View {
                     offsetX = newValue ? -270 : 0
                 }
             }
+            
+            BeatitudoMediaLogInView(showLogInPage: $showLogInSheet)
         }
     }
 }

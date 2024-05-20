@@ -25,6 +25,7 @@ struct BeatitudoMediaApp: App {
         WindowGroup {
             NavigationStack {
                 BeatitudoMediaView()
+//                Test()
             }
         }
     }

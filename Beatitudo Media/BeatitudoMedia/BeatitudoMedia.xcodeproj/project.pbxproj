@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68160BD82BFADAA700199584 /* BeatitudoMediaLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BD72BFADAA700199584 /* BeatitudoMediaLogInView.swift */; };
+		68160BDA2BFADABA00199584 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BD92BFADABA00199584 /* Test.swift */; };
+		68160BDC2BFAE23700199584 /* LogInMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BDB2BFAE23700199584 /* LogInMethodButton.swift */; };
 		681741712BEBB9FC00AE56FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		68160BD72BFADAA700199584 /* BeatitudoMediaLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaLogInView.swift; sourceTree = "<group>"; };
+		68160BD92BFADABA00199584 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		68160BDB2BFAE23700199584 /* LogInMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInMethodButton.swift; sourceTree = "<group>"; };
 		681741702BEBB9FC00AE56FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 		6847755E2BF4FED10090B6F6 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				68B54D822BF8C651005D46DC /* LogIn */,
 				6847755F2BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift */,
 				6858298D2BF710C200916F6A /* BeatitudoMediaStatusView.swift */,
 			);
@@ -213,7 +220,6 @@
 		688C8E392BE9E3630021BFEA /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				68B54D822BF8C651005D46DC /* LogIn */,
 				6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */,
 			);
 			path = Splash;
@@ -261,10 +267,20 @@
 		68B54D822BF8C651005D46DC /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				68AE2A402BF9E05900A5D511 /* AuthenticationManager.swift */,
+				68160BD72BFADAA700199584 /* BeatitudoMediaLogInView.swift */,
+				68BBCCE12BFAED4D00EE55CC /* LogInMethodButton */,
 				68AE2A3F2BF9DB8A00A5D511 /* Email */,
+				68160BD92BFADABA00199584 /* Test.swift */,
 			);
 			path = LogIn;
+			sourceTree = "<group>";
+		};
+		68BBCCE12BFAED4D00EE55CC /* LogInMethodButton */ = {
+			isa = PBXGroup;
+			children = (
+				68160BDB2BFAE23700199584 /* LogInMethodButton.swift */,
+			);
+			path = LogInMethodButton;
 			sourceTree = "<group>";
 		};
 		68CAF60D2BE63F5D00DD3E05 /* Web */ = {
@@ -288,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */,
+				68AE2A402BF9E05900A5D511 /* AuthenticationManager.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -538,12 +555,15 @@
 				684775602BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift in Sources */,
 				6858298C2BF6F8ED00916F6A /* Utils.swift in Sources */,
 				6886FB752BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift in Sources */,
+				68160BDA2BFADABA00199584 /* Test.swift in Sources */,
 				6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */,
 				6886FB7B2BE4CCBD00007CD9 /* ArticleViewModel.swift in Sources */,
 				6886FB772BE4AA2700007CD9 /* ArticleMetadataView.swift in Sources */,
+				68160BD82BFADAA700199584 /* BeatitudoMediaLogInView.swift in Sources */,
 				6886FB7F2BE4DEB000007CD9 /* ArticleMetadata.swift in Sources */,
 				68A03C802BE3D95500459F2C /* Article.swift in Sources */,
 				6855B0EB2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift in Sources */,
+				68160BDC2BFAE23700199584 /* LogInMethodButton.swift in Sources */,
 				68F231292BE138A5003A27B5 /* Section.swift in Sources */,
 				68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */,
 				68EB0E522BE3E2E300DBA3C3 /* APIServices.swift in Sources */,

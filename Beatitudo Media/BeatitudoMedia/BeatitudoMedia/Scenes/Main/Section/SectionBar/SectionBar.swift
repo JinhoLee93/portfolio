@@ -43,9 +43,7 @@ struct SectionBar: View {
                     .onTapGesture {
                         currentSectionIndex = viewModel.getSectionIndex(of: section)
                     }
-
                     .animation(.easeInOut(duration: 0.15), value: currentSectionIndex)
-                   
                 }
             }
         }
