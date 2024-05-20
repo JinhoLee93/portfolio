@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class Utils {
+    // Device Related
     static func getiOSVersion() -> String {
         
         return UIDevice.current.systemVersion
@@ -19,6 +20,7 @@ final class Utils {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
+    // Date Related
     static func getAndClassifyCurrentHour() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
 
@@ -34,5 +36,15 @@ final class Utils {
         default:
             return ""
         }
+    }
+    
+    static func getToday() -> String {
+        let calendar = Calendar.current
+        
+        let year: String = "\(calendar.component(.year, from: .now))년".replacingOccurrences(of: ",", with: "")
+        let month: String = "\(calendar.component(.month, from: .now))월"
+        let day: String = "\(calendar.component(.day, from: .now))일"
+        
+        return [year, month, day].joined(separator: " ")
     }
 }
