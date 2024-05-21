@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import GoogleSignIn
+import GoogleSignInSwift
 import FirebaseAuth
 
 struct AuthDataResultModel {
@@ -24,10 +26,42 @@ final class AuthenticationManager {
     
     static let shared = AuthenticationManager()
     
-    private init() { }
+    private let actionCodeSettings: ActionCodeSettings
     
+    private init() { 
+        actionCodeSettings = ActionCodeSettings()
+        actionCodeSettings.handleCodeInApp = true
+    }
+    
+    func signIn(authCredential: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: authCredential)
+        
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+}
+
+// MARK: - Google
+extension AuthenticationManager {
+    func signInWithGoogle(gidSignInResult: GIDSignInResult) async throws -> AuthDataResultModel {
+        let user = gidSignInResult.user
+        guard let idToken = user.idToken?.tokenString else {
+            throw URLError(.badServerResponse)
+        }
+        let accessToken = user.accessToken
+        let authCredential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+        
+        return try await signIn(authCredential: authCredential)
+    }
+}
+
+// MARK: - Email
+extension AuthenticationManager {
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
+        actionCodeSettings.url = URL(string: "https://beatitudo-media-d62da.firebaseapp.com/?email=\(email)")
+        try await Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings)
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        GlobalAssets.loggedIn = true
         
         return AuthDataResultModel(user: authDataResult.user)
     }
@@ -46,5 +80,6 @@ final class AuthenticationManager {
     
     func signOut() throws {
         try Auth.auth().signOut()
+        GlobalAssets.loggedIn = false
     }
 }

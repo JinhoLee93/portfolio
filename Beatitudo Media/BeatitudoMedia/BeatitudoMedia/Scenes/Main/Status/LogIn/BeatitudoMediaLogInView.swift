@@ -13,7 +13,7 @@ struct BeatitudoMediaLogInView: View {
     @State var s = false
     @State var isSigningIn = false
     
-    var loginMethods = ["Google", "Kakao", "Email"]
+    var loginMethods = ["Google", "Naver", "Email"]
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.black
@@ -34,7 +34,7 @@ struct BeatitudoMediaLogInView: View {
                         .padding(.bottom, 25)
                     
                     ForEach(loginMethods, id: \.self) { method in
-                        LogInMethodButton(method: method, s: $s, isSigningIn: $isSigningIn)
+                        LogInMethodButton(method: method, showEmailSigningSheet: $s, isSigningIn: $isSigningIn)
                     }
                     
                     HStack {
@@ -63,7 +63,11 @@ struct BeatitudoMediaLogInView: View {
             .offset(y: showLogInPage ? 0 : 350)
         }
         .sheet(isPresented: $s, content: {
-            SignInWithEmailView()
+            if isSigningIn {
+                SignInWithEmailView()
+            } else {
+                SignUpWithEmailView()
+            }
         })
         .ignoresSafeArea()
     }

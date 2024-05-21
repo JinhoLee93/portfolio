@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BeatitudoMediaStatusView: View {
     @Binding var showStatusPage: Bool
-    
     @Binding var showLogInSheet: Bool
     
     var body: some View {
@@ -33,11 +32,16 @@ struct BeatitudoMediaStatusView: View {
                 .frame(height: 40)
                 
                 VStack(alignment: .leading) {
-                    Text("소중한 이진호님,")
-                    Text("\(Utils.getAndClassifyCurrentHour())")
-                        .frame(alignment: .trailing)
+                    if GlobalAssets.loggedIn {
+                        Text("소중한 이진호님,")
+                        Text("\(Utils.getAndClassifyCurrentHour())")
+                            .frame(alignment: .trailing)
+                    } else {
+                        Text("로그인 후 더 많은 소통을 즐겨보세요.")
+                    }
                 }
-                .font(.system(size: 20))
+                .padding(.leading, 20)
+                .font(.system(size: 18))
                 
                 Spacer()
                 
@@ -45,24 +49,28 @@ struct BeatitudoMediaStatusView: View {
                     Spacer()
                     
                     Button {
-                        withAnimation(.easeInOut(duration: 0.25)) {
-                            showStatusPage = false
-                            
-                            Task {
-                                try await Task.sleep(for: .seconds(0.25))
+                        if !GlobalAssets.loggedIn {
+                            withAnimation(.easeInOut(duration: 0.25)) {
+                                showStatusPage = false
                                 
-                                withAnimation(.easeInOut(duration: 0.25)) {
-                                    showLogInSheet = true
+                                Task {
+                                    try await Task.sleep(for: .seconds(0.25))
+                                    
+                                    withAnimation(.easeInOut(duration: 0.25)) {
+                                        showLogInSheet = true
+                                    }
                                 }
                             }
+                        } else {
+                            try? AuthenticationManager.shared.signOut()
                         }
                     } label: {
                         HStack {
-                            Image(systemName: "door.left.hand.open")
+                            Image(systemName: GlobalAssets.loggedIn ? "rectangle.portrait.and.arrow.forward" : "door.left.hand.open")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
-                            Text("로그인하기")
+                            Text(GlobalAssets.loggedIn ? "로그아웃" : "로그인")
                                 .font(.system(size: 20))
                         }
                         .foregroundStyle(.adaptiveText)

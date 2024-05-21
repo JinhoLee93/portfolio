@@ -9,11 +9,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-protocol ArticleViewModelType {
-    func getArticleTitle() -> String
-}
-
-class ArticleViewModel: ObservableObject, ArticleViewModelType {
+@MainActor
+class ArticleViewModel: ObservableObject {
     private var article: Article
     
     @Published var thumbnail   : Image?

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class BeatitudoMediaViewModel: ObservableObject {
     @Published var sections: [Section] = []
     
