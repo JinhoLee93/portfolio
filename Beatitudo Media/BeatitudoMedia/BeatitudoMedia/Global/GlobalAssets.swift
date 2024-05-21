@@ -9,5 +9,5 @@ import SwiftUI
 
 class GlobalAssets {
     @AppStorage("isLightMode") static var isLightMode: Bool = true
-    @AppStorage("loggedIn") static var loggedIn: Bool = false
+    @AppStorage("isUserLoggedIn") static var isUserLoggedIn: Bool = false
 }

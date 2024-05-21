@@ -11,13 +11,17 @@ struct ArticleAuxiliaryDataBar: View {
     @StateObject private var viewModel: ArticleAuxiliaryDataViewModel
     
     @Binding var presentingReportSheet: Bool
+    @Binding var isUserLoggedIn: Bool
+    @Binding var showLogInSheet: Bool
     
     @State private var presentingShared: Bool = false
     
-    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>) {
+    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>, isUserLoggedIn: Binding<Bool>, showLogInSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue:
                                         ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
         self._presentingReportSheet = presentingReportSheet
+        self._isUserLoggedIn = isUserLoggedIn
+        self._showLogInSheet = showLogInSheet
     }
     
     var body: some View {
@@ -41,7 +45,13 @@ struct ArticleAuxiliaryDataBar: View {
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
-                        viewModel.updateLoved()
+                        if isUserLoggedIn {
+                            viewModel.updateLoved()
+                        } else {
+                            withAnimation(.easeInOut(duration: 0.25)) {
+                                showLogInSheet = true
+                            }
+                        }
                     }
                     .sensoryFeedback(.selection, trigger: viewModel.countOfLoved) { oldValue, newValue in
                         
@@ -65,7 +75,7 @@ struct ArticleAuxiliaryDataBar: View {
                         .background(.gray)
                     
                     Button {
-                        withAnimation(.spring(duration: 0.3)) { presentingReportSheet = true }
+                        withAnimation(.spring(duration: 0.25)) { presentingReportSheet = true }
                     } label: {
                         Image(systemName: "ellipsis")
                             .resizable()

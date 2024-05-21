@@ -11,14 +11,15 @@ import Firebase
 struct BeatitudoMediaView: View {
     @StateObject var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
-    @State var currentSection: Int = 0
-    
+    @State private var isUserLoggedIn: Bool        = GlobalAssets.isUserLoggedIn
+    @State private var currentSection: Int         = 0
     @State private var presentingDestination: Bool = false
     @State private var presentingReportSheet: Bool = false
-    @State private var showLogInSheet: Bool         = false
+    @State private var showLogInSheet: Bool        = false
     @State private var showStatusPage: Bool        = false
     @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
+
     @Namespace var namespace
     
     var body: some View {
@@ -29,7 +30,7 @@ struct BeatitudoMediaView: View {
             VStack {
                 Spacer(minLength: 45)
                 
-                BeatitudoMediaStatusView(showStatusPage: $showStatusPage, showLogInSheet: $showLogInSheet)
+                BeatitudoMediaStatusView(isUserLoggedIn: $isUserLoggedIn, showStatusPage: $showStatusPage, showLogInSheet: $showLogInSheet)
                     .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
                                         height: showStatusPage ? 1.0 : 0.98))
             }
@@ -67,7 +68,7 @@ struct BeatitudoMediaView: View {
                     SectionView(currentSection: $currentSection,
                                 presentingDestination: $presentingDestination,
                                 destinationURL: $destinationURL,
-                                presentingReportSheet: $presentingReportSheet)
+                                presentingReportSheet: $presentingReportSheet, isUserLoggedIn: $isUserLoggedIn, showLogInSheet: $showLogInSheet)
                 }
                 .opacity(viewModel.sections.isEmpty ? 0 : 1)
                 
@@ -98,7 +99,7 @@ struct BeatitudoMediaView: View {
                 }
             }
             
-            BeatitudoMediaLogInView(showLogInPage: $showLogInSheet)
+            BeatitudoMediaLogInView(showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn)
         }
     }
 }

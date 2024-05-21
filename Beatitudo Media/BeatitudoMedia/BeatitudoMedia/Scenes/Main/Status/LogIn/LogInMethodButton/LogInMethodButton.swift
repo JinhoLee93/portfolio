@@ -6,21 +6,12 @@
 //
 
 import SwiftUI
-import GoogleSignIn
-import GoogleSignInSwift
 
-@MainActor
 class LogInButtonViewModel: ObservableObject {
     
-    
     func signInWithGoogle() async throws {
-        guard let topVC = Utils.topViewController() else {
-            throw URLError(.cannotFindHost)
-        }
         
-        let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
-        
-        let authenticDataResultModel = try await AuthenticationManager.shared.signInWithGoogle(gidSignInResult: gidSignInResult)
+        return try await AuthenticationManager.shared.signInWithGoogle()
     }
 }
 
@@ -29,8 +20,10 @@ struct LogInMethodButton: View {
     
     let method: String
     
+    @Binding var isUserLoggedIn: Bool
     @Binding var showEmailSigningSheet: Bool
     @Binding var isSigningIn: Bool
+    @Binding var showLogInSheet: Bool
     
     var body: some View {
         Button {
@@ -38,7 +31,16 @@ struct LogInMethodButton: View {
                 showEmailSigningSheet = true
             } else if method == "Google" {
                 Task {
-                    try await viewModel.signInWithGoogle()
+                    do {
+                        try await viewModel.signInWithGoogle()
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            showLogInSheet = false
+                            isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                        }
+                        // close the signing view
+                    } catch let error {
+                        print(error)
+                    }
                 }
             }
         } label: {

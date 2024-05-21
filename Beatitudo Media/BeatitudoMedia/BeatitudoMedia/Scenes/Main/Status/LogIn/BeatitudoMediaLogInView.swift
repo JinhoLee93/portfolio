@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct BeatitudoMediaLogInView: View {
-    @Binding var showLogInPage: Bool
+    @Binding var showLogInSheet: Bool
+    @Binding var isUserLoggedIn: Bool
     
-    @State var s = false
+    @State var showEmailsigningPage = false
     @State var isSigningIn = false
     
-    var loginMethods = ["Google", "Naver", "Email"]
+    var loginMethods = ["Google", "NAVER", "Email"]
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.black
-                .opacity(showLogInPage ? 0.4 : 0)
+                .opacity(showLogInSheet ? 0.4 : 0)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.25)) {
-                        showLogInPage = false
+                        showLogInSheet = false
                     }
                 }
             
@@ -34,7 +35,7 @@ struct BeatitudoMediaLogInView: View {
                         .padding(.bottom, 25)
                     
                     ForEach(loginMethods, id: \.self) { method in
-                        LogInMethodButton(method: method, showEmailSigningSheet: $s, isSigningIn: $isSigningIn)
+                        LogInMethodButton(method: method, isUserLoggedIn: $isUserLoggedIn, showEmailSigningSheet: $showEmailsigningPage, isSigningIn: $isSigningIn, showLogInSheet: $showLogInSheet)
                     }
                     
                     HStack {
@@ -60,9 +61,9 @@ struct BeatitudoMediaLogInView: View {
                 .padding(.trailing, 10)
             }
             .frame(height: 320)
-            .offset(y: showLogInPage ? 0 : 350)
+            .offset(y: showLogInSheet ? 0 : 350)
         }
-        .sheet(isPresented: $s, content: {
+        .sheet(isPresented: $showEmailsigningPage, content: {
             if isSigningIn {
                 SignInWithEmailView()
             } else {
@@ -71,8 +72,4 @@ struct BeatitudoMediaLogInView: View {
         })
         .ignoresSafeArea()
     }
-}
-
-#Preview {
-    Test()
 }

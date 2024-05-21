@@ -47,11 +47,24 @@ extension AuthenticationManager {
         guard let idToken = user.idToken?.tokenString else {
             throw URLError(.badServerResponse)
         }
-        let accessToken = user.accessToken
+        let accessToken = user.accessToken.tokenString
         let authCredential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: user.accessToken.tokenString)
+                                                         accessToken: accessToken)
         
         return try await signIn(authCredential: authCredential)
+    }
+    
+    @MainActor
+    func signInWithGoogle() async throws {
+        guard let topVC = Utils.topViewController() else {
+            throw URLError(.cannotFindHost)
+        }
+        
+        let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
+        
+        let authenticDataResultModel = try await AuthenticationManager.shared.signInWithGoogle(gidSignInResult: gidSignInResult)
+        
+        GlobalAssets.isUserLoggedIn = true
     }
 }
 
@@ -61,7 +74,7 @@ extension AuthenticationManager {
         actionCodeSettings.url = URL(string: "https://beatitudo-media-d62da.firebaseapp.com/?email=\(email)")
         try await Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings)
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        GlobalAssets.loggedIn = true
+        GlobalAssets.isUserLoggedIn = true
         
         return AuthDataResultModel(user: authDataResult.user)
     }
@@ -80,6 +93,6 @@ extension AuthenticationManager {
     
     func signOut() throws {
         try Auth.auth().signOut()
-        GlobalAssets.loggedIn = false
+        GlobalAssets.isUserLoggedIn = false
     }
 }

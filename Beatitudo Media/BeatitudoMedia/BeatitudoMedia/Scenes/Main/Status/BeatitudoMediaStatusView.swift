@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BeatitudoMediaStatusView: View {
+    @Binding var isUserLoggedIn: Bool
     @Binding var showStatusPage: Bool
     @Binding var showLogInSheet: Bool
     
@@ -32,7 +33,7 @@ struct BeatitudoMediaStatusView: View {
                 .frame(height: 40)
                 
                 VStack(alignment: .leading) {
-                    if GlobalAssets.loggedIn {
+                    if isUserLoggedIn {
                         Text("소중한 이진호님,")
                         Text("\(Utils.getAndClassifyCurrentHour())")
                             .frame(alignment: .trailing)
@@ -49,7 +50,7 @@ struct BeatitudoMediaStatusView: View {
                     Spacer()
                     
                     Button {
-                        if !GlobalAssets.loggedIn {
+                        if !isUserLoggedIn {
                             withAnimation(.easeInOut(duration: 0.25)) {
                                 showStatusPage = false
                                 
@@ -62,15 +63,24 @@ struct BeatitudoMediaStatusView: View {
                                 }
                             }
                         } else {
+                            withAnimation(.easeInOut(duration: 0.25)) {
+                                showStatusPage = false
+                            }
                             try? AuthenticationManager.shared.signOut()
+                            
+                            Task {
+                                try await Task.sleep(for: .seconds(0.25))
+                                
+                                isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                            }
                         }
                     } label: {
                         HStack {
-                            Image(systemName: GlobalAssets.loggedIn ? "rectangle.portrait.and.arrow.forward" : "door.left.hand.open")
+                            Image(systemName: isUserLoggedIn ? "rectangle.portrait.and.arrow.forward" : "door.left.hand.open")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
-                            Text(GlobalAssets.loggedIn ? "로그아웃" : "로그인")
+                            Text(isUserLoggedIn ? "로그아웃" : "로그인")
                                 .font(.system(size: 20))
                         }
                         .foregroundStyle(.adaptiveText)
