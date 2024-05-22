@@ -49,7 +49,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
     </tr>
     <tr>
       <td align="center">서버</td>
-      <td align="center">Django</td>
+      <td align="center">Django, Firebase</td>
     </tr>
     <tr>
       <td align="center">RDBMS</td>
