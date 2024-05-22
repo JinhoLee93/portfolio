@@ -28,7 +28,9 @@ struct LogInMethodButton: View {
     var body: some View {
         Button {
             if method == "Email" {
-                showEmailSigningSheet = true
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    showEmailSigningSheet = true
+                }
             } else if method == "Google" {
                 Task {
                     do {
