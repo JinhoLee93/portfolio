@@ -33,10 +33,14 @@ final class AuthenticationManager {
         actionCodeSettings.handleCodeInApp = true
     }
     
-    func signIn(authCredential: AuthCredential) async throws -> AuthDataResultModel {
+    private func signIn(authCredential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: authCredential)
         
         return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    private func configureActionCodeSettings(email: String) {
+        actionCodeSettings.url = URL(string: "https://beatitudo-media-d62da.firebaseapp.com/?email=\(email)")
     }
 }
 
@@ -71,7 +75,7 @@ extension AuthenticationManager {
 // MARK: - Email
 extension AuthenticationManager {
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
-        actionCodeSettings.url = URL(string: "https://beatitudo-media-d62da.firebaseapp.com/?email=\(email)")
+        configureActionCodeSettings(email: email)
         try await Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings)
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         GlobalAssets.isUserLoggedIn = true

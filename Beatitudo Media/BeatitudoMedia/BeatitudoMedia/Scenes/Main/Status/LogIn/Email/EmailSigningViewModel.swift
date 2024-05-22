@@ -12,18 +12,23 @@ class EmailSigningViewModel: ObservableObject {
     @Published var password = ""
     @Published var nickname = ""
     
-    func signUp() {
-        Task {
-            do {
-                try await AuthenticationManager.shared.createUser(email: email, password: password)
-            } catch let error {
-                print("\(error) creating user")
-            }
+    func signUp() async throws {
+        do {
+            try await AuthenticationManager.shared.createUser(email: email, password: password)
+        } catch let error {
+            print("\(error) creating user")
         }
     }
     
-    func findPassword(email: String) {
+    func signIn() async throws {
         
-        return
+    }
+    
+    func findPassword(email: String) async throws {
+        do {
+            try await AuthenticationManager.shared.resetPassword(email: email)
+        } catch let error {
+            print("\(error) finding password")
+        }
     }
 }

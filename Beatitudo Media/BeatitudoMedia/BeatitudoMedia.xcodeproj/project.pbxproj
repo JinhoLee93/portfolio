@@ -45,6 +45,8 @@
 		68DBB8782BEB7FFE004D5960 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */; };
 		68EB0E4F2BE3DFA600DBA3C3 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E4E2BE3DFA600DBA3C3 /* ArticleView.swift */; };
 		68EB0E522BE3E2E300DBA3C3 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */; };
+		68ED3A092BFD8E7800DC7FDE /* BeatitudoMediaLogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED3A082BFD8E7800DC7FDE /* BeatitudoMediaLogInViewModel.swift */; };
+		68ED3A0F2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED3A0E2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift */; };
 		68F230EF2BE1294C003A27B5 /* BeatitudoMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */; };
 		68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F230F22BE1294E003A27B5 /* Assets.xcassets */; };
 		68F230F62BE1294E003A27B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F230F52BE1294E003A27B5 /* Preview Assets.xcassets */; };
@@ -106,6 +108,8 @@
 		68DBB8332BEB274E004D5960 /* LocalCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCacheManager.swift; sourceTree = "<group>"; };
 		68EB0E4E2BE3DFA600DBA3C3 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		68ED3A082BFD8E7800DC7FDE /* BeatitudoMediaLogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaLogInViewModel.swift; sourceTree = "<group>"; };
+		68ED3A0E2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaUser.swift; sourceTree = "<group>"; };
 		68F230EB2BE1294C003A27B5 /* BeatitudoMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatitudoMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F230EE2BE1294C003A27B5 /* BeatitudoMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaApp.swift; sourceTree = "<group>"; };
 		68F230F22BE1294E003A27B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -264,9 +268,9 @@
 		68AE2A3F2BF9DB8A00A5D511 /* Email */ = {
 			isa = PBXGroup;
 			children = (
-				68BBCCE22BFB40D900EE55CC /* SignInWithEmailView.swift */,
-				68B54D7B2BF8BCE0005D46DC /* SignUpWithEmailView.swift */,
 				68BBCCE42BFB466500EE55CC /* EmailSigningViewModel.swift */,
+				68ED3A0A2BFD95F000DC7FDE /* SignUp */,
+				68ED3A0B2BFD95F800DC7FDE /* SignIn */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -275,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				68160BD72BFADAA700199584 /* BeatitudoMediaLogInView.swift */,
+				68ED3A082BFD8E7800DC7FDE /* BeatitudoMediaLogInViewModel.swift */,
 				68BBCCE12BFAED4D00EE55CC /* LogInMethodButton */,
 				68AE2A3F2BF9DB8A00A5D511 /* Email */,
 			);
@@ -313,6 +318,22 @@
 				68AE2A402BF9E05900A5D511 /* AuthenticationManager.swift */,
 			);
 			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		68ED3A0A2BFD95F000DC7FDE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				68B54D7B2BF8BCE0005D46DC /* SignUpWithEmailView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		68ED3A0B2BFD95F800DC7FDE /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				68BBCCE22BFB40D900EE55CC /* SignInWithEmailView.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		68F230E22BE1294C003A27B5 = {
@@ -411,6 +432,7 @@
 				6886FB7E2BE4DEB000007CD9 /* ArticleMetadata.swift */,
 				6886FB802BE4DEC600007CD9 /* ArticleAuxiliaryData.swift */,
 				687340BF2BE9054C00D65B86 /* ArticleComment.swift */,
+				68ED3A0E2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -572,6 +594,7 @@
 				68A03C802BE3D95500459F2C /* Article.swift in Sources */,
 				6855B0EB2BF39DDF00D8F04C /* BeatitudoMediaNetworkService.swift in Sources */,
 				68BBCCE52BFB466500EE55CC /* EmailSigningViewModel.swift in Sources */,
+				68ED3A0F2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift in Sources */,
 				68BBCCE32BFB40D900EE55CC /* SignInWithEmailView.swift in Sources */,
 				68160BDC2BFAE23700199584 /* LogInMethodButton.swift in Sources */,
 				68F231292BE138A5003A27B5 /* Section.swift in Sources */,
@@ -582,6 +605,7 @@
 				68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */,
 				688C8E342BE9DC930021BFEA /* BeatitudoMediaViewModel.swift in Sources */,
 				68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */,
+				68ED3A092BFD8E7800DC7FDE /* BeatitudoMediaLogInViewModel.swift in Sources */,
 				68CAF60F2BE63F8100DD3E05 /* WebView.swift in Sources */,
 				6886FB812BE4DEC600007CD9 /* ArticleAuxiliaryData.swift in Sources */,
 				68B54D7C2BF8BCE0005D46DC /* SignUpWithEmailView.swift in Sources */,

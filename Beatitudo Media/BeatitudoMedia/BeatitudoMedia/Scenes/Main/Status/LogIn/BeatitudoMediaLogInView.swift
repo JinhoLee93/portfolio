@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct BeatitudoMediaLogInView: View {
+    @StateObject private var viewModel = BeatitudoMediaLogInViewModel()
+    
     @Binding var showLogInSheet: Bool
     @Binding var isUserLoggedIn: Bool
     
     @State var showEmailSigningPage = false
     @State var isSigningIn = false
     
-    var loginMethods = ["Google", "Email"]
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.black
@@ -22,6 +23,11 @@ struct BeatitudoMediaLogInView: View {
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.25)) {
                         showLogInSheet = false
+                    }
+                    
+                    Task {
+                        try await Task.sleep(for: .seconds(0.25))
+                        isSigningIn = false
                     }
                 }
             
@@ -35,12 +41,12 @@ struct BeatitudoMediaLogInView: View {
                             .padding(.top, 25)
                             .padding(.bottom, 25)
                         
-                        ForEach(loginMethods, id: \.self) { method in
+                        ForEach(viewModel.getLogInMethods(), id: \.self) { method in
                             LogInMethodButton(method: method, isUserLoggedIn: $isUserLoggedIn, showEmailSigningSheet: $showEmailSigningPage, isSigningIn: $isSigningIn, showLogInSheet: $showLogInSheet)
                         }
                         
                         HStack {
-                            Text(isSigningIn ? "Beatitudo Meida 계정이 없으신가요?" : "이미 Beatitudo Media 계정이 있으신가요?")
+                            Text(isSigningIn ? "Beatitudo Media 계정이 없으신가요?" : "이미 Beatitudo Media 계정이 있으신가요?")
                                 .foregroundStyle(.adaptiveText)
                                 .font(.system(size: 14))
                             
@@ -61,17 +67,24 @@ struct BeatitudoMediaLogInView: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
                 }
-                .frame(height: 170 + CGFloat(50 * loginMethods.count))
+                .frame(height: 170 + CGFloat(50 * viewModel.getLogInMethodsCount()))
                 .transition(.move(edge: .bottom))
                 .zIndex(0.5)
-                //            .offset(y: showLogInSheet ? 0 : 350)
                 
                 if isSigningIn {
-                    SignInWithEmailView(showEmailSigningPage: $showEmailSigningPage)
+                    SignInWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserLoggedIn: $isUserLoggedIn)
                         .zIndex(1)
                 } else {
-                    SignUpWithEmailView(showEmailSigningPage: $showEmailSigningPage)
+                    SignUpWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserLoggedIn: $isUserLoggedIn)
                         .zIndex(1)
+                }
+            }
+        }
+        .onChange(of: isUserLoggedIn) { _, newValue in
+            if newValue {
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    showEmailSigningPage = false
+                    showLogInSheet = false
                 }
             }
         }

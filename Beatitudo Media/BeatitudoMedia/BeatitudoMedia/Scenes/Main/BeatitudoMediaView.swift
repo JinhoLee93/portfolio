@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct BeatitudoMediaView: View {
-    @StateObject var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
+    @StateObject private var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
     @State private var isUserLoggedIn: Bool        = GlobalAssets.isUserLoggedIn
     @State private var currentSection: Int         = 0

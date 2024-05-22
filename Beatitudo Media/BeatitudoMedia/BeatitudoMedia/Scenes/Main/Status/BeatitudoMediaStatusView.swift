@@ -67,12 +67,7 @@ struct BeatitudoMediaStatusView: View {
                                 showStatusPage = false
                             }
                             try? AuthenticationManager.shared.signOut()
-                            
-                            Task {
-                                try await Task.sleep(for: .seconds(0.25))
-                                
-                                isUserLoggedIn = GlobalAssets.isUserLoggedIn
-                            }
+                            isUserLoggedIn = false
                         }
                     } label: {
                         HStack {
