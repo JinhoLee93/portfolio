@@ -19,7 +19,7 @@ struct SignUpWithEmailView: View {
     @State private var verificationSent: Bool   = false
     
     var body: some View {
-        if showEmailSigningPage && !isUserLoggedIn {
+        if showEmailSigningPage {
             NavigationStack {
                 ZStack {
                     Color.adaptiveBackground
@@ -37,6 +37,7 @@ struct SignUpWithEmailView: View {
                                     showEmailSigningPage = false
                                     keyboardOut = false
                                     keyboardOffsetY = 0
+                                    viewModel.reset()
                                 }
                             } label: {
                                 Image(systemName: "xmark")
@@ -68,6 +69,7 @@ struct SignUpWithEmailView: View {
                             .background(Color.gray.opacity(0.4))
                             .clipShape( RoundedRectangle(cornerRadius: 10) )
                             .focused($keyboardOut)
+                            .textInputAutocapitalization(.never)
                             .frame(height: 55)
                         
                         SecureField("사용하실 비밀번호를 입력해주세요.", text: $viewModel.password)
@@ -75,6 +77,7 @@ struct SignUpWithEmailView: View {
                             .background(Color.gray.opacity(0.4))
                             .clipShape( RoundedRectangle(cornerRadius: 10) )
                             .focused($keyboardOut)
+                            .textInputAutocapitalization(.never)
                             .frame(height: 55)
                         
                         TextField("사용하실 닉네임을 입력해주세요.", text: $viewModel.nickname)
@@ -82,12 +85,13 @@ struct SignUpWithEmailView: View {
                             .background(Color.gray.opacity(0.4))
                             .clipShape( RoundedRectangle(cornerRadius: 10) )
                             .focused($keyboardOut)
+                            .textInputAutocapitalization(.never)
                             .frame(height: 55)
                         
                         Button {
                             Task {
                                 try await viewModel.signUp()
-                                isUserLoggedIn = true
+                                isUserLoggedIn = GlobalAssets.isUserLoggedIn
                             }
                         } label: {
                             Text(verificationSent ? "인증 이메일이 전송되었습니다." : "인증 이메일 전송")
@@ -124,3 +128,4 @@ struct SignUpWithEmailView: View {
 //#Preview {
 //    SignUpWithEmailView(showEmailSigningPage: .constant(true))
 //}
+ 

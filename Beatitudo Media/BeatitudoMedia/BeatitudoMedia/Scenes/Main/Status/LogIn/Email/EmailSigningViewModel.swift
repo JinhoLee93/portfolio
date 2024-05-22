@@ -31,4 +31,10 @@ class EmailSigningViewModel: ObservableObject {
             print("\(error) finding password")
         }
     }
+    
+    func reset() {
+        email = ""
+        password = ""
+        nickname = ""
+    }
 }

@@ -19,7 +19,7 @@ struct SignInWithEmailView: View {
     @State private var resettingPassword: Bool  = false
     
     var body: some View {
-        if showEmailSigningPage && !isUserLoggedIn {
+        if showEmailSigningPage {
             NavigationStack {
                 ZStack {
                     Color.adaptiveBackground
