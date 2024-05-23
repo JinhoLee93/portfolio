@@ -10,7 +10,7 @@ import SwiftUI
 struct SignInWithEmailView: View {
     @StateObject private var viewModel = EmailSigningViewModel()
     
-    @FocusState private var keyboardOut: FocusField?
+    @FocusState private var keyboardOut: Utils.EmailSigningFocusField?
     
     @Binding var showEmailSigningPage: Bool
     @Binding var isUserLoggedIn: Bool
@@ -74,7 +74,7 @@ struct SignInWithEmailView: View {
                                 .keyboardType(.emailAddress)
                                 .padding()
                                 .background(Color.gray.opacity(0.4))
-                                .clipShape( RoundedRectangle(cornerRadius: 25) )
+                                .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: viewModel.isValidEmail ? .clear : .red)
                                 .focused($keyboardOut, equals: .email)
                                 .textInputAutocapitalization(.never)
                                 .frame(height: 55)

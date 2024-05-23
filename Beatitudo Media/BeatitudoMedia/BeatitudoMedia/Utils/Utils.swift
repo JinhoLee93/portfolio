@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+// MARK: - Device
 final class Utils {
     // Device Related
     static func getiOSVersion() -> String {
@@ -19,8 +21,10 @@ final class Utils {
         
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
-    
-    // Date Related
+}
+
+// MARK: - Date
+extension Utils {
     static func getAndClassifyCurrentHour() -> String {
         let hour = Calendar.current.component(.hour, from: Date())
 
@@ -64,5 +68,15 @@ final class Utils {
             return topViewController(controller: presented)
         }
         return controller
+    }
+}
+
+// MARK: - Enums
+extension Utils {
+    enum EmailSigningFocusField: Hashable {
+        case email
+        case passwordHidden
+        case passwordShown
+        case nickname
     }
 }

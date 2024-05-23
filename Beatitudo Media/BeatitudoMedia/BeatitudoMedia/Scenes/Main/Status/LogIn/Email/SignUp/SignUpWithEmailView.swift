@@ -10,7 +10,7 @@ import SwiftUI
 struct SignUpWithEmailView: View {
     @StateObject private var viewModel = EmailSigningViewModel()
         
-    @FocusState private var keyboardOut: FocusField?
+    @FocusState private var keyboardOut: Utils.EmailSigningFocusField?
     
     @Binding var showEmailSigningPage: Bool
     @Binding var isUserLoggedIn: Bool
@@ -187,20 +187,5 @@ struct SignUpWithEmailView: View {
             }
             .transition(.move(edge: .bottom))
         }
-    }
-}
-
-enum FocusField: Hashable {
-    case email
-    case passwordHidden
-    case passwordShown
-    case nickname
-}
-
-extension View {
-    func clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: CGFloat, borderColor: Color) -> some View {
-        let roundedRectangle = RoundedRectangle(cornerRadius: cornerRadius)
-        
-        return clipShape(roundedRectangle).overlay(roundedRectangle.strokeBorder(borderColor))
     }
 }

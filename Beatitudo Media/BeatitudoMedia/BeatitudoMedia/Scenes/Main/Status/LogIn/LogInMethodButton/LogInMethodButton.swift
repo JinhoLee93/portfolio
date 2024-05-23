@@ -70,7 +70,3 @@ struct LogInMethodButton: View {
         }
     }
 }
-//
-//#Preview {
-//    LogInMethodButton(method: "Google")
-//}
