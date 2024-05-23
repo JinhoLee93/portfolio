@@ -147,6 +147,7 @@ struct SignUpWithEmailView: View {
                         }
                         
                         Button {
+                            keyboardOut = nil
                             Task {
                                 do {
                                     showProgressView = true
@@ -189,13 +190,11 @@ struct SignUpWithEmailView: View {
     }
 }
 
-extension SignUpWithEmailView {
-    enum FocusField: Hashable {
-        case email
-        case passwordHidden
-        case passwordShown
-        case nickname
-    }
+enum FocusField: Hashable {
+    case email
+    case passwordHidden
+    case passwordShown
+    case nickname
 }
 
 extension View {
