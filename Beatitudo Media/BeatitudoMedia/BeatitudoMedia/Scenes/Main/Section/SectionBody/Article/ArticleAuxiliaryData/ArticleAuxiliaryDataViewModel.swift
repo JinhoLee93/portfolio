@@ -36,16 +36,6 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
         return self.articleAuxiliaryData.countOfShared
     }
     
-//    func getComments() -> [ArticleComment] {
-//        
-//        return self.articleAuxiliaryData.comments
-//    }
-//    
-//    func getCommentsCount() -> Int {
-//        
-//        return self.articleAuxiliaryData.comments.count
-//    }
-//    
     func updateLoved() {
         APIServices.shared.put(id: articleAuxiliaryData.id)
     }
