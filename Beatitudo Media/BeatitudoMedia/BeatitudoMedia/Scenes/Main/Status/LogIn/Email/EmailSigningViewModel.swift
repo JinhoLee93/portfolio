@@ -32,11 +32,8 @@ class EmailSigningViewModel: ObservableObject {
     }
     
     func signUp() async throws {
-        do {
-            try await AuthenticationManager.shared.createUserWithEmailandPassword(email: email, password: password)
-        } catch let error {
-            print("\(error.localizedDescription)")
-        }
+        try await AuthenticationManager.shared.createUserWithEmailandPassword(email: email, password: password)
+        
     }
     
     func signIn() async throws {
@@ -62,5 +59,10 @@ class EmailSigningViewModel: ObservableObject {
         isValidEmail = true
         isValidPassword = true
         isValidNickname = true
+    }
+    
+    func resetEmail() {
+        email = ""
+        isValidEmail = false
     }
 }

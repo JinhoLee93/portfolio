@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sessions',
     'sections',
+    'beatitudomediausers',
     'debug_toolbar',
     'rest_framework',
 ]

@@ -26,7 +26,6 @@ class BeatitudoMediaViewModel: ObservableObject {
         
         return tokens.count < 1 ? "" : tokens[1]
     }
-    
         
     // Subscribers
     private func addSubscribers() {

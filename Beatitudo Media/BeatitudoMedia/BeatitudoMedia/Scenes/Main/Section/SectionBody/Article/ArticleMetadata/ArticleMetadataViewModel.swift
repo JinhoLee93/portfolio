@@ -19,8 +19,8 @@ class ArticleMetadataViewModel: ObservableObject {
         return self.articleMetadata.articleViews
     }
     
-    func updateArticleViews() {
-        APIServices.shared.updateViews(id: articleMetadata.id)
+    func updateArticleViews(userUUID: String?) {
+        APIServices.shared.updateViews(id: articleMetadata.id, userUUID: userUUID)
     }
     
     func getTimeToRead() -> Int {

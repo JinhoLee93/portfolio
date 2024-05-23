@@ -15,10 +15,11 @@ struct SignUpWithEmailView: View {
     @Binding var showEmailSigningPage: Bool
     @Binding var isUserLoggedIn: Bool
     
-    @State private var keyboardOffsetY: CGFloat = 0
-    @State private var showProgressView: Bool   = false
-    @State private var showPassword: Bool       = false
-    
+    @State private var keyboardOffsetY: CGFloat  = 0
+    @State private var showProgressView: Bool    = false
+    @State private var showPassword: Bool        = false
+    @State private var didSignUpErrorOccur: Bool = false
+        
     var body: some View {
         if showEmailSigningPage {
             NavigationStack {
@@ -29,7 +30,7 @@ struct SignUpWithEmailView: View {
                     
                     Color.adaptiveBackground
                         .onTapGesture {
-                            keyboardOut = nil
+                            reset(for: .tapBackground)
                         }
                     
                     VStack {
@@ -39,10 +40,7 @@ struct SignUpWithEmailView: View {
                         HStack {
                             Button {
                                 withAnimation(.easeInOut(duration: 0.25)) {
-                                    showEmailSigningPage = false
-                                    keyboardOut = nil
-                                    keyboardOffsetY = 0
-                                    viewModel.reset()
+                                    reset(for: .dismiss)
                                 }
                             } label: {
                                 Image(systemName: "xmark")
@@ -139,7 +137,7 @@ struct SignUpWithEmailView: View {
                                 .textInputAutocapitalization(.never)
                                 .frame(height: 55)
                             
-                            Text("닉네임은 1자 이상으로 입력해주세요.")
+                            Text("닉네임은 2자 이상으로 입력해주세요.")
                                 .opacity(viewModel.isValidNickname ? 0 : 1)
                                 .font(.system(size: 12))
                                 .foregroundStyle(.red)
@@ -147,7 +145,7 @@ struct SignUpWithEmailView: View {
                         }
                         
                         Button {
-                            keyboardOut = nil
+                            reset(for: .submit)
                             Task {
                                 do {
                                     showProgressView = true
@@ -181,11 +179,37 @@ struct SignUpWithEmailView: View {
             }
             .onChange(of: isUserLoggedIn) { _, newValue in
                 if newValue == true {
-                    showEmailSigningPage = false
-                    keyboardOut = nil
+                    reset(for: .signUp)
                 }
             }
             .transition(.move(edge: .bottom))
+        }
+    }
+}
+
+// MARK: - Helpers
+extension SignUpWithEmailView {
+    private enum ResetReason {
+        case tapBackground
+        case dismiss
+        case signUp
+        case submit
+    }
+    
+    private func reset(for reason: ResetReason) {
+        switch reason {
+        case .tapBackground:
+            keyboardOut = nil
+        case .dismiss:
+            showEmailSigningPage = false
+            keyboardOut = nil
+            keyboardOffsetY = 0
+            viewModel.reset()
+        case .signUp:
+            showEmailSigningPage = false
+            keyboardOut = nil
+        case .submit:
+            keyboardOut = nil
         }
     }
 }

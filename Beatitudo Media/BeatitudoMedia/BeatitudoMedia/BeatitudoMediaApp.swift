@@ -24,7 +24,8 @@ struct BeatitudoMediaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                BeatitudoMediaView()
+//                BeatitudoMediaView()
+                Test()
             }
         }
     }

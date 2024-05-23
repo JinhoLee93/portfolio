@@ -10,5 +10,6 @@ import SwiftUI
 class GlobalAssets {
     @AppStorage("isLightMode") static var isLightMode: Bool = true
     @AppStorage("isUserLoggedIn") static var isUserLoggedIn: Bool = false
-    @AppStorage("email-link") static var emailLink: String?
+    @AppStorage("currentUserID") static var currentUserUUID: String?
+    @AppStorage("serverIP") static var serverIP = "127.0.0.1:8000"
 }

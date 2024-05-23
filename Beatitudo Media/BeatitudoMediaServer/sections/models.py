@@ -9,7 +9,7 @@ class Section(models.Model):
         return f"Section {self.title}"
 
 class Article(models.Model):
-    section       = models.ForeignKey(to=Section, related_name='articles', on_delete=models.CASCADE, null=False)
+    section       = models.ForeignKey(to=Section, related_name='article', on_delete=models.CASCADE, null=False)
     title         = models.TextField()
     thumbnail_url = models.TextField()
     article_url   = models.TextField()

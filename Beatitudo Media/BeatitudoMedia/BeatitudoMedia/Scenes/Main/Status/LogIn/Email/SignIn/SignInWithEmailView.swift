@@ -138,7 +138,7 @@ struct SignInWithEmailView: View {
                                     try await viewModel.signIn()
                                     isUserLoggedIn = GlobalAssets.isUserLoggedIn
                                     showProgressView = false
-                                } catch {
+                                } catch let error {
                                     showProgressView = false
                                 }
                             }

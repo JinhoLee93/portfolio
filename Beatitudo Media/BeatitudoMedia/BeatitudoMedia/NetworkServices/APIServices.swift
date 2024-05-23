@@ -17,6 +17,12 @@ protocol NetworkLayer {
     func downloadImage(url: String) async throws -> Image?
     
     func convertStringToURL(url: String) throws -> URL
+    
+    func get()
+    
+    func put(id: Int, userUUID: String)
+    
+    func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T
 }
 
 final class APIServices: NetworkLayer {
@@ -31,25 +37,11 @@ final class APIServices: NetworkLayer {
     }()
     
     private init() { }
-    
-    func get() {
-        let url = "http://127.0.0.1:8000/sections/send-sections/"
-        
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
-    }
-    
-    func put(id: Int) {
-        let url = "http://127.0.0.1:8000/sections/update-count-of-loved/\(id)/"
-        
-        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
-    }
-    
-    func updateViews(id: Int) {
-        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
-        
-        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
-    }
-    
+}
+
+
+// MARK: - Local
+extension APIServices {
     func fetchData<T>(url: String) async throws -> T where T : Decodable {
         let url = try convertStringToURL(url: url)
     
@@ -108,6 +100,43 @@ final class APIServices: NetworkLayer {
         let decoder = JSONDecoder()
         
         return try decoder.decode(T.self, from: data)
+    }
+}
+
+// MARK: - RESTful
+extension APIServices {
+    func get() {
+        let url = "http://127.0.0.1:8000/sections/send-sections/"
+        
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
+    
+    func put(id: Int, userUUID: String) {
+        let url = "http://127.0.0.1:8000/sections/update-count-of-loved/\(id)/"
+        
+        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
+    
+    func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T {
+        guard let url = URL(string: url) else { throw URLError(.badURL) }
+        guard let jsonParameter = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.badURL)}
+        
+        var request = URLRequest(url: url)
+        request.method = HTTPMethod.post
+        request.headers = self.httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameter)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        return try decodeAndReturn(T.self, from: data)
+    }
+    
+    func updateViews(id: Int, userUUID: String?) {
+        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
+        
+        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
     }
 }
 
