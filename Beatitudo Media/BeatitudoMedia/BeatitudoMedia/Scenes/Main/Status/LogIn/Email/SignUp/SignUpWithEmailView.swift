@@ -204,8 +204,3 @@ extension View {
         return clipShape(roundedRectangle).overlay(roundedRectangle.strokeBorder(borderColor))
     }
 }
-
-#Preview {
-    SignUpWithEmailView(showEmailSigningPage: .constant(true), isUserLoggedIn: .constant(false))
-}
- 
