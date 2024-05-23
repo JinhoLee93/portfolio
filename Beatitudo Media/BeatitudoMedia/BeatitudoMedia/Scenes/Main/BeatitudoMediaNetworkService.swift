@@ -23,7 +23,7 @@ class BeatitudoMediaNetworkService {
     }
     
     func refreshSections() async throws {
-        let fetchedSections: Sections = try await self.domain.fetchData(url: "http://172.30.1.68:8000/sections/send-sections/")
+        let fetchedSections: Sections = try await self.domain.fetchData(url: "http://172.30.1.22:8000/sections/send-sections/")
         await MainActor.run { self.sections = fetchedSections.sections }
     }
 }

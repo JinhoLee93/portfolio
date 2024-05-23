@@ -1,5 +1,5 @@
 {
-  "originHash" : "c129a02ec0cf1ba135de67c589c1f22bda7c9ccca82bf3496b5d91089ac40577",
+  "originHash" : "bc14539ad8771fd6b0e690b70806ec93c0b2c1ab6ddd446354c6c0bf6ac51907",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -134,6 +134,15 @@
       "state" : {
         "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
         "version" : "2.30910.0"
+      }
+    },
+    {
+      "identity" : "peppermint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nsagora/peppermint.git",
+      "state" : {
+        "revision" : "9e3db637fbf8041c23a1b7f71e4ef16ac54f833f",
+        "version" : "1.2.0"
       }
     },
     {

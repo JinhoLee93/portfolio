@@ -17,11 +17,16 @@ struct SignInWithEmailView: View {
     
     @State private var keyboardOffsetY: CGFloat = 0
     @State private var resettingPassword: Bool  = false
+    @State private var showProgressView: Bool   = false
     
     var body: some View {
         if showEmailSigningPage {
             NavigationStack {
                 ZStack {
+                    BeatitudoMediaProgressView()
+                        .opacity(showProgressView ? 1 : 0)
+                        .zIndex(1)
+                    
                     Color.adaptiveBackground
                         .onTapGesture {
                             keyboardOut = false
@@ -37,6 +42,7 @@ struct SignInWithEmailView: View {
                                     showEmailSigningPage = false
                                     keyboardOut = false
                                     keyboardOffsetY = 0
+                                    viewModel.reset()
                                 }
                             } label: {
                                 Image(systemName: "xmark")
@@ -67,24 +73,32 @@ struct SignInWithEmailView: View {
                             .keyboardType(.emailAddress)
                             .padding()
                             .background(Color.gray.opacity(0.4))
-                            .clipShape( RoundedRectangle(cornerRadius: 10) )
+                            .clipShape( RoundedRectangle(cornerRadius: 25) )
                             .focused($keyboardOut)
+                            .textInputAutocapitalization(.never)
                             .frame(height: 55)
                         
                         if !resettingPassword {
                             SecureField("비밀번호를 입력해주세요.", text: $viewModel.password)
                                 .padding()
                                 .background(Color.gray.opacity(0.4))
-                                .clipShape( RoundedRectangle(cornerRadius: 10) )
+                                .clipShape( RoundedRectangle(cornerRadius: 25) )
                                 .focused($keyboardOut)
+                                .textInputAutocapitalization(.never)
                                 .frame(height: 55)
                         }
                         
                         Button {
                             if !resettingPassword {
                                 Task {
-                                    try await viewModel.signIn()
-                                    isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                                    do {
+                                        showProgressView = true
+                                        try await viewModel.signIn()
+                                        isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                                        showProgressView = false
+                                    } catch {
+                                        showProgressView = false
+                                    }
                                 }
                             } else {
                                 Task {
@@ -95,33 +109,33 @@ struct SignInWithEmailView: View {
                         } label: {
                             Text(resettingPassword ? "비밀번호 찾기" : "로그인하기")
                                 .font(.headline)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.adaptiveBackground)
                                 .frame(height: 55)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.blue)
-                                .clipShape( RoundedRectangle(cornerRadius: 10) )
+                                .background(.adaptiveView)
+                                .clipShape( RoundedRectangle(cornerRadius: 25) )
                         }
-                        .disabled(viewModel.email.isEmpty && viewModel.password.isEmpty && viewModel.nickname.isEmpty)
+                        .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
                         
-                        HStack {
-                            Spacer()
-                            
-                            Text(resettingPassword ? "Beatitudo Media에 가입되어 있으신가요?" : "비밀번호를 잊어버리셨나요?")
-                                .font(.system(size: 14))
-                            
-                            Button {
-                                withAnimation(.easeInOut(duration: 0.25)) {
-                                    resettingPassword.toggle()
-                                }
-                                keyboardOut = false
-                            } label: {
-                                Text(resettingPassword ? "로그인하기" : "비밀번호 재설정하기")
-                                    .font(.system(size: 14))
-                            }
-                            
-                            Spacer()
-                        }
-                        .padding(EdgeInsets(top: 25, leading: 0, bottom: 25, trailing: 0))
+//                        HStack {
+//                            Spacer()
+//                            
+//                            Text(resettingPassword ? "Beatitudo Media에 가입되어 있으신가요?" : "비밀번호를 잊어버리셨나요?")
+//                                .font(.system(size: 14))
+//                            
+//                            Button {
+//                                withAnimation(.easeInOut(duration: 0.25)) {
+//                                    resettingPassword.toggle()
+//                                }
+//                                keyboardOut = false
+//                            } label: {
+//                                Text(resettingPassword ? "로그인하기" : "비밀번호 재설정하기")
+//                                    .font(.system(size: 14))
+//                            }
+//                            
+//                            Spacer()
+//                        }
+//                        .padding(EdgeInsets(top: 25, leading: 0, bottom: 25, trailing: 0))
                     }
                     .padding()
                     .offset(y: keyboardOffsetY)
@@ -130,6 +144,12 @@ struct SignInWithEmailView: View {
                     withAnimation(.easeInOut(duration: 0.25)) {
                         keyboardOffsetY = keyboardOut ? -200 : 0
                     }
+                }
+            }
+            .onChange(of: isUserLoggedIn) { _, newValue in
+                if newValue == true {
+                    showEmailSigningPage = false
+                    keyboardOut = false
                 }
             }
             .transition(.move(edge: .bottom))

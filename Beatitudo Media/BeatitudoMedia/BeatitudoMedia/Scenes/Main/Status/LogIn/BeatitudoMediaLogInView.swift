@@ -85,6 +85,7 @@ struct BeatitudoMediaLogInView: View {
                 withAnimation(.easeInOut(duration: 0.25)) {
                     showEmailSigningPage = false
                     showLogInSheet = false
+                    isSigningIn = false
                 }
             }
         }
