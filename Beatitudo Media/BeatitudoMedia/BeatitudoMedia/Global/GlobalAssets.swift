@@ -10,7 +10,7 @@ import SwiftUI
 class GlobalAssets {
     @AppStorage("isLightMode") static var isLightMode: Bool       = true
     @AppStorage("isUserLoggedIn") static var isUserLoggedIn: Bool = false
-    @AppStorage("serverIP") static var serverIP                   = "172.30.1.71:8000"
+    @AppStorage("serverIP") static var serverIP                   = "172.30.1.81:8000"
     @AppStorage("currentUserID") static var currentUserID: Int?
     @AppStorage("currentUserEmail") static var currentUserEmail: String?
     @AppStorage("currentUserNickname") static var currentUserNickname: String?
@@ -24,13 +24,15 @@ extension GlobalAssets {
         currentUserEmail = nil
         currentUserNickname = nil
         isUserLoggedIn = false
+        print("signing out")
     }
     
-    static func setUpCurrentUser(id: Int?, email: String?, nickname: String?) {
+    static func signUpOrInUser(id: Int?, email: String?, nickname: String?) {
         guard let id = id, let email = email, let nickname = nickname else { return }
         currentUserID = id
         currentUserEmail = email
         currentUserNickname = nickname
         isUserLoggedIn = true
+        print("signing in")
     }
 }

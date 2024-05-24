@@ -61,8 +61,6 @@ extension AuthenticationManager {
         let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
         
         let authenticDataResultModel = try await AuthenticationManager.shared.signInWithGoogle(gidSignInResult: gidSignInResult)
-        
-        GlobalAssets.isUserLoggedIn = true
     }
     
     private func signIn(authCredential: AuthCredential) async throws -> AuthDataResultModel {
@@ -77,7 +75,6 @@ extension AuthenticationManager {
     @discardableResult
     func signUpUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
-        GlobalAssets.isUserLoggedIn = true
         
         return AuthDataResultModel(user: authDataResult.user)
     }
@@ -85,7 +82,6 @@ extension AuthenticationManager {
     @discardableResult
     func signInUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
-        GlobalAssets.isUserLoggedIn = true
         
         return AuthDataResultModel(user: authDataResult.user)
     }
@@ -104,6 +100,5 @@ extension AuthenticationManager {
     
     func signOut() throws {
         try Auth.auth().signOut()
-        GlobalAssets.isUserLoggedIn = false
     }
 }

@@ -27,6 +27,7 @@ struct BeatitudoMediaLogInView: View {
                     
                     Task {
                         try await Task.sleep(for: .seconds(0.25))
+                        
                         isSigningIn = false
                     }
                 }

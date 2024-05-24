@@ -44,8 +44,8 @@ class EmailSigningViewModel: ObservableObject {
 
 // MARK: - Sign Related
 extension EmailSigningViewModel {
-    func signUp() async {
-        await domain.postNewUserWith(email: email, password: password, nickname: nickname)
+    func signUp() async throws {
+        try await domain.postNewUserWith(email: email, password: password, nickname: nickname)
     }
     
     func signIn() async throws {
@@ -88,7 +88,7 @@ extension EmailSigningViewModel {
         domain.$user
             .sink { [weak self] in
                 self?.user = $0
-                GlobalAssets.setUpCurrentUser(id: $0?.id, email: $0?.email, nickname: $0?.nickname)
+                GlobalAssets.signUpOrInUser(id: $0?.id, email: $0?.email, nickname: $0?.nickname)
             }
             .store(in: &anyCancellables)
     }

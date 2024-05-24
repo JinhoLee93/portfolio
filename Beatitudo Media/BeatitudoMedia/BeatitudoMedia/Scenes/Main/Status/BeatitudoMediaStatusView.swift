@@ -68,9 +68,14 @@ struct BeatitudoMediaStatusView: View {
                             }
                             Task {
                                 try await Task.sleep(for: .seconds(0.25))
-                                try? AuthenticationManager.shared.signOut()
-                                GlobalAssets.signOutCurrentUser()
-                                isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                                
+                                do {
+                                    try AuthenticationManager.shared.signOut()
+                                    GlobalAssets.signOutCurrentUser()
+                                    isUserLoggedIn = false
+                                } catch {
+                                    print("\(error) occurred signing out")
+                                }
                             }
                         }
                     } label: {

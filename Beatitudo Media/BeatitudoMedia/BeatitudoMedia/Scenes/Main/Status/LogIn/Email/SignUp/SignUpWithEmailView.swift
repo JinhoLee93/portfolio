@@ -18,7 +18,7 @@ struct SignUpWithEmailView: View {
     @State private var keyboardOffsetY: CGFloat  = 0
     @State private var showPassword: Bool        = false
     @State private var didSignUpErrorOccur: Bool = false
-    @State private var showProgressView: Bool    = false
+    @State private var showProgressView: Bool     = false
         
     var body: some View {
         if showEmailSigningPage {
@@ -147,10 +147,15 @@ struct SignUpWithEmailView: View {
                         
                         Button {
                             reset(for: .submit)
-                            showProgressView = true
                             Task {
-                                await viewModel.signUp()
-                                showProgressView = false
+                                do {
+                                    showProgressView = true
+                                    try await viewModel.signUp()
+                                    showProgressView = false
+                                } catch {
+                                    print("\(error) occurred creating the user with \(viewModel.email)")
+                                    showProgressView = false
+                                }
                             }
                         } label: {
                             Text("가입하기")
