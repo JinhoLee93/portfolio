@@ -130,7 +130,6 @@ extension APIServices {
         
         try handleHTTPURLResponse(response: response, url: url)
         
-        print(try JSONSerialization.jsonObject(with: data))
         return try decodeAndReturn(T.self, from: data)
     }
     

@@ -16,9 +16,9 @@ struct SignUpWithEmailView: View {
     @Binding var isUserLoggedIn: Bool
     
     @State private var keyboardOffsetY: CGFloat  = 0
-    @State private var showProgressView: Bool    = false
     @State private var showPassword: Bool        = false
     @State private var didSignUpErrorOccur: Bool = false
+    @State private var showProgressView: Bool    = false
         
     var body: some View {
         if showEmailSigningPage {
@@ -69,6 +69,7 @@ struct SignUpWithEmailView: View {
                         
                         VStack(alignment: .leading) {
                             TextField("사용하실 이메일 주소를 입력해주세요.", text: $viewModel.email)
+                                .keyboardType(.emailAddress)
                                 .padding()
                                 .background(Color.gray.opacity(0.4))
                                 .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: viewModel.isValidEmail ? .clear : .red)
@@ -146,15 +147,10 @@ struct SignUpWithEmailView: View {
                         
                         Button {
                             reset(for: .submit)
+                            showProgressView = true
                             Task {
-                                do {
-                                    showProgressView = true
-                                    try await viewModel.signUp()
-                                    isUserLoggedIn = GlobalAssets.isUserLoggedIn
-                                    showProgressView = false
-                                } catch {
-                                    showProgressView = false
-                                }
+                                await viewModel.signUp()
+                                showProgressView = false
                             }
                         } label: {
                             Text("가입하기")
@@ -177,9 +173,12 @@ struct SignUpWithEmailView: View {
                     }
                 }
             }
-            .onChange(of: isUserLoggedIn) { _, newValue in
-                if newValue == true {
-                    reset(for: .signUp)
+            .onChange(of: viewModel.user) { _, newValue in
+                if newValue != nil {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        isUserLoggedIn = true
+                        reset(for: .signUp)
+                    }
                 }
             }
             .transition(.move(edge: .bottom))

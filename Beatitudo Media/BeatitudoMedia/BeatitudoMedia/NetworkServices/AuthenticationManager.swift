@@ -75,7 +75,7 @@ extension AuthenticationManager {
 // MARK: - Email
 extension AuthenticationManager {
     @discardableResult
-    func createUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
+    func signUpUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         GlobalAssets.isUserLoggedIn = true
         

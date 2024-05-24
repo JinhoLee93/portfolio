@@ -9,8 +9,10 @@ import Foundation
 import Peppermint
 import Combine
 
+@MainActor
 class EmailSigningViewModel: ObservableObject {
     private let domain = EmailSigningAPIServices()
+    private var anyCancellables = Set<AnyCancellable>()
     
     @Published var user: BeatitudoMediaUser?
     @Published var isValidEmail = true
@@ -35,10 +37,15 @@ class EmailSigningViewModel: ObservableObject {
         }
     }
     
-    func signUp() async throws -> BeatitudoMediaUser {
-        let user: BeatitudoMediaUser = try await domain.postNewUserWith(email: email, nickname: nickname)
-        
-        return user
+    init() {
+        addSubscribers()
+    }
+}
+
+// MARK: - Sign Related
+extension EmailSigningViewModel {
+    func signUp() async {
+        await domain.postNewUserWith(email: email, password: password, nickname: nickname)
     }
     
     func signIn() async throws {
@@ -56,7 +63,10 @@ class EmailSigningViewModel: ObservableObject {
             print("\(error) finding password")
         }
     }
+}
 
+// MARK: - View Related
+extension EmailSigningViewModel {
     func reset() {
         email = ""
         password = ""
@@ -69,5 +79,17 @@ class EmailSigningViewModel: ObservableObject {
     func resetEmail() {
         email = ""
         isValidEmail = false
+    }
+}
+
+// MARK: - Combine Related
+extension EmailSigningViewModel {
+    func addSubscribers() {
+        domain.$user
+            .sink { [weak self] in
+                self?.user = $0
+                GlobalAssets.setUpCurrentUser(id: $0?.id, email: $0?.email, nickname: $0?.nickname)
+            }
+            .store(in: &anyCancellables)
     }
 }
