@@ -13,11 +13,12 @@ struct Test: View {
         Button {
             Task {
                 do {
-                    let currentUser: BeatitudoMediaUser = try await APIServices.shared.post(url: "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-new-user/", parameters: ["email" : "molkop@naver.com", "nickname" : "jinho Lee"])
+                    let currentUser: BeatitudoMediaUserWrapper = try await APIServices.shared.post(url: "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-new-user/", parameters: ["email" : "molkop@naver.com", "nickname" : "Jinho Lee"])
                     
+                    print("asdasdasd")
                     print(currentUser)
                 } catch {
-                    
+                    print("\(error)")
                 }
             }
         } label: {

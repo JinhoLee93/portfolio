@@ -63,7 +63,7 @@ struct ArticleMetadataView: View {
         }
         .frame(height: 15)
         .onChange(of: signalArticleViews) { _, _ in
-            viewModel.updateArticleViews(userUUID: GlobalAssets.currentUserUUID)
+//            viewModel.updateArticleViews(userUUID: GlobalAssets.currentUserID)
         }
     }
 }

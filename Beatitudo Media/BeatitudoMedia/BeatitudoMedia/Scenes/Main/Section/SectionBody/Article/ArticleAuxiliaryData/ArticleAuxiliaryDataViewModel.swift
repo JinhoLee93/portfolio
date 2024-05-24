@@ -37,7 +37,7 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     }
     
     func updateLoved() {
-        guard let userUUID = GlobalAssets.currentUserUUID else { return }
+        guard let userID = GlobalAssets.currentUserID else { return }
 //        APIServices.shared.put(id: articleAuxiliaryData.id, userUUID: userUUID)
     }
     

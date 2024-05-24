@@ -10,8 +10,8 @@ import Foundation
 struct BeatitudoMediaUser: Codable, Hashable {
     let email: String
     let nickname: String
-    let viewedArticles: [Article]
     let likedArticles: [Article]
+    let viewedArticles: [Article]
     
     enum CodingKeys: String, CodingKey {
         case email
