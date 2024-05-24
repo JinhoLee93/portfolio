@@ -7,8 +7,12 @@
 
 import Foundation
 import Peppermint
+import Combine
 
 class EmailSigningViewModel: ObservableObject {
+    private let domain = EmailSigningAPIServices()
+    
+    @Published var user: BeatitudoMediaUser?
     @Published var isValidEmail = true
     @Published var email    = "" {
         willSet {
@@ -31,9 +35,10 @@ class EmailSigningViewModel: ObservableObject {
         }
     }
     
-    func signUp() async throws {
-        try await AuthenticationManager.shared.createUserWithEmailandPassword(email: email, password: password)
+    func signUp() async throws -> BeatitudoMediaUser {
+        let user: BeatitudoMediaUser = try await domain.postNewUserWith(email: email, nickname: nickname)
         
+        return user
     }
     
     func signIn() async throws {
