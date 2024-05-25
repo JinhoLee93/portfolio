@@ -19,7 +19,8 @@ struct BeatitudoMediaView: View {
     @State private var showStatusPage: Bool        = false
     @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
-    @State private var showSplashView: Bool      = false
+    @State private var showSplashView: Bool        = false
+    @State private var showSplashDate: Bool        = false
 
     @Namespace var namespace
     
@@ -28,7 +29,7 @@ struct BeatitudoMediaView: View {
             Color.adaptiveBackground
                 .ignoresSafeArea()
                         
-            BeatitudoMediaSplashView()
+            BeatitudoMediaSplashView(showSplashDate: $showSplashDate)
                 .opacity(showSplashView ? 1 : 0)
                 .zIndex(1)
                 .ignoresSafeArea()
@@ -97,8 +98,18 @@ struct BeatitudoMediaView: View {
         .task {
             do {
                 showSplashView = true
+                
                 try await viewModel.refreshSections()
-                showSplashView = false
+                
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    showSplashDate = true
+                }
+                
+                try await Task.sleep(for: .seconds(1))
+                
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    showSplashView = false
+                }
             } catch {
                 print("\(error) occurred fetching/refreshing sections.")
                 showSplashView = false
