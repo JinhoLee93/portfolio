@@ -1,5 +1,5 @@
 //
-//  BeatitudoMediaLogInView.swift
+//  BeatitudoMediaSigningView.swift
 //  BeatitudoMedia
 //
 //  Created by Jinho Lee on 5/20/24.
@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct BeatitudoMediaLogInView: View {
-    @StateObject private var viewModel = BeatitudoMediaLogInViewModel()
+struct BeatitudoMediaSigningView: View {
+    @StateObject private var viewModel = BeatitudoMediaSigningViewModel()
     
     @Binding var showLogInSheet: Bool
     @Binding var isUserLoggedIn: Bool
     
-    @State var showEmailSigningPage = false
-    @State var isSigningIn = false
+    @State var showEmailSigningPage: Bool     = false
+    @State var isSigningIn: Bool              = false
+    @State private var showProgressView: Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -32,6 +33,11 @@ struct BeatitudoMediaLogInView: View {
                     }
                 }
             
+            BeatitudoMediaProgressView()
+                .opacity(showProgressView ? 1 : 0)
+                .zIndex(1)
+                
+            
             if showLogInSheet {
                 ZStack {
                     RoundedRectangle(cornerRadius: 25)
@@ -42,8 +48,9 @@ struct BeatitudoMediaLogInView: View {
                             .padding(.top, 25)
                             .padding(.bottom, 25)
                         
-                        ForEach(viewModel.getLogInMethods(), id: \.self) { method in
-                            LogInMethodButton(method: method, isUserLoggedIn: $isUserLoggedIn, showEmailSigningSheet: $showEmailSigningPage, isSigningIn: $isSigningIn, showLogInSheet: $showLogInSheet)
+                        ForEach(viewModel.getSigningMethods(), id: \.self) { method in
+                            LogInMethodButton(method: method, showEmailSigningSheet: $showEmailSigningPage, showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn, isSigningIn: $isSigningIn, showProgressView: $showProgressView)
+                                .environmentObject(viewModel)
                         }
                         
                         HStack {
@@ -68,7 +75,7 @@ struct BeatitudoMediaLogInView: View {
                     .padding(.leading, 10)
                     .padding(.trailing, 10)
                 }
-                .frame(height: 170 + CGFloat(50 * viewModel.getLogInMethodsCount()))
+                .frame(height: 170 + CGFloat(50 * viewModel.getSigningMethodsCount()))
                 .transition(.move(edge: .bottom))
                 .zIndex(0.5)
                 
@@ -84,12 +91,26 @@ struct BeatitudoMediaLogInView: View {
         .onChange(of: isUserLoggedIn) { _, newValue in
             if newValue {
                 withAnimation(.easeInOut(duration: 0.25)) {
-                    showEmailSigningPage = false
-                    showLogInSheet = false
-                    isSigningIn = false
+                    reset(for: .dismiss)
                 }
             }
         }
         .ignoresSafeArea()
+    }
+}
+
+// MARK: - Helpers
+extension BeatitudoMediaSigningView {
+    private enum ResetReason {
+        case dismiss
+    }
+    
+    private func reset(for reason: ResetReason) {
+        switch reason {
+        case .dismiss:
+            showEmailSigningPage = false
+            showLogInSheet = false
+            isSigningIn = false
+        }
     }
 }

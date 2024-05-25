@@ -93,7 +93,7 @@ struct BeatitudoMediaView: View {
                 }
             }
             
-            BeatitudoMediaLogInView(showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn)
+            BeatitudoMediaSigningView(showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn)
         }
         .task {
             do {

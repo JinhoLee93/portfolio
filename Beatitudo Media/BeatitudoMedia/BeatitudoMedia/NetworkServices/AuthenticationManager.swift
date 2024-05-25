@@ -53,14 +53,16 @@ extension AuthenticationManager {
     }
     
     @MainActor
-    func signInWithGoogle() async throws {
+    func signInWithGoogle() async throws -> AuthDataResultModel {
         guard let topVC = Utils.topViewController() else {
             throw URLError(.cannotFindHost)
         }
         
         let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
         
-        let authenticDataResultModel = try await AuthenticationManager.shared.signInWithGoogle(gidSignInResult: gidSignInResult)
+        let authDataResultModel = try await AuthenticationManager.shared.signInWithGoogle(gidSignInResult: gidSignInResult)
+        
+        return authDataResultModel
     }
     
     private func signIn(authCredential: AuthCredential) async throws -> AuthDataResultModel {

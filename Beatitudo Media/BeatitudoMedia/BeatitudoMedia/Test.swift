@@ -13,7 +13,7 @@ struct Test: View {
         Button {
             Task {
                 do {
-                    let currentUser: BeatitudoMediaUserWrapper = try await APIServices.shared.post(url: "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-new-user/", parameters: ["email" : "molkop@naver.com", "nickname" : "Jinho Lee"])
+                    let currentUser: BeatitudoMediaUserWrapper = try await APIServices.shared.post(url: "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/", parameters: ["email" : "molkop@naver.com", "nickname" : "Jinho Lee"])
                     
                     print("asdasdasd")
                     print(currentUser)

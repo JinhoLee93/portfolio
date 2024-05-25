@@ -98,12 +98,14 @@ struct SignUpWithEmailView: View {
                                     .focused($keyboardOut, equals: .passwordHidden)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 0 : 1)
+                                    .keyboardType(.alphabet)
                                 
                                 TextField("사용하실 비밀번호를 입력해주세요.", text: $viewModel.password)
                                     .padding()
                                     .focused($keyboardOut, equals: .passwordShown)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 1 : 0)
+                                    .keyboardType(.alphabet)
                                 
                                 Image(systemName: showPassword ? "eye.slash" : "eye")
                                     .resizable()

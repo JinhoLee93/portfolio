@@ -98,6 +98,7 @@ struct SignInWithEmailView: View {
                                     .focused($keyboardOut, equals: .passwordHidden)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 0 : 1)
+                                    .keyboardType(.alphabet)
                                     .onTapGesture {
                                         didSignInErrorOccur = false
                                     }
@@ -107,6 +108,7 @@ struct SignInWithEmailView: View {
                                     .focused($keyboardOut, equals: .passwordShown)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 1 : 0)
+                                    .keyboardType(.alphabet)
                                     .onTapGesture {
                                         didSignInErrorOccur = false
                                     }

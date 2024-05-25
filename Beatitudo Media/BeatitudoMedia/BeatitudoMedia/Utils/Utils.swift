@@ -80,3 +80,11 @@ extension Utils {
         case nickname
     }
 }
+
+// MARK: - Email
+extension Utils {
+    static func divideEmailIntoTokens(email: String) -> [String] {
+        
+        return email.split(separator: "@").map { String($0) }
+    }
+}

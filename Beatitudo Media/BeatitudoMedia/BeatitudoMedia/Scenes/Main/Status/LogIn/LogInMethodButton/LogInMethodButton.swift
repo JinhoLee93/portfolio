@@ -7,23 +7,16 @@
 
 import SwiftUI
 
-class LogInButtonViewModel: ObservableObject {
-    
-    func signInWithGoogle() async throws {
-        
-        return try await AuthenticationManager.shared.signInWithGoogle()
-    }
-}
-
 struct LogInMethodButton: View {
-    @StateObject private var viewModel = LogInButtonViewModel()
+    @EnvironmentObject private var viewModel: BeatitudoMediaSigningViewModel
     
     let method: String
     
-    @Binding var isUserLoggedIn: Bool
     @Binding var showEmailSigningSheet: Bool
-    @Binding var isSigningIn: Bool
     @Binding var showLogInSheet: Bool
+    @Binding var isUserLoggedIn: Bool
+    @Binding var isSigningIn: Bool
+    @Binding var showProgressView: Bool
     
     var body: some View {
         Button {
@@ -34,14 +27,19 @@ struct LogInMethodButton: View {
             } else if method == "Google" {
                 Task {
                     do {
-                        try await viewModel.signInWithGoogle()
-                        withAnimation(.easeInOut(duration: 0.25)) {
-                            showLogInSheet = false
-                            isUserLoggedIn = GlobalAssets.isUserLoggedIn
+                        showProgressView = true
+                        if !isSigningIn {
+                            try await viewModel.signUpWithGoogle()
+                        } else {
+                            try await viewModel.signInWithGoogle()
                         }
-                        // close the signing view
-                    } catch let error {
-                        print(error)
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            isUserLoggedIn = true
+                        }
+                        showProgressView = false
+                    } catch {
+                        showProgressView = false
+                        print("\(error) occurred using Google Signing")
                     }
                 }
             }

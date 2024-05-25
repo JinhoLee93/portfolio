@@ -42,7 +42,7 @@ class EmailSigningViewModel: ObservableObject {
     }
 }
 
-// MARK: - Sign Related
+// MARK: - Signing
 extension EmailSigningViewModel {
     func signUp() async throws {
         try await domain.postNewUserWith(email: email, password: password, nickname: nickname)
@@ -61,7 +61,7 @@ extension EmailSigningViewModel {
     }
 }
 
-// MARK: - View Related
+// MARK: - View
 extension EmailSigningViewModel {
     func reset() {
         email = ""
@@ -78,7 +78,7 @@ extension EmailSigningViewModel {
     }
 }
 
-// MARK: - Combine Related
+// MARK: - Combine
 extension EmailSigningViewModel {
     func addSubscribers() {
         domain.$user

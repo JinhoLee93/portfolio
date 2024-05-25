@@ -17,6 +17,7 @@ struct BeatitudoMediaSplashView: View {
             HStack {
                 Text("소중한 당신의 마음이, \n조금 더 따뜻해 질 수 있도록")
                     .font(.system(size: 20))
+                    .foregroundStyle(.adaptiveText)
                 
                 Spacer()
             }
@@ -27,6 +28,7 @@ struct BeatitudoMediaSplashView: View {
                 Text(Utils.getToday())
                     .opacity(showSplashDate ? 1 : 0)
                     .bold()
+                    .foregroundStyle(.adaptiveText)
                 
                 Spacer()
                     .frame(height: 50)
@@ -37,7 +39,7 @@ struct BeatitudoMediaSplashView: View {
         // Add a picture or a drawing of a flower.
     }
 }
-//
-//#Preview {
-//    BeatitudoMediaSplashView()
-//}
+
+#Preview {
+    BeatitudoMediaSplashView(showSplashDate: .constant(true))
+}
