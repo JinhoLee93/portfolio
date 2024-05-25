@@ -20,38 +20,23 @@ class BeatitudoMediaViewModel: ObservableObject {
         self.domain = BeatitudoMediaNetworkService(domain: domain)
         self.addSubscribers()
     }
-    
+}
+
+// Helpers
+extension BeatitudoMediaViewModel {
     func tokenizeURLandReturnName(_ string: String) -> String {
         let tokens = string.split(separator: ".").map { String($0) }
         
         return tokens.count < 1 ? "" : tokens[1]
     }
-        
-    // Subscribers
-    private func addSubscribers() {
-        self.domain.$sections
-            .handleEvents(receiveRequest:  { _ in
-                // show loading
-            })
-            .sink { [weak self] in
-                self?.sections = $0
-                // hide loading
-            }
-            .store(in: &anyCancellables)
-    }
-}
-
-// Helpers
-extension BeatitudoMediaViewModel {
+    
     func getSectionIndex(of section: Section) -> Int {
         
         return self.sections.firstIndex { $0.title == section.title } ?? 0
     }
     
-    func refreshSections() {
-        Task {
-            try await self.domain.refreshSections()
-        }
+    func refreshSections() async throws {
+        try await self.domain.refreshSections()
     }
     
     func translateSectionTitle(_ title: String) -> String {
@@ -67,5 +52,17 @@ extension BeatitudoMediaViewModel {
         default:
             return "SectionNameNotExpected"
         }
+    }
+}
+
+// MARK: - Combine Related
+extension BeatitudoMediaViewModel {
+    // Subscribers
+    private func addSubscribers() {
+        self.domain.$sections
+            .sink { [weak self] in
+                self?.sections = $0
+            }
+            .store(in: &anyCancellables)
     }
 }

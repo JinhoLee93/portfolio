@@ -19,6 +19,7 @@ struct BeatitudoMediaView: View {
     @State private var showStatusPage: Bool        = false
     @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
+    @State private var showSplashView: Bool      = false
 
     @Namespace var namespace
     
@@ -27,6 +28,11 @@ struct BeatitudoMediaView: View {
             Color.adaptiveBackground
                 .ignoresSafeArea()
                         
+            BeatitudoMediaSplashView()
+                .opacity(showSplashView ? 1 : 0)
+                .zIndex(1)
+                .ignoresSafeArea()
+            
             VStack {
                 Spacer(minLength: 45)
                 
@@ -39,19 +45,6 @@ struct BeatitudoMediaView: View {
             ZStack {
                 Color.adaptiveBackground
                     .shadow(radius: 10)
-                
-                Button {
-                    viewModel.refreshSections()
-                } label: {
-                    VStack {
-                        Image(systemName: "arrow.circlepath")
-                            .rotationEffect(.degrees(-90))
-                        Text("reload")
-                            .bold()
-                    }
-                    .foregroundStyle(.adaptiveText)
-                }
-                .opacity(viewModel.sections.isEmpty ? 1 : 0)
                 
                 VStack(spacing: 0) {
                     Spacer(minLength: 45)
@@ -100,6 +93,16 @@ struct BeatitudoMediaView: View {
             }
             
             BeatitudoMediaLogInView(showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn)
+        }
+        .task {
+            do {
+                showSplashView = true
+                try await viewModel.refreshSections()
+                showSplashView = false
+            } catch {
+                print("\(error) occurred fetching/refreshing sections.")
+                showSplashView = false
+            }
         }
     }
 }

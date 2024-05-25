@@ -34,7 +34,7 @@ struct BeatitudoMediaStatusView: View {
                 
                 VStack(alignment: .leading) {
                     if isUserLoggedIn {
-                        Text("소중한 이진호님,")
+                        Text("소중한 \(GlobalAssets.currentUserNickname ?? "")님,")
                         Text("\(Utils.getAndClassifyCurrentHour())")
                             .frame(alignment: .trailing)
                     } else {

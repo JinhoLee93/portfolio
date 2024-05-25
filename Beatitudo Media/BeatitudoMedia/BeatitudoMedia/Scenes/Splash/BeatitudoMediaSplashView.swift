@@ -10,11 +10,21 @@ import SwiftUI
 struct BeatitudoMediaSplashView: View {
     var body: some View {
         ZStack {
+            HStack {
+                Text("소중한 당신의 마음이, \n조금 더 따뜻해 질 수 있도록")
+                    .font(.system(size: 20))
+                
+                Spacer()
+            }
+            
             VStack {
-                Text("소중한 당신의 마음이 \n조금 더 따뜻해 질 수 있도록")
+                Spacer()
                 
                 Text(Utils.getToday())
                     .bold()
+                
+                Spacer()
+                    .frame(height: 50)
             }
         }
         .ignoresSafeArea()

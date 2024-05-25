@@ -15,9 +15,10 @@ struct SignInWithEmailView: View {
     @Binding var showEmailSigningPage: Bool
     @Binding var isUserLoggedIn: Bool
     
-    @State private var keyboardOffsetY: CGFloat = 0
-    @State private var showProgressView: Bool   = false
-    @State private var showPassword: Bool       = false
+    @State private var keyboardOffsetY: CGFloat  = 0
+    @State private var showProgressView: Bool    = false
+    @State private var showPassword: Bool        = false
+    @State private var didSignInErrorOccur: Bool = false
     
     var body: some View {
         if showEmailSigningPage {
@@ -29,7 +30,7 @@ struct SignInWithEmailView: View {
                     
                     Color.adaptiveBackground
                         .onTapGesture {
-                            keyboardOut = nil
+                            reset(for: .tappedBackground)
                         }
                     
                     VStack {
@@ -39,10 +40,7 @@ struct SignInWithEmailView: View {
                         HStack {
                             Button {
                                 withAnimation(.easeInOut(duration: 0.25)) {
-                                    showEmailSigningPage = false
-                                    keyboardOut = nil
-                                    keyboardOffsetY = 0
-                                    viewModel.reset()
+                                    reset(for: .dismiss)
                                 }
                             } label: {
                                 Image(systemName: "xmark")
@@ -74,13 +72,16 @@ struct SignInWithEmailView: View {
                                 .keyboardType(.emailAddress)
                                 .padding()
                                 .background(Color.gray.opacity(0.4))
-                                .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: viewModel.isValidEmail ? .clear : .red)
+                                .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: (viewModel.isValidEmail && !didSignInErrorOccur) ? .clear : .red)
                                 .focused($keyboardOut, equals: .email)
                                 .textInputAutocapitalization(.never)
                                 .frame(height: 55)
+                                .onTapGesture {
+                                    didSignInErrorOccur = false
+                                }
                             
                             Text("올바른 이메일 주소를 입력해주세요.")
-                                .opacity(viewModel.isValidEmail ? 0 : 1)
+                                .opacity((viewModel.isValidEmail && !didSignInErrorOccur) ? 0 : 1)
                                 .font(.system(size: 12))
                                 .foregroundStyle(.red)
                                 .padding(.leading, 5)
@@ -90,19 +91,25 @@ struct SignInWithEmailView: View {
                             ZStack(alignment: .trailing) {
                                 RoundedRectangle(cornerRadius: 25)
                                     .foregroundStyle(.gray.opacity(0.4))
-                                    .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: viewModel.isValidPassword ?  .clear : .red)
+                                    .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: (viewModel.isValidPassword && !didSignInErrorOccur) ?  .clear : .red)
                                 
                                 SecureField("비밀번호를 입력해주세요.", text: $viewModel.password)
                                     .padding()
                                     .focused($keyboardOut, equals: .passwordHidden)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 0 : 1)
+                                    .onTapGesture {
+                                        didSignInErrorOccur = false
+                                    }
                                 
                                 TextField("비밀번호를 입력해주세요.", text: $viewModel.password)
                                     .padding()
                                     .focused($keyboardOut, equals: .passwordShown)
                                     .textInputAutocapitalization(.never)
                                     .opacity(showPassword ? 1 : 0)
+                                    .onTapGesture {
+                                        didSignInErrorOccur = false
+                                    }
                                 
                                 Image(systemName: showPassword ? "eye.slash" : "eye")
                                     .resizable()
@@ -123,23 +130,24 @@ struct SignInWithEmailView: View {
                             }
                             .frame(height: 55)
                             
-                            Text("비밀번호는 6자 이상으로 입력해주세요.")
-                                .opacity(viewModel.isValidPassword ? 0 : 1)
+                            Text("올바른 비밀번호를 입력해주세요.")
+                                .opacity((viewModel.isValidPassword && !didSignInErrorOccur) ? 0 : 1)
                                 .font(.system(size: 12))
                                 .foregroundStyle(.red)
                                 .padding(.leading, 5)
                         }
                         
                         Button {
-                            keyboardOut = nil
+                            reset(for: .submit)
                             Task {
                                 do {
                                     showProgressView = true
                                     try await viewModel.signIn()
-                                    isUserLoggedIn = GlobalAssets.isUserLoggedIn
                                     showProgressView = false
-                                } catch let error {
+                                } catch {
+                                    print("\(error) occurred signing in the user with \(viewModel.email)")
                                     showProgressView = false
+                                    reset(for: .signInError)
                                 }
                             }
                         } label: {
@@ -162,13 +170,46 @@ struct SignInWithEmailView: View {
                     }
                 }
             }
-            .onChange(of: isUserLoggedIn) { _, newValue in
-                if newValue == true {
-                    showEmailSigningPage = false
-                    keyboardOut = nil
+            .onChange(of: viewModel.user) { _, newValue in
+                if newValue != nil {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        reset(for: .signIn)
+                    }
                 }
             }
             .transition(.move(edge: .bottom))
+        }
+    }
+}
+
+extension SignInWithEmailView {
+    private enum ResetReason {
+        case tappedBackground
+        case dismiss
+        case signIn
+        case submit
+        case signInError
+    }
+    
+    private func reset(for reason: ResetReason) {
+        switch reason {
+        case .tappedBackground:
+            keyboardOut = nil
+        case .dismiss:
+            showEmailSigningPage = false
+            didSignInErrorOccur = false
+            keyboardOut = nil
+            keyboardOffsetY = 0
+            viewModel.reset()
+        case .signIn:
+            isUserLoggedIn = true
+            showEmailSigningPage = false
+            keyboardOut = nil
+        case .submit:
+            keyboardOut = nil
+        case .signInError:
+            didSignInErrorOccur = true
+            viewModel.reset()
         }
     }
 }

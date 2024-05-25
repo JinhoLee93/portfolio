@@ -49,11 +49,7 @@ extension EmailSigningViewModel {
     }
     
     func signIn() async throws {
-        do {
-            try await AuthenticationManager.shared.signInUserWithEmailandPassword(email: email, password: password)
-        } catch let error {
-            print("\(error.localizedDescription)")
-        }
+        try await domain.signInUserWith(email: email, password: password)
     }
     
     func findPassword(email: String) async throws {

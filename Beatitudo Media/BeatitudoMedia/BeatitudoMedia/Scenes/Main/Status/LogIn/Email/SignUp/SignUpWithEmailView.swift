@@ -18,20 +18,20 @@ struct SignUpWithEmailView: View {
     @State private var keyboardOffsetY: CGFloat  = 0
     @State private var showPassword: Bool        = false
     @State private var didSignUpErrorOccur: Bool = false
-    @State private var showProgressView: Bool     = false
+    @State private var showProgressView: Bool    = false
         
     var body: some View {
         if showEmailSigningPage {
             NavigationStack {
                 ZStack {
+                    Color.adaptiveBackground
+                        .onTapGesture {
+                            reset(for: .tappedBackground)
+                        }
+                    
                     BeatitudoMediaProgressView()
                         .opacity(showProgressView ? 1 : 0)
                         .zIndex(1)
-                    
-                    Color.adaptiveBackground
-                        .onTapGesture {
-                            reset(for: .tapBackground)
-                        }
                     
                     VStack {
                         Spacer()
@@ -72,13 +72,16 @@ struct SignUpWithEmailView: View {
                                 .keyboardType(.emailAddress)
                                 .padding()
                                 .background(Color.gray.opacity(0.4))
-                                .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: viewModel.isValidEmail ? .clear : .red)
+                                .clipShapeAndStrokeBorderWithRoundedRectangle(cornerRadius: 25, borderColor: (viewModel.isValidEmail && !didSignUpErrorOccur) ? .clear : .red)
                                 .focused($keyboardOut, equals: .email)
                                 .textInputAutocapitalization(.never)
                                 .frame(height: 55)
+                                .onTapGesture {
+                                    didSignUpErrorOccur = false
+                                }
                             
-                            Text("올바른 이메일 주소를 입력해주세요.")
-                                .opacity(viewModel.isValidEmail ? 0 : 1)
+                            Text(didSignUpErrorOccur ? "다른 이메일 주소를 입력해주세요." : "올바른 이메일 주소를 입력해주세요.")
+                                .opacity((viewModel.isValidEmail && !didSignUpErrorOccur) ? 0 : 1)
                                 .font(.system(size: 12))
                                 .foregroundStyle(.red)
                                 .padding(.leading, 5)
@@ -155,6 +158,7 @@ struct SignUpWithEmailView: View {
                                 } catch {
                                     print("\(error) occurred creating the user with \(viewModel.email)")
                                     showProgressView = false
+                                    reset(for: .signUpError)
                                 }
                             }
                         } label: {
@@ -181,7 +185,6 @@ struct SignUpWithEmailView: View {
             .onChange(of: viewModel.user) { _, newValue in
                 if newValue != nil {
                     withAnimation(.easeInOut(duration: 0.25)) {
-                        isUserLoggedIn = true
                         reset(for: .signUp)
                     }
                 }
@@ -194,26 +197,32 @@ struct SignUpWithEmailView: View {
 // MARK: - Helpers
 extension SignUpWithEmailView {
     private enum ResetReason {
-        case tapBackground
+        case tappedBackground
         case dismiss
         case signUp
         case submit
+        case signUpError
     }
     
     private func reset(for reason: ResetReason) {
         switch reason {
-        case .tapBackground:
+        case .tappedBackground:
             keyboardOut = nil
         case .dismiss:
             showEmailSigningPage = false
+            didSignUpErrorOccur = false
             keyboardOut = nil
             keyboardOffsetY = 0
             viewModel.reset()
         case .signUp:
+            isUserLoggedIn = true
             showEmailSigningPage = false
             keyboardOut = nil
         case .submit:
             keyboardOut = nil
+        case .signUpError:
+            didSignUpErrorOccur = true
+            viewModel.resetEmail()
         }
     }
 }

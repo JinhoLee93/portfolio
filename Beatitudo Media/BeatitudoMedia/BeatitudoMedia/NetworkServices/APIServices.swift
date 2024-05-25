@@ -12,17 +12,11 @@ import Alamofire
 protocol NetworkLayer {
     static var shared: Self { get }
     
-    func fetchData<T: Decodable>(url: String) async throws -> T
-    
-    func downloadImage(url: String) async throws -> Image?
-    
-    func convertStringToURL(url: String) throws -> URL
-    
-    func get()
-    
-    func put(id: Int, userUUID: String)
+    func get<T: Decodable>(url: String) async throws -> T
     
     func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T
+    
+    func downloadImage(url: String) async throws -> Image?
 }
 
 final class APIServices: NetworkLayer {
@@ -42,16 +36,6 @@ final class APIServices: NetworkLayer {
 
 // MARK: - Local
 extension APIServices {
-    func fetchData<T>(url: String) async throws -> T where T : Decodable {
-        let url = try convertStringToURL(url: url)
-    
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        try handleHTTPURLResponse(response: response, url: url)
-        
-        return try decodeAndReturn(T.self, from: data)
-    }
-    
     func downloadImage(url: String) async throws -> Image? {
         if let uiImage = LocalCacheManager.shared.getImage(name: url) {
             
@@ -103,30 +87,34 @@ extension APIServices {
     }
 }
 
-// MARK: - RESTful
+// MARK: - RESTful API
 extension APIServices {
-    func get() {
-        let url = "http://127.0.0.1:8000/sections/send-sections/"
+    func get<T: Decodable>(url: String) async throws -> T {
+        let url = try convertStringToURL(url: url)
         
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
-    }
-    
-    func put(id: Int, userUUID: String) {
-        let url = "http://127.0.0.1:8000/sections/update-count-of-loved/\(id)/"
+        var request = URLRequest(url: url)
+        request.method = HTTPMethod.get
+        request.headers = self.httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        return try decodeAndReturn(T.self, from: data)
     }
     
     func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T {
-        guard let url = URL(string: url) else { throw URLError(.badURL) }
-        guard let jsonParameter = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.badURL)}
+        let url = try convertStringToURL(url: url)
+        
+        guard let jsonParameters = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.badURL)}
         
         var request = URLRequest(url: url)
         request.method = HTTPMethod.post
         request.headers = self.httpHeaders
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameter)
+        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameters)
         
         try handleHTTPURLResponse(response: response, url: url)
         
@@ -145,4 +133,5 @@ enum NetworkingError: Error {
     case invalidHTTPURLResponse(url: URL)
     case invalidHTTPURLResponseStatusCode(statusCode: Int)
     case invalidData
+    case failedToSerializeAsJSON
 }

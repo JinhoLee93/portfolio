@@ -72,15 +72,13 @@ extension AuthenticationManager {
 
 // MARK: - Email
 extension AuthenticationManager {
-    @discardableResult
     func signUpUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         
         return AuthDataResultModel(user: authDataResult.user)
     }
     
-    @discardableResult
-    func signInUserWithEmailandPassword(email: String, password: String) async throws -> AuthDataResultModel {
+    func signInUserWithEmailAndPassword(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         
         return AuthDataResultModel(user: authDataResult.user)

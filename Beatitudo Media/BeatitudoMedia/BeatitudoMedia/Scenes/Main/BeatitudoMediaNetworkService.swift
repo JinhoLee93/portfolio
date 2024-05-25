@@ -10,20 +10,15 @@ import Foundation
 class BeatitudoMediaNetworkService {
     private let domain: NetworkLayer
     
-    private var sectionsTask: Task<Void, Error>?
-    
     @Published var sections: [Section] = []
     
     init(domain: NetworkLayer = APIServices.shared) {
         self.domain = domain
-        self.sectionsTask?.cancel()
-        self.sectionsTask = Task {
-            try await refreshSections()
-        }
     }
     
     func refreshSections() async throws {
-        let fetchedSections: Sections = try await self.domain.fetchData(url: "http://\(GlobalAssets.serverIP)/sections/send-sections/")
+        let url = "http://\(GlobalAssets.serverIP)/sections/send-sections/"
+        let fetchedSections: Sections = try await domain.get(url: url)
         await MainActor.run { self.sections = fetchedSections.sections }
     }
 }

@@ -10,12 +10,11 @@ import SwiftUI
 class GlobalAssets {
     @AppStorage("isLightMode") static var isLightMode: Bool       = true
     @AppStorage("isUserLoggedIn") static var isUserLoggedIn: Bool = false
-    @AppStorage("serverIP") static var serverIP                   = "172.30.1.81:8000"
+    @AppStorage("serverIP") static var serverIP                   = "172.30.1.47:8000"
     @AppStorage("currentUserID") static var currentUserID: Int?
     @AppStorage("currentUserEmail") static var currentUserEmail: String?
     @AppStorage("currentUserNickname") static var currentUserNickname: String?
 }
-
 
 // MARK: - Reset Related
 extension GlobalAssets {
@@ -33,6 +32,6 @@ extension GlobalAssets {
         currentUserEmail = email
         currentUserNickname = nickname
         isUserLoggedIn = true
-        print("signing in")
+        print("signing in with email: \(email), nickname: \(nickname) ")
     }
 }
