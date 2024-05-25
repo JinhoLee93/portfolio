@@ -10,8 +10,8 @@ import SwiftUI
 struct BeatitudoMediaSigningView: View {
     @StateObject private var viewModel = BeatitudoMediaSigningViewModel()
     
-    @Binding var showLogInSheet: Bool
-    @Binding var isUserLoggedIn: Bool
+    @Binding var showSigningSheet: Bool
+    @Binding var isUserSignedIn: Bool
     
     @State var showEmailSigningPage: Bool     = false
     @State var isSigningIn: Bool              = false
@@ -20,10 +20,10 @@ struct BeatitudoMediaSigningView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.black
-                .opacity(showLogInSheet ? 0.4 : 0)
+                .opacity(showSigningSheet ? 0.4 : 0)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.25)) {
-                        showLogInSheet = false
+                        showSigningSheet = false
                     }
                     
                     Task {
@@ -38,7 +38,7 @@ struct BeatitudoMediaSigningView: View {
                 .zIndex(1)
                 
             
-            if showLogInSheet {
+            if showSigningSheet {
                 ZStack {
                     RoundedRectangle(cornerRadius: 25)
                         .foregroundStyle(.adaptiveBackground)
@@ -49,7 +49,7 @@ struct BeatitudoMediaSigningView: View {
                             .padding(.bottom, 25)
                         
                         ForEach(viewModel.getSigningMethods(), id: \.self) { method in
-                            LogInMethodButton(method: method, showEmailSigningSheet: $showEmailSigningPage, showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn, isSigningIn: $isSigningIn, showProgressView: $showProgressView)
+                            SigningMethodButton(method: method, showEmailSigningSheet: $showEmailSigningPage, showSigningSheet: $showSigningSheet, isUserSignedIn: $isUserSignedIn, isSigningIn: $isSigningIn, showProgressView: $showProgressView)
                                 .environmentObject(viewModel)
                         }
                         
@@ -80,15 +80,15 @@ struct BeatitudoMediaSigningView: View {
                 .zIndex(0.5)
                 
                 if isSigningIn {
-                    SignInWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserLoggedIn: $isUserLoggedIn)
+                    SignInWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserSignedIn: $isUserSignedIn)
                         .zIndex(1)
                 } else {
-                    SignUpWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserLoggedIn: $isUserLoggedIn)
+                    SignUpWithEmailView(showEmailSigningPage: $showEmailSigningPage, isUserSignedIn: $isUserSignedIn)
                         .zIndex(1)
                 }
             }
         }
-        .onChange(of: isUserLoggedIn) { _, newValue in
+        .onChange(of: isUserSignedIn) { _, newValue in
             if newValue {
                 withAnimation(.easeInOut(duration: 0.25)) {
                     reset(for: .dismiss)
@@ -109,7 +109,7 @@ extension BeatitudoMediaSigningView {
         switch reason {
         case .dismiss:
             showEmailSigningPage = false
-            showLogInSheet = false
+            showSigningSheet = false
             isSigningIn = false
         }
     }

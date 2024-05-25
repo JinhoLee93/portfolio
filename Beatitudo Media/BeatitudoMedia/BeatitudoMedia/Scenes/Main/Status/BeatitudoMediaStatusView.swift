@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct BeatitudoMediaStatusView: View {
-    @Binding var isUserLoggedIn: Bool
+    @Binding var isUserSignedIn: Bool
     @Binding var showStatusPage: Bool
-    @Binding var showLogInSheet: Bool
+    @Binding var showSigningSheet: Bool
     
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -33,7 +33,7 @@ struct BeatitudoMediaStatusView: View {
                 .frame(height: 40)
                 
                 VStack(alignment: .leading) {
-                    if isUserLoggedIn {
+                    if isUserSignedIn {
                         Text("소중한 \(GlobalAssets.currentUserNickname ?? "")님,")
                         Text("\(Utils.getAndClassifyCurrentHour())")
                             .frame(alignment: .trailing)
@@ -50,7 +50,7 @@ struct BeatitudoMediaStatusView: View {
                     Spacer()
                     
                     Button {
-                        if !isUserLoggedIn {
+                        if !isUserSignedIn {
                             withAnimation(.easeInOut(duration: 0.25)) {
                                 showStatusPage = false
                                 
@@ -58,7 +58,7 @@ struct BeatitudoMediaStatusView: View {
                                     try await Task.sleep(for: .seconds(0.25))
                                     
                                     withAnimation(.easeInOut(duration: 0.25)) {
-                                        showLogInSheet = true
+                                        showSigningSheet = true
                                     }
                                 }
                             }
@@ -72,7 +72,7 @@ struct BeatitudoMediaStatusView: View {
                                 do {
                                     try AuthenticationManager.shared.signOut()
                                     GlobalAssets.signOutCurrentUser()
-                                    isUserLoggedIn = false
+                                    isUserSignedIn = false
                                 } catch {
                                     print("\(error) occurred signing out")
                                 }
@@ -80,11 +80,11 @@ struct BeatitudoMediaStatusView: View {
                         }
                     } label: {
                         HStack {
-                            Image(systemName: isUserLoggedIn ? "rectangle.portrait.and.arrow.forward" : "door.left.hand.open")
+                            Image(systemName: isUserSignedIn ? "rectangle.portrait.and.arrow.forward" : "door.left.hand.open")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
-                            Text(isUserLoggedIn ? "로그아웃" : "로그인")
+                            Text(isUserSignedIn ? "로그아웃" : "로그인")
                                 .font(.system(size: 20))
                         }
                         .foregroundStyle(.adaptiveText)

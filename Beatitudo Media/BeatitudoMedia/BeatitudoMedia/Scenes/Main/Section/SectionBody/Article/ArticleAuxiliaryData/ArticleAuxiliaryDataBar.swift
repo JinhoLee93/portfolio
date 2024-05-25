@@ -11,17 +11,17 @@ struct ArticleAuxiliaryDataBar: View {
     @StateObject private var viewModel: ArticleAuxiliaryDataViewModel
     
     @Binding var presentingReportSheet: Bool
-    @Binding var isUserLoggedIn: Bool
-    @Binding var showLogInSheet: Bool
+    @Binding var isUserSignedIn: Bool
+    @Binding var showSigningSheet: Bool
     
     @State private var presentingShared: Bool = false
     
-    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>, isUserLoggedIn: Binding<Bool>, showLogInSheet: Binding<Bool>) {
+    init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue:
                                         ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
         self._presentingReportSheet = presentingReportSheet
-        self._isUserLoggedIn = isUserLoggedIn
-        self._showLogInSheet = showLogInSheet
+        self._isUserSignedIn = isUserSignedIn
+        self._showSigningSheet = showSigningSheet
     }
     
     var body: some View {
@@ -45,11 +45,11 @@ struct ArticleAuxiliaryDataBar: View {
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
-                        if isUserLoggedIn {
+                        if isUserSignedIn {
                             viewModel.updateLoved()
                         } else {
                             withAnimation(.easeInOut(duration: 0.25)) {
-                                showLogInSheet = true
+                                showSigningSheet = true
                             }
                         }
                     }

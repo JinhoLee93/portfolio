@@ -11,11 +11,11 @@ import Firebase
 struct BeatitudoMediaView: View {
     @StateObject private var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
-    @State private var isUserLoggedIn: Bool        = GlobalAssets.isUserLoggedIn
+    @State private var isUserSignedIn: Bool        = GlobalAssets.isUserSignedIn
     @State private var currentSection: Int         = 0
     @State private var presentingDestination: Bool = false
     @State private var presentingReportSheet: Bool = false
-    @State private var showLogInSheet: Bool        = false
+    @State private var showSigningSheet: Bool        = false
     @State private var showStatusPage: Bool        = false
     @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
@@ -37,7 +37,7 @@ struct BeatitudoMediaView: View {
             VStack {
                 Spacer(minLength: 45)
                 
-                BeatitudoMediaStatusView(isUserLoggedIn: $isUserLoggedIn, showStatusPage: $showStatusPage, showLogInSheet: $showLogInSheet)
+                BeatitudoMediaStatusView(isUserSignedIn: $isUserSignedIn, showStatusPage: $showStatusPage, showSigningSheet: $showSigningSheet)
                     .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
                                         height: showStatusPage ? 1.0 : 0.98))
             }
@@ -62,7 +62,7 @@ struct BeatitudoMediaView: View {
                     SectionView(currentSection: $currentSection,
                                 presentingDestination: $presentingDestination,
                                 destinationURL: $destinationURL,
-                                presentingReportSheet: $presentingReportSheet, isUserLoggedIn: $isUserLoggedIn, showLogInSheet: $showLogInSheet)
+                                presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
                 }
                 .opacity(viewModel.sections.isEmpty ? 0 : 1)
                 
@@ -93,7 +93,7 @@ struct BeatitudoMediaView: View {
                 }
             }
             
-            BeatitudoMediaSigningView(showLogInSheet: $showLogInSheet, isUserLoggedIn: $isUserLoggedIn)
+            BeatitudoMediaSigningView(showSigningSheet: $showSigningSheet, isUserSignedIn: $isUserSignedIn)
         }
         .task {
             do {

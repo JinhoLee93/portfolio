@@ -1,5 +1,5 @@
 //
-//  BeatitudoMediaLogInView.swift
+//  SignUpWithEmailView.swift
 //  BeatitudoMedia
 //
 //  Created by Jinho Lee on 5/18/24.
@@ -13,7 +13,7 @@ struct SignUpWithEmailView: View {
     @FocusState private var keyboardOut: Utils.EmailSigningFocusField?
     
     @Binding var showEmailSigningPage: Bool
-    @Binding var isUserLoggedIn: Bool
+    @Binding var isUserSignedIn: Bool
     
     @State private var keyboardOffsetY: CGFloat  = 0
     @State private var showPassword: Bool        = false
@@ -217,7 +217,7 @@ extension SignUpWithEmailView {
             keyboardOffsetY = 0
             viewModel.reset()
         case .signUp:
-            isUserLoggedIn = true
+            isUserSignedIn = true
             showEmailSigningPage = false
             keyboardOut = nil
         case .submit:

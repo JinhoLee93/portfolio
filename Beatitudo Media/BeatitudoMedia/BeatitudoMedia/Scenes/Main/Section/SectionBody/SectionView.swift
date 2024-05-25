@@ -14,16 +14,16 @@ struct SectionView: View {
     @Binding var presentingDestination: Bool
     @Binding var destinationURL       : String
     @Binding var presentingReportSheet: Bool
-    @Binding var isUserLoggedIn       : Bool
-    @Binding var showLogInSheet       : Bool
+    @Binding var isUserSignedIn       : Bool
+    @Binding var showSigningSheet       : Bool
     
-    init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserLoggedIn: Binding<Bool>, showLogInSheet: Binding<Bool>) {
+    init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._currentSection = currentSection
         self._presentingDestination = presentingDestination
         self._destinationURL = destinationURL
         self._presentingReportSheet = presentingReportSheet
-        self._isUserLoggedIn = isUserLoggedIn
-        self._showLogInSheet = showLogInSheet
+        self._isUserSignedIn = isUserSignedIn
+        self._showSigningSheet = showSigningSheet
     }
     
     var body: some View {
@@ -35,7 +35,7 @@ struct SectionView: View {
                     List {
                         ForEach(section.articles, id: \.self) { article in
                             VStack(spacing: 15) {
-                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserLoggedIn: $isUserLoggedIn, showLogInSheet: $showLogInSheet)
+                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
                                 
                                 Divider()
                                     .frame(height: 0.5)

@@ -13,18 +13,18 @@ struct ArticleView: View {
     @Binding var presentingDestination: Bool
     @Binding var destinationURL       : String
     @Binding var presentingReportSheet: Bool
-    @Binding var isUserLoggedIn       : Bool
-    @Binding var showLogInSheet       : Bool
+    @Binding var isUserSignedIn       : Bool
+    @Binding var showSigningSheet       : Bool
     
     @State private var signalArticleViews: Bool = false
     
-    init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserLoggedIn: Binding<Bool>, showLogInSheet: Binding<Bool>) {
+    init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
         self._presentingDestination = presentingDestination
         self._destinationURL = destinationURL
         self._presentingReportSheet = presentingReportSheet
-        self._isUserLoggedIn = isUserLoggedIn
-        self._showLogInSheet = showLogInSheet
+        self._isUserSignedIn = isUserSignedIn
+        self._showSigningSheet = showSigningSheet
     }
     
     var body: some View {
@@ -47,7 +47,7 @@ struct ArticleView: View {
                         .foregroundStyle(.adaptiveText)
                 }
                     
-                ArticleAuxiliaryDataBar(articleAuxiliaryData: viewModel.getArticleAuxiliaryData(), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet, isUserLoggedIn: $isUserLoggedIn, showLogInSheet: $showLogInSheet)
+                ArticleAuxiliaryDataBar(articleAuxiliaryData: viewModel.getArticleAuxiliaryData(), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
             }
         }
         .onTapGesture {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68160BD82BFADAA700199584 /* BeatitudoMediaSigningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BD72BFADAA700199584 /* BeatitudoMediaSigningView.swift */; };
-		68160BDC2BFAE23700199584 /* LogInMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BDB2BFAE23700199584 /* LogInMethodButton.swift */; };
+		68160BDC2BFAE23700199584 /* SigningMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BDB2BFAE23700199584 /* SigningMethodButton.swift */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
 		68391B842BFEF1F1000E468D /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B832BFEF1F1000E468D /* GlobalExtensions.swift */; };
@@ -85,7 +85,7 @@
 
 /* Begin PBXFileReference section */
 		68160BD72BFADAA700199584 /* BeatitudoMediaSigningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSigningView.swift; sourceTree = "<group>"; };
-		68160BDB2BFAE23700199584 /* LogInMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInMethodButton.swift; sourceTree = "<group>"; };
+		68160BDB2BFAE23700199584 /* SigningMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningMethodButton.swift; sourceTree = "<group>"; };
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
 		68391B832BFEF1F1000E468D /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			children = (
 				6847755F2BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift */,
 				6858298D2BF710C200916F6A /* BeatitudoMediaStatusView.swift */,
-				68B54D822BF8C651005D46DC /* LogIn */,
+				68B54D822BF8C651005D46DC /* Signing */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 			path = Email;
 			sourceTree = "<group>";
 		};
-		68B54D822BF8C651005D46DC /* LogIn */ = {
+		68B54D822BF8C651005D46DC /* Signing */ = {
 			isa = PBXGroup;
 			children = (
 				68160BD72BFADAA700199584 /* BeatitudoMediaSigningView.swift */,
@@ -303,13 +303,13 @@
 				68BBCCE12BFAED4D00EE55CC /* LogInMethodButton */,
 				68AE2A3F2BF9DB8A00A5D511 /* Email */,
 			);
-			path = LogIn;
+			path = Signing;
 			sourceTree = "<group>";
 		};
 		68BBCCE12BFAED4D00EE55CC /* LogInMethodButton */ = {
 			isa = PBXGroup;
 			children = (
-				68160BDB2BFAE23700199584 /* LogInMethodButton.swift */,
+				68160BDB2BFAE23700199584 /* SigningMethodButton.swift */,
 			);
 			path = LogInMethodButton;
 			sourceTree = "<group>";
@@ -625,7 +625,7 @@
 				68ED3A0F2BFDBE0B00DC7FDE /* BeatitudoMediaUser.swift in Sources */,
 				68BBCCE32BFB40D900EE55CC /* SignInWithEmailView.swift in Sources */,
 				68391B8C2BFF450C000E468D /* Test.swift in Sources */,
-				68160BDC2BFAE23700199584 /* LogInMethodButton.swift in Sources */,
+				68160BDC2BFAE23700199584 /* SigningMethodButton.swift in Sources */,
 				68F231292BE138A5003A27B5 /* Section.swift in Sources */,
 				68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */,
 				68EB0E522BE3E2E300DBA3C3 /* APIServices.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  LogInMethodButton.swift
+//  SigningMethodButton.swift
 //  BeatitudoMedia
 //
 //  Created by Jinho Lee on 5/20/24.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct LogInMethodButton: View {
+struct SigningMethodButton: View {
     @EnvironmentObject private var viewModel: BeatitudoMediaSigningViewModel
     
     let method: String
     
     @Binding var showEmailSigningSheet: Bool
-    @Binding var showLogInSheet: Bool
-    @Binding var isUserLoggedIn: Bool
+    @Binding var showSigningSheet: Bool
+    @Binding var isUserSignedIn: Bool
     @Binding var isSigningIn: Bool
     @Binding var showProgressView: Bool
     
@@ -34,7 +34,7 @@ struct LogInMethodButton: View {
                             try await viewModel.signInWithGoogle()
                         }
                         withAnimation(.easeInOut(duration: 0.25)) {
-                            isUserLoggedIn = true
+                            isUserSignedIn = true
                         }
                         showProgressView = false
                     } catch {
