@@ -12,6 +12,8 @@ struct BeatitudoMediaStatusView: View {
     @Binding var showStatusPage: Bool
     @Binding var showSigningSheet: Bool
     
+    var menus = ["profile", "viewedArticles", "likedArticles"]
+    
     var body: some View {
         ZStack(alignment: .trailing) {
             Color.adaptiveBackground
@@ -30,22 +32,40 @@ struct BeatitudoMediaStatusView: View {
                             }
                         }
                 }
+                .padding(.trailing, 20)
                 .frame(height: 40)
                 
-                VStack(alignment: .leading) {
-                    if isUserSignedIn {
-                        Text("소중한 \(GlobalAssets.currentUserNickname ?? "")님,")
-                        Text("\(Utils.getAndClassifyCurrentHour())")
-                            .frame(alignment: .trailing)
-                    } else {
-                        Text("로그인 후 더 많은 소통을 즐겨보세요.")
+                HStack {
+                    Spacer()
+                    
+                    VStack(alignment: .leading) {
+                        if isUserSignedIn {
+                            Text("소중한 \(GlobalAssets.currentUserNickname ?? "")님,")
+                            Text("\(Utils.getAndClassifyCurrentHour())")
+                                .frame(alignment: .trailing)
+                        } else {
+                            Text("로그인 후 더 많은 소통을 즐겨보세요.")
+                        }
                     }
+                    
+                    Spacer()
                 }
-                .padding(.leading, 20)
                 .font(.system(size: 18))
                 
                 Spacer()
+                    .frame(height: 100)
                 
+                if isUserSignedIn {
+                    VStack(spacing: 0) {
+                        ForEach(menus, id: \.self) { menu in
+                            StatusMenuBar(menuTitle: menu)
+                        }
+                    }
+                    .frame(height: 40 * CGFloat(menus.count))
+                }
+                
+                Spacer()
+
                 HStack {
                     Spacer()
                     
@@ -90,9 +110,9 @@ struct BeatitudoMediaStatusView: View {
                         .foregroundStyle(.adaptiveText)
                     }
                 }
+                .padding(.trailing, 20)
             }
-            .frame(width: 250)
-            .padding(.trailing, 20)
+            .frame(width: 270)
         }
     }
 }

@@ -11,11 +11,12 @@ import Firebase
 struct BeatitudoMediaView: View {
     @StateObject private var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
+    @State private var initialLoad: Bool           = true
     @State private var isUserSignedIn: Bool        = GlobalAssets.isUserSignedIn
     @State private var currentSection: Int         = 0
     @State private var presentingDestination: Bool = false
     @State private var presentingReportSheet: Bool = false
-    @State private var showSigningSheet: Bool        = false
+    @State private var showSigningSheet: Bool      = false
     @State private var showStatusPage: Bool        = false
     @State private var destinationURL: String      = ""
     @State private var offsetX: CGFloat            = 0
@@ -96,23 +97,26 @@ struct BeatitudoMediaView: View {
             BeatitudoMediaSigningView(showSigningSheet: $showSigningSheet, isUserSignedIn: $isUserSignedIn)
         }
         .task {
-            do {
-                showSplashView = true
-                
-                try await viewModel.refreshSections()
-                
-                withAnimation(.easeInOut(duration: 0.25)) {
-                    showSplashDate = true
-                }
-                
-                try await Task.sleep(for: .seconds(1))
-                
-                withAnimation(.easeInOut(duration: 0.25)) {
+            if initialLoad {
+                do {
+                    initialLoad = false
+                    showSplashView = true
+                    
+                    try await viewModel.refreshSections()
+                    
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        showSplashDate = true
+                    }
+                    
+                    try await Task.sleep(for: .seconds(1))
+                    
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        showSplashView = false
+                    }
+                } catch {
+                    print("\(error) occurred fetching/refreshing sections.")
                     showSplashView = false
                 }
-            } catch {
-                print("\(error) occurred fetching/refreshing sections.")
-                showSplashView = false
             }
         }
     }
