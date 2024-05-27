@@ -12,7 +12,7 @@ struct BeatitudoMediaStatusView: View {
     @Binding var showStatusPage: Bool
     @Binding var showSigningSheet: Bool
     
-    var menus = ["profile", "viewedArticles", "likedArticles"]
+    var menus = ["profile", "viewedArticles", "lovedArticles"]
     
     var body: some View {
         ZStack(alignment: .trailing) {

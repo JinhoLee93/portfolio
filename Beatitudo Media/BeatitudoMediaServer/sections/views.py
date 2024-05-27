@@ -12,6 +12,7 @@ from django.db.models import F
 from django.db import transaction
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
+import json
 
 # Create your views here.
 
@@ -40,14 +41,27 @@ class ArticleAuxiliaryDataAPI(APIView):
             return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'auxiliary_data' : ArticleAuxiliaryDataSerializer(target) })
 
-    def put(self, request, pk):
+    def put(self, request):
         @transaction.atomic
-        def do_update(obj):
-            obj.count_of_loved = F('count_of_loved') + 1
+        def do_update(obj, should_increment):
+            if should_increment:
+                obj.count_of_loved = F('count_of_loved') + 1
+            else:
+                obj.count_of_loved = F('count_of_loved') - 1
             obj.save(update_fields=['count_of_loved'])
+
+        data = json.loads(request.body)
+        current_article_id = data['current_article_id']
+        should_increment = data['should_increment']
         try:
-            target = ArticleAuxiliaryData.objects.get(pk=pk)
-            do_update(target)
+            target = ArticleAuxiliaryData.objects.get(article_id=current_article_id)
+            serializer = ArticleAuxiliaryDataSerializer(data=target.serialize())
+            if serializer.is_valid():
+                do_update(target, should_increment)
+                return JsonResponse({ 'id' : serializer.data['id'],
+                                      'article_id' : serializer.data['article_id'],
+                                      'count_of_loved' : serializer.data['count_of_loved'],
+                                      'count_of_shared' : serializer.data['count_of_shared'] }, status=status.HTTP_200_OK)
         except ArticleAuxiliaryData.DoesNotExist:
-            return JsonResponse({ 'response' : f'Article Auxiliary Data {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
-        return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)

@@ -9,18 +9,14 @@ import Foundation
 
 struct ArticleAuxiliaryData: Codable, Hashable {
     let id: Int
+    let articleId: Int
     let countOfLoved: Int
     let countOfShared: Int
     
     enum CodingKeys: String, CodingKey {
         case id
+        case articleId = "article_id"
         case countOfLoved = "count_of_loved"
         case countOfShared = "count_of_shared"
     }
-//
-//    func updateLoved() -> ArticleAuxiliaryData {
-//        
-//        return ArticleAuxiliaryData(countOfLoved: self.loved ? self.countOfLoved - 1 : self.countOfLoved + 1,
-//                                    countOfShared: self.countOfShared)
-//    }
 }

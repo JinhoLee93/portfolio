@@ -102,6 +102,10 @@ struct BeatitudoMediaView: View {
                     initialLoad = false
                     showSplashView = true
                     
+                    if GlobalAssets.isUserSignedIn {
+                        try await viewModel.fetchCurrentUser()
+                    }
+                    
                     try await viewModel.refreshSections()
                     
                     withAnimation(.easeInOut(duration: 0.25)) {
@@ -113,8 +117,10 @@ struct BeatitudoMediaView: View {
                     withAnimation(.easeInOut(duration: 0.25)) {
                         showSplashView = false
                     }
+                    
+                    print("Current User: \(String(describing: GlobalAssets.currentUser))")
                 } catch {
-                    print("\(error) occurred fetching/refreshing sections.")
+                    print("\(error) occurred fetching sections.")
                     showSplashView = false
                 }
             }

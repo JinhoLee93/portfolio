@@ -16,6 +16,8 @@ protocol NetworkLayer {
     
     func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T
     
+    func put<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T
+    
     func downloadImage(url: String) async throws -> Image?
 }
 
@@ -33,6 +35,63 @@ final class APIServices: NetworkLayer {
     private init() { }
 }
 
+// MARK: - RESTful API
+extension APIServices {
+    func get<T: Decodable>(url: String) async throws -> T {
+        let url = try convertStringToURL(url: url)
+        
+        var request = URLRequest(url: url)
+        request.method = HTTPMethod.get
+        request.headers = self.httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        return try decodeAndReturn(T.self, from: data)
+    }
+    
+    func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T {
+        let url = try convertStringToURL(url: url)
+        
+        guard let jsonParameters = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.badURL)}
+        
+        var request = URLRequest(url: url)
+        request.method = HTTPMethod.post
+        request.headers = self.httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameters)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        return try decodeAndReturn(T.self, from: data)
+    }
+    
+    func put<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T {
+        let url = try convertStringToURL(url: url)
+        
+        guard let jsonParameters = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.unknown) }
+        
+        var request = URLRequest(url: url)
+        request.method = HTTPMethod.put
+        request.headers = self.httpHeaders
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameters)
+        
+        try handleHTTPURLResponse(response: response, url: url)
+        
+        return try decodeAndReturn(T.self, from: data)
+    }
+    
+    func updateViews(id: Int, userUUID: String?) {
+        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
+        
+        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
+    }
+}
 
 // MARK: - Local
 extension APIServices {
@@ -84,47 +143,6 @@ extension APIServices {
         let decoder = JSONDecoder()
         
         return try decoder.decode(T.self, from: data)
-    }
-}
-
-// MARK: - RESTful API
-extension APIServices {
-    func get<T: Decodable>(url: String) async throws -> T {
-        let url = try convertStringToURL(url: url)
-        
-        var request = URLRequest(url: url)
-        request.method = HTTPMethod.get
-        request.headers = self.httpHeaders
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        try handleHTTPURLResponse(response: response, url: url)
-        
-        return try decodeAndReturn(T.self, from: data)
-    }
-    
-    func post<T: Decodable>(url: String, parameters: [String : Any]) async throws -> T {
-        let url = try convertStringToURL(url: url)
-        
-        guard let jsonParameters = try? JSONSerialization.data(withJSONObject: parameters) else { throw URLError(.badURL)}
-        
-        var request = URLRequest(url: url)
-        request.method = HTTPMethod.post
-        request.headers = self.httpHeaders
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let (data, response) = try await URLSession.shared.upload(for: request, from: jsonParameters)
-        
-        try handleHTTPURLResponse(response: response, url: url)
-        
-        return try decodeAndReturn(T.self, from: data)
-    }
-    
-    func updateViews(id: Int, userUUID: String?) {
-        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
-        
-        AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
     }
 }
 

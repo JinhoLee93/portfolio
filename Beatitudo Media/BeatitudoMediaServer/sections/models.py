@@ -33,3 +33,11 @@ class ArticleAuxiliaryData(models.Model):
 
     def __str__(self):
         return f"ArticleAuxiliaryData of {self.article.title}"
+    
+    def serialize(self):
+        return { 
+            'id' : self.id, 
+            'article_id' : self.article_id,
+            'count_of_loved' : self.count_of_loved,
+            'count_of_shared' : self.count_of_shared
+        }

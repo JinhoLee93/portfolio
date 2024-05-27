@@ -39,6 +39,10 @@ extension BeatitudoMediaViewModel {
         try await self.domain.refreshSections()
     }
     
+    func fetchCurrentUser() async throws {
+        try await self.domain.fetchCurrentUser()
+    }
+    
     func translateSectionTitle(_ title: String) -> String {
         switch title {
         case "Moving":
@@ -63,6 +67,10 @@ extension BeatitudoMediaViewModel {
             .sink { [weak self] in
                 self?.sections = $0
             }
+            .store(in: &anyCancellables)
+        
+        self.domain.$currentUser
+            .sink { GlobalAssets.currentUser = $0 }
             .store(in: &anyCancellables)
     }
 }

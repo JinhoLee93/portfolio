@@ -19,7 +19,7 @@ class StatusMenuBarViewModel: ObservableObject {
         case "viewedArticles":
             self.menuTitle = "읽은 기사"
             self.iconTitle = "clock"
-        case "likedArticles":
+        case "lovedArticles":
             self.menuTitle = "좋아한 기사"
             self.iconTitle = "heart.fill"
         default:
@@ -31,6 +31,6 @@ class StatusMenuBarViewModel: ObservableObject {
     enum MenuTitle: String {
         case profile = "profile"
         case viewedArticles = "viewedArticle"
-        case likedArticles = "likedArticle"
+        case lovedArticles = "lovedArticles"
     }
 }

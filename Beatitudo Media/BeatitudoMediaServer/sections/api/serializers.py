@@ -2,14 +2,18 @@ from rest_framework import serializers
 from ..models import *
 
 class ArticleMetaDataSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField()
+    article_id = serializers.IntegerField()
     class Meta:
         model  = ArticleMetadata
-        fields = ['id', 'time_to_read', 'date', 'article_views']
+        fields = ['id', 'article_id', 'time_to_read', 'date', 'article_views']
 
 class ArticleAuxiliaryDataSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField()
+    article_id = serializers.IntegerField()
     class Meta:
         model = ArticleAuxiliaryData
-        fields = ['id', 'count_of_loved', 'count_of_shared']
+        fields = ['id', 'article_id', 'count_of_loved', 'count_of_shared']
 
 class ArticleSerializer(serializers.ModelSerializer):
     article_metadata = serializers.SerializerMethodField('get_article_metadata')
