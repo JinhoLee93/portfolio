@@ -42,27 +42,17 @@ extension ArticleAuxiliaryDataViewModel {
     func updateCountOfLoved() async throws {
         guard let articleAuxiliaryData = self.articleAuxiliaryData else { return }
         try await domain.updateCountOfLoved(currentArticleId: articleAuxiliaryData.articleId,
-                                            shouldIncrement: isLoved)
+                                            shouldIncrement: !isLoved)
     }
 }
 
 // MARK: - Combine
 extension ArticleAuxiliaryDataViewModel {
     func addSubscribers() {
-        domain.$articleAuxiliaryData
+        domain.$countOfLoved
             .sink { [weak self] in
-                guard let articleAuxiliaryData = $0 else { return }
-                
-                self?.articleAuxiliaryData = articleAuxiliaryData
-                self?.countOfLoved = articleAuxiliaryData.countOfLoved
-            }
-            .store(in: &anyCancellables)
-        
-        domain.$user
-            .sink { [weak self] in
-                guard let updatedUser = $0 else { return }
-                
-                self?.isLoved = updatedUser.lovedArticles.contains { $0.articleId == self?.articleId }
+                guard let countOfLoved = $0 else { return }
+                self?.countOfLoved = countOfLoved
             }
             .store(in: &anyCancellables)
     }

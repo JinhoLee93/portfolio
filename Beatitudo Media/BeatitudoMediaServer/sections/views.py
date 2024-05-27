@@ -54,10 +54,9 @@ class ArticleAuxiliaryDataAPI(APIView):
         current_article_id = data['current_article_id']
         should_increment = data['should_increment']
         try:
-            target = ArticleAuxiliaryData.objects.get(article_id=current_article_id)
-            serializer = ArticleAuxiliaryDataSerializer(data=target.serialize())
+            do_update(ArticleAuxiliaryData.objects.get(article_id=current_article_id), should_increment)
+            serializer = ArticleAuxiliaryDataSerializer(data=ArticleAuxiliaryData.objects.get(article_id=current_article_id).serialize())
             if serializer.is_valid():
-                do_update(target, should_increment)
                 return JsonResponse({ 'id' : serializer.data['id'],
                                       'article_id' : serializer.data['article_id'],
                                       'count_of_loved' : serializer.data['count_of_loved'],

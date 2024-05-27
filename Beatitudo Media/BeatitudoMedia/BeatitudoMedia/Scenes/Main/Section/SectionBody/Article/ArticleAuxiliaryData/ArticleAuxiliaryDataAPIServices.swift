@@ -10,25 +10,28 @@ import Foundation
 class ArticleAuxiliaryDataAPIServices: ObservableObject {
     private let domain: NetworkLayer
     
-    @Published var articleAuxiliaryData: ArticleAuxiliaryData?
-    @Published var user: BeatitudoMediaUser?
+    @Published var countOfLoved: Int?
     
     init(domain: NetworkLayer = APIServices.shared) {
         self.domain = domain
     }
-    
+}
+
+// MARK: - API
+extension ArticleAuxiliaryDataAPIServices {
     func updateLoved(currentUserId: Int, currentArticleId: Int) async throws {
         let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/update-loved-articles/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId, "current_article_id" : currentArticleId]
         let updatedUser: BeatitudoMediaUserWrapper? = try await domain.post(url: url, parameters: parameters)
-        await MainActor.run { user = updatedUser?.beatitudoMediaUser }
-        GlobalAssets.currentUser = user
+        GlobalAssets.currentUser = updatedUser?.beatitudoMediaUser
     }
     
     func updateCountOfLoved(currentArticleId: Int, shouldIncrement: Bool) async throws {
         let url = "http://\(GlobalAssets.serverIP)/sections/update-count-of-loved/"
         let parameters: [String : Any] = ["current_article_id" : currentArticleId, "should_increment" : shouldIncrement]
-        let updatedArticleAuxiliaryData: ArticleAuxiliaryData? = try await domain.put(url: url, parameters: parameters)
-        await MainActor.run { articleAuxiliaryData = updatedArticleAuxiliaryData }
+        guard let updatedArticleAuxiliaryData: ArticleAuxiliaryData = try await domain.put(url: url, parameters: parameters) else { return }
+        await MainActor.run {
+            countOfLoved = updatedArticleAuxiliaryData.countOfLoved
+        }
     }
 }
