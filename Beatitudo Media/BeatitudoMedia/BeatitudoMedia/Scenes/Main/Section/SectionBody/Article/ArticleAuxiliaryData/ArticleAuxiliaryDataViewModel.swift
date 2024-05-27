@@ -8,11 +8,11 @@
 import Foundation
 
 class ArticleAuxiliaryDataViewModel: ObservableObject {
-    private var articleAuxiliaryData: ArticleAuxiliaryData
-    private let articleURL          : String
+    @Published private var articleAuxiliaryData: ArticleAuxiliaryData
     
-    @Published var countOfShared: Int
-    @Published var countOfLoved : Int
+    private let articleURL    : String
+    private var countOfShared : Int
+    private var countOfLoved  : Int
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
@@ -37,8 +37,9 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     }
     
     func updateLoved() {
-        guard let userID = GlobalAssets.currentUserID else { return }
+//        guard let userID = GlobalAssets.currentUserID else { return }
 //        APIServices.shared.put(id: articleAuxiliaryData.id, userUUID: userUUID)
+        
     }
     
     func getArticleURL() -> String {

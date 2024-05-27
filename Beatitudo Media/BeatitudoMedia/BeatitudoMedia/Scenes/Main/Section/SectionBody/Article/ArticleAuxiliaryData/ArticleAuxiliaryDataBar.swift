@@ -15,6 +15,7 @@ struct ArticleAuxiliaryDataBar: View {
     @Binding var showSigningSheet: Bool
     
     @State private var presentingShared: Bool = false
+    @State private var isLiked: Bool = false
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue:
@@ -33,11 +34,11 @@ struct ArticleAuxiliaryDataBar: View {
                 
                 HStack(spacing: 5) {
                     HStack(spacing: 5) {
-                        Image(systemName: viewModel.getLoved() ? "heart.fill" : "heart")
+                        Image(systemName: isLiked ? "heart.fill" : "heart")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
-                            .foregroundStyle(viewModel.getLoved() ? .pink : .adaptiveView)
+                            .foregroundStyle(isLiked ? .pink : .adaptiveView)
                         
                         Text("\(viewModel.getCountOfLoved())")
                             .font(.system(size: 10))
@@ -45,16 +46,17 @@ struct ArticleAuxiliaryDataBar: View {
                     }
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
-                        if isUserSignedIn {
-                            viewModel.updateLoved()
-                        } else {
-                            withAnimation(.easeInOut(duration: 0.25)) {
-                                showSigningSheet = true
-                            }
-                        }
+                        isLiked.toggle()
+//                        if isUserSignedIn {
+//                            viewModel.updateLoved()
+//                        } else {
+//                            withAnimation(.easeInOut(duration: 0.25)) {
+//                                showSigningSheet = true
+//                            }
+//                        }
                     }
-                    .sensoryFeedback(.selection, trigger: viewModel.countOfLoved) { oldValue, newValue in
-                        
+                    .sensoryFeedback(.selection, trigger: viewModel.getCountOfLoved()) { oldValue, newValue in
+                         
                         return oldValue < newValue
                     }
                     
