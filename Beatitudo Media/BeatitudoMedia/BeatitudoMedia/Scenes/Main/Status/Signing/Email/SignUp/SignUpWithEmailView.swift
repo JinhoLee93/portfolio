@@ -156,6 +156,7 @@ struct SignUpWithEmailView: View {
                                 do {
                                     showProgressView = true
                                     try await viewModel.signUp()
+                                    isUserSignedIn = true
                                     showProgressView = false
                                 } catch {
                                     print("\(error) occurred creating the user with \(viewModel.email)")
@@ -184,8 +185,8 @@ struct SignUpWithEmailView: View {
                     }
                 }
             }
-            .onChange(of: viewModel.user) { _, newValue in
-                if newValue != nil {
+            .onChange(of: isUserSignedIn) { _, newValue in
+                if newValue {
                     withAnimation(.easeInOut(duration: 0.25)) {
                         reset(for: .signUp)
                     }
@@ -217,7 +218,6 @@ extension SignUpWithEmailView {
             keyboardOffsetY = 0
             viewModel.reset()
         case .signUp:
-            isUserSignedIn = true
             showEmailSigningPage = false
             keyboardOut = nil
         case .submit:

@@ -38,4 +38,3 @@ class EmailSigningAPIServices: ObservableObject {
         }
     }
 }
-

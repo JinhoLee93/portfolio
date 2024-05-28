@@ -22,12 +22,18 @@ struct BeatitudoMediaView: View {
     @State private var offsetX: CGFloat            = 0
     @State private var showSplashView: Bool        = false
     @State private var showSplashDate: Bool        = false
+    @State private var showProgressView: Bool      = false
 
     @Namespace var namespace
     
     var body: some View {
         ZStack {
             Color.adaptiveBackground
+                .ignoresSafeArea()
+            
+            BeatitudoMediaProgressView()
+                .opacity(showProgressView ? 1 : 0)
+                .zIndex(1)
                 .ignoresSafeArea()
                         
             BeatitudoMediaSplashView(showSplashDate: $showSplashDate)
@@ -123,6 +129,13 @@ struct BeatitudoMediaView: View {
                     print("\(error) occurred fetching sections.")
                     showSplashView = false
                 }
+            }
+        }
+        .onChange(of: isUserSignedIn) { _, _ in
+            Task {
+                showProgressView = true
+                try await viewModel.refreshSections()
+                showProgressView = false
             }
         }
     }

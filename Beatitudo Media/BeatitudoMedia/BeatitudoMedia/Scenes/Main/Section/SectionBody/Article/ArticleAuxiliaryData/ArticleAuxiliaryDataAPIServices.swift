@@ -11,6 +11,7 @@ class ArticleAuxiliaryDataAPIServices: ObservableObject {
     private let domain: NetworkLayer
     
     @Published var countOfLoved: Int?
+    @Published var user: BeatitudoMediaUser?
     
     init(domain: NetworkLayer = APIServices.shared) {
         self.domain = domain
@@ -23,7 +24,7 @@ extension ArticleAuxiliaryDataAPIServices {
         let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/update-loved-articles/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId, "current_article_id" : currentArticleId]
         let updatedUser: BeatitudoMediaUserWrapper? = try await domain.post(url: url, parameters: parameters)
-        GlobalAssets.currentUser = updatedUser?.beatitudoMediaUser
+        user = updatedUser?.beatitudoMediaUser
     }
     
     func updateCountOfLoved(currentArticleId: Int, shouldIncrement: Bool) async throws {

@@ -14,15 +14,15 @@ class BeatitudoMediaViewModel: ObservableObject {
     
     private var anyCancellables = Set<AnyCancellable>()
     
-    private let domain: BeatitudoMediaNetworkService
+    private let domain: BeatitudoMediaAPIServices
     
     init(domain: NetworkLayer = APIServices.shared) {
-        self.domain = BeatitudoMediaNetworkService(domain: domain)
+        self.domain = BeatitudoMediaAPIServices(domain: domain)
         self.addSubscribers()
     }
 }
 
-// Helpers
+// MARK: - Helpers
 extension BeatitudoMediaViewModel {
     func tokenizeURLandReturnName(_ string: String) -> String {
         let tokens = string.split(separator: ".").map { String($0) }
@@ -70,7 +70,9 @@ extension BeatitudoMediaViewModel {
             .store(in: &anyCancellables)
         
         self.domain.$currentUser
-            .sink { GlobalAssets.currentUser = $0 }
+            .sink {
+                GlobalAssets.currentUser = $0
+            }
             .store(in: &anyCancellables)
     }
 }

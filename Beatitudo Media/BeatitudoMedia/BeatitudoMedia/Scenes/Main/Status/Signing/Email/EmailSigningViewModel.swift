@@ -82,9 +82,8 @@ extension EmailSigningViewModel {
 extension EmailSigningViewModel {
     func addSubscribers() {
         domain.$user
-            .sink { [weak self] in
-                self?.user = $0
-                GlobalAssets.signUpOrInUser(id: $0?.id, email: $0?.email, nickname: $0?.nickname)
+            .sink {
+                GlobalAssets.signUpOrInUser(user: $0, id: $0?.id, email: $0?.email, nickname: $0?.nickname)
             }
             .store(in: &anyCancellables)
     }

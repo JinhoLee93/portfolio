@@ -15,11 +15,11 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     
     private var articleAuxiliaryData: ArticleAuxiliaryData?
     
-    @Published var isLoved : Bool
+    @Published var isLoved: Bool
     @Published var countOfLoved: Int
     
-    private let articleURL : String
-    private let articleId  : Int
+    private let articleURL: String
+    private let articleId: Int
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
@@ -28,6 +28,14 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
         self.isLoved = GlobalAssets.currentUser?.lovedArticles.contains { $0.articleId == articleAuxiliaryData.articleId } ?? false
         self.countOfLoved = articleAuxiliaryData.countOfLoved
         addSubscribers()
+    }
+}
+
+// MARK: - Helpers
+extension ArticleAuxiliaryDataViewModel {
+    func resetViewModel(articleAuxiliaryData: ArticleAuxiliaryData) {
+        self.isLoved = GlobalAssets.currentUser?.lovedArticles.contains { $0.articleId == articleAuxiliaryData.articleId } ?? false
+        self.countOfLoved = articleAuxiliaryData.countOfLoved
     }
 }
 
@@ -53,6 +61,13 @@ extension ArticleAuxiliaryDataViewModel {
             .sink { [weak self] in
                 guard let countOfLoved = $0 else { return }
                 self?.countOfLoved = countOfLoved
+            }
+            .store(in: &anyCancellables)
+        
+        domain.$user
+            .sink {
+                guard let currentUser = $0 else { return }
+                GlobalAssets.currentUser = currentUser
             }
             .store(in: &anyCancellables)
     }

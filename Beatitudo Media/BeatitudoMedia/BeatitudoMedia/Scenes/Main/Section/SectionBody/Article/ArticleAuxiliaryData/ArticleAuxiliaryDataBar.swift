@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ArticleAuxiliaryDataBar: View {
+    private var articleAuxiliaryData: ArticleAuxiliaryData
+    
     @StateObject private var viewModel: ArticleAuxiliaryDataViewModel
     
     @Binding var presentingReportSheet: Bool
@@ -16,8 +18,10 @@ struct ArticleAuxiliaryDataBar: View {
     
     @State private var presentingShared: Bool = false
     @State private var isAnimating: Bool      = false
+    @State private var justTappedLove: Bool   = false
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
+        self.articleAuxiliaryData = articleAuxiliaryData
         self._viewModel = StateObject(wrappedValue:
                                         ArticleAuxiliaryDataViewModel(articleAuxiliaryData: articleAuxiliaryData, articleURL: articleURL))
         self._presentingReportSheet = presentingReportSheet
@@ -38,7 +42,7 @@ struct ArticleAuxiliaryDataBar: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
-                            .foregroundStyle( viewModel.isLoved ? .pink : .adaptiveView)
+                            .foregroundStyle(viewModel.isLoved ? .pink : .adaptiveView)
                             .offset(y: isAnimating ? -15 : 0.0)
                             .rotation3DEffect(
                                 Angle(degrees: isAnimating ? 180.0 : 0.0),
@@ -53,6 +57,12 @@ struct ArticleAuxiliaryDataBar: View {
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .onTapGesture {
                         if isUserSignedIn {
+                            if !viewModel.isLoved {
+                                justTappedLove = true
+                            } else {
+                                justTappedLove = false
+                            }
+                            
                             if !viewModel.isLoved {
                                 withAnimation(.spring(duration: 0.2, bounce: 0.5)) {
                                     isAnimating = true
@@ -80,8 +90,8 @@ struct ArticleAuxiliaryDataBar: View {
                             }
                         }
                     }
-                    .sensoryFeedback(.selection, trigger: viewModel.isLoved) { oldValue, newValue in
-                         
+                    .sensoryFeedback(.selection, trigger: justTappedLove) { oldValue, newValue in
+                            
                         return newValue
                     }
                     
@@ -125,8 +135,13 @@ struct ArticleAuxiliaryDataBar: View {
             }
         }
         .frame(height: 15)
+        .onChange(of: isUserSignedIn) { _, _ in
+            viewModel.resetViewModel(articleAuxiliaryData: articleAuxiliaryData)
+        }
+        .onAppear {
+            viewModel.resetViewModel(articleAuxiliaryData: articleAuxiliaryData)
+        }
     }
-    
 }
 
 #Preview {

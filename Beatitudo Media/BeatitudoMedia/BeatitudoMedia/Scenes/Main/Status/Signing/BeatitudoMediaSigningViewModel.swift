@@ -12,7 +12,6 @@ class BeatitudoMediaSigningViewModel: ObservableObject {
     private let domain = BeatitudoMediaSigningAPIServices()
     private var anyCancellables = Set<AnyCancellable>()
     
-    @Published var user: BeatitudoMediaUser?
     @Published private var signingMethods = ["Google", "Email"]
     
     init() {
@@ -48,9 +47,8 @@ extension BeatitudoMediaSigningViewModel {
 extension BeatitudoMediaSigningViewModel {
     func addSubscribers() {
         domain.$user
-            .sink { [weak self] in
-                self?.user = $0
-                GlobalAssets.signUpOrInUser(id: $0?.id, email: $0?.email, nickname: $0?.nickname)
+            .sink { 
+                GlobalAssets.signUpOrInUser(user: $0, id: $0?.id, email: $0?.email, nickname: $0?.nickname)
             }
             .store(in: &anyCancellables)
     }

@@ -11,10 +11,10 @@ struct ArticleView: View {
     @StateObject private var viewModel: ArticleViewModel
     
     @Binding var presentingDestination: Bool
-    @Binding var destinationURL       : String
+    @Binding var destinationURL: String
     @Binding var presentingReportSheet: Bool
-    @Binding var isUserSignedIn       : Bool
-    @Binding var showSigningSheet       : Bool
+    @Binding var isUserSignedIn: Bool
+    @Binding var showSigningSheet: Bool
     
     @State private var signalArticleViews: Bool = false
     

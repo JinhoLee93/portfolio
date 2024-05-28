@@ -1,5 +1,5 @@
 //
-//  BeatitudoMediaNetworkService.swift
+//  BeatitudoMediaAPIServices.swift
 //  BeatitudoMedia
 //
 //  Created by Jinho Lee on 5/14/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BeatitudoMediaNetworkService {
+class BeatitudoMediaAPIServices {
     private let domain: NetworkLayer
     
     @Published var sections: [Section] = []

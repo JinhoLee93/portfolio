@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BeatitudoMediaStatusView: View {
-    @Binding var isUserSignedIn: Bool
-    @Binding var showStatusPage: Bool
+    @Binding var isUserSignedIn  : Bool
+    @Binding var showStatusPage  : Bool
     @Binding var showSigningSheet: Bool
     
     var menus = ["profile", "viewedArticles", "lovedArticles"]
