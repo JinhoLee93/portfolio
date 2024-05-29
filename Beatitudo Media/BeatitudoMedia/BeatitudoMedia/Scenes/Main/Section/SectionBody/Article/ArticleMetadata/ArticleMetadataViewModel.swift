@@ -13,23 +13,11 @@ class ArticleMetadataViewModel: ObservableObject {
     init(articleMetadata: ArticleMetadata) {
         self.articleMetadata = articleMetadata
     }
-    
-    func getArticleViews() -> Int {
-        
-        return self.articleMetadata.articleViews
-    }
-    
-    func updateArticleViews(userUUID: String?) {
-        APIServices.shared.updateViews(id: articleMetadata.id, userUUID: userUUID)
-    }
-    
-    func getTimeToRead() -> Int {
-        
-        return self.articleMetadata.timeToRead
-    }
-    
-    func getDate() -> String {
-        
-        return self.articleMetadata.date
+}
+
+// MARK: - Helpers
+extension ArticleMetadataViewModel {
+    func resetViewModel(articleMetadata: ArticleMetadata) {
+        self.articleMetadata = articleMetadata
     }
 }

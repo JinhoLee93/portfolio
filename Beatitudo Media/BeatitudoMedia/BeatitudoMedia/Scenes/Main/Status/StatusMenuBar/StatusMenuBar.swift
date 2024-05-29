@@ -10,13 +10,32 @@ import SwiftUI
 struct StatusMenuBar: View {
     @StateObject private var viewModel: StatusMenuBarViewModel
     
-    init(menuTitle: String) {
+    @Binding var showStatusPage         : Bool
+    @Binding var showProfilePage        : Bool
+    @Binding var showViewedArticlesPage : Bool
+    @Binding var showLovedArticlesPage  : Bool
+    
+    init(menuTitle: String, showStatusPage: Binding<Bool>, showProfilePage: Binding<Bool>, showViewedArticlesPage: Binding<Bool>, showLovedArticlesPage: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: StatusMenuBarViewModel(menuTitle: menuTitle))
+        self._showProfilePage = showProfilePage
+        self._showViewedArticlesPage = showViewedArticlesPage
+        self._showLovedArticlesPage = showLovedArticlesPage
+        self._showStatusPage = showStatusPage
     }
     
     var body: some View {
         Button {
+            withAnimation(.easeInOut(duration: 0.25)) {
+                showStatusPage = false
+            }
             
+            if viewModel.menuTitle == "프로필" {
+                showProfilePage = true
+            } else if viewModel.menuTitle == "읽은 기사" {
+                showViewedArticlesPage = true
+            } else {
+                showLovedArticlesPage = true
+            }
         } label: {
             ZStack {
                 Color.adaptiveBackground
@@ -36,13 +55,8 @@ struct StatusMenuBar: View {
                     Spacer()
                 }
                 .padding(.leading, 20)
-                
             }
         }
+        .transition(.move(edge: .leading))
     }
-}
-
-
-#Preview {
-    StatusMenuBar(menuTitle: "profile")
 }

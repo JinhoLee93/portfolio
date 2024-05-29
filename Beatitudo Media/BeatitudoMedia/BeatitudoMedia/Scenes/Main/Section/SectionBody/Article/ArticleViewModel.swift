@@ -11,22 +11,36 @@ import Combine
 
 @MainActor
 class ArticleViewModel: ObservableObject {
-    private var article: Article
-    
-    @Published var thumbnail   : Image?
+    @Published var article: Article
+    @Published var thumbnail: Image?
     
     private var anyCancellables = Set<AnyCancellable>()
     
-    private let articleAPIServices: ArticleAPIServices
+    private let domain: ArticleAPIServices
     
     init(domain: NetworkLayer = APIServices.shared, article: Article) {
         self.article = article
-        self.articleAPIServices = ArticleAPIServices(article: article)
+        self.domain = ArticleAPIServices(article: article)
         self.addSubscribers()
     }
+}
+
+// MARK: - API
+extension ArticleViewModel {
+    func updateCountOfViews() async throws {
+        try await domain.updateCountOfViews(articleMetadataId: article.articleMetadata.id)
+    }
     
+    func insertArticleToViewedArticles() async throws {
+        guard let currentUserId = GlobalAssets.currentUserID else { return }
+        try await domain.insertArticleToViewedArticles(of: currentUserId, with: article.id)
+    }
+}
+
+// MARK: - Combine
+extension ArticleViewModel {
     private func addSubscribers() {
-        self.articleAPIServices.$thumbnail
+        self.domain.$thumbnail
             .sink { [weak self] in
                 if let thumbnail = $0 {
                     self?.thumbnail = thumbnail
@@ -34,7 +48,10 @@ class ArticleViewModel: ObservableObject {
             }
             .store(in: &anyCancellables)
     }
-    
+}
+
+// MARK: - LSP
+extension ArticleViewModel {
     func getArticleTitle() -> String {
         
         return self.article.title
@@ -43,6 +60,11 @@ class ArticleViewModel: ObservableObject {
     func getArticleURL() -> String {
         
         return self.article.articleURL
+    }
+    
+    func getArticleId() -> Int {
+        
+        return self.article.id
     }
     
     func getArticleMetaData() -> ArticleMetadata {

@@ -11,18 +11,21 @@ import Firebase
 struct BeatitudoMediaView: View {
     @StateObject private var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
-    @State private var initialLoad: Bool           = true
-    @State private var isUserSignedIn: Bool        = GlobalAssets.isUserSignedIn
-    @State private var currentSection: Int         = 0
-    @State private var presentingDestination: Bool = false
-    @State private var presentingReportSheet: Bool = false
-    @State private var showSigningSheet: Bool      = false
-    @State private var showStatusPage: Bool        = false
-    @State private var destinationURL: String      = ""
-    @State private var offsetX: CGFloat            = 0
-    @State private var showSplashView: Bool        = false
-    @State private var showSplashDate: Bool        = false
-    @State private var showProgressView: Bool      = false
+    @State private var currentSection: Int           = 0
+    @State private var offsetX: CGFloat              = 0
+    @State private var destinationURL: String        = ""
+    @State private var isUserSignedIn: Bool          = GlobalAssets.isUserSignedIn
+    @State private var initialLoad: Bool             = true
+    @State private var presentingDestination: Bool   = false
+    @State private var presentingReportSheet: Bool   = false
+    @State private var showSigningSheet: Bool        = false
+    @State private var showStatusPage: Bool          = false
+    @State private var showSplashView: Bool          = false
+    @State private var showSplashDate: Bool          = false
+    @State private var showProgressView: Bool        = false
+    @State private var showProfilePage: Bool         = false
+    @State private var showViewedArticlesPage: Bool  = false
+    @State private var showLovedArticlesPage: Bool   = false
 
     @Namespace var namespace
     
@@ -30,6 +33,24 @@ struct BeatitudoMediaView: View {
         ZStack {
             Color.adaptiveBackground
                 .ignoresSafeArea()
+            
+            if showViewedArticlesPage {
+                UserArticlesView(isForViewedArticle: true,
+                                       showViewedArticlesPage: $showViewedArticlesPage,
+                                       showLovedArticlesPage: $showLovedArticlesPage)
+                    .offset(x: offsetX)
+                    .transition(.move(edge: .leading))
+                    .zIndex(1)
+            }
+            
+            if showLovedArticlesPage {
+                UserArticlesView(isForViewedArticle: false,
+                                       showViewedArticlesPage: $showViewedArticlesPage,
+                                       showLovedArticlesPage: $showLovedArticlesPage)
+                    .offset(x: offsetX)
+                    .transition(.move(edge: .leading))
+                    .zIndex(1)
+            }
             
             BeatitudoMediaProgressView()
                 .opacity(showProgressView ? 1 : 0)
@@ -42,9 +63,15 @@ struct BeatitudoMediaView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Spacer(minLength: 45)
+                Spacer()
+                    .frame(height: 50)
                 
-                BeatitudoMediaStatusView(isUserSignedIn: $isUserSignedIn, showStatusPage: $showStatusPage, showSigningSheet: $showSigningSheet)
+                BeatitudoMediaStatusView(isUserSignedIn: $isUserSignedIn, 
+                                         showStatusPage: $showStatusPage,
+                                         showSigningSheet: $showSigningSheet,
+                                         showProfilePage: $showProfilePage,
+                                         showViewedArticlesPage: $showViewedArticlesPage,
+                                         showLovedArticlesPage: $showLovedArticlesPage)
                     .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
                                         height: showStatusPage ? 1.0 : 0.98))
             }
@@ -55,7 +82,8 @@ struct BeatitudoMediaView: View {
                     .shadow(radius: 10)
                 
                 VStack(spacing: 0) {
-                    Spacer(minLength: 45)
+                    Spacer()
+                        .frame(height: 50)
                     
                     BeatitudoMediaStatusBar(showStatusPage: $showStatusPage)
                     
@@ -69,7 +97,8 @@ struct BeatitudoMediaView: View {
                     SectionView(currentSection: $currentSection,
                                 presentingDestination: $presentingDestination,
                                 destinationURL: $destinationURL,
-                                presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
+                                presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn,
+                                showSigningSheet: $showSigningSheet)
                 }
                 .opacity(viewModel.sections.isEmpty ? 0 : 1)
                 
@@ -84,6 +113,7 @@ struct BeatitudoMediaView: View {
                 .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
                 .navigationBarTitleDisplayMode(.inline)
             })
+//            .navigationDestination(isPresented: ) for status menu
             .offset(x: offsetX)
             .ignoresSafeArea(edges: [.top, .bottom])
             .disabled(showStatusPage)

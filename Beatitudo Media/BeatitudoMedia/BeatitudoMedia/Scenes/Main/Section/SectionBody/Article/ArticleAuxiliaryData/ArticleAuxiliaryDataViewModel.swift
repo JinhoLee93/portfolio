@@ -19,12 +19,10 @@ class ArticleAuxiliaryDataViewModel: ObservableObject {
     @Published var countOfLoved: Int
     
     private let articleURL: String
-    private let articleId: Int
     
     init(articleAuxiliaryData: ArticleAuxiliaryData, articleURL: String) {
         self.articleAuxiliaryData = articleAuxiliaryData
         self.articleURL = articleURL
-        self.articleId = articleAuxiliaryData.articleId
         self.isLoved = GlobalAssets.currentUser?.lovedArticles.contains { $0.articleId == articleAuxiliaryData.articleId } ?? false
         self.countOfLoved = articleAuxiliaryData.countOfLoved
         addSubscribers()

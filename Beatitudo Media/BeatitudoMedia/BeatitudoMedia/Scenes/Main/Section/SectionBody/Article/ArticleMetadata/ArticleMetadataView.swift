@@ -10,11 +10,8 @@ import SwiftUI
 struct ArticleMetadataView: View {
     @StateObject private var viewModel: ArticleMetadataViewModel
     
-    @Binding var signalArticleViews: Bool
-    
-    init(articleMetadata: ArticleMetadata, signalArticleViews: Binding<Bool>) {
+    init(articleMetadata: ArticleMetadata) {
         _viewModel = StateObject(wrappedValue: ArticleMetadataViewModel(articleMetadata: articleMetadata))
-        _signalArticleViews = signalArticleViews
     }
     
     var body: some View {
@@ -42,7 +39,7 @@ struct ArticleMetadataView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 15, height: 15)
                         
-                        Text("\(viewModel.getArticleViews())")
+                        Text("\(viewModel.articleMetadata.articleViews)")
                             .font(.system(size: 10))
                     }
                     .foregroundStyle(.gray)
@@ -62,9 +59,6 @@ struct ArticleMetadataView: View {
             }
         }
         .frame(height: 15)
-        .onChange(of: signalArticleViews) { _, _ in
-//            viewModel.updateArticleViews(userUUID: GlobalAssets.currentUserID)
-        }
     }
 }
 

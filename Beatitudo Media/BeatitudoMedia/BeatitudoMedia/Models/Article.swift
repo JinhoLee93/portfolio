@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Articles: Codable, Hashable {
+    let articles: [Article]
+}
+
 struct Article: Codable, Hashable {
     let id: Int
     let title: String

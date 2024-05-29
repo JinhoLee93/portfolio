@@ -15,7 +15,7 @@ struct SectionView: View {
     @Binding var destinationURL       : String
     @Binding var presentingReportSheet: Bool
     @Binding var isUserSignedIn       : Bool
-    @Binding var showSigningSheet       : Bool
+    @Binding var showSigningSheet     : Bool
     
     init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._currentSection = currentSection
@@ -38,8 +38,6 @@ struct SectionView: View {
                                 ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
                                 
                                 Divider()
-                                    .frame(height: 0.5)
-                                    .background(Color.adaptiveView)
                             }
                             .listRowBackground(Color.adaptiveBackground)
                             .listRowSeparator(.hidden)

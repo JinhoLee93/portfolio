@@ -18,20 +18,38 @@ import json
 
 class SectionsAPI(APIView):
     def get(self, request):
-        return JsonResponse({ 'sections' : [SectionSerializer(section).data for section in Section.objects.all()] })
+        sections = []
+        for section in Section.objects.all():
+            serializer = SectionSerializer(data=section.serialize())
+            if serializer.is_valid():
+                sections.append(serializer.data)
+            else:
+                print(serializer.errors)
+                return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        return JsonResponse({ 'sections' : sections }, status=status.HTTP_200_OK)
     
 class ArticleMetadataAPI(APIView):
-    def put(self, request, pk):
+    def put(self, request):
         @transaction.atomic
         def do_update(obj):
             obj.article_views = F('article_views') + 1
             obj.save(update_fields=['article_views'])
+        data = json.loads(request.body)
+        id = data['id']
         try:
-            target = ArticleMetadata.objects.get(pk=pk)
-            do_update(target)
+            do_update(ArticleMetadata.objects.get(id=id))
+            serializer = ArticleMetaDataSerializer(data=ArticleMetadata.objects.get(id=id).serialize())
+            if serializer.is_valid():
+                return JsonResponse({ 'id' : serializer.data['id'],
+                                      'article_id' : serializer.data['article_id'],
+                                      'time_to_read' : serializer.data['time_to_read'],
+                                      'date' : serializer.data['date'],
+                                      'article_views' : serializer.data['article_views'] })
+            else:
+                print(serializer.errors)
         except ArticleMetadata.DoesNotExist:
-            return JsonResponse({ 'response' : f'Article Metadata {pk} does not exist' }, status=status.HTTP_404_NOT_FOUND)
-        return JsonResponse({ 'response' : f'Update Successful for {pk}' }, status=status.HTTP_200_OK)
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
             
 class ArticleAuxiliaryDataAPI(APIView):
     def get(self, request, pk):
@@ -64,3 +82,18 @@ class ArticleAuxiliaryDataAPI(APIView):
         except ArticleAuxiliaryData.DoesNotExist:
             return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+    
+class ArticleAPI(APIView):
+    def post(self, request):
+        data = json.loads(request.body)
+        article_ids = data['article_ids']
+        serialized_articles = []
+        for article_id in article_ids:
+            article_data = Article.objects.get(id=article_id).serialize()
+            serializer = ArticleSerializer(data=article_data)
+            if serializer.is_valid():
+                serialized_articles.append(serializer.data)
+            else:
+                print(serializer.errors)
+                return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({ 'articles' : serialized_articles }, status=status.HTTP_200_OK)

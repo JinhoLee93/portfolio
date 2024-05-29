@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct BeatitudoMediaStatusView: View {
-    @Binding var isUserSignedIn  : Bool
-    @Binding var showStatusPage  : Bool
-    @Binding var showSigningSheet: Bool
+    @Binding var isUserSignedIn         : Bool
+    @Binding var showStatusPage         : Bool
+    @Binding var showSigningSheet       : Bool
+    @Binding var showProfilePage        : Bool
+    @Binding var showViewedArticlesPage : Bool
+    @Binding var showLovedArticlesPage  : Bool
     
     var menus = ["profile", "viewedArticles", "lovedArticles"]
     
@@ -58,7 +61,11 @@ struct BeatitudoMediaStatusView: View {
                 if isUserSignedIn {
                     VStack(spacing: 0) {
                         ForEach(menus, id: \.self) { menu in
-                            StatusMenuBar(menuTitle: menu)
+                            StatusMenuBar(menuTitle: menu, 
+                                          showStatusPage: $showStatusPage,
+                                          showProfilePage: $showProfilePage,
+                                          showViewedArticlesPage: $showViewedArticlesPage,
+                                          showLovedArticlesPage: $showLovedArticlesPage)
                         }
                     }
                     .frame(height: 40 * CGFloat(menus.count))

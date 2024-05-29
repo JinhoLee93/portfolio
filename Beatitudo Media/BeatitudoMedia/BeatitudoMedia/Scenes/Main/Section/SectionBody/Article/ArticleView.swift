@@ -16,8 +16,6 @@ struct ArticleView: View {
     @Binding var isUserSignedIn: Bool
     @Binding var showSigningSheet: Bool
     
-    @State private var signalArticleViews: Bool = false
-    
     init(article: Article, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: ArticleViewModel(article: article))
         self._presentingDestination = presentingDestination
@@ -32,7 +30,7 @@ struct ArticleView: View {
             Color.adaptiveBackground
             
             VStack(alignment: .leading, spacing: 5) {
-                ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData(), signalArticleViews: $signalArticleViews)
+                ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData())
                 
                 HStack(alignment: .center, spacing: 10) {
                     viewModel.thumbnail?
@@ -51,9 +49,20 @@ struct ArticleView: View {
             }
         }
         .onTapGesture {
-            signalArticleViews.toggle()
             presentingDestination = true
             destinationURL = viewModel.getArticleURL()
+            Task {
+                do {
+                    try await viewModel.updateCountOfViews()
+                    
+                    if GlobalAssets.isUserSignedIn {
+                        try await viewModel.insertArticleToViewedArticles()
+                    }
+                    
+                } catch {
+                    print("\(error) occurred updating count of views")
+                }
+            }
         }
     }
 }
