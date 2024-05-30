@@ -24,7 +24,6 @@ class SectionsAPI(APIView):
             if serializer.is_valid():
                 sections.append(serializer.data)
             else:
-                print(serializer.errors)
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'sections' : sections }, status=status.HTTP_200_OK)
     

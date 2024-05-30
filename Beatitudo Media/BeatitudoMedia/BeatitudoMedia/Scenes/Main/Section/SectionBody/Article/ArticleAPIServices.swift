@@ -36,7 +36,7 @@ extension ArticleAPIServices {
     }
     
     func insertArticleToViewedArticles(of currentUserId: Int, with currentArticleId: Int) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/insert-article-to-viewed-articles/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/viewed-articles-related/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId, "current_article_id" : currentArticleId]
         let user: BeatitudoMediaUserWrapper = try await domain.post(url: url, parameters: parameters)
         print(user.beatitudoMediaUser)

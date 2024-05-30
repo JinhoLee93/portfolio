@@ -24,7 +24,7 @@ class BeatitudoMediaAPIServices {
     }
     
     func fetchCurrentUser() async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         guard let currentUserID = GlobalAssets.currentUserID else { return }
         let parameters: [String : Int] = ["id" : currentUserID]
         let fetchedUser: BeatitudoMediaUserWrapper = try await domain.post(url: url, parameters: parameters)

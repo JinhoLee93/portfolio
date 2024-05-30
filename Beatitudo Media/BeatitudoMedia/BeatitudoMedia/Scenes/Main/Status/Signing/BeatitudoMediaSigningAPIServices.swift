@@ -17,7 +17,7 @@ class BeatitudoMediaSigningAPIServices: ObservableObject {
     }
     
     func signUpWithGoogle() async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         
         let authDataResultModel = try await AuthenticationManager.shared.signInWithGoogle()
         if let authDataResultEmail = authDataResultModel.email {
@@ -29,7 +29,7 @@ class BeatitudoMediaSigningAPIServices: ObservableObject {
     }
     
     func signInWithGoogle() async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         
         let authDataResultModel = try await AuthenticationManager.shared.signInWithGoogle()
         if let authDataResultEmail = authDataResultModel.email {

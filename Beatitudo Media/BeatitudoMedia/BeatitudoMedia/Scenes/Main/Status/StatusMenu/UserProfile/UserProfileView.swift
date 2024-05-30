@@ -119,7 +119,6 @@ struct UserProfileView: View {
                 }
                 
                 Button {
-                    print("tapped")
                     Task {
                         do {
                             showProgressView = true
@@ -127,11 +126,13 @@ struct UserProfileView: View {
                             nicknameChangeSuccessful = true
                             showNicknameChangeStatus = true
                             showProgressView = false
+                            keyboardOut = false
                         } catch {
                             print("\(error) occurred updating the user's nickname.")
                             nicknameChangeSuccessful = false
                             showNicknameChangeStatus = true
                             showProgressView = false
+                            keyboardOut = false
                         }
                     }
                 } label: {

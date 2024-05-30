@@ -17,7 +17,7 @@ class EmailSigningAPIServices: ObservableObject {
     }
     
     func postNewUserWith(email: String, password: String, nickname: String) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         
         let authDataResult = try await AuthenticationManager.shared.signUpUserWithEmailandPassword(email: email, password: password)
         if let authDataResultEmail = authDataResult.email {
@@ -28,7 +28,7 @@ class EmailSigningAPIServices: ObservableObject {
     }
     
     func signInUserWith(email: String, password: String) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/post-user/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         
         let authDataResult = try await AuthenticationManager.shared.signInUserWithEmailAndPassword(email: email, password: password)
         if let authDataResultEmail = authDataResult.email {

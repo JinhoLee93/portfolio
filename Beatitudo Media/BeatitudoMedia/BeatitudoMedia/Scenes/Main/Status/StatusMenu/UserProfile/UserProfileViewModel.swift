@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class UserProfileViewModel: ObservableObject {
     private let domain = UserProfileAPIServices()
     private var anyCancellables = Set<AnyCancellable>()
@@ -36,6 +37,7 @@ extension UserProfileViewModel {
             .sink { [weak self] in
                 guard let user = $0 else { return }
                 GlobalAssets.currentUser = user
+                GlobalAssets.currentUserNickname = user.nickname
                 self?.nickname = user.nickname
                 self?.nicknamePlaceholder = user.nickname
             }

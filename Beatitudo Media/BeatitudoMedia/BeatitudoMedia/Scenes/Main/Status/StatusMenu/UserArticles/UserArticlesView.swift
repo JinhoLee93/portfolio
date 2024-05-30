@@ -88,25 +88,19 @@ struct UserArticlesView: View {
                 Divider()
                     .background(.adaptiveView)
                 
-                List {
-                    ForEach(viewModel.articles ?? [], id: \.self) { article in
-                        VStack(spacing: 15) {
-                            ArticleView(article: article, 
+                ScrollView {
+                    VStack(spacing: 0) {
+                        ForEach(viewModel.articles ?? [], id: \.self) { article in
+                            ArticleView(article: article,
                                         presentingDestination: $presentingDestination,
                                         destinationURL: $destinationURL,
                                         presentingReportSheet: $presentingReportSheet,
                                         isUserSignedIn: .constant(true),
                                         showSigningSheet: .constant(false))
-                            
-                            Divider()
                         }
                     }
-                    .listRowBackground(Color.adaptiveBackground)
-                    .listRowSeparator(.hidden)
                 }
-                .scrollContentBackground(.hidden)
                 .scrollIndicators(.hidden)
-                .listStyle(.inset)
             }
         }
         .ignoresSafeArea()

@@ -31,6 +31,7 @@ struct ArticleView: View {
             
             VStack(alignment: .leading, spacing: 5) {
                 ArticleMetadataView(articleMetadata: viewModel.getArticleMetaData())
+                    .padding(.top, 10)
                 
                 HStack(alignment: .center, spacing: 10) {
                     viewModel.thumbnail?
@@ -46,7 +47,12 @@ struct ArticleView: View {
                 }
                     
                 ArticleAuxiliaryDataBar(articleAuxiliaryData: viewModel.getArticleAuxiliaryData(), articleURL: viewModel.getArticleURL(), presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
+                
+                Divider()
+                    .padding(.top, 10)
             }
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
         }
         .onTapGesture {
             presentingDestination = true

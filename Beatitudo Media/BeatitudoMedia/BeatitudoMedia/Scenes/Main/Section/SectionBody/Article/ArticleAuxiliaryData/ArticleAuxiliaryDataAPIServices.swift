@@ -21,7 +21,7 @@ class ArticleAuxiliaryDataAPIServices: ObservableObject {
 // MARK: - API
 extension ArticleAuxiliaryDataAPIServices {
     func updateLoved(currentUserId: Int, currentArticleId: Int) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/update-loved-articles/"
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/loved-articles-related/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId, "current_article_id" : currentArticleId]
         let updatedUser: BeatitudoMediaUserWrapper? = try await domain.post(url: url, parameters: parameters)
         user = updatedUser?.beatitudoMediaUser

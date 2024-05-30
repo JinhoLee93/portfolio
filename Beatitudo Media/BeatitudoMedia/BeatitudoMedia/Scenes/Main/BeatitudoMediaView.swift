@@ -106,6 +106,7 @@ struct BeatitudoMediaView: View {
                                 destinationURL: $destinationURL,
                                 presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn,
                                 showSigningSheet: $showSigningSheet)
+                    
                 }
                 .opacity(viewModel.sections.isEmpty ? 0 : 1)
                 

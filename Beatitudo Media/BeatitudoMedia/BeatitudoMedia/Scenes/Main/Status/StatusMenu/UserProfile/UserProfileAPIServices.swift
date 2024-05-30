@@ -18,11 +18,11 @@ class UserProfileAPIServices: ObservableObject {
     
     func changeUserNickname(newNickname: String) async throws {
         guard let currentUserId = GlobalAssets.currentUserID else { return }
-        let url = ""
+        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId,
                                           "new_nickname" : newNickname]
         
         let updatedUser: BeatitudoMediaUserWrapper = try await domain.put(url: url, parameters: parameters)
-        user = updatedUser.beatitudoMediaUser
+        await MainActor.run { user = updatedUser.beatitudoMediaUser }
     }
 }

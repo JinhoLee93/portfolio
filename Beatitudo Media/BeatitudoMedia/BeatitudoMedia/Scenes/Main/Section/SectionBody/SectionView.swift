@@ -28,25 +28,26 @@ struct SectionView: View {
     
     var body: some View {
         ZStack {
-            Color.adaptiveBackground
+            Color.adaptiveListBackground
             
             TabView(selection: $currentSection) {
                 ForEach(viewModel.sections, id: \.self) { section in
-                    List {
-                        ForEach(section.articles, id: \.self) { article in
-                            VStack(spacing: 15) {
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            ForEach(section.articles, id: \.self) { article in
                                 ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
-                                
-                                Divider()
                             }
-                            .listRowBackground(Color.adaptiveBackground)
-                            .listRowSeparator(.hidden)
                         }
+                        .background(GeometryReader { proxy in
+                            Color.clear
+                                .onChange(of: proxy.frame(in: .global).minY) { _, new in
+                                    print(new)
+                                }
+                        })
                     }
-                    .scrollContentBackground(.hidden)
                     .scrollIndicators(.hidden)
-                    .listStyle(.inset)
                     .tag(viewModel.getSectionIndex(of: section))
+                    .ignoresSafeArea(edges: .bottom)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
