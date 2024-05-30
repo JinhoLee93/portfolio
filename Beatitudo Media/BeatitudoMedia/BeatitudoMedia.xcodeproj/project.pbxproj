@@ -11,6 +11,7 @@
 		68160BDC2BFAE23700199584 /* SigningMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68160BDB2BFAE23700199584 /* SigningMethodButton.swift */; };
 		68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A922BE2324F006F05C9 /* SectionBar.swift */; };
 		68179A972BE23299006F05C9 /* BeatitudoMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */; };
+		6831AD492C082821004C7464 /* UserProfileAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6831AD482C082821004C7464 /* UserProfileAPIServices.swift */; };
 		68391B842BFEF1F1000E468D /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B832BFEF1F1000E468D /* GlobalExtensions.swift */; };
 		68391B862BFEF7A5000E468D /* NetworkReacheabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B852BFEF7A5000E468D /* NetworkReacheabilityManager.swift */; };
 		68391B8A2BFF3AB6000E468D /* EmailSigningAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B892BFF3AB6000E468D /* EmailSigningAPIServices.swift */; };
@@ -37,6 +38,7 @@
 		688E5BED2BEA564800B39050 /* ReportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688E5BEC2BEA564800B39050 /* ReportSheetView.swift */; };
 		6894DC622BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */; };
 		6897F3582BFE2C9200828F98 /* Peppermint in Frameworks */ = {isa = PBXBuildFile; productRef = 6897F3572BFE2C9200828F98 /* Peppermint */; };
+		689C5D0E2C07668F00FADBC7 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689C5D0D2C07668F00FADBC7 /* UserProfileViewModel.swift */; };
 		68A03C802BE3D95500459F2C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A03C7F2BE3D95500459F2C /* Article.swift */; };
 		68A605552C01DDBF0079A7F9 /* BeatitudoMediaSigningAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A605542C01DDBF0079A7F9 /* BeatitudoMediaSigningAPIServices.swift */; };
 		68AE2A3E2BF9D89F00A5D511 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 68AE2A3D2BF9D89F00A5D511 /* FirebaseAuth */; };
@@ -55,6 +57,7 @@
 		68DBB8782BEB7FFE004D5960 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 68DBB8772BEB7FFE004D5960 /* FirebaseAnalyticsSwift */; };
 		68E2044C2C06CAC00029FBB0 /* UserArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2044B2C06CAC00029FBB0 /* UserArticlesViewModel.swift */; };
 		68E2044E2C0703050029FBB0 /* UserArticlesAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E2044D2C0703050029FBB0 /* UserArticlesAPIServices.swift */; };
+		68E204522C0716A80029FBB0 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E204512C0716A80029FBB0 /* UserProfileView.swift */; };
 		68EB0E4F2BE3DFA600DBA3C3 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E4E2BE3DFA600DBA3C3 /* ArticleView.swift */; };
 		68EB0E522BE3E2E300DBA3C3 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */; };
 		68ED3A092BFD8E7800DC7FDE /* BeatitudoMediaSigningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ED3A082BFD8E7800DC7FDE /* BeatitudoMediaSigningViewModel.swift */; };
@@ -93,6 +96,7 @@
 		68160BDB2BFAE23700199584 /* SigningMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningMethodButton.swift; sourceTree = "<group>"; };
 		68179A922BE2324F006F05C9 /* SectionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBar.swift; sourceTree = "<group>"; };
 		68179A962BE23299006F05C9 /* BeatitudoMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaView.swift; sourceTree = "<group>"; };
+		6831AD482C082821004C7464 /* UserProfileAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileAPIServices.swift; sourceTree = "<group>"; };
 		68391B832BFEF1F1000E468D /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		68391B852BFEF7A5000E468D /* NetworkReacheabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReacheabilityManager.swift; sourceTree = "<group>"; };
 		68391B892BFF3AB6000E468D /* EmailSigningAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSigningAPIServices.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		688C8E332BE9DC930021BFEA /* BeatitudoMediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaViewModel.swift; sourceTree = "<group>"; };
 		688E5BEC2BEA564800B39050 /* ReportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSheetView.swift; sourceTree = "<group>"; };
 		6894DC612BE1EFE2001B9484 /* BeatitudoMediaSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSplashView.swift; sourceTree = "<group>"; };
+		689C5D0D2C07668F00FADBC7 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		68A03C7F2BE3D95500459F2C /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		68A605542C01DDBF0079A7F9 /* BeatitudoMediaSigningAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSigningAPIServices.swift; sourceTree = "<group>"; };
 		68AE2A402BF9E05900A5D511 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -130,6 +135,7 @@
 		68DBB8332BEB274E004D5960 /* LocalCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCacheManager.swift; sourceTree = "<group>"; };
 		68E2044B2C06CAC00029FBB0 /* UserArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticlesViewModel.swift; sourceTree = "<group>"; };
 		68E2044D2C0703050029FBB0 /* UserArticlesAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserArticlesAPIServices.swift; sourceTree = "<group>"; };
+		68E204512C0716A80029FBB0 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		68EB0E4E2BE3DFA600DBA3C3 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		68EB0E512BE3E2E300DBA3C3 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		68ED3A082BFD8E7800DC7FDE /* BeatitudoMediaSigningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaSigningViewModel.swift; sourceTree = "<group>"; };
@@ -347,10 +353,8 @@
 		68D67C2C2C060FEC00DA4CA8 /* StatusMenu */ = {
 			isa = PBXGroup;
 			children = (
+				68E204502C0716950029FBB0 /* UserProfile */,
 				68E2044F2C07160F0029FBB0 /* UserArticles */,
-				68D67C2D2C06101300DA4CA8 /* UserArticlesView.swift */,
-				68E2044B2C06CAC00029FBB0 /* UserArticlesViewModel.swift */,
-				68E2044D2C0703050029FBB0 /* UserArticlesAPIServices.swift */,
 			);
 			path = StatusMenu;
 			sourceTree = "<group>";
@@ -367,8 +371,21 @@
 		68E2044F2C07160F0029FBB0 /* UserArticles */ = {
 			isa = PBXGroup;
 			children = (
+				68D67C2D2C06101300DA4CA8 /* UserArticlesView.swift */,
+				68E2044B2C06CAC00029FBB0 /* UserArticlesViewModel.swift */,
+				68E2044D2C0703050029FBB0 /* UserArticlesAPIServices.swift */,
 			);
 			path = UserArticles;
+			sourceTree = "<group>";
+		};
+		68E204502C0716950029FBB0 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				68E204512C0716A80029FBB0 /* UserProfileView.swift */,
+				689C5D0D2C07668F00FADBC7 /* UserProfileViewModel.swift */,
+				6831AD482C082821004C7464 /* UserProfileAPIServices.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		68EB0E502BE3E2BA00DBA3C3 /* NetworkServices */ = {
@@ -650,6 +667,7 @@
 				6886FB882BE4E65B00007CD9 /* ArticleAuxiliaryDataViewModel.swift in Sources */,
 				684775602BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift in Sources */,
 				6858298C2BF6F8ED00916F6A /* Utils.swift in Sources */,
+				6831AD492C082821004C7464 /* UserProfileAPIServices.swift in Sources */,
 				6886FB752BE4A30300007CD9 /* ArticleAuxiliaryDataBar.swift in Sources */,
 				6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */,
 				6886FB7B2BE4CCBD00007CD9 /* ArticleViewModel.swift in Sources */,
@@ -660,6 +678,7 @@
 				6886FB7F2BE4DEB000007CD9 /* ArticleMetadata.swift in Sources */,
 				685CC0BE2C04297F00F7BA41 /* ArticleAuxiliaryDataAPIServices.swift in Sources */,
 				68A03C802BE3D95500459F2C /* Article.swift in Sources */,
+				68E204522C0716A80029FBB0 /* UserProfileView.swift in Sources */,
 				6855B0EB2BF39DDF00D8F04C /* BeatitudoMediaAPIServices.swift in Sources */,
 				68BBCCE52BFB466500EE55CC /* EmailSigningViewModel.swift in Sources */,
 				68391B8A2BFF3AB6000E468D /* EmailSigningAPIServices.swift in Sources */,
@@ -676,6 +695,7 @@
 				68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */,
 				688C8E342BE9DC930021BFEA /* BeatitudoMediaViewModel.swift in Sources */,
 				68179A932BE2324F006F05C9 /* SectionBar.swift in Sources */,
+				689C5D0E2C07668F00FADBC7 /* UserProfileViewModel.swift in Sources */,
 				68ED3A092BFD8E7800DC7FDE /* BeatitudoMediaSigningViewModel.swift in Sources */,
 				68CAF60F2BE63F8100DD3E05 /* WebView.swift in Sources */,
 				6886FB812BE4DEC600007CD9 /* ArticleAuxiliaryData.swift in Sources */,

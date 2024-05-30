@@ -23,7 +23,7 @@ struct BeatitudoMediaView: View {
     @State private var showSplashView: Bool          = false
     @State private var showSplashDate: Bool          = false
     @State private var showProgressView: Bool        = false
-    @State private var showProfilePage: Bool         = false
+    @State private var showUserProfilePage: Bool         = false
     @State private var showViewedArticlesPage: Bool  = false
     @State private var showLovedArticlesPage: Bool   = false
 
@@ -34,10 +34,17 @@ struct BeatitudoMediaView: View {
             Color.adaptiveBackground
                 .ignoresSafeArea()
             
+            if showUserProfilePage {
+                UserProfileView(showUserProfileView: $showUserProfilePage)
+                    .offset(x: offsetX)
+                    .transition(.move(edge: .leading))
+                    .zIndex(1)
+            }
+            
             if showViewedArticlesPage {
                 UserArticlesView(isForViewedArticle: true,
-                                       showViewedArticlesPage: $showViewedArticlesPage,
-                                       showLovedArticlesPage: $showLovedArticlesPage)
+                                 showViewedArticlesPage: $showViewedArticlesPage,
+                                 showLovedArticlesPage: $showLovedArticlesPage)
                     .offset(x: offsetX)
                     .transition(.move(edge: .leading))
                     .zIndex(1)
@@ -45,8 +52,8 @@ struct BeatitudoMediaView: View {
             
             if showLovedArticlesPage {
                 UserArticlesView(isForViewedArticle: false,
-                                       showViewedArticlesPage: $showViewedArticlesPage,
-                                       showLovedArticlesPage: $showLovedArticlesPage)
+                                 showViewedArticlesPage: $showViewedArticlesPage,
+                                 showLovedArticlesPage: $showLovedArticlesPage)
                     .offset(x: offsetX)
                     .transition(.move(edge: .leading))
                     .zIndex(1)
@@ -69,7 +76,7 @@ struct BeatitudoMediaView: View {
                 BeatitudoMediaStatusView(isUserSignedIn: $isUserSignedIn, 
                                          showStatusPage: $showStatusPage,
                                          showSigningSheet: $showSigningSheet,
-                                         showProfilePage: $showProfilePage,
+                                         showUserProfilePage: $showUserProfilePage,
                                          showViewedArticlesPage: $showViewedArticlesPage,
                                          showLovedArticlesPage: $showLovedArticlesPage)
                     .scaleEffect(CGSize(width: showStatusPage ? 1.0 : 0.98,
@@ -109,11 +116,10 @@ struct BeatitudoMediaView: View {
             .navigationDestination(isPresented: $presentingDestination, destination: {
                 NavigationStack {
                     WebView(url: destinationURL)
+                        .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
+                        .ignoresSafeArea(edges: .bottom)
                 }
-                .navigationTitle(Text(viewModel.tokenizeURLandReturnName(destinationURL)))
-                .navigationBarTitleDisplayMode(.inline)
             })
-//            .navigationDestination(isPresented: ) for status menu
             .offset(x: offsetX)
             .ignoresSafeArea(edges: [.top, .bottom])
             .disabled(showStatusPage)

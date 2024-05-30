@@ -49,13 +49,14 @@ struct UserArticlesView: View {
                         .padding(.leading, 20)
                         
                         Text(isForViewedArticle ? "읽은 기사" : "좋아한 기사")
+                            .foregroundStyle(.adaptiveText)
                     }
                 }
                 .frame(height: 48)
                 
                 HStack {
                     Menu {
-                        Picker("Sort By", selection: $selectedSortingMethod) {
+                        Picker("Sort by", selection: $selectedSortingMethod) {
                             Text("좋아요 많은 순").tag(SortingMethod.countOfLoved)
                             Text("최신 순").tag(SortingMethod.latest)
                             Text("오래된 순").tag(SortingMethod.oldest)
@@ -63,7 +64,7 @@ struct UserArticlesView: View {
                         }
                     } label: {
                         HStack(spacing: 0) {
-                            Text("Sort By: ")
+                            Text("Sort by: ")
                             
                             if selectedSortingMethod == .countOfLoved {
                                 Text("좋아요 많은 순")

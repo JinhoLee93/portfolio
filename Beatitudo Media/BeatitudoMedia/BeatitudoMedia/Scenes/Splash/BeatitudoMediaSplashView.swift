@@ -21,6 +21,7 @@ struct BeatitudoMediaSplashView: View {
                 
                 Spacer()
             }
+            .padding(.leading, 10)
             
             VStack {
                 Spacer()

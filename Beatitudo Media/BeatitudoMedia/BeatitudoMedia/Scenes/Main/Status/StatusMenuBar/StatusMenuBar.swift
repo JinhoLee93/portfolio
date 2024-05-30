@@ -11,13 +11,13 @@ struct StatusMenuBar: View {
     @StateObject private var viewModel: StatusMenuBarViewModel
     
     @Binding var showStatusPage         : Bool
-    @Binding var showProfilePage        : Bool
+    @Binding var showUserProfilePage    : Bool
     @Binding var showViewedArticlesPage : Bool
     @Binding var showLovedArticlesPage  : Bool
     
-    init(menuTitle: String, showStatusPage: Binding<Bool>, showProfilePage: Binding<Bool>, showViewedArticlesPage: Binding<Bool>, showLovedArticlesPage: Binding<Bool>) {
+    init(menuTitle: String, showStatusPage: Binding<Bool>, showUserProfilePage: Binding<Bool>, showViewedArticlesPage: Binding<Bool>, showLovedArticlesPage: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: StatusMenuBarViewModel(menuTitle: menuTitle))
-        self._showProfilePage = showProfilePage
+        self._showUserProfilePage = showUserProfilePage
         self._showViewedArticlesPage = showViewedArticlesPage
         self._showLovedArticlesPage = showLovedArticlesPage
         self._showStatusPage = showStatusPage
@@ -30,7 +30,7 @@ struct StatusMenuBar: View {
             }
             
             if viewModel.menuTitle == "프로필" {
-                showProfilePage = true
+                showUserProfilePage = true
             } else if viewModel.menuTitle == "읽은 기사" {
                 showViewedArticlesPage = true
             } else {

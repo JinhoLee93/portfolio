@@ -11,7 +11,7 @@ struct BeatitudoMediaStatusView: View {
     @Binding var isUserSignedIn         : Bool
     @Binding var showStatusPage         : Bool
     @Binding var showSigningSheet       : Bool
-    @Binding var showProfilePage        : Bool
+    @Binding var showUserProfilePage    : Bool
     @Binding var showViewedArticlesPage : Bool
     @Binding var showLovedArticlesPage  : Bool
     
@@ -63,7 +63,7 @@ struct BeatitudoMediaStatusView: View {
                         ForEach(menus, id: \.self) { menu in
                             StatusMenuBar(menuTitle: menu, 
                                           showStatusPage: $showStatusPage,
-                                          showProfilePage: $showProfilePage,
+                                          showUserProfilePage: $showUserProfilePage,
                                           showViewedArticlesPage: $showViewedArticlesPage,
                                           showLovedArticlesPage: $showLovedArticlesPage)
                         }

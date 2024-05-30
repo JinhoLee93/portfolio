@@ -55,7 +55,6 @@ struct ArticleMetadataView: View {
                     }
                     .foregroundStyle(.gray)
                 }
-                .frame(width: 120)
             }
         }
         .frame(height: 15)
