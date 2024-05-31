@@ -7,10 +7,18 @@
 
 import Foundation
 import Combine
+import UIKit
 
 @MainActor
-class BeatitudoMediaViewModel: ObservableObject {
-    @Published var sections: [Section] = []
+class BeatitudoMediaViewModel: NSObject, ObservableObject, UIGestureRecognizerDelegate {
+    @Published var sections: [Section]         = []
+    @Published var scrollProxyOffsetY: CGFloat = 0
+    @Published var contentOffset: CGFloat      = 0
+    @Published var progress: CGFloat           = 0
+    @Published var isEligible: Bool            = false
+    @Published var isRefreshing: Bool          = false
+    @Published var gestureEndedToRefresh: Bool = false
+    @Published var isInSectionView: Bool       = true
     
     private var anyCancellables = Set<AnyCancellable>()
     
@@ -18,6 +26,7 @@ class BeatitudoMediaViewModel: ObservableObject {
     
     init(domain: NetworkLayer = APIServices.shared) {
         self.domain = BeatitudoMediaAPIServices(domain: domain)
+        super.init()
         self.addSubscribers()
     }
 }

@@ -16,6 +16,7 @@
 		68391B862BFEF7A5000E468D /* NetworkReacheabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B852BFEF7A5000E468D /* NetworkReacheabilityManager.swift */; };
 		68391B8A2BFF3AB6000E468D /* EmailSigningAPIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68391B892BFF3AB6000E468D /* EmailSigningAPIServices.swift */; };
 		683AABBC2C03092000CAD671 /* StatusMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683AABBB2C03092000CAD671 /* StatusMenuBar.swift */; };
+		683EB92E2C0980DE0036842B /* BeatitudoMediaScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683EB92D2C0980DE0036842B /* BeatitudoMediaScrollView.swift */; };
 		683F19B42BF5A18900CCD859 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 683F19B32BF5A18900CCD859 /* Alamofire */; };
 		684775602BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6847755F2BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift */; };
 		6850A3D12BE33459007C4F56 /* GlobalAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850A3D02BE33459007C4F56 /* GlobalAssets.swift */; };
@@ -101,6 +102,7 @@
 		68391B852BFEF7A5000E468D /* NetworkReacheabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReacheabilityManager.swift; sourceTree = "<group>"; };
 		68391B892BFF3AB6000E468D /* EmailSigningAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSigningAPIServices.swift; sourceTree = "<group>"; };
 		683AABBB2C03092000CAD671 /* StatusMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuBar.swift; sourceTree = "<group>"; };
+		683EB92D2C0980DE0036842B /* BeatitudoMediaScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaScrollView.swift; sourceTree = "<group>"; };
 		6847755F2BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaStatusBar.swift; sourceTree = "<group>"; };
 		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
 		6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaAPIServices.swift; sourceTree = "<group>"; };
@@ -199,6 +201,14 @@
 			path = StatusMenuBar;
 			sourceTree = "<group>";
 		};
+		683EB92F2C0985AB0036842B /* BeatitudoMediaScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				683EB92D2C0980DE0036842B /* BeatitudoMediaScrollView.swift */,
+			);
+			path = BeatitudoMediaScrollView;
+			sourceTree = "<group>";
+		};
 		6847755E2BF4FED10090B6F6 /* Status */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		6850A3CF2BE3343E007C4F56 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				683EB92F2C0985AB0036842B /* BeatitudoMediaScrollView */,
 				68391B832BFEF1F1000E468D /* GlobalExtensions.swift */,
 				6850A3D02BE33459007C4F56 /* GlobalAssets.swift */,
 				68ED3A102BFDE7C500DC7FDE /* BeatitudoMediaProgressView.swift */,
@@ -663,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				683AABBC2C03092000CAD671 /* StatusMenuBar.swift in Sources */,
+				683EB92E2C0980DE0036842B /* BeatitudoMediaScrollView.swift in Sources */,
 				688E5BED2BEA564800B39050 /* ReportSheetView.swift in Sources */,
 				6886FB882BE4E65B00007CD9 /* ArticleAuxiliaryDataViewModel.swift in Sources */,
 				684775602BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift in Sources */,

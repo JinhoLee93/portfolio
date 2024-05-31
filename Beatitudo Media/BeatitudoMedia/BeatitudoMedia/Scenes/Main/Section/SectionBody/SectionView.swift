@@ -16,7 +16,7 @@ struct SectionView: View {
     @Binding var presentingReportSheet: Bool
     @Binding var isUserSignedIn       : Bool
     @Binding var showSigningSheet     : Bool
-    
+
     init(currentSection: Binding<Int>, presentingDestination: Binding<Bool>, destinationURL: Binding<String>, presentingReportSheet: Binding<Bool>, isUserSignedIn: Binding<Bool>, showSigningSheet: Binding<Bool>) {
         self._currentSection = currentSection
         self._presentingDestination = presentingDestination
@@ -32,20 +32,13 @@ struct SectionView: View {
             
             TabView(selection: $currentSection) {
                 ForEach(viewModel.sections, id: \.self) { section in
-                    ScrollView {
-                        VStack(spacing: 0) {
-                            ForEach(section.articles, id: \.self) { article in
-                                ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
-                            }
+                    BeatitudoMediaScrollView {
+                        ForEach(section.articles, id: \.self) { article in
+                            ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
                         }
-                        .background(GeometryReader { proxy in
-                            Color.clear
-                                .onChange(of: proxy.frame(in: .global).minY) { _, new in
-                                    print(new)
-                                }
-                        })
+                    } onRefresh: {
+                        try? await Task.sleep(for: .seconds(5))
                     }
-                    .scrollIndicators(.hidden)
                     .tag(viewModel.getSectionIndex(of: section))
                     .ignoresSafeArea(edges: .bottom)
                 }
