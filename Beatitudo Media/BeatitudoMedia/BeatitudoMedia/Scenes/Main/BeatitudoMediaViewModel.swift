@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 @MainActor
-class BeatitudoMediaViewModel: NSObject, ObservableObject, UIGestureRecognizerDelegate {
+class BeatitudoMediaViewModel: ObservableObject {
     @Published var sections: [Section]         = []
     @Published var scrollProxyOffsetY: CGFloat = 0
     @Published var contentOffset: CGFloat      = 0
@@ -26,7 +26,6 @@ class BeatitudoMediaViewModel: NSObject, ObservableObject, UIGestureRecognizerDe
     
     init(domain: NetworkLayer = APIServices.shared) {
         self.domain = BeatitudoMediaAPIServices(domain: domain)
-        super.init()
         self.addSubscribers()
     }
 }

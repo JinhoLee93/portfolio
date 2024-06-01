@@ -32,13 +32,7 @@ struct SectionView: View {
             
             TabView(selection: $currentSection) {
                 ForEach(viewModel.sections, id: \.self) { section in
-                    BeatitudoMediaScrollView {
-                        ForEach(section.articles, id: \.self) { article in
-                            ArticleView(article: article, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
-                        }
-                    } onRefresh: {
-                        try? await Task.sleep(for: .seconds(5))
-                    }
+                    IndividualSectionView(individualSection: section, presentingDestination: $presentingDestination, destinationURL: $destinationURL, presentingReportSheet: $presentingReportSheet, isUserSignedIn: $isUserSignedIn, showSigningSheet: $showSigningSheet)
                     .tag(viewModel.getSectionIndex(of: section))
                     .ignoresSafeArea(edges: .bottom)
                 }

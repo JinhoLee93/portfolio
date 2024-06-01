@@ -11,19 +11,14 @@ import UIKit
 struct BeatitudoMediaScrollView<Content: View>: View {
     @StateObject private var viewModel = BeatitudoMediaScrollViewModel()
     
-    var content: Content
-    var onRefresh: () async -> ()
+    @State private var rotationDegrees = 0.0
     
-    init(@ViewBuilder content: @escaping () -> Content, onRefresh: @escaping () async -> ()) {
+    var content: Content
+    var onRefresh: () async throws -> ()
+    
+    init(@ViewBuilder content: @escaping () -> Content, onRefresh: @escaping () async throws -> ()) {
         self.content = content()
         self.onRefresh = onRefresh
-    }
-    
-    @State private var rotationDegrees = 0.0
-    private var animation: Animation {
-        .linear
-        .speed(0.1)
-        .repeatForever(autoreverses: false)
     }
     
     var body: some View {
@@ -33,112 +28,71 @@ struct BeatitudoMediaScrollView<Content: View>: View {
                     Image(systemName: "gear")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 20, height: 20)
-//                        .clipShape(Circle().trim(from: 0, to: viewModel.progress).stroke(lineWidth: 20))
+                        .frame(width: 30, height: 30)
+                        .clipShape(Circle().trim(from: 0, to: viewModel.progress).stroke(lineWidth: 30))
                         .rotationEffect(.degrees(rotationDegrees))
-                        
                 }
-                .frame(height: 50 * viewModel.progress)
+                .frame(height: 60 * viewModel.progress)
                 .offset(y: viewModel.isEligible ? -(viewModel.contentOffsetY < 0 ? 0 : viewModel.contentOffsetY) : -(viewModel.scrollOffsetY < 0 ? 0 : viewModel.scrollOffsetY))
 
                 content
+                
+                Spacer()
+                    .frame(height: 20)
             }
             .offset(coordinateSpace: "BeatitudoMediaScrollView") { offsetY in
-                viewModel.contentOffsetY = offsetY
-                
-                if !viewModel.isEligible {
-                    var progress = offsetY / 100
+                self.viewModel.contentOffsetY = offsetY
+                if !self.viewModel.isEligible {
+                    var progress = offsetY / 60
                     progress = (progress < 0 ? 0 : progress)
                     progress = (progress > 1 ? 1 : progress)
-                    viewModel.scrollOffsetY = offsetY
-                    viewModel.progress = progress
+                    self.viewModel.scrollOffsetY = offsetY
+                    self.viewModel.progress = progress
                 }
                 
-                if viewModel.isEligible && !viewModel.isRefreshing {
-                    viewModel.isRefreshing = true
+                if self.viewModel.isEligible && !self.viewModel.isRefreshing {
+                    self.viewModel.isRefreshing = true
                 }
             }
             .sensoryFeedback(.impact, trigger: viewModel.isRefreshing)
         }
         .coordinateSpace(name: "BeatitudoMediaScrollView")
-        .onAppear(perform: viewModel.addGesture)
-        .onDisappear(perform: viewModel.removeGesture)
+        .onAppear {
+            if viewModel.isInitialLoad {
+                viewModel.addGesture()
+                viewModel.isInitialLoad = false
+            }
+        }
         .onChange(of: viewModel.isRefreshing) { _, newValue in
             if newValue {
                 Task {
-                    withAnimation(animation) {
-                        rotationDegrees = 360.0
+                    withAnimation(.linear(duration: 0.25).speed(0.1).repeatForever(autoreverses: false)) {
+                        rotationDegrees = 180
                     }
-                    await onRefresh()
+                    do {
+                        try await onRefresh()
+                    } catch {
+                        print("\(error) occurred refreshing the sections.")
+                        try await Task.sleep(for: .seconds(1.5))
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            rotationDegrees = 0
+                            viewModel.progress = 0
+                            viewModel.scrollOffsetY = 0
+                            viewModel.isEligible = false
+                            viewModel.isRefreshing = false
+                        }
+                    }
+                    
+                    try await Task.sleep(for: .seconds(1.5))
                     withAnimation(.easeInOut(duration: 0.25)) {
-                        viewModel.isEligible = false
-                        viewModel.isRefreshing = false
-                        viewModel.scrollOffsetY = 0
                         rotationDegrees = 0
                         viewModel.progress = 0
+                        viewModel.scrollOffsetY = 0
+                        viewModel.isEligible = false
+                        viewModel.isRefreshing = false
                     }
                 }
             }
         }
-    }
-}
-
-class BeatitudoMediaScrollViewModel: NSObject, ObservableObject, UIGestureRecognizerDelegate {
-    @Published var isEligible: Bool        = false
-    @Published var isRefreshing: Bool      = false
-    @Published var scrollOffsetY: CGFloat  = 0
-    @Published var contentOffsetY: CGFloat = 0
-    @Published var progress: CGFloat       = 0
-}
-
-// MARK: - Pan Gesture
-extension BeatitudoMediaScrollViewModel {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        return true
-    }
-    
-    func addGesture() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onGestureChange(gesture: )))
-        panGesture.delegate = self
-        
-        rootController().view.addGestureRecognizer(panGesture)
-    }
-    
-    func removeGesture() {
-        rootController().view.gestureRecognizers?.removeAll()
-    }
-    
-    func rootController() -> UIViewController {
-        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-            return .init()
-        }
-        
-        guard let root = screen.windows.first?.rootViewController else {
-            return .init()
-        }
-        
-        return root
-    }
-    
-    @objc
-    func onGestureChange(gesture: UIPanGestureRecognizer) {
-        if gesture.state == .cancelled || gesture.state == .ended {
-            print("User released Touch")
-            if scrollOffsetY >= 100 {
-                isEligible = true
-            } else {
-                isEligible = false
-            }
-        }
-    }
-}
-
-struct OffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    
-    
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
     }
 }

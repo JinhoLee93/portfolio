@@ -54,7 +54,7 @@ struct ArticleAuxiliaryDataBar: View {
                             .font(.system(size: 10))
                             .foregroundStyle(viewModel.isLoved ? .pink : .adaptiveView)
                     }
-                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                     .onTapGesture {
                         if isUserSignedIn {
                             if !viewModel.isLoved {
@@ -95,9 +95,6 @@ struct ArticleAuxiliaryDataBar: View {
                         return newValue
                     }
                     
-                    Divider()
-                        .background(.gray)
-                    
                     ShareLink(item: URL(string: viewModel.getArticleURL())!) {
                         Image(systemName: "arrowshape.turn.up.right.fill")
                             .resizable()
@@ -106,10 +103,7 @@ struct ArticleAuxiliaryDataBar: View {
                             .foregroundStyle(Color.adaptiveView)
                     }
                     .buttonStyle(BorderlessButtonStyle())
-                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                    
-                    Divider()
-                        .background(.gray)
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                     
                     Button {
                         withAnimation(.spring(duration: 0.25)) { presentingReportSheet = true }
@@ -121,17 +115,13 @@ struct ArticleAuxiliaryDataBar: View {
                             .foregroundStyle(Color.adaptiveView)
                     }
                     .buttonStyle(BorderlessButtonStyle())
-                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 10))
+                    .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5))
                     .sensoryFeedback(.selection, trigger: presentingReportSheet) { oldValue, newValue in
                         
                         return newValue
                     }
 
                 }
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(.adaptiveView, lineWidth: 0.5)
-                )
             }
         }
         .frame(height: 15)

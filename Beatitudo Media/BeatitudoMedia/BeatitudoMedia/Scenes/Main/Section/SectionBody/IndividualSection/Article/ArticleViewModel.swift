@@ -11,7 +11,7 @@ import Combine
 
 @MainActor
 class ArticleViewModel: ObservableObject {
-    @Published var article: Article
+    private let article: Article
     @Published var thumbnail: Image?
     
     private var anyCancellables = Set<AnyCancellable>()

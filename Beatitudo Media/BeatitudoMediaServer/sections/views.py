@@ -27,6 +27,19 @@ class SectionsAPI(APIView):
                 return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({ 'sections' : sections }, status=status.HTTP_200_OK)
     
+    def post(self, request):
+        data = json.loads(request.body)
+        section_id = data['section_id']
+        try:
+            target = Section.objects.get(id=section_id)
+            serializer = SectionSerializer(data=target.serialize())
+            if serializer.is_valid():
+                return JsonResponse( { 'id' : serializer.data['id'],
+                                       'title' : serializer.data['title'],
+                                       'articles' : serializer.data['articles'] })
+        except Section.DoesNotExist:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+    
 class ArticleMetadataAPI(APIView):
     def put(self, request):
         @transaction.atomic

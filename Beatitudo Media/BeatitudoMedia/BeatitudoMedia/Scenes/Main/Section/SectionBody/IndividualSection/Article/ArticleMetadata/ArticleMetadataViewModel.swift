@@ -8,7 +8,7 @@
 import Foundation
 
 class ArticleMetadataViewModel: ObservableObject {
-    @Published var articleMetadata: ArticleMetadata
+    var articleMetadata: ArticleMetadata
     
     init(articleMetadata: ArticleMetadata) {
         self.articleMetadata = articleMetadata
