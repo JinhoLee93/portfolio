@@ -18,12 +18,12 @@ class LocalFileManager {
         
         guard 
             let data = image.pngData(),
-            let url = getURLForImage(imageName: imageName.replacingOccurrences(of: "/", with: ""), folderName: folderName)
+            let url = getURLForImage(imageName: imageName, folderName: folderName)
         else { return }
-
+        
         do {
             try data.write(to: url)
-        } catch let error {
+        } catch {
             print("Error: \(error) saving an image. Image Name: \(imageName)")
         }
     }
@@ -49,7 +49,7 @@ class LocalFileManager {
         if !FileManager.default.fileExists(atPath: url.path(percentEncoded: true)) {
             do {
                 try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
-            } catch let error {
+            } catch {
                 print("Error: \(error) creating a local cache directory. FolderName: \(folderName).")
             }
         }
@@ -64,6 +64,9 @@ class LocalFileManager {
     private func getURLForImage(imageName: String, folderName: String) -> URL? {
         guard let folderURL = getURLForFolder(folderName: folderName) else { return nil }
         
-        return folderURL.appendingPathComponent(imageName)
+        let imageNameTokens = imageName.split(separator: "/").map { String($0) }
+        guard let lastToken = imageNameTokens.last else { return nil }
+        
+        return folderURL.appendingPathComponent(lastToken)
     }
 }

@@ -116,7 +116,7 @@ extension APIServices {
         guard let uiImage = UIImage(data: data) else { return nil }
         
         LocalCacheManager.shared.addToCache(uiImage: uiImage, name: urlString)
-//        LocalFileManager.shared.saveImage(image: uiImage, imageName: urlString, folderName: "thumbnails")
+        LocalFileManager.shared.saveImage(image: uiImage, imageName: urlString, folderName: "thumbnails")
         
         return Image(uiImage: uiImage)
     }

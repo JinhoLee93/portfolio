@@ -32,7 +32,7 @@ struct BeatitudoMediaSplashView: View {
                     .foregroundStyle(.adaptiveText)
                 
                 Spacer()
-                    .frame(height: 20)
+                    .frame(height: 30)
             }
         }
         .ignoresSafeArea()
