@@ -11,6 +11,8 @@ import Firebase
 struct BeatitudoMediaView: View {
     @StateObject private var viewModel: BeatitudoMediaViewModel = BeatitudoMediaViewModel()
     
+    @Binding var isLightModeOn: Bool
+    
     @State private var currentSection: Int           = 0
     @State private var offsetX: CGFloat              = 0
     @State private var destinationURL: String        = ""
@@ -23,7 +25,7 @@ struct BeatitudoMediaView: View {
     @State private var showSplashView: Bool          = false
     @State private var showSplashDate: Bool          = false
     @State private var showProgressView: Bool        = false
-    @State private var showUserProfilePage: Bool         = false
+    @State private var showUserProfilePage: Bool     = false
     @State private var showViewedArticlesPage: Bool  = false
     @State private var showLovedArticlesPage: Bool   = false
 
@@ -92,7 +94,7 @@ struct BeatitudoMediaView: View {
                     Spacer()
                         .frame(height: 50)
                     
-                    BeatitudoMediaStatusBar(showStatusPage: $showStatusPage)
+                    BeatitudoMediaStatusBar(showStatusPage: $showStatusPage, isLightModeOn: $isLightModeOn)
                     
                     SectionBar(currentSectionIndex: $currentSection, namespace: namespace.self)
                         .padding(.leading, 10)
@@ -179,6 +181,6 @@ struct BeatitudoMediaView: View {
 }
 
 #Preview {
-    BeatitudoMediaView()
+    BeatitudoMediaView(isLightModeOn: .constant(true))
 }
 

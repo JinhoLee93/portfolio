@@ -62,5 +62,5 @@ struct ArticleMetadataView: View {
 }
 
 #Preview {
-    BeatitudoMediaView()
+    BeatitudoMediaView(isLightModeOn: .constant(true))
 }

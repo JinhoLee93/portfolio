@@ -41,17 +41,17 @@ struct BeatitudoMediaScrollView<Content: View>: View {
                     .frame(height: 20)
             }
             .offset(coordinateSpace: "BeatitudoMediaScrollView") { offsetY in
-                self.viewModel.contentOffsetY = offsetY
-                if !self.viewModel.isEligible {
+                viewModel.contentOffsetY = offsetY
+                if !viewModel.isEligible {
                     var progress = offsetY / 60
                     progress = (progress < 0 ? 0 : progress)
                     progress = (progress > 1 ? 1 : progress)
-                    self.viewModel.scrollOffsetY = offsetY
-                    self.viewModel.progress = progress
+                    viewModel.scrollOffsetY = offsetY
+                    viewModel.progress = progress
                 }
                 
-                if self.viewModel.isEligible && !self.viewModel.isRefreshing {
-                    self.viewModel.isRefreshing = true
+                if viewModel.isEligible && !self.viewModel.isRefreshing {
+                    viewModel.isRefreshing = true
                 }
             }
             .sensoryFeedback(.impact, trigger: viewModel.isRefreshing)

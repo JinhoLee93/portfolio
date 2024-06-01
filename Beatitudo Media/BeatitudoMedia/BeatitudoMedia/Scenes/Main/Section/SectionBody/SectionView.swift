@@ -44,5 +44,5 @@ struct SectionView: View {
 }
 
 #Preview {
-    BeatitudoMediaView()
+    BeatitudoMediaView(isLightModeOn: .constant(true))
 }

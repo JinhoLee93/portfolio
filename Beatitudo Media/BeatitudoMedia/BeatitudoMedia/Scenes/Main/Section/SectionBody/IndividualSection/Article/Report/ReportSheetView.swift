@@ -82,5 +82,5 @@ struct ReportSheetView: View {
 }
 
 #Preview {
-    BeatitudoMediaView()
+    BeatitudoMediaView(isLightModeOn: .constant(true))
 }

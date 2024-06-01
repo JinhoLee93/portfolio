@@ -21,10 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BeatitudoMediaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    @State var isLightModeOn = GlobalAssets.isLightModeOn
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                BeatitudoMediaView()
+                BeatitudoMediaView(isLightModeOn: $isLightModeOn)
+                    .preferredColorScheme(isLightModeOn ? .light : .dark)
             }
         }
     }

@@ -135,5 +135,5 @@ struct ArticleAuxiliaryDataBar: View {
 }
 
 #Preview {
-    BeatitudoMediaView()
+    BeatitudoMediaView(isLightModeOn: .constant(true))
 }
