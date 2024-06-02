@@ -30,13 +30,13 @@ class ArticleAPIServices {
 // MARK: - REST
 extension ArticleAPIServices {
     func updateCountOfViews(articleMetadataId: Int) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/sections/update-article-views/"
+        let url = "http://\(GlobalAssets.serverIp)/sections/update-article-views/"
         let parameters: [String : Any] = ["id" : articleMetadataId]
         let _: ArticleMetadata = try await domain.put(url: url, parameters: parameters)
     }
     
     func insertArticleToViewedArticles(of currentUserId: Int, with currentArticleId: Int) async throws {
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/viewed-articles-related/"
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-users/viewed-articles-related/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId, "current_article_id" : currentArticleId]
         let user: BeatitudoMediaUserWrapper = try await domain.post(url: url, parameters: parameters)
         print(user.beatitudoMediaUser)

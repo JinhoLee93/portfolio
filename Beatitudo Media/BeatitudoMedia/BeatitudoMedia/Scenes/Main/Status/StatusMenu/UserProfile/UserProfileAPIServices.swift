@@ -17,8 +17,8 @@ class UserProfileAPIServices: ObservableObject {
     }
     
     func changeUserNickname(newNickname: String) async throws {
-        guard let currentUserId = GlobalAssets.currentUserID else { return }
-        let url = "http://\(GlobalAssets.serverIP)/beatitudo-media-users/user-related/"
+        guard let currentUserId = GlobalAssets.currentUserId else { return }
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-users/user-related/"
         let parameters: [String : Any] = ["current_user_id" : currentUserId,
                                           "new_nickname" : newNickname]
         

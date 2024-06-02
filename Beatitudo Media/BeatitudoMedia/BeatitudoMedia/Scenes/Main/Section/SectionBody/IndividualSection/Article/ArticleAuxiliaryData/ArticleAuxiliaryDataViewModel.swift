@@ -40,7 +40,7 @@ extension ArticleAuxiliaryDataViewModel {
 // MARK: - API
 extension ArticleAuxiliaryDataViewModel {
     func updateLoved() async throws {
-        guard let currentUserId = GlobalAssets.currentUserID, let articleAuxiliaryData = self.articleAuxiliaryData else { return }
+        guard let currentUserId = GlobalAssets.currentUserId, let articleAuxiliaryData = self.articleAuxiliaryData else { return }
         try await domain.updateLoved(currentUserId: currentUserId,
                                      currentArticleId: articleAuxiliaryData.articleId)
     }

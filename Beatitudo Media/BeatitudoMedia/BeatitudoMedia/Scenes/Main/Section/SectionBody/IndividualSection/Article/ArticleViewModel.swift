@@ -32,7 +32,7 @@ extension ArticleViewModel {
     }
     
     func insertArticleToViewedArticles() async throws {
-        guard let currentUserId = GlobalAssets.currentUserID else { return }
+        guard let currentUserId = GlobalAssets.currentUserId else { return }
         try await domain.insertArticleToViewedArticles(of: currentUserId, with: article.id)
     }
 }

@@ -75,7 +75,6 @@
 		68F2310C2BE1294E003A27B5 /* BeatitudoMediaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2310B2BE1294E003A27B5 /* BeatitudoMediaUITestsLaunchTests.swift */; };
 		68F2311B2BE12A1D003A27B5 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2311A2BE12A1D003A27B5 /* SectionView.swift */; };
 		68F231292BE138A5003A27B5 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F231282BE138A5003A27B5 /* Section.swift */; };
-		68F6CC7E2BFC6F8B00B12D60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68F6CC7D2BFC6F8B00B12D60 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +107,7 @@
 		683EB92D2C0980DE0036842B /* BeatitudoMediaScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaScrollView.swift; sourceTree = "<group>"; };
 		6847755F2BF5003F0090B6F6 /* BeatitudoMediaStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaStatusBar.swift; sourceTree = "<group>"; };
 		6850A3D02BE33459007C4F56 /* GlobalAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssets.swift; sourceTree = "<group>"; };
+		6854F5342C0C48C100B22EE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6855B0EA2BF39DDF00D8F04C /* BeatitudoMediaAPIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaAPIServices.swift; sourceTree = "<group>"; };
 		6858298B2BF6F8ED00916F6A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6858298D2BF710C200916F6A /* BeatitudoMediaStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatitudoMediaStatusView.swift; sourceTree = "<group>"; };
@@ -237,6 +237,31 @@
 				68ED3A102BFDE7C500DC7FDE /* BeatitudoMediaProgressView.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		6854F52C2C0C38A800B22EE9 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				68F6CC7F2BFC6F8D00B12D60 /* GoogleService-Info.plist */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
+		6854F52D2C0C38B100B22EE9 /* Prod */ = {
+			isa = PBXGroup;
+			children = (
+				6854F5342C0C48C100B22EE9 /* GoogleService-Info.plist */,
+			);
+			path = Prod;
+			sourceTree = "<group>";
+		};
+		6854F52E2C0C3DAA00B22EE9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				6854F52D2C0C38B100B22EE9 /* Prod */,
+				6854F52C2C0C38A800B22EE9 /* Dev */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		6858298A2BF6F8E400916F6A /* Utils */ = {
@@ -466,8 +491,8 @@
 		68F230ED2BE1294C003A27B5 /* BeatitudoMedia */ = {
 			isa = PBXGroup;
 			children = (
+				6854F52E2C0C3DAA00B22EE9 /* Firebase */,
 				68F6CC7C2BFC48CA00B12D60 /* Info.plist */,
-				68F6CC7F2BFC6F8D00B12D60 /* GoogleService-Info.plist */,
 				68F6CC7B2BFC48AE00B12D60 /* BeatitudoMedia.entitlements */,
 				6858298A2BF6F8E400916F6A /* Utils */,
 				68DBB8302BEB2732004D5960 /* Cache */,
@@ -554,6 +579,7 @@
 				68F230E72BE1294C003A27B5 /* Sources */,
 				68F230E82BE1294C003A27B5 /* Frameworks */,
 				68F230E92BE1294C003A27B5 /* Resources */,
+				6854F5312C0C444D00B22EE9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -665,7 +691,6 @@
 			files = (
 				68F230F62BE1294E003A27B5 /* Preview Assets.xcassets in Resources */,
 				68F230F32BE1294E003A27B5 /* Assets.xcassets in Resources */,
-				68F6CC7E2BFC6F8B00B12D60 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +709,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6854F5312C0C444D00B22EE9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\nelse\n    echo \"Using ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68F230E72BE1294C003A27B5 /* Sources */ = {
@@ -912,6 +957,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeatitudoMedia/Preview Content\"";
 				DEVELOPMENT_TEAM = VFFLWU58JC;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeatitudoMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -946,6 +992,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BeatitudoMedia/Preview Content\"";
 				DEVELOPMENT_TEAM = VFFLWU58JC;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeatitudoMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
