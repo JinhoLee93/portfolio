@@ -23,6 +23,10 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
       <td align="center">Swift, Python, SQL, ChatGPT</td>
     </tr>
     <tr>
+      <td align="center">클라우드</td>
+      <td align="center">AWS EC2</td>
+    </tr>
+    <tr>
       <td align="center">디자인 패턴</td>
       <td align="center">MVVM</td>
     </tr>
