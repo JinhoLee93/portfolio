@@ -67,6 +67,10 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
       <td align="center">Validation (Client)</td>
       <td align="center">Peppermint</td>
     </tr>
+    <tr>
+      <td align="center">Parser</td>
+      <td align="center">Beautiful Soup</td>
+    </tr>
   </tbody>
 </table>
 
