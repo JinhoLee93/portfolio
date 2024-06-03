@@ -45,7 +45,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
   <tbody>
     <tr>
       <td align="center">UI</td>
-      <td align="center">SwiftUI, WebKit</td>
+      <td align="center">SwiftUI, WebKit, UIKit (Pan Gesture)</td>
     </tr>
     <tr>
       <td align="center">서버</td>
