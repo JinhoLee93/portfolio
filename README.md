@@ -71,6 +71,10 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
       <td align="center">Parser</td>
       <td align="center">Beautiful Soup</td>
     </tr>
+    <tr>
+      <td align="center">Web Driver</td>
+      <td align="center">Selenium</td>
+    </tr>
   </tbody>
 </table>
 
