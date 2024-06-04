@@ -32,7 +32,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
     </tr>
     <tr>
       <td align="center">개발 기술</td>
-      <td align="center">Dependency Injection</td>
+      <td align="center">Dependency Injection, Prompt Engineering</td>
     </tr>
   </tbody>
 </table>
