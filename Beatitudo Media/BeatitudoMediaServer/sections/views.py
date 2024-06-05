@@ -5,9 +5,7 @@ from .models import *
 from .api.serializers import *
 from django.http import JsonResponse
 from json import JSONDecodeError
-from rest_framework import views, status
-from rest_framework.response import Response
-from rest_framework.parsers import JSONParser
+from rest_framework import status
 from django.db.models import F
 from django.db import transaction
 from django.views.decorators.csrf import csrf_exempt

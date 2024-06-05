@@ -44,6 +44,8 @@ extension ArticleViewModel {
             .sink { [weak self] in
                 if let thumbnail = $0 {
                     self?.thumbnail = thumbnail
+                } else {
+                    self?.thumbnail = Image(systemName: "photo")
                 }
             }
             .store(in: &anyCancellables)

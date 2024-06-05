@@ -10,7 +10,7 @@ import SwiftUI
 class GlobalAssets {
     @AppStorage("isLightModeOn") static var isLightModeOn: Bool   = true
     @AppStorage("isUserSignedIn") static var isUserSignedIn: Bool = false
-    @AppStorage("serverIp") static var serverIp                   = "172.30.1.17:8000"
+    @AppStorage("serverIp") static var serverIp                   = "172.30.1.18:8000"
     @AppStorage("currentUserID") static var currentUserId: Int?
     @AppStorage("currentUserEmail") static var currentUserEmail: String?
     @AppStorage("currentUserNickname") static var currentUserNickname: String?

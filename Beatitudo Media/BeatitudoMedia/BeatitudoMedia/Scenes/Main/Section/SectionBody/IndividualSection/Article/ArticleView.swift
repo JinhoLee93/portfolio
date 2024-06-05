@@ -37,7 +37,7 @@ struct ArticleView: View {
                     viewModel.thumbnail?
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 100)
+                        .frame(minWidth: 100, maxWidth: 100, minHeight: 100, maxHeight: 100)
                     
                     Text(viewModel.getArticleTitle())
                         .multilineTextAlignment(.leading)
