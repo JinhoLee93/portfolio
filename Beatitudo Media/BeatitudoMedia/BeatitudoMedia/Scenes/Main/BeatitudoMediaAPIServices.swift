@@ -18,9 +18,19 @@ class BeatitudoMediaAPIServices {
     }
     
     func refreshSections() async throws {
-        let url = "http://\(GlobalAssets.serverIp)/sections/send-sections/"
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-sections/send-sections/"
         let fetchedSections: Sections = try await domain.get(url: url)
-        await MainActor.run { self.sections = fetchedSections.sections }
+        
+        var sortedSections: [Section] = []
+        for section in fetchedSections.sections {
+            let sortedArticles = section.articles.sorted { $0.id > $1.id }
+            let sortedSection = Section(id: section.id, title: section.title, articles: sortedArticles)
+            sortedSections.append(sortedSection)
+        }
+
+        let finalSections = sortedSections
+        
+        await MainActor.run { self.sections = finalSections }
     }
     
     func fetchCurrentUser() async throws {

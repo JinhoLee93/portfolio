@@ -87,7 +87,7 @@ extension APIServices {
     }
     
     func updateViews(id: Int, userUUID: String?) {
-        let url = "http://127.0.0.1:8000/sections/update-article-views/\(id)/"
+        let url = "http://127.0.0.1:8000/beatitudo-media-sections/update-article-views/\(id)/"
         
         AF.request(url, method: .put, parameters: nil, encoding: URLEncoding.default, headers: self.httpHeaders, interceptor: nil, requestModifier: nil).response { response in debugPrint(response) }
     }

@@ -17,12 +17,14 @@ struct UserProfileView: View {
     @State private var nicknameChangeSuccessful: Bool = false
     @State private var showNicknameChangeStatus: Bool = false
     @State private var showProgressView: Bool         = false
+    @State private var keyboardOutCache: Bool         = false
     
     var body: some View {
         ZStack {
             Color.adaptiveBackground
                 .onTapGesture {
                     keyboardOut = false
+                    keyboardOutCache = false
                 }
             
             VStack(spacing: 0) {
@@ -37,6 +39,7 @@ struct UserProfileView: View {
                                     if keyboardOut {
                                         withAnimation(.easeInOut(duration: 0.25)) {
                                             keyboardOut = false
+                                            keyboardOutCache = false
                                         }
                                         
                                         try await Task.sleep(for: .seconds(0.4))
@@ -107,6 +110,7 @@ struct UserProfileView: View {
                         .frame(height: 55)
                         .onTapGesture {
                             showNicknameChangeStatus = false
+                            keyboardOutCache = true
                         }
                     
                     HStack {
@@ -127,12 +131,14 @@ struct UserProfileView: View {
                             showNicknameChangeStatus = true
                             showProgressView = false
                             keyboardOut = false
+                            keyboardOutCache = false
                         } catch {
                             print("\(error) occurred updating the user's nickname.")
                             nicknameChangeSuccessful = false
                             showNicknameChangeStatus = true
                             showProgressView = false
                             keyboardOut = false
+                            keyboardOutCache = false
                         }
                     }
                 } label: {
@@ -159,5 +165,23 @@ struct UserProfileView: View {
             .padding(.trailing, 20)
         }
         .ignoresSafeArea()
+        .offset(x: viewModel.offsetX < 0 ? viewModel.offsetX : 0)
+        .onChange(of: viewModel.offsetX) { _, newValue in
+            if newValue < 0 {
+                keyboardOut = false
+            }
+            if newValue == 0 {
+                if keyboardOutCache {
+                    keyboardOut = true
+                }
+            }
+            if newValue == -GlobalAssets.maxWidth {
+                Task {
+                    try await Task.sleep(for: .seconds(0.2))
+                    showUserProfileView = false
+                }
+            }
+        }
+        .onAppear(perform: viewModel.addGesture)
     }
 }

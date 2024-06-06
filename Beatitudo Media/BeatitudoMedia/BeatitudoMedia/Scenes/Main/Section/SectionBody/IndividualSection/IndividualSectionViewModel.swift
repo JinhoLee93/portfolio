@@ -55,7 +55,7 @@ class IndividualSectionAPIServices: ObservableObject {
 // MARK: - API
 extension IndividualSectionAPIServices {
     func fetchIndividualSection(sectionId: Int) async throws {
-        let url = "http://\(GlobalAssets.serverIp)/sections/send-sections/"
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-sections/send-sections/"
         let parameters: [String : Any] = ["section_id" : sectionId]
         let fetchedSection: Section = try await domain.post(url: url, parameters: parameters)
         await MainActor.run { self.individualSection = fetchedSection }

@@ -20,7 +20,7 @@ class UserArticlesAPIServices: ObservableObject {
 // MARK: - API
 extension UserArticlesAPIServices {
     func translateUserArticlesIntoArticles(isForViewedArticles: Bool) async throws {
-        let url = "http://\(GlobalAssets.serverIp)/sections/translate_user_articles_into_articles/"
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-sections/translate-user-articles-into-articles/"
         let article_ids: [Int] = isForViewedArticles ? GlobalAssets.currentUser?.viewedArticles.map { $0.articleId } ?? [] : GlobalAssets.currentUser?.lovedArticles.map { $0.articleId } ?? []
         let parameters = ["article_ids" : article_ids]
         let fetchedArticles: Articles = try await domain.post(url: url, parameters: parameters)

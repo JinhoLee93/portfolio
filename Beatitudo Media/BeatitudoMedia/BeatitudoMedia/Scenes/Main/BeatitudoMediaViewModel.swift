@@ -72,8 +72,8 @@ extension BeatitudoMediaViewModel {
     // Subscribers
     private func addSubscribers() {
         self.domain.$sections
-            .sink { [weak self] in
-                self?.sections = $0
+            .sink { [weak self] sections in
+                self?.sections = sections
             }
             .store(in: &anyCancellables)
         

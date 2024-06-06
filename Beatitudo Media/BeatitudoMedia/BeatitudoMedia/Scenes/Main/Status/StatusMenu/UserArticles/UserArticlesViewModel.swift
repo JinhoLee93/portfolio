@@ -7,16 +7,22 @@
 
 import Foundation
 import Combine
+import UIKit
+import SwiftUI
 
 @MainActor
-class UserArticlesViewModel: ObservableObject {
+class UserArticlesViewModel: NSObject, ObservableObject, UIGestureRecognizerDelegate {
     private let domain = UserArticlesAPIServices()
-    
     private var anyCancellables = Set<AnyCancellable>()
     
     @Published var articles: [Article]?
+    @Published var offsetX: CGFloat = 0
+    @Published var isMoving: Bool   = false
     
-    init() {
+    let maxWidth = UIScreen.main.bounds.width
+    
+    override init() {
+        super.init()
         addSubscribers()
     }
 }
@@ -53,5 +59,41 @@ extension UserArticlesViewModel {
                 self?.sortArticlesBy(method: .countOfLoved)
             }
             .store(in: &anyCancellables)
+    }
+}
+
+// MARK: - Pan Gesture
+extension UserArticlesViewModel {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
+    }
+    
+    func addGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onGestureChange(gesture: )))
+        panGesture.delegate = self
+        
+        Utils.topViewController()?.view.gestureRecognizers?.append(panGesture)
+    }
+    
+    func removeGesture() {
+        Utils.topViewController()?.view.gestureRecognizers?.removeAll()
+    }
+    
+    @objc
+    func onGestureChange(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: gesture.view).x
+        offsetX = translation
+        if gesture.state == .cancelled || gesture.state == .ended {
+            if abs(offsetX) >= GlobalAssets.maxWidth * 0.5 || gesture.velocity(in: Utils.topViewController()?.view).x < -2000 {
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    offsetX = -GlobalAssets.maxWidth
+                }
+            } else {
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    offsetX = 0
+                }
+            }
+        }
     }
 }

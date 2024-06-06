@@ -28,7 +28,7 @@ extension ArticleAuxiliaryDataAPIServices {
     }
     
     func updateCountOfLoved(currentArticleId: Int, shouldIncrement: Bool) async throws {
-        let url = "http://\(GlobalAssets.serverIp)/sections/update-count-of-loved/"
+        let url = "http://\(GlobalAssets.serverIp)/beatitudo-media-sections/update-count-of-loved/"
         let parameters: [String : Any] = ["current_article_id" : currentArticleId, "should_increment" : shouldIncrement]
         guard let updatedArticleAuxiliaryData: ArticleAuxiliaryData = try await domain.put(url: url, parameters: parameters) else { return }
         await MainActor.run {

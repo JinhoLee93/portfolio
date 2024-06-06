@@ -10,6 +10,7 @@ from django.db.models import F
 from django.db import transaction
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
+import requests
 import json
 
 # Create your views here.
@@ -107,3 +108,24 @@ class ArticleAPI(APIView):
                 print(serializer.errors)
                 return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
         return JsonResponse({ 'articles' : serialized_articles }, status=status.HTTP_200_OK)
+
+class BeatitudoMediaWebServicesAPI(APIView):
+    def post(self, request):
+        url = 'http://127.0.0.1:8000/beatitudo-media-web-services/process-new-articles/'
+        headers = {'Content-type' : 'application/json'}
+        response = requests.post(url, data={}, headers=headers)
+        processed_articles = json.loads(response.content)['processed_articles']
+        for processed_article in processed_articles:
+            section_title = processed_article['section_title']
+            current_section = Section.objects.get(title=section_title)
+            title = processed_article['title']
+            thumbnail_url = processed_article['thumbnail_url']
+            article_url = processed_article['article_url']
+            time_to_read = processed_article['time_to_read']
+            date = processed_article['date']
+            if not Article.objects.filter(title=title).exists():
+                Article.objects.create(section_id=current_section.id, title=title, thumbnail_url=thumbnail_url, article_url=article_url)
+                current_article = Article.objects.get(title=title)
+                ArticleMetadata.objects.create(article_id=current_article.id, time_to_read=time_to_read, date=date)
+                ArticleAuxiliaryData.objects.create(article_id=current_article.id)
+        return HttpResponse(status=status.HTTP_200_OK)

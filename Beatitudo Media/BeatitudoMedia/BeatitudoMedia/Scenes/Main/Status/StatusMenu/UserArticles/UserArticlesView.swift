@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct UserArticlesView: View {
     @StateObject private var viewModel = UserArticlesViewModel()
@@ -19,7 +20,7 @@ struct UserArticlesView: View {
     @State private var presentingReportSheet: Bool          = false
     @State private var destinationURL: String               = ""
     @State private var selectedSortingMethod: SortingMethod = .countOfLoved
-    
+        
     var body: some View {
         ZStack(alignment: .top) {
             Color.adaptiveBackground
@@ -88,7 +89,7 @@ struct UserArticlesView: View {
                 Divider()
                     .background(.adaptiveView)
                 
-                ScrollView {
+                ScrollView(.vertical) {
                     VStack(spacing: 0) {
                         ForEach(viewModel.articles ?? [], id: \.self) { article in
                             ArticleView(article: article,
@@ -119,6 +120,17 @@ struct UserArticlesView: View {
         .onChange(of: selectedSortingMethod) { _, newValue in
             viewModel.sortArticlesBy(method: newValue)
         }
+        .onChange(of: viewModel.offsetX) { _, newValue in
+            if newValue == -viewModel.maxWidth {
+                Task {
+                    try await Task.sleep(for: .seconds(0.2))
+                    showViewedArticlesPage = false
+                    showLovedArticlesPage = false
+                }
+            }
+        }
+        .offset(x: viewModel.offsetX < 0 ? viewModel.offsetX : 0 )
+        .onAppear(perform: viewModel.addGesture)
     }
 }
 

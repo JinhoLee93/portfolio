@@ -8,6 +8,7 @@ django = "*"
 django-debug-toolbar = "*"
 django-environ = "*"
 environ = "*"
+requests = "*"
 
 [dev-packages]
 
