@@ -111,7 +111,7 @@ class ArticleAPI(APIView):
 
 class BeatitudoMediaWebServicesAPI(APIView):
     def post(self, request):
-        url = 'http://127.0.0.1:8000/beatitudo-media-web-services/process-new-articles/'
+        url = 'http://127.0.0.1:7000/beatitudo-media-web-services/process-new-articles/'
         headers = {'Content-type' : 'application/json'}
         response = requests.post(url, data={}, headers=headers)
         processed_articles = json.loads(response.content)['processed_articles']

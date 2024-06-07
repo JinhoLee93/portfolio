@@ -12,3 +12,10 @@ struct Section: Codable, Hashable {
     let title: String
     let articles: [Article]
 }
+
+extension Section {
+    func returnSectionWithSortedArticles() -> Section {
+        
+        return Section(id: self.id, title: self.title, articles: self.articles.sorted { $0.id > $1.id })
+    }
+}
