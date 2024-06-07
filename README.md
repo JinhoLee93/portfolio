@@ -20,7 +20,7 @@ Python Web Scraper와 ChatGPT의 Sentiment Analysis를 통해 긍정적인 뉴�
   <tbody>
     <tr>
       <td align="center">개발 언어</td>
-      <td align="center">Swift, Python, SQL, ChatGPT 3.5 Turbo</td>
+      <td align="center">Swift, Python, SQL, GPT 3.5 Turbo</td>
     </tr>
     <tr>
       <td align="center">클라우드</td>
