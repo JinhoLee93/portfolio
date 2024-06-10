@@ -24,7 +24,7 @@ Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 �
     </tr>
     <tr>
       <td align="center">클라우드</td>
-      <td align="center">AWS EC2</td>
+      <td align="center">AWS EC2, AWS RDS</td>
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
