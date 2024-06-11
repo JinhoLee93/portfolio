@@ -4,7 +4,7 @@
 
 ## I. 개요
 
-Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 뉴스를 모아 보여주는 풀스택 미디어 앱
+Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 뉴스를 모아 보여주는 풀스택 (클라우드, 데이터베이스, 서버 및 클라이언트) 미디어 앱
 
 ## II. Tech Stack
 
