@@ -36,8 +36,6 @@ struct BeatitudoMediaSplashView: View {
             }
         }
         .ignoresSafeArea()
-        
-        // Add a picture or a drawing of a flower.
     }
 }
 
