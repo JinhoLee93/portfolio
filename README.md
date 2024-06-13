@@ -6,6 +6,10 @@
 
 Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 뉴스를 모아 보여주는 풀스택 (클라우드, 데이터베이스, 서버 및 클라이언트) 미디어 앱
 
+
+![beatitudomedia_portfolio](https://github.com/JinhoLee93/portfolio/assets/60580427/65abc810-477d-4552-b061-d5490ef199a3)
+(저작권 문제로 프로덕션 앱을 보여드릴 수 없는 점, 이해해 주시길 바랍니다.)
+
 ## II. Tech Stack
 
 ### Architecture
