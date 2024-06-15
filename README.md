@@ -1,6 +1,6 @@
 # 이진호 개인 프로젝트 포트폴리오
 
-# [1. Beatitudo Media](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
+# [1. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20)
 
 ## I. 개요
 
