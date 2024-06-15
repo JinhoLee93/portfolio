@@ -153,7 +153,7 @@ RESTful 오픈소스 서버 [PokeAPI](https://pokeapi.co/)를 이용해 포켓�
     </tr>
     <tr>
       <td align="center">Testing</td>
-      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#x-xctest">XCTest</a>, <a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xi-rxtest">RxTest</a></td>
+      <td align="center"><a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#x-xctest">XCTest</a>, <a href="https://github.com/JinhoLee93/portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)#xi-rxblocking">RxBlocking</a></td>
     </tr>
     <tr>
       <td align="center">비동기 작업</td>
