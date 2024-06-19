@@ -76,7 +76,7 @@ Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 �
       <td align="center">Peppermint</td>
     </tr>
     <tr>
-      <td align="center">Parser</td>
+      <td align="center">HTML Parser</td>
       <td align="center">Beautiful Soup</td>
     </tr>
     <tr>
