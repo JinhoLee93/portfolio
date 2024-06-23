@@ -72,7 +72,7 @@ Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 �
       <td align="center">rest_framework (Django)</td>
     </tr>
     <tr>
-      <td align="center">Validation (Client)</td>
+      <td align="center">Email Validation (Client)</td>
       <td align="center">Peppermint</td>
     </tr>
     <tr>
