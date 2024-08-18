@@ -35,7 +35,7 @@ final class APIServices: NetworkLayer {
     private init() { }
 }
 
-// MARK: - RESTful API
+// MARK: - REST API
 extension APIServices {
     func get<T: Decodable>(url: String) async throws -> T {
         let url = try convertStringToURL(url: url)

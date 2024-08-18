@@ -26,7 +26,7 @@ def get_articles_from_big_kinds():
     articles = []
     title_set = set()
     time.sleep(2)
-    while len(articles) < 1000:
+    while len(articles) < 10000:
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         preprocessed_articles = soup.find_all('div', class_='news-item')
         for article in preprocessed_articles:
