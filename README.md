@@ -1,4 +1,4 @@
-# For the English version of the document, please refer to [THIS](https://github.com/JinhoLee93/portfolio/blob/main/README(ENGLISH).md) instead.
+# For the English version of this document, please refer to [THIS](https://github.com/JinhoLee93/portfolio/blob/main/README(ENGLISH).md) instead.
 
 # 이진호 개인 프로젝트 포트폴리오
 
