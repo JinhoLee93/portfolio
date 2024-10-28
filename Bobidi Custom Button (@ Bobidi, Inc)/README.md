@@ -1,4 +1,4 @@
-# For the English version of this document, please refer to THIS instead
+# For the English version of this document, please refer to [THIS](https://github.com/JinhoLee93/portfolio/blob/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc)/README(ENGLISH).md) instead
 
 # Bobidi Custom Button (@ Bobidi, Inc)
 
