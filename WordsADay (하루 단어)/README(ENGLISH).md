@@ -36,7 +36,7 @@ As a graduate of Columbia University, I developed this app to represent an effic
   </tbody>
 </table>
 
-## 프레임워크
+## Framework
 
 <table width="1200px">
   <thead>
