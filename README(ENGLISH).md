@@ -239,7 +239,7 @@ Feb. 2022 ~ May 2022
 # Appendix
 # [1. Bobidi Custom Buttom (@ Bobidi, Inc)](https://github.com/JinhoLee93/portfolio/tree/main/Bobidi%20Custom%20Button%20(%40%20Bobidi%2C%20Inc))
 
-## I. 개요
+## I. Overview
 A reactive button with gradient graphics and animations created while working at Bobidi, Inc.
 
 ![Reactive 버튼](https://user-images.githubusercontent.com/60580427/233976614-848d97cc-51fd-424e-b70d-0afd744c5308.gif)
