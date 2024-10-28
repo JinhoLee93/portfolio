@@ -1,3 +1,5 @@
+# For the English version of this document, please refer to THIS instead
+
 # Bobidi Custom Button (@ Bobidi, Inc)
 
 # 1. 개요
