@@ -82,53 +82,103 @@ The development was initiated with the hope of bringing nostalgia to the creator
 
 # 4. Reasons for Tech Stack Choices
 I. MVVM
-Supports writing clean, easily readable code, which facilitates debugging and testing.
-Enables a clear implementation of Clean Architecture by defining specific responsibilities for each module (Model, View, ViewModel).
+
+- Supports writing clean, easily readable code, which facilitates debugging and testing.
+
+- Enables a clear implementation of Clean Architecture by defining specific responsibilities for each module (Model, View, ViewModel).
+
 II. Protocol Oriented Programming
-Prevents unnecessary property proliferation by designing the code layout in advance.
-Eliminates time wasted navigating between pages to verify superclass functionality, as seen with OOP.
+
+- Prevents unnecessary property proliferation by designing the code layout in advance.
+
+- Eliminates time wasted navigating between pages to verify superclass functionality, as seen with OOP.
+
 III. Dependency Injection
-Reduces dependency to create a codebase that is secure against external changes.
-Simplifies refactoring and testing through modularized code.
+
+- Reduces dependency to create a codebase that is secure against external changes.
+  
+- Simplifies refactoring and testing through modularized code.
+  
 IV. UIKit
-Provides complex customization, like moving cells between table view sections.
-Delivers significantly better CPU performance compared to SwiftUI’s List.
-For example, using SwiftUI’s LazyVStack-based List with 1,000 data entries showed a CPU usage of 26%, whereas UIKit’s UITableView only used 5% CPU.
+
+- Provides complex customization, like moving cells between table view sections.
+
+- Delivers significantly better CPU performance compared to SwiftUI’s List.
+ 
+- For example, using SwiftUI’s LazyVStack-based List with 1,000 data entries showed a CPU usage of 26%, whereas UIKit’s UITableView only used 5% CPU.
 V. SnapKit
-Required for easy implementation of AutoLayout in code-based UIs to resolve issues with Interface Builder UI source code.
-Prevents the codebase from becoming cluttered due to NSLayoutConstraint usage.
+
+- Required for easy implementation of AutoLayout in code-based UIs to resolve issues with Interface Builder UI source code.
+ 
+- Prevents the codebase from becoming cluttered due to NSLayoutConstraint usage.
+  
 VI. SwiftUI
-Allows the use of convenient, newer features like AsyncImage.
-However, it still has performance limitations compared to UIKit.
-According to a study, SwiftUI’s LazyVGrid consumed three times more CPU than UIKit’s CollectionView when handling the same data.
+
+- Allows the use of convenient, newer features like AsyncImage.
+
+- However, it still has performance limitations compared to UIKit.
+  
+- According to a study, SwiftUI’s LazyVGrid consumed three times more CPU than UIKit’s CollectionView when handling the same data.
+
 VII. Rx (RxSwift, RxRelay, RxDataSource)
-Utilized to implement Reactive Programming and the MVVM design pattern in the UIKit environment.
+
+- Utilized to implement Reactive Programming and the MVVM design pattern in the UIKit environment.
 VIII. Combine
+
 Used for implementing Reactive Programming in SwiftUI.
+
 IX. Kingfisher
+
 A widely-used framework in the industry.
+
 Provides convenient image caching capabilities (initially tested using FileManager and NSCache for native caching, then switched to Kingfisher).
+
 X. XCTest
+
 Provides a testing environment within Xcode (achieved 92% unit test coverage).
+
 XI. RxBlocking
+
 Enables testing of Observables.
+
 XII. Swift Concurrency
+
 Solves the critical issues with Dispatch Queues in Grand Central Dispatch (e.g., performance degradation due to thread explosion, complexity in thread management due to inability to cancel thread operations, and readability issues caused by completion handlers) with the concept of Tasks.
+
 XIII. Swift Package Manager
+
 A simpler and more user-friendly tool than CocoaPods for managing framework dependencies.
+
 A reliable 1st-party tool.
+
 XIV. Core Data
+
 Used to implement the local database.
+
 5. Development Challenges and Solutions
+   
 I. Frequent “HTTP Load Failed” Error
+
 Cause: The large number of network calls created by attempting to load over 1,000 Pokémon entries at once.
+
 Solution: Implemented Infinite Scroll in the table view to load only 20 Pokémon entries at a time.
+
 Outcome: The “HTTP Load Failed” error no longer occurs.
+
 II. Inability to Search All Pokémon Due to Infinite Scroll
+
 Solution: Enabled search within already-loaded Pokémon after new Pokémon loading has ended.
+
 III. GCD-Based Functions in the Kingfisher Framework
+
 Solution: Refactored necessary disk cache functions using Continuation.
+
 Outcome: Made GCD functions usable within Swift Concurrency.
+
 IV. Pokémon Image Conflicts in TableView Cells During Fast Scrolling
+
 Cause: Asynchronous tasks not starting immediately and the relationship between reused cells in the table view.
+
 Bug Details: Previously loaded Pokémon images remained on reused cells, causing conflicts with the latest Pokémon images, as shown below.
+
+![scroll image bug](https://github.com/JinhoLee93/Portfolio/assets/60580427/b3cd2524-d195-4f38-aa85-7036f9de25c6) 
