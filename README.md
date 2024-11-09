@@ -89,7 +89,7 @@ Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 �
 </table>
 
 ## III. 제작 기간
-2024.04~
+2024.04 ~ 2024.10
 
 ## IV. 기여도
 서버: 100%
