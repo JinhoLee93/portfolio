@@ -1,6 +1,63 @@
 # For the English version of this document, please refer to [THIS](https://github.com/JinhoLee93/portfolio/blob/main/README(ENGLISH).md) instead.
 
 # 이진호 개인 프로젝트 포트폴리오
+# 1. Crypto Portfolio (In-Progress)
+
+## I. 개요
+![CoinGecko](https://www.coingecko.com/en/api) API를 이용한 가상 화폐 정보를 통해 로컬 데이터베이스를 이용한 포트폴리오를 만들고, GPT API를 통해 ChatGPT로부터 포트폴리오에 대한 조언을 얻을 수 있는 iOS 앱
+
+## II. Tech Stack
+
+### Architecture
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">개발 언어</td>
+      <td align="center">Swift, GPT 3.5 Turbo</td>
+    </tr>
+    <tr>
+      <td align="center">디자인 패턴</td>
+      <td align="center">MVVM</td>
+    </tr>
+    <tr>
+      <td align="center">개발 기술</td>
+      <td align="center">Dependency Injection, Prompt Engineering</td>
+    </tr>
+  </tbody>
+</table>
+
+### Framework
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">관련 분야</th>
+      <th width="800px">이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">UI</td>
+      <td align="center">SwiftUI</td>
+    </tr>
+    <tr>
+      <td align="center">Reactive Programming</td>
+      <td align="center">Combine</td>
+    </tr>
+    <tr>
+      <td align="center">데이터베이스</td>
+      <td align="center">CoreData</td>
+    </tr>
+  </tbody>
+</table>
+
 
 # [2. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
 
