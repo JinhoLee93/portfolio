@@ -53,7 +53,7 @@
     </tr>
     <tr>
       <td align="center">데이터베이스</td>
-      <td align="center">CoreData</td>
+      <td align="center">CoreData</td>
     </tr>
   </tbody>
 </table>
