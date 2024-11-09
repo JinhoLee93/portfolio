@@ -21,7 +21,7 @@ A full-stack (cloud, database, server, and client) media app that gathers and di
 <table width="1200px"> <thead> <tr> <th width="400px">Field</th> <th width="800px">Name</th> </tr> </thead> <tbody> <tr> <td align="center">UI</td> <td align="center">SwiftUI, WebKit, UIKit (Pan Gesture)</td> </tr> <tr> <td align="center">Reactive Programming</td> <td align="center">Combine</td> </tr> <tr> <td align="center">Server</td> <td align="center">Django, Firebase (Auth)</td> </tr> <tr> <td align="center">RDBMS</td> <td align="center">PostgreSQL</td> </tr> <tr> <td align="center">RESTful API (Server)</td> <td align="center">rest_framework (Django)</td> </tr> <tr> <td align="center">Email Validation (Client)</td> <td align="center">Peppermint</td> </tr> <tr> <td align="center">HTML Parser</td> <td align="center">Beautiful Soup</td> </tr> <tr> <td align="center">Web Driver</td> <td align="center">Selenium</td> </tr> </tbody> </table>
 
 ## III. Duration
-April 2024~
+April 2024 ~ October 2024
 
 ## IV. Contribution
 Server: 100%
