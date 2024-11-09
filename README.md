@@ -4,7 +4,7 @@
 # 1. Crypto Portfolio (In-Progress)
 
 ## I. 개요
-![CoinGecko](https://www.coingecko.com/en/api) API를 이용한 가상 화폐 정보를 통해 로컬 데이터베이스를 이용한 포트폴리오를 만들고, GPT API를 통해 ChatGPT로부터 포트폴리오에 대한 조언을 얻을 수 있는 iOS 앱
+![CoinGecko](https://www.coingecko.com/) API를 이용한 가상 화폐 정보를 통해 로컬 데이터베이스를 이용한 포트폴리오를 만들고, GPT API를 통해 ChatGPT로부터 포트폴리오에 대한 조언을 얻을 수 있는 iOS 앱
 
 ## II. Tech Stack
 
