@@ -1,6 +1,68 @@
 # Jinho Lee's Independent Project Portfolio
+# 1. Crypto Portfolio (In-Progress)
 
-# [1. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
+## I. Overview
+iOS app that lets the users create their own crypto portfolio on the local database based on the information through [CoinGecko](https://www.coingecko.com/en/api) APIs and get an advice on the portfolio from OpenAI's GPT API.
+
+## II. Tech Stack
+
+### Architecture
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">Field</th>
+      <th width="800px">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">Programming Language</td>
+      <td align="center">Swift, GPT 3.5 Turbo</td>
+    </tr>
+    <tr>
+      <td align="center">Design Pattern</td>
+      <td align="center">MVVM</td>
+    </tr>
+    <tr>
+      <td align="center">Development Technique</td>
+      <td align="center">Dependency Injection, Prompt Engineering</td>
+    </tr>
+  </tbody>
+</table>
+
+### Framework
+
+<table width="1200px">
+  <thead>
+    <tr>
+      <th width="400px">Field</th>
+      <th width="800px">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">UI</td>
+      <td align="center">SwiftUI</td>
+    </tr>
+    <tr>
+      <td align="center">Reactive Programming</td>
+      <td align="center">Combine</td>
+    </tr>
+    <tr>
+      <td align="center">Database</td>
+      <td align="center">CoreData</td>
+    </tr>
+  </tbody>
+</table>
+
+## III. Duration
+2024.10 ~
+
+## IV. Contribution
+클라이언트: 100%
+
+# [2. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
 
 ## I. Overview
 
@@ -28,7 +90,7 @@ Server: 100%
 
 Client: 100%
 
-# [2. PokeDex](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtube.com/shorts/INwuXnbQ-xA)
+# [3. PokeDex](https://github.com/JinhoLee93/Portfolio/tree/main/PokeDex%20(%ED%8F%AC%EC%BC%93%EB%AA%AC%20%EB%8F%84%EA%B0%90)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtube.com/shorts/INwuXnbQ-xA)
 
 ## I. Overview
 
@@ -110,7 +172,7 @@ Feb 2024 ~ May 2024
 ## IV. Contribution
 100%
 
-# [3. WordsADay](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://www.youtube.com/shorts/XjecEqldjcY) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
+# [4. WordsADay](https://github.com/JinhoLee93/portfolio/tree/main/WordsADay%20(%ED%95%98%EB%A3%A8%20%EB%8B%A8%EC%96%B4)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://www.youtube.com/shorts/XjecEqldjcY) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-%EB%8B%A8%EC%96%B4/id6449736565?l=en)
 
 ## I. Overview
 
@@ -174,7 +236,7 @@ March 2022 ~ June 2022
 ## IV. Contribution
 100%
 
-# [4. FortySeconds](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtu.be/3eXYfnBKCjE) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
+# [5. FortySeconds](https://github.com/JinhoLee93/portfolio/tree/main/FortySeconds%20(%ED%95%98%EB%A3%A8%2040%EC%B4%88)) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/d990771e-b0fc-4b15-aa63-7ef2800b8c0b" width="30">](https://youtu.be/3eXYfnBKCjE) [<img src="https://github.com/JinhoLee93/portfolio/assets/60580427/efface9a-a782-4d8b-ae34-1e3ad5af1d19" width="28">](https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-40%EC%B4%88/id1612627349?l=en)
 
 ## I. Overview
 
