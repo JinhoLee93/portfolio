@@ -18,7 +18,7 @@ iOS app that lets the users create their own crypto portfolio on the local datab
   <tbody>
     <tr>
       <td align="center">Programming Language</td>
-      <td align="center">Swift, GPT 3.5 Turbo</td>
+      <td align="center">Swift, GPT 4o</td>
     </tr>
     <tr>
       <td align="center">Design Pattern</td>
