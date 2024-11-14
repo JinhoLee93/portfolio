@@ -20,7 +20,7 @@
   <tbody>
     <tr>
       <td align="center">개발 언어</td>
-      <td align="center">Swift, GPT 3.5 Turbo</td>
+      <td align="center">Swift, GPT 4o</td>
     </tr>
     <tr>
       <td align="center">디자인 패턴</td>
