@@ -60,7 +60,7 @@ iOS app that lets the users create their own crypto portfolio on the local datab
 2024.10 ~
 
 ## IV. Contribution
-클라이언트: 100%
+Client: 100%
 
 # [2. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
 
