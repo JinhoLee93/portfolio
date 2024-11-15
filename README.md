@@ -62,7 +62,7 @@
 2024.10 ~
 
 ## IV. 기여도
-클라이언트: 100%
+100%
 
 # [2. Beatitudo Media (Deprecated)](https://github.com/JinhoLee93/portfolio/tree/main/Beatitudo%20Media%20(Deprecated))
 
@@ -151,7 +151,7 @@ Python Web Scraper와 OpenAI GPT의 Sentiment Analysis를 통해 긍정적인 �
 </table>
 
 ## III. 제작 기간
-2024.04 ~ 2024.10
+2024.04 ~ 2024.9
 
 ## IV. 기여도
 서버: 100%
